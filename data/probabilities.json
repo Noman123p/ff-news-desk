@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T14:19:52Z",
+ "generated_at": "2026-10-07T14:22:07Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -353,7 +353,7 @@
      },
      {
       "label": "≥180K ও <185K",
-      "prob": 8.0,
+      "prob": 8.5,
       "interval": [
        180000.0,
        185000.0
@@ -362,7 +362,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 10.0,
+      "prob": 9.5,
       "interval": [
        185000.0,
        190000.0
@@ -371,7 +371,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 6.5,
+      "prob": 7.5,
       "interval": [
        190000.0,
        195000.0
@@ -380,7 +380,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 16.0,
+      "prob": 15.0,
       "interval": [
        195000.0,
        200000.0
@@ -398,7 +398,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 7.0,
+      "prob": 1.0,
       "interval": [
        205000.0,
        210000.0
@@ -407,7 +407,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 7.0,
+      "prob": 15.0,
       "interval": [
        210000.0,
        215000.0
@@ -416,7 +416,7 @@
      },
      {
       "label": "≥215K ও <220K",
-      "prob": 1.5,
+      "prob": 0.0,
       "interval": [
        215000.0,
        220000.0
@@ -425,7 +425,7 @@
      },
      {
       "label": "≥220K ও <225K",
-      "prob": 0.0,
+      "prob": 0.5,
       "interval": [
        220000.0,
        225000.0
@@ -434,7 +434,7 @@
      },
      {
       "label": "≥ 225K",
-      "prob": 14.5,
+      "prob": 13.5,
       "interval": [
        225000.0,
        null
@@ -455,7 +455,7 @@
      },
      {
       "strike": 185000.0,
-      "prob_above": 90.0,
+      "prob_above": 89.5,
       "inclusive": true
      },
      {
@@ -465,7 +465,7 @@
      },
      {
       "strike": 195000.0,
-      "prob_above": 73.5,
+      "prob_above": 72.5,
       "inclusive": true
      },
      {
@@ -480,22 +480,22 @@
      },
      {
       "strike": 210000.0,
-      "prob_above": 23.0,
+      "prob_above": 29.0,
       "inclusive": true
      },
      {
       "strike": 215000.0,
-      "prob_above": 16.0,
+      "prob_above": 14.0,
       "inclusive": true
      },
      {
       "strike": 220000.0,
-      "prob_above": 14.5,
+      "prob_above": 14.0,
       "inclusive": true
      },
      {
       "strike": 225000.0,
-      "prob_above": 14.5,
+      "prob_above": 13.5,
       "inclusive": true
      }
     ],
@@ -1465,7 +1465,7 @@
      },
      {
       "label": "0.4%",
-      "prob": 6.3,
+      "prob": 6.1,
       "interval": [
        0.4,
        0.4
@@ -1677,9 +1677,9 @@
     "ref": "previous",
     "ref_value": "0.3%",
     "polymarket": {
-     "above": 6.4,
+     "above": 6.2,
      "inline": 32.0,
-     "below": 61.7
+     "below": 61.8
     },
     "kalshi": {
      "above": 9.5,
@@ -2209,7 +2209,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 4.5,
+      "prob": 4.0,
       "interval": [
        0.2,
        0.3
@@ -2218,7 +2218,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 7.0,
+      "prob": 7.5,
       "interval": [
        0.3,
        0.4
@@ -2313,7 +2313,7 @@
      },
      {
       "strike": 0.3,
-      "prob_above": 86.5,
+      "prob_above": 87.0,
       "inclusive": false
      },
      {
@@ -2358,8 +2358,8 @@
     "polymarket": null,
     "kalshi": {
      "above": 79.5,
-     "inline": 7.0,
-     "below": 13.5
+     "inline": 7.5,
+     "below": 13.0
     }
    },
    "most_likely": {
