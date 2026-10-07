@@ -162,12 +162,14 @@ export function mount(el, route, ctx) {
       return `<div class="vr ${i === 0 ? 'top' : ''}"><span class="vr-role">${role}</span><span class="vr-label">${esc(v.labels?.[s.key] || s.key)}</span>
         <span class="vr-track"><span class="vr-fill" style="--w:${s.prob}%"></span></span><b class="vr-pct">${pctTxt(s.prob)}</b></div>`;
     }).join('') : '';
+    const baseLine = v.baseline_text ? `<p class="v-base">${esc(v.baseline_text)}</p>` : '';
     const ctxBox = v.context ? `<div class="v-context">${icon('info')}<div><b>রেট-মার্কেট — শুধু প্রেক্ষাপট</b><p>${esc(v.context.text)}</p></div></div>` : '';
     let verdict;
     if (v.top && v.probs) {
       verdict = `
       <div class="verdict">
         <div class="v-main"><small>সম্মিলিত রায়</small><b>${esc(v.top.label)}${neutralTop ? ' — সবচেয়ে সম্ভাব্য' : ''}</b><span class="v-pct">${pctTxt(v.top.pct)}</span></div>
+        ${baseLine}
         <div class="v-rows">${rows}</div>
         <p class="v-total">${icon('info')}তিনটি ফলাফল মিলে ${pctTxt(v.total ?? 100)} — একই সংখ্যা নিচের তিন সিনারিও ট্যাবেও।</p>
         <div class="v-foot"><span class="conf ${confCls}">আস্থা: ${esc(conf)}</span>${(v.basis || []).map((b) => `<span class="basis">${esc(b)}</span>`).join('')}</div>
@@ -176,13 +178,14 @@ export function mount(el, route, ctx) {
       verdict = `
       <div class="verdict approx">
         <div class="v-main"><small>${v.kind === 'tone' ? 'আনুমানিক টোন-ঝোঁক' : 'আনুমানিক ঝোঁক'}</small><b>${esc(v.top.label)}</b><span class="v-pct na">% নেই</span></div>
+        ${baseLine}
         ${v.second ? `<div class="v-second"><small>সারপ্রাইজ হলে বেশি ঝুঁকি</small><b>${esc(v.second.label)}</b></div>` : ''}
         ${ctxBox}
         <div class="v-foot"><span class="conf ${confCls}">আস্থা: ${esc(conf)}</span>${(v.basis || []).map((b) => `<span class="basis">${esc(b)}</span>`).join('')}</div>
       </div>`;
     } else {
       verdict = `
-      <div class="verdict none"><div class="v-main"><small>সম্মিলিত রায়</small><b>ডেটা নেই</b></div>
+      <div class="verdict none"><div class="v-main"><small>সম্মিলিত রায়</small><b>ডেটা নেই</b></div>${baseLine}
         <p class="muted">এই নিউজের জন্য নির্ভরযোগ্য বাজার-সম্ভাবনা বা নাউকাস্ট পাওয়া যায়নি — অনুমান করে সংখ্যা দেখানো হচ্ছে না, কোনো দিককে "সবচেয়ে সম্ভাব্য" বলা হচ্ছে না।</p>
         ${(v.basis || []).length ? `<div class="v-foot">${v.basis.map((b) => `<span class="basis">${esc(b)}</span>`).join('')}</div>` : ''}</div>`;
     }

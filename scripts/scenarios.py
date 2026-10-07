@@ -135,10 +135,25 @@ def _pct_bn(p):
     return f"{round(p, 1)}%".translate(str.maketrans("0123456789", "০১২৩৪৫৬৭৮৯"))
 
 
+def data_labels(baseline):
+    """Outcome labels for a numeric release, worded for the comparison baseline actually used."""
+    if baseline == "previous":
+        return {"above": "Previous-এর চেয়ে বেশি", "below": "Previous-এর চেয়ে কম",
+                "inline": "নিউট্রাল — আগের মানের কাছাকাছি"}
+    if baseline == "forecast":
+        return {"above": "Forecast-এর চেয়ে বেশি", "below": "Forecast-এর চেয়ে কম",
+                "inline": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি"}
+    return {"above": "প্রত্যাশার চেয়ে বেশি", "below": "প্রত্যাশার চেয়ে কম", "inline": "নিউট্রাল — প্রত্যাশার কাছাকাছি"}
+
+
+def baseline_text(baseline):
+    return {"forecast": "তুলনা: Forecast", "previous": "তুলনা: Previous — Forecast এখনো আসেনি"}.get(baseline)
+
+
 def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: int,
                     forecast: str | None, ref_label: str, probs: dict | None,
                     lean: str | None, has_numbers: bool, is_decision: bool = False,
-                    dir_hint: str | None = None) -> list:
+                    dir_hint: str | None = None, baseline: str | None = None) -> list:
     """
     Three scenarios, ordered so that no title contradicts the numbers.
 
@@ -163,15 +178,21 @@ def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: 
         def usd_of(side):
             pos = (side == "above")
             return "up" if (pos if usd_dir >= 0 else not pos) else "down"
-        ref = f"{ref_label} ({f})-এর" if forecast else "প্রত্যাশার"
-        tail = "" if forecast else " (Forecast এখনো প্রকাশ হয়নি)"
+        if baseline is None and forecast:
+            baseline = "forecast" if ref_label == "Forecast" else "previous"
+        if baseline == "previous":
+            ref, tail = f"Previous ({f})-এর", " (Forecast এখনো আসেনি)"
+        elif baseline == "forecast":
+            ref, tail = f"Forecast ({f})-এর", ""
+        else:
+            ref, tail = "প্রত্যাশার", " (Forecast এখনো প্রকাশ হয়নি)"
         cond = {
             "above": f"Actual {ref} চেয়ে স্পষ্টভাবে বেশি এলে{tail}",
             "below": f"Actual {ref} চেয়ে স্পষ্টভাবে কম এলে{tail}",
             "inline": f"Actual {ref} সমান বা খুব কাছাকাছি এলে{tail}",
         }
         usd = {A: usd_of(A), B: usd_of(B), N: "flat"}
-        neutral_word = "নিউট্রাল — প্রত্যাশার কাছাকাছি"
+        neutral_word = data_labels(baseline)["inline"]
     else:
         A, B, N = "hawk", "dove", "neutral"
         cond = {
@@ -228,7 +249,7 @@ def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: 
         prob_note = "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই"
         approx = True
         notes[N] = ("সরাসরি বাজার নেই — রেট-মার্কেটের প্রসঙ্গ থেকে আনুমানিক ক্রম; % দেওয়া হচ্ছে না।" if kind == "tone"
-                    else "বাজারের % নেই — নাউকাস্ট প্রত্যাশার কাছাকাছি; আনুমানিক ক্রম।")
+                    else "বাজারের % নেই — নাউকাস্ট " + ("আগের মানের" if baseline == "previous" else "প্রত্যাশার") + " কাছাকাছি; আনুমানিক ক্রম।")
     else:
         # nothing to rank by: show both directions neutrally, never call one "most likely"
         first = A

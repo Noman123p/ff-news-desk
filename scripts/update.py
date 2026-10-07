@@ -993,7 +993,7 @@ def brief_for_group(group, probs):
         vf = (p.get("vs_forecast") or {})
         dist = vf.get("kalshi") or vf.get("polymarket")
         src = "Kalshi" if vf.get("kalshi") else "Polymarket"
-        ref_bn = "Forecast" if vf.get("ref") == "forecast" else "আগের মান"
+        ref_bn = "Forecast" if vf.get("ref") == "forecast" else "Previous"
         ref_val = vf.get("ref_value") or ""
         if dist:
             reasons.append(f"{src}: {ref_bn}-এর চেয়ে বেশি {bn(dist['above'])}% · সমান/কাছাকাছি {bn(dist['inline'])}% · কম {bn(dist['below'])}%")
@@ -1322,8 +1322,7 @@ def build_analysis(cal, prob, specs_by, archive):
             "previous" if parse_value(e.get("previous")) is not None else None)
         ref_raw = e.get(ref_kind) if ref_kind else ""
         ref_val = parse_value(ref_raw)
-        ref_bn = "Forecast" if ref_kind == "forecast" else "আগের মান"
-        ref_of = "Forecast-এর" if ref_kind == "forecast" else "আগের মানের"
+        ref_bn = "Forecast" if ref_kind == "forecast" else "Previous"
 
         # ---- sources
         sources = []
@@ -1404,8 +1403,9 @@ def build_analysis(cal, prob, specs_by, archive):
             if v:
                 verdict["probs"] = normalize_probs(v)
                 verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('vs_forecast'))} — {ref_bn} {ref_raw}-এর তুলনায়")
-            verdict["labels"] = {"above": side_text(ref_of, "above"), "below": side_text(ref_of, "below"),
-                                 "inline": "নিউট্রাল — " + side_text(ref_of, "inline")}
+            verdict["labels"] = scenarios.data_labels(ref_kind)
+            verdict["baseline"] = ref_kind
+            verdict["baseline_text"] = scenarios.baseline_text(ref_kind)
             if nc_side:
                 verdict["basis"].append(f"{nc['source']}: {nc['value']}% → {nc['vs_ref_text']}")
                 if not v:
@@ -1454,7 +1454,7 @@ def build_analysis(cal, prob, specs_by, archive):
 
         sc = scenarios.build_scenarios(
             theme=ex["theme"], impact=e["impact"], title=e["title"],
-            kind=kind, usd_dir=d, forecast=ref_raw, ref_label=ref_bn, probs=probs, lean=lean, dir_hint=dir_hint,
+            kind=kind, usd_dir=d, forecast=ref_raw, ref_label=ref_bn, baseline=ref_kind if kind == "data" else None, probs=probs, lean=lean, dir_hint=dir_hint,
             has_numbers=kind == "data", is_decision=cat == "fed_decision")
         assert_consistent(verdict, sc)
         if result:

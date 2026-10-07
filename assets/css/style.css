@@ -460,6 +460,7 @@ body.drawer-open .drawer-nav a:nth-child(3) { transition-delay: 0s, 0s, .1s, .1s
 .vr.top .vr-fill { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
 .vr-fill.go { width: var(--w); }
 .vr-pct { text-align: right; font-variant-numeric: tabular-nums; }
+.v-base { display: inline-flex; align-self: flex-start; width: fit-content; margin: 2px 0 0; padding: 3px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); border: 1px solid var(--line, rgba(255,255,255,.08)); background: rgba(255,255,255,.03); }
 .v-total { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 12px; color: var(--muted); }
 .v-total .ic { width: 14px; height: 14px; }
 .verdict.approx { background: linear-gradient(135deg, rgba(255,166,61,.07), rgba(141,155,255,.05)); border-color: rgba(255,166,61,.22); }

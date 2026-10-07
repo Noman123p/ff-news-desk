@@ -352,6 +352,23 @@ class Consistency(TempData):
         self.assertEqual(b["likely"]["usd_bias"], "flat")
         self.assertEqual(b["confidence_bn"], a["verdict"]["confidence"])
 
+    def test_baseline_wording_matches_comparison(self):
+        P = {"above": 84.9, "inline": 11.7, "below": 3.4}
+        kw = dict(theme="inflation", impact="High", title="CPI m/m", kind="data", usd_dir=1, probs=P, lean=None, has_numbers=True)
+        prev = scenarios.build_scenarios(forecast="0.4%", ref_label="Previous", baseline="previous", **kw)
+        neu = next(x for x in prev if x["key"] == "inline")
+        self.assertIn("আগের মানের কাছাকাছি", neu["title"])
+        blob = " ".join(x["title"] + x["condition"] for x in prev)
+        self.assertNotIn("প্রত্যাশার", blob)
+        self.assertIn("Previous (0.4%)", prev[0]["condition"])
+        self.assertIn("Forecast এখনো আসেনি", prev[0]["condition"])
+        fc = scenarios.build_scenarios(forecast="0.3%", ref_label="Forecast", baseline="forecast", **kw)
+        self.assertIn("প্রত্যাশার (Forecast) কাছাকাছি", next(x for x in fc if x["key"] == "inline")["title"])
+        self.assertNotIn("আগের মান", " ".join(x["title"] + x["condition"] for x in fc))
+        self.assertEqual(scenarios.data_labels("previous")["above"], "Previous-এর চেয়ে বেশি")
+        self.assertEqual(scenarios.baseline_text("previous"), "তুলনা: Previous — Forecast এখনো আসেনি")
+        self.assertEqual(scenarios.baseline_text("forecast"), "তুলনা: Forecast")
+
     def test_guard_rejects_contradiction(self):
         v = {"top": {"key": "neutral", "pct": 81.9}, "probs": {"hawk": 17.3, "neutral": 81.9, "dove": 0.8}}
         bad = [{"key": "hawk", "prob": 17.3, "is_overall_top": True}, {"key": "dove", "prob": 0.8}, {"key": "neutral", "prob": 81.9}]
@@ -386,6 +403,15 @@ class GeneratedData(unittest.TestCase):
                     self.assertFalse(any("সবচেয়ে সম্ভাব্য" in s["title"] for s in sc))
                 if eid in briefs:
                     self.assertEqual(briefs[eid]["likely"]["text"], v["summary"])
+                if v.get("kind") == "data" and v.get("baseline"):
+                    bl = v["baseline"]
+                    self.assertEqual(v["labels"], scenarios.data_labels(bl))
+                    self.assertEqual(v["baseline_text"], scenarios.baseline_text(bl))
+                    wrong = "প্রত্যাশার" if bl == "previous" else "আগের মান"
+                    texts = [x["title"] + x["condition"] for x in sc] + list(v["labels"].values()) + [v.get("summary") or ""]
+                    if eid in briefs:
+                        texts.append(briefs[eid]["likely"]["text"])
+                    self.assertFalse(any(wrong in t for t in texts), (bl, [t for t in texts if wrong in t]))
 
 
 if __name__ == "__main__":
