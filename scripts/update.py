@@ -45,7 +45,11 @@ KALSHI = "https://api.elections.kalshi.com/trade-api/v2"
 FEDWATCH_URL = "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
 
 BRIEF_WINDOW_H = 24
+HEARTBEAT_H = 12      # rewrite unchanged files at least this often (proves the updater is alive)
+PROB_TOL = 1.5        # percentage points: smaller probability moves don't count as a change
 NOW = datetime.now(UTC)
+LAST_ERR = {}         # url -> short error text of the last failed request
+FF_STATUS = {}        # week -> fetch status, filled by build_calendar()
 
 
 def log(*a):
@@ -67,10 +71,13 @@ def http_get(url, params=None, accept="application/json", timeout=25, retries=2)
                 return r.status, r.read()
         except urllib.error.HTTPError as e:
             last = e
-            if e.code in (400, 401, 403, 404):  # not retryable
+            LAST_ERR[url] = f"HTTP {e.code}"
+            if e.code in (400, 401, 403, 404, 451):  # not retryable
                 return e.code, b""
         except Exception as e:  # network / timeout
             last = e
+            txt = repr(e)
+            LAST_ERR[url] = "timeout" if "timed out" in txt.lower() or isinstance(e, TimeoutError) else type(e).__name__
         time.sleep(1.5 * (attempt + 1))
     log("GET failed:", url, repr(last))
     return None, b""
@@ -177,6 +184,39 @@ def write_json(name, obj):
     os.replace(tmp, path)
 
 
+VOLATILE_KEYS = {"generated_at", "checked_at", "volume_usd", "volume"}
+PROB_KEYS = {"prob", "prob_above", "above", "inline", "below", "hike", "hold", "cut"}
+
+
+def same_content(a, b, key=None):
+    """Deep-compare ignoring timestamps/volumes; probabilities equal within PROB_TOL points."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        ka = set(a) - VOLATILE_KEYS
+        kb = set(b) - VOLATILE_KEYS
+        return ka == kb and all(same_content(a[k], b[k], k) for k in ka)
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(same_content(x, y, key) for x, y in zip(a, b))
+    if key in PROB_KEYS and isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        return abs(a - b) < PROB_TOL
+    return a == b
+
+
+def too_old(obj, field="generated_at"):
+    t = parse_iso((obj or {}).get(field)) if isinstance(obj, dict) else None
+    return t is None or (NOW - t) > timedelta(hours=HEARTBEAT_H)
+
+
+def write_if_changed(name, obj, field="generated_at"):
+    """Write only on real content change (or heartbeat). Returns the object now on disk."""
+    old = load_json(name, None)
+    if old is not None and same_content(old, obj) and not too_old(old, field):
+        log(f"{name}: unchanged — kept")
+        return old
+    write_json(name, obj)
+    log(f"{name}: written")
+    return obj
+
+
 # --------------------------------------------------------------------------- #
 # ForexFactory calendar
 # --------------------------------------------------------------------------- #
@@ -184,20 +224,30 @@ IMPACT_NORM = {"high": "High", "medium": "Medium", "low": "Low", "holiday": "Hol
                "non-economic": "Holiday", "none": "Low"}
 
 
+_BOT_RX = re.compile(r"Just a moment|cf-chl|challenge-platform|captcha|Attention Required|Access denied", re.I)
+
+
 def fetch_ff_html(week):
-    """Scrape the calendar page; it embeds a JSON 'days' array incl. Actual values."""
-    status, body = http_get(FF_HTML.format(week=week), accept="text/html")
+    """Scrape the calendar page; it embeds a JSON 'days' array incl. Actual values.
+    Returns (rows | None, reason, http_status)."""
+    url = FF_HTML.format(week=week)
+    status, body = http_get(url, accept="text/html")
+    if status is None:
+        return None, f"নেটওয়ার্ক সমস্যা/টাইমআউট ({LAST_ERR.get(url, 'unknown')})", None
     if status != 200 or not body:
-        return None, f"HTTP {status}"
+        kind = "ব্লক করেছে" if status in (403, 429, 451, 503) else "সার্ভার এরর"
+        return None, f"HTTP {status} — {kind}", status
     html = body.decode("cp1252", errors="replace")
     anchor = html.find("calendarComponentStates[1]")
     i = html.find("days:", anchor if anchor >= 0 else 0)
-    if i < 0:
-        return None, "calendar data block not found (layout changed or bot check)"
+    if anchor < 0 or i < 0:
+        if _BOT_RX.search(html[:20000]):
+            return None, "Cloudflare/ক্যাপচা বট-চেক পেজ এসেছে (HTTP 200)", status
+        return None, "ক্যালেন্ডার ডেটা পাওয়া যায়নি — পেজের গঠন বদলেছে বা বট-চেক", status
     try:
         days, _ = json.JSONDecoder().raw_decode(html[html.find("[", i):])
     except ValueError as e:
-        return None, f"parse error: {e}"
+        return None, f"পার্স এরর: {e}", status
     out = []
     for d in days:
         for e in d.get("events", []):
@@ -216,9 +266,12 @@ def fetch_ff_html(week):
                 "forecast": (e.get("forecast") or "").strip(),
                 "previous": (e.get("previous") or "").strip(),
                 "revision": (e.get("revision") or "").strip(),
-                "ff_url": "https://www.forexfactory.com" + e["url"] if e.get("url") else None,
+                # soloUrl is stable; "url" embeds a day that depends on FF's server-side timezone
+                "ff_url": "https://www.forexfactory.com" + e["soloUrl"] if e.get("soloUrl") else None,
             })
-    return out, "ok"
+    if not out:
+        return None, "পেজে কোনো ইভেন্ট নেই", status
+    return out, "ok", status
 
 
 def fetch_ff_json(week):
@@ -250,13 +303,16 @@ def build_calendar():
     prev_actuals = {e["id"]: e.get("actual") for e in prev.get("events", []) if e.get("actual")}
     sources, events = {}, []
     for week, jweek in (("this", "thisweek"), ("next", "nextweek")):
-        rows, note = fetch_ff_html(week)
+        rows, note, http = fetch_ff_html(week)
         src = "forexfactory.com (HTML)"
         sources[f"ff_html_{week}"] = note
+        st = FF_STATUS[week] = {"page_ok": bool(rows), "page_reason": note, "page_http": http,
+                                "feed_ok": None, "feed_reason": None}
         if not rows:
             rows, note2 = fetch_ff_json(jweek)
             src = "faireconomy JSON feed"
             sources[f"ff_json_{week}"] = note2
+            st["feed_ok"], st["feed_reason"] = bool(rows), note2
             if not rows:
                 continue
         for r in rows:
@@ -820,13 +876,10 @@ def brief_for_group(group, probs):
     else:
         alt_text = "বিপরীত ফলাফল এলে"
     gr, br = TYPICAL_RANGE[range_key(cat, lead["impact"])]
-    hrs = (t - NOW).total_seconds() / 3600
     return {
         "id": lead["id"],
         "time_utc": lead["time_utc"],
         "time_dhaka": dhaka_str(t),
-        "hours_until": round(hrs, 2),
-        "alert_window": 0 <= hrs <= 3,
         "impact": lead["impact"],
         "title": lead["title"],
         "category_bn": CAT_BN[cat],
@@ -867,7 +920,6 @@ def build_briefs(cal, prob):
         "has_major_today": bool(today_major),
         "has_briefs": bool(briefs),
         "empty_message": None if briefs else "আজ বড় কোনো USD নিউজ নেই",
-        "alert_now": [b["id"] for b in briefs if b["alert_window"]],
         "next_high": ({"id": nxt["id"], "title": nxt["title"], "time_utc": nxt["time_utc"],
                        "time_dhaka": dhaka_str(parse_iso(nxt["time_utc"]))} if nxt else None),
         "briefs": briefs,
@@ -875,18 +927,67 @@ def build_briefs(cal, prob):
 
 
 # --------------------------------------------------------------------------- #
+def build_status(cal, prob):
+    weeks = FF_STATUS
+    page_ok = bool(weeks) and all(w["page_ok"] for w in weeks.values())
+    failed = {k: w for k, w in weeks.items() if not w["page_ok"]}
+    feed_tried = [w for w in weeks.values() if w["feed_ok"] is not None]
+    feed_ok = None if not feed_tried else any(w["feed_ok"] for w in feed_tried)
+    wk_bn = {"this": "এই সপ্তাহ", "next": "আগামী সপ্তাহ"}
+    reason = "; ".join(f"{wk_bn.get(k, k)}: {w['page_reason']}" for k, w in failed.items()) or None
+    https = sorted({w["page_http"] for w in failed.values() if w["page_http"]})
+    if page_ok:
+        fallback = None
+    elif feed_ok:
+        fallback = "faireconomy JSON ফিড (এই সপ্তাহ) — Actual নেই; আগের রানে পাওয়া Actual রাখা হচ্ছে"
+    elif cal.get("stale"):
+        fallback = "কোনো সোর্স কাজ করেনি — আগের ডেটা দেখানো হচ্ছে"
+    else:
+        fallback = "ব্যাকআপ ফিডও কাজ করেনি"
+    ps = prob.get("sources", {})
+    return {
+        "checked_at": iso_utc(NOW),
+        "ff_page_ok": page_ok,
+        "ff_feed_ok": feed_ok,
+        "ff_http_status": https[0] if len(https) == 1 else (https or None),
+        "ff_reason": reason,
+        "fallback_in_use": fallback,
+        "weeks": weeks,
+        "polymarket_ok": ps.get("polymarket") == "ok",
+        "kalshi_ok": ps.get("kalshi") == "ok",
+    }
+
+
+def gh_outputs(status):
+    """Expose the FF status to later GitHub Actions steps (no-op locally)."""
+    path = os.environ.get("GITHUB_OUTPUT")
+    if not path or not status:
+        return
+    one = lambda v: ("" if v is None else str(v)).replace("\n", " ").replace("\r", " ")[:500]
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(f"ff_page_ok={'true' if status['ff_page_ok'] else 'false'}\n")
+        f.write(f"ff_feed_ok={one(status['ff_feed_ok']).lower()}\n")
+        f.write(f"ff_http={one(status['ff_http_status'])}\n")
+        f.write(f"ff_reason={one(status['ff_reason'])}\n")
+        f.write(f"ff_fallback={one(status['fallback_in_use'])}\n")
+
+
 def main():
     cal = build_calendar()
     for e in cal.get("events", []):
         e["category"], e["dir"] = classify(e["title"])
-    write_json("calendar.json", cal)
+    cal = write_if_changed("calendar.json", cal)
     log(f"calendar: {len(cal.get('events', []))} events · sources {cal.get('sources')}")
-    prob = build_probabilities(cal)
-    write_json("probabilities.json", prob)
+    prob = write_if_changed("probabilities.json", build_probabilities(cal))
     log(f"probabilities: {len(prob['by_event'])} USD events · {prob['sources']}")
-    briefs = build_briefs(cal, prob)
-    write_json("briefs.json", briefs)
+    # briefs are built from the probabilities that are on disk, so tiny price
+    # jitter (kept back by PROB_TOL) doesn't rewrite the Bangla text either
+    briefs = write_if_changed("briefs.json", build_briefs(cal, prob))
     log(f"briefs: {len(briefs['briefs'])} (next 24h)")
+    status = build_status(cal, prob)
+    write_if_changed("status.json", status, field="checked_at")
+    gh_outputs(status)
+    log(f"status: ff_page_ok={status['ff_page_ok']} feed_ok={status['ff_feed_ok']} reason={status['ff_reason']}")
     return 0 if cal.get("events") else 1
 
 

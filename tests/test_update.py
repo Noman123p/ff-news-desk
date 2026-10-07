@@ -75,9 +75,22 @@ class CalendarFallback(unittest.TestCase):
             eid = u.event_id("USD", "CPI m/m", "2026-10-14T12:30:00Z")
             json.dump({"events": [{"id": eid, "actual": "0.5%"}]}, open(os.path.join(d, "calendar.json"), "w"))
             feed = [{"title": "CPI m/m", "country": "USD", "date": "2026-10-14T08:30:00-04:00", "impact": "High", "forecast": "0.4%", "previous": "0.4%"}]
-            with mock.patch.object(u, "fetch_ff_html", return_value=(None, "HTTP 403")), \
+            with mock.patch.object(u, "fetch_ff_html", return_value=(None, "HTTP 403 — ব্লক করেছে", 403)), \
                  mock.patch.object(u, "get_json", side_effect=lambda url, params=None: (feed, 200) if "thisweek" in url else (None, 404)):
                 cal = u.build_calendar()
+            st = u.build_status(cal, {"sources": {"polymarket": "ok", "kalshi": "ok"}})
+            self.assertFalse(st["ff_page_ok"])
+            self.assertTrue(st["ff_feed_ok"])
+            self.assertEqual(st["ff_http_status"], 403)
+            self.assertIn("HTTP 403", st["ff_reason"])
+            self.assertIn("JSON", st["fallback_in_use"])
+            out = os.path.join(d, "gh_out")
+            with mock.patch.dict(os.environ, {"GITHUB_OUTPUT": out}):
+                u.gh_outputs(st)
+            lines = dict(l.split("=", 1) for l in open(out, encoding="utf-8").read().splitlines())
+            self.assertEqual(lines["ff_page_ok"], "false")
+            self.assertEqual(lines["ff_http"], "403")
+            self.assertEqual(lines["ff_feed_ok"], "true")
             self.assertEqual(len(cal["events"]), 1)
             self.assertEqual(cal["events"][0]["actual"], "0.5%")
             self.assertEqual(cal["events"][0]["time_utc"], "2026-10-14T12:30:00Z")
@@ -85,11 +98,60 @@ class CalendarFallback(unittest.TestCase):
     def test_total_failure_keeps_previous(self):
         with tempfile.TemporaryDirectory() as d, mock.patch.object(u, "DATA_DIR", d):
             json.dump({"events": [{"id": "x", "title": "old"}]}, open(os.path.join(d, "calendar.json"), "w"))
-            with mock.patch.object(u, "fetch_ff_html", return_value=(None, "HTTP 403")), \
+            with mock.patch.object(u, "fetch_ff_html", return_value=(None, "HTTP 403", 403)), \
                  mock.patch.object(u, "get_json", return_value=(None, 503)):
                 cal = u.build_calendar()
             self.assertTrue(cal["stale"])
             self.assertEqual(cal["events"][0]["title"], "old")
+
+
+class FFPageDetection(unittest.TestCase):
+    def setUp(self):
+        u.FF_STATUS.clear()
+
+    def test_captcha_page(self):
+        html = b"<html><title>Just a moment...</title><script src='/cdn-cgi/challenge-platform/x.js'></script></html>"
+        with mock.patch.object(u, "http_get", return_value=(200, html)):
+            rows, reason, http = u.fetch_ff_html("this")
+        self.assertIsNone(rows); self.assertIn("ক্যাপচা", reason); self.assertEqual(http, 200)
+
+    def test_403_and_timeout(self):
+        with mock.patch.object(u, "http_get", return_value=(403, b"")):
+            self.assertEqual(u.fetch_ff_html("this")[1:], ("HTTP 403 — ব্লক করেছে", 403))
+        with mock.patch.object(u, "http_get", return_value=(None, b"")):
+            rows, reason, http = u.fetch_ff_html("this")
+        self.assertIsNone(http); self.assertIn("টাইমআউট", reason)
+
+    def test_ok_page(self):
+        days = [{"events": [{"name": "CPI m/m", "currency": "USD", "impactName": "high", "dateline": 1791981000,
+                             "timeLabel": "7:30am", "actual": "0.5%", "forecast": "0.4%", "previous": "0.4%",
+                             "soloUrl": "/calendar/1-us-cpi-mm"}]}]
+        html = ("x calendarComponentStates[1] = {\ndays: " + json.dumps(days) + ", more: 1};").encode("cp1252")
+        with mock.patch.object(u, "http_get", return_value=(200, html)):
+            rows, reason, http = u.fetch_ff_html("this")
+        self.assertEqual(reason, "ok"); self.assertEqual(rows[0]["actual"], "0.5%")
+        self.assertEqual(rows[0]["time_utc"], "2026-10-14T12:30:00Z")
+
+
+class ChangeDetection(unittest.TestCase):
+    def test_same_content(self):
+        a = {"generated_at": "x", "by_event": {"e": {"prob": 50.0, "label": "A", "volume_usd": 1}}}
+        b = {"generated_at": "y", "by_event": {"e": {"prob": 51.0, "label": "A", "volume_usd": 999}}}
+        self.assertTrue(u.same_content(a, b))
+        b["by_event"]["e"]["prob"] = 52.0
+        self.assertFalse(u.same_content(a, b))
+        self.assertFalse(u.same_content({"k": [1, 2]}, {"k": [1, 2, 3]}))
+
+    def test_write_if_changed_and_heartbeat(self):
+        with tempfile.TemporaryDirectory() as d, mock.patch.object(u, "DATA_DIR", d):
+            obj = {"generated_at": u.iso_utc(u.NOW), "v": 1}
+            u.write_if_changed("t.json", obj)
+            kept = u.write_if_changed("t.json", {"generated_at": "2099-01-01T00:00:00Z", "v": 1})
+            self.assertEqual(kept["generated_at"], obj["generated_at"])          # unchanged -> kept
+            old = {"generated_at": "2000-01-01T00:00:00Z", "v": 1}
+            u.write_json("t.json", old)
+            new = u.write_if_changed("t.json", {"generated_at": u.iso_utc(u.NOW), "v": 1})
+            self.assertNotEqual(new["generated_at"], old["generated_at"])        # heartbeat -> rewritten
 
 
 if __name__ == "__main__":

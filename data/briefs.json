@@ -1,10 +1,9 @@
 {
- "generated_at": "2026-10-07T13:54:46Z",
+ "generated_at": "2026-10-07T14:15:55Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
  "empty_message": null,
- "alert_now": [],
  "next_high": {
   "id": "d9eda1283507",
   "title": "FOMC Meeting Minutes",
@@ -16,8 +15,6 @@
    "id": "855c5d77c08c",
    "time_utc": "2026-10-07T17:00:00Z",
    "time_dhaka": "07 Oct, 11:00 PM",
-   "hours_until": 3.09,
-   "alert_window": false,
    "impact": "Medium",
    "title": "President Trump Speaks",
    "category_bn": "বক্তব্য",
@@ -72,8 +69,6 @@
    "id": "d9eda1283507",
    "time_utc": "2026-10-07T18:00:00Z",
    "time_dhaka": "08 Oct, 12:00 AM",
-   "hours_until": 4.09,
-   "alert_window": false,
    "impact": "High",
    "title": "FOMC Meeting Minutes",
    "category_bn": "Fed বক্তব্য/মিনিটস",
@@ -122,8 +117,6 @@
    "id": "f4d24b4af9f0",
    "time_utc": "2026-10-08T08:30:00Z",
    "time_dhaka": "08 Oct, 02:30 PM",
-   "hours_until": 18.59,
-   "alert_window": false,
    "impact": "Medium",
    "title": "FOMC Member Waller Speaks",
    "category_bn": "Fed বক্তব্য/মিনিটস",
@@ -172,8 +165,6 @@
    "id": "7df2d32e03f1",
    "time_utc": "2026-10-08T12:30:00Z",
    "time_dhaka": "08 Oct, 06:30 PM",
-   "hours_until": 22.59,
-   "alert_window": false,
    "impact": "Medium",
    "title": "Unemployment Claims",
    "category_bn": "সাপ্তাহিক বেকার ভাতা আবেদন",
@@ -188,28 +179,36 @@
     }
    ],
    "likely": {
-    "text": "Forecast (200K)-এর চেয়ে কম আসার দিকে ঝোঁক (৪২.৫%)",
-    "usd_bias": "up",
+    "text": "Forecast (200K)-এর কাছাকাছি — সারপ্রাইজের সম্ভাবনা দুই দিকেই প্রায় সমান",
+    "usd_bias": null,
     "impact": {
-     "gold": "নিম্নমুখী চাপ (ডলার ও বন্ড ইল্ড বাড়লে গোল্ড সাধারণত নামে)।",
-     "btc": "বেয়ারিশ চাপ — রিস্ক-অফ, ডাম্প/উইক নিচে যাওয়ার সম্ভাবনা বেশি।",
-     "crypto": "অল্টকয়েনে বড় পতনের ঝুঁকি (BTC-এর চেয়ে বেশি %)।",
-     "forex": "DXY ↑ · EURUSD/GBPUSD ↓ · USDJPY ↑"
+     "gold": "দিক অনিশ্চিত — দুই দিকেই স্পাইক হতে পারে, রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন।",
+     "btc": "ভোলাটিলিটি বাড়তে পারে; লিকুইডেশন উইক দুই দিকেই সম্ভব।",
+     "crypto": "অল্টকয়েন BTC-কে ফলো করবে, বেশি দুলতে পারে।",
+     "forex": "DXY ও মেজর পেয়ারে (EURUSD, GBPUSD, USDJPY) সাময়িক হুইপস।"
     }
    },
    "alternative": {
-    "text": "বিপরীত ফলাফল এলে",
-    "usd_bias": "down",
+    "text": "প্রত্যাশা থেকে বড় বিচ্যুতি হলে — দিক অনুযায়ী",
+    "usd_bias": null,
     "impact": {
-     "gold": "ঊর্ধ্বমুখী সাপোর্ট (দুর্বল ডলার ও কম ইল্ডে গোল্ড সাধারণত বাড়ে)।",
-     "btc": "বুলিশ — রিস্ক-অন, পাম্প হওয়ার সম্ভাবনা বেশি।",
-     "crypto": "অল্টকয়েন BTC-এর চেয়ে বেশি % উঠতে পারে।",
-     "forex": "DXY ↓ · EURUSD/GBPUSD ↑ · USDJPY ↓"
+     "usd_up": {
+      "gold": "নিম্নমুখী চাপ (ডলার ও বন্ড ইল্ড বাড়লে গোল্ড সাধারণত নামে)।",
+      "btc": "বেয়ারিশ চাপ — রিস্ক-অফ, ডাম্প/উইক নিচে যাওয়ার সম্ভাবনা বেশি।",
+      "crypto": "অল্টকয়েনে বড় পতনের ঝুঁকি (BTC-এর চেয়ে বেশি %)।",
+      "forex": "DXY ↑ · EURUSD/GBPUSD ↓ · USDJPY ↑"
+     },
+     "usd_down": {
+      "gold": "ঊর্ধ্বমুখী সাপোর্ট (দুর্বল ডলার ও কম ইল্ডে গোল্ড সাধারণত বাড়ে)।",
+      "btc": "বুলিশ — রিস্ক-অন, পাম্প হওয়ার সম্ভাবনা বেশি।",
+      "crypto": "অল্টকয়েন BTC-এর চেয়ে বেশি % উঠতে পারে।",
+      "forex": "DXY ↓ · EURUSD/GBPUSD ↑ · USDJPY ↓"
+     }
     }
    },
    "reasons": [
-    "Kalshi: Forecast-এর চেয়ে বেশি ৩০.০% · সমান/কাছাকাছি ২৭.৫% · কম ৪২.৫%",
-    "Kalshi-এ সবচেয়ে সম্ভাব্য রেঞ্জ: ≥200K ও <205K (২৭.৫%)",
+    "Kalshi: Forecast-এর চেয়ে বেশি ৩৯.০% · সমান/কাছাকাছি ১৮.৫% · কম ৪২.৫%",
+    "Kalshi-এ সবচেয়ে সম্ভাব্য রেঞ্জ: ≥200K ও <205K (১৮.৫%)",
     "Forecast বনাম আগের মান: 200K বনাম 197K"
    ],
    "confidence_bn": "নিম্ন",

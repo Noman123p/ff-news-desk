@@ -13,7 +13,9 @@ scripts/update.py          data updater (Python stdlib only)
 data/calendar.json         events (this + next week)
 data/probabilities.json    Polymarket / Kalshi / FedWatch per USD event
 data/briefs.json           Bangla briefs for the next 24h (or "আজ বড় কোনো USD নিউজ নেই")
-.github/workflows/update.yml  cron: 07:00 Dhaka daily + every 2h, commits data/
+data/status.json           ForexFactory page/feed status (ff_page_ok, ff_feed_ok, reason, fallback)
+scripts/ff_alert.sh        opens/closes the "ff-blocked" GitHub issue (uses gh + GITHUB_TOKEN)
+.github/workflows/update.yml  cron: 07:00 Dhaka daily + every 2h, commits data/ only on real changes
 tests/test_update.py       unit tests (stdlib)
 tests/smoke.py             headless browser test + screenshots (playwright)
 ```
@@ -28,6 +30,13 @@ tests/smoke.py             headless browser test + screenshots (playwright)
 | CME FedWatch | FOMC only | cmegroup.com returns HTTP 403 to scripts and the official API is paid, so the site **links** to FedWatch and shows the Kalshi/Polymarket Fed market as the closest comparison |
 
 If no market matches, the site shows **"ডেটা নেই"**. Numbers are never invented.
+
+## Block alerts & commit noise
+- On every run, `update.py` records whether the ForexFactory page loaded. A failure can be an HTTP 403/429/503, a Cloudflare or captcha page, a timeout, or a layout change. The result goes to `data/status.json` and is also exposed as step outputs.
+- If the page fails, the workflow opens the issue **"⚠️ ForexFactory ব্লক করেছে — Actual ডেটা আসছে না"**. It carries the label `ff-blocked`, is assigned to the repo owner (so GitHub emails him), and its Bangla body gives the Dhaka time, HTTP status, reason and the fallback in use. Only one such issue is open at a time.
+- The next successful run comments **"✅ আবার ঠিক হয়েছে"** and closes the issue.
+- When the page is blocked, the site shows a small amber banner.
+- A file is rewritten only if its content changed. Timestamps, volumes and probability moves under 1.5 points don't count as changes. Every file is still refreshed at least every 12h as a heartbeat. Because of this, most runs produce no commit.
 
 ## Run locally
 ```bash

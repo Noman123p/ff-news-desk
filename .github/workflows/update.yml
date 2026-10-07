@@ -7,7 +7,8 @@ on:
   workflow_dispatch: {}     # manual "Run workflow" button
 
 permissions:
-  contents: write
+  contents: write   # commit data/
+  issues: write     # open/close the "ff-blocked" alert issue
 
 concurrency:
   group: update-data
@@ -28,17 +29,41 @@ jobs:
         run: python -m unittest discover -s tests -p "test_*.py"
 
       - name: Fetch calendar + probabilities + briefs
+        id: update
         run: python scripts/update.py
 
+      # update.py rewrites a file only when its content really changed (timestamps,
+      # volumes and <1.5-point probability jitter are ignored; 12h heartbeat), so an
+      # empty diff here means nothing worth committing.
       - name: Commit data changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
           if git diff --cached --quiet; then
-            echo "No data changes."
+            echo "No content changes — nothing to commit."
             exit 0
           fi
           git commit -m "data: update $(date -u +'%Y-%m-%d %H:%M UTC')"
           git pull --rebase --autostash
           git push
+
+      - name: Alert — ForexFactory blocked
+        if: always() && steps.update.outputs.ff_page_ok == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+          FF_HTTP: ${{ steps.update.outputs.ff_http }}
+          FF_REASON: ${{ steps.update.outputs.ff_reason }}
+          FF_FALLBACK: ${{ steps.update.outputs.ff_fallback }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: bash scripts/ff_alert.sh blocked
+
+      - name: Resolve — ForexFactory reachable again
+        if: always() && steps.update.outputs.ff_page_ok == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: bash scripts/ff_alert.sh ok

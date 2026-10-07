@@ -22,6 +22,7 @@ with sync_playwright() as p:
     pg = ctx.new_page(); attach(pg, "desktop")
     pg.goto(BASE, wait_until="networkidle"); pg.wait_for_timeout(1500)
     res = {}
+    res["banner_hidden_when_ok"] = pg.locator("#ffBanner").is_hidden()
     res["count_default"] = pg.inner_text("#resultCount")
     res["rows_default"] = pg.locator(".row").count()
     res["briefs"] = pg.locator("#briefs article").count()
@@ -91,6 +92,16 @@ with sync_playwright() as p:
     res["missing_brief_text"] = ep.inner_text("#briefs")[:80]
     res["missing_rows"] = ep.locator(".row").count()
     e.close()
+    # FF page blocked -> subtle banner
+    eb = br.new_context(viewport={"width": 1366, "height": 900}); bp = eb.new_page(); attach(bp, "blocked")
+    blocked = {"checked_at": "2026-10-07T14:00:00Z", "ff_page_ok": False, "ff_feed_ok": True, "ff_http_status": 403,
+               "ff_reason": "এই সপ্তাহ: HTTP 403 — ব্লক করেছে", "fallback_in_use": "faireconomy JSON ফিড (এই সপ্তাহ) — Actual নেই"}
+    bp.route("**/data/status.json*", lambda r: r.fulfill(status=200, body=json.dumps(blocked), content_type="application/json"))
+    bp.goto(BASE, wait_until="networkidle"); bp.wait_for_timeout(1200)
+    res["banner_visible_when_blocked"] = bp.locator("#ffBanner").is_visible()
+    res["banner_text"] = bp.inner_text("#ffBanner")[:90]
+    bp.screenshot(path=f"{OUT}/desktop-blocked-banner.png", clip={"x": 0, "y": 0, "width": 1366, "height": 330})
+    eb.close()
     # Calendar missing entirely
     e2 = br.new_context(); p2 = e2.new_page(); attach(p2, "no-calendar")
     p2.route("**/data/calendar.json*", lambda r: r.fulfill(status=500, body="x"))

@@ -9,7 +9,7 @@
   const IMPACTS = ["High", "Medium", "Low", "Holiday"];
   const CUR_ORDER = ["USD", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF", "CNY", "All"];
   const REFRESH_MS = 10 * 60 * 1000;
-  const STALE_H = 4;
+  const STALE_H = 14;   // updater rewrites files on change + 12h heartbeat, so >14h means Actions stopped
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -56,7 +56,7 @@
 
   // ---------------------------------------------------------------- state
   const state = loadFilters();
-  let DATA = { cal: null, prob: { by_event: {} }, briefs: null };
+  let DATA = { cal: null, prob: { by_event: {} }, briefs: null, status: null };
   const openRows = new Set();
 
   function loadFilters() {
@@ -87,8 +87,9 @@
   }
 
   async function load() {
-    const [cal, prob, briefs] = await Promise.allSettled([
+    const [cal, prob, briefs, status] = await Promise.allSettled([
       getJSON("data/calendar.json"), getJSON("data/probabilities.json"), getJSON("data/briefs.json"),
+      getJSON("data/status.json"),
     ]);
     if (cal.status !== "fulfilled" || !cal.value || !Array.isArray(cal.value.events)) {
       setStatus("err", "ডেটা লোড হয়নি");
@@ -105,7 +106,9 @@
       cal: { ...cal.value, events },
       prob: prob.status === "fulfilled" && prob.value && prob.value.by_event ? prob.value : { by_event: {}, sources: {} },
       briefs: briefs.status === "fulfilled" ? briefs.value : null,
+      status: status.status === "fulfilled" && status.value && typeof status.value === "object" ? status.value : null,
     };
+    renderBanner();
     refreshStatus();
 
     renderCurrencyChips();
@@ -116,14 +119,35 @@
     renderSources();
   }
 
+  function lastUpdate() {
+    // files are only rewritten on real changes, so take the newest timestamp of all of them
+    const ts = [DATA.cal && DATA.cal.generated_at, DATA.prob && DATA.prob.generated_at,
+                DATA.briefs && DATA.briefs.generated_at, DATA.status && DATA.status.checked_at]
+      .map((x) => Date.parse(x)).filter((x) => !isNaN(x));
+    return ts.length ? new Date(Math.max(...ts)) : null;
+  }
+
   function refreshStatus() {
     if (!DATA.cal) return;
-    const gen = new Date(DATA.cal.generated_at);
-    if (isNaN(gen)) { setStatus("stale", "আপডেটের সময় অজানা"); return; }
+    const gen = lastUpdate();
+    if (!gen) { setStatus("stale", "আপডেটের সময় অজানা"); return; }
     const ageH = (Date.now() - gen.getTime()) / 3.6e6;
+    const blocked = DATA.status && DATA.status.ff_page_ok === false;
     if (DATA.cal.stale || ageH > STALE_H) setStatus("stale", `আপডেট ${relAgo(gen)} · পুরোনো হতে পারে`);
+    else if (blocked) setStatus("stale", `আপডেট ${relAgo(gen)} · ব্যাকআপ ফিড`);
     else setStatus("ok", `আপডেট ${relAgo(gen)}`);
-    $("#status").title = `শেষ আপডেট: ${fmtDay.format(gen)}, ${fmtTime.format(gen)} (ঢাকা)`;
+    $("#status").title = `শেষ ডেটা পরিবর্তন: ${fmtDay.format(gen)}, ${fmtTime.format(gen)} (ঢাকা) · ডেটা প্রতি ~২ ঘণ্টায় যাচাই হয়`;
+  }
+
+  function renderBanner() {
+    const el = $("#ffBanner");
+    const st = DATA.status;
+    if (!st || st.ff_page_ok !== false) { el.hidden = true; el.innerHTML = ""; return; }
+    const since = Date.parse(st.checked_at);
+    el.innerHTML = `${icon("alert")}<span><b>ForexFactory এখন আমাদের আপডেটার ব্লক করছে</b> — `
+      + `${esc(st.fallback_in_use || "ব্যাকআপ ফিড চলছে")}। নতুন Actual দেরিতে আসতে পারে।`
+      + `${st.ff_reason ? ` <span class="muted">(${esc(st.ff_reason)}${isNaN(since) ? "" : ` · ${fmtTime.format(new Date(since))}`})</span>` : ""}</span>`;
+    el.hidden = false;
   }
 
   function setStatus(kind, text) {
