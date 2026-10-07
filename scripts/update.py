@@ -185,7 +185,7 @@ def write_json(name, obj):
     os.replace(tmp, path)
 
 
-VOLATILE_KEYS = {"generated_at", "checked_at", "volume_usd", "volume"}
+VOLATILE_KEYS = {"generated_at", "checked_at", "volume_usd", "volume", "low_liquidity"}
 PROB_KEYS = {"prob", "prob_above", "above", "inline", "below", "hike", "hold", "cut"}
 
 
@@ -195,7 +195,7 @@ def same_content(a, b, key=None, tol=PROB_TOL):
     if isinstance(a, dict) and isinstance(b, dict):
         ka = set(a) - VOLATILE_KEYS
         kb = set(b) - VOLATILE_KEYS
-        if a.get("low_liquidity") and b.get("low_liquidity"):
+        if a.get("low_liquidity") or b.get("low_liquidity"):
             tol = max(tol, PROB_TOL_THIN)
         return ka == kb and all(same_content(a[k], b[k], k, tol) for k in ka)
     if isinstance(a, list) and isinstance(b, list):
