@@ -10,6 +10,10 @@ on:
         description: "Test the ForexFactory-blocked alert (opens a test issue; the next normal run closes it)"
         type: boolean
         default: false
+      probe_all:
+        description: "Also test every free nowcast source (Cleveland Fed, Atlanta Fed GDPNow) and log the result"
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # commit data/
@@ -22,7 +26,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
 
@@ -33,8 +37,15 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s tests -p "test_*.py"
 
-      - name: Fetch calendar + probabilities + briefs
+      # Also keeps data/weeks/ (one file per FF week): this + next week every run, last week
+      # until complete, and at most FF_BACKFILL_PER_RUN missing old weeks (polite, stops on
+      # the first refusal — never affects the ff-blocked alert).
+      - name: Fetch calendar, weeks, probabilities, nowcasts, analysis
         id: update
+        env:
+          FF_BACKFILL_WEEKS: "52"
+          FF_BACKFILL_PER_RUN: "4"
+          PROBE_ALL: ${{ inputs.probe_all && '1' || '0' }}
         run: python scripts/update.py
 
       # update.py rewrites a file only when its content really changed (timestamps,

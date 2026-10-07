@@ -26,7 +26,12 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import explainers  # noqa: E402
+import nowcasts  # noqa: E402
+import scenarios  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
@@ -38,7 +43,8 @@ UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
 FF_JSON = "https://nfs.faireconomy.media/ff_calendar_{week}.json"   # thisweek / nextweek
-FF_HTML = "https://www.forexfactory.com/calendar?week={week}"          # this / next
+FF_HTML = "https://www.forexfactory.com/calendar?week={week}"          # this / next / oct4.2026
+FF_DETAILS = "https://www.forexfactory.com/calendar/details/1-{id}"    # specs + history JSON
 POLY_SEARCH = "https://gamma-api.polymarket.com/public-search"
 POLY_EVENTS = "https://gamma-api.polymarket.com/events"
 KALSHI = "https://api.elections.kalshi.com/trade-api/v2"
@@ -48,9 +54,18 @@ BRIEF_WINDOW_H = 24
 HEARTBEAT_H = 12      # rewrite unchanged files at least this often (proves the updater is alive)
 PROB_TOL = 1.5        # percentage points: smaller probability moves don't count as a change
 PROB_TOL_THIN = 5.0   # same, for markets flagged low_liquidity (their quotes jump around)
+# Week archive (data/weeks/YYYY-MM-DD.json keyed by FF week start, a Sunday)
+BACKFILL_WEEKS = int(os.environ.get("FF_BACKFILL_WEEKS", "52"))     # how far back to fill
+BACKFILL_PER_RUN = int(os.environ.get("FF_BACKFILL_PER_RUN", "4"))  # polite: few old weeks per run
+FF_DELAY_S = float(os.environ.get("FF_DELAY_S", "4"))               # pause between extra FF requests
+SPECS_PER_RUN = int(os.environ.get("FF_SPECS_PER_RUN", "25"))
+SPECS_MAX_AGE_D = 30
+FF_TZ = timezone(timedelta(hours=-5))   # FF's anonymous calendar day/week boundaries (~US Eastern/Central)
+
 NOW = datetime.now(UTC)
 LAST_ERR = {}         # url -> short error text of the last failed request
 FF_STATUS = {}        # week -> fetch status, filled by build_calendar()
+WEEK_ROWS = {}        # week key -> (rows, source) fetched this run
 
 
 def log(*a):
@@ -175,17 +190,20 @@ def load_json(name, default):
         return default
 
 
-def write_json(name, obj):
-    os.makedirs(DATA_DIR, exist_ok=True)
+def write_json(name, obj, compact=False):
     path = os.path.join(DATA_DIR, name)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, indent=1, allow_nan=False)
+        if compact:
+            json.dump(obj, f, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
+        else:
+            json.dump(obj, f, ensure_ascii=False, indent=1, allow_nan=False)
         f.write("\n")
     os.replace(tmp, path)
 
 
-VOLATILE_KEYS = {"generated_at", "checked_at", "volume_usd", "volume", "low_liquidity"}
+VOLATILE_KEYS = {"generated_at", "checked_at", "fetched_at", "volume_usd", "volume", "low_liquidity"}
 PROB_KEYS = {"prob", "prob_above", "above", "inline", "below", "hike", "hold", "cut"}
 
 
@@ -210,13 +228,14 @@ def too_old(obj, field="generated_at"):
     return t is None or (NOW - t) > timedelta(hours=HEARTBEAT_H)
 
 
-def write_if_changed(name, obj, field="generated_at"):
+def write_if_changed(name, obj, field="generated_at", heartbeat=True, compact=False, quiet=False):
     """Write only on real content change (or heartbeat). Returns the object now on disk."""
     old = load_json(name, None)
-    if old is not None and same_content(old, obj) and not too_old(old, field):
-        log(f"{name}: unchanged — kept")
+    if old is not None and same_content(old, obj) and not (heartbeat and too_old(old, field)):
+        if not quiet:
+            log(f"{name}: unchanged — kept")
         return old
-    write_json(name, obj)
+    write_json(name, obj, compact=compact)
     log(f"{name}: written")
     return obj
 
@@ -252,6 +271,9 @@ def fetch_ff_html(week):
         days, _ = json.JSONDecoder().raw_decode(html[html.find("[", i):])
     except ValueError as e:
         return None, f"পার্স এরর: {e}", status
+    wk = None
+    if days and isinstance(days[0].get("dateline"), (int, float)):
+        wk = week_start(datetime.fromtimestamp(days[0]["dateline"] + 12 * 3600, UTC).date()).isoformat()
     out = []
     for d in days:
         for e in d.get("events", []):
@@ -270,6 +292,10 @@ def fetch_ff_html(week):
                 "forecast": (e.get("forecast") or "").strip(),
                 "previous": (e.get("previous") or "").strip(),
                 "revision": (e.get("revision") or "").strip(),
+                "abw": e.get("actualBetterWorse") if e.get("actualBetterWorse") in (0, 1, 2) else 0,
+                "ff_id": e.get("id"),
+                "ebase": e.get("ebaseId"),
+                "ff_week": wk,
                 # soloUrl is stable; "url" embeds a day that depends on FF's server-side timezone
                 "ff_url": "https://www.forexfactory.com" + e["soloUrl"] if e.get("soloUrl") else None,
             })
@@ -302,10 +328,124 @@ def fetch_ff_json(week):
     return out, "ok"
 
 
+# --------------------------------------------------------------------------- #
+# Week archive
+# --------------------------------------------------------------------------- #
+WEEK_FIELDS = ("id", "title", "currency", "impact", "time_utc", "time_special", "actual", "forecast",
+               "previous", "revision", "abw", "ff_id", "ebase", "category", "dir")
+
+
+def week_start(d: date) -> date:
+    """Sunday on/before d (FF weeks run Sunday–Saturday)."""
+    return d - timedelta(days=(d.weekday() + 1) % 7)
+
+
+def week_param(key: str) -> str:
+    d = date.fromisoformat(key)
+    return f"{d.strftime('%b').lower()}{d.day}.{d.year}"
+
+
+def ff_today() -> date:
+    return NOW.astimezone(FF_TZ).date()
+
+
+def week_complete(key: str) -> bool:
+    end = datetime.combine(date.fromisoformat(key) + timedelta(days=7), datetime.min.time(), FF_TZ)
+    return NOW > end + timedelta(hours=12)
+
+
+def slim(e: dict) -> dict:
+    cat, d = classify(e["title"])
+    e = {**e, "category": e.get("category") or cat, "dir": e.get("dir") or d}
+    return {k: e.get(k) for k in WEEK_FIELDS}
+
+
+def save_week(key: str, rows: list, source: str) -> bool:
+    """Write data/weeks/<key>.json if content changed. Keeps known Actuals when a fallback lacks them."""
+    name = f"weeks/{key}.json"
+    old = load_json(name, None)
+    known = {e["id"]: e for e in (old or {}).get("events", [])}
+    events = []
+    for r in rows:
+        r = dict(r)
+        r.setdefault("id", event_id(r["currency"], r["title"], r["time_utc"]))
+        k = known.get(r["id"])
+        if k:
+            for f in ("actual", "abw", "ff_id", "ebase", "revision"):
+                if not r.get(f) and k.get(f):
+                    r[f] = k[f]
+        events.append(slim(r))
+    events.sort(key=lambda x: (x["time_utc"], x["currency"], x["title"]))
+    doc = {"week_start": key, "fetched_at": iso_utc(NOW), "complete": week_complete(key),
+           "source": source, "events": events}
+    # source/fetched_at alone never cause a rewrite (fallback runs would otherwise flap the file)
+    if old is not None and same_content(old.get("events"), events) and old.get("complete") == doc["complete"]:
+        return False
+    write_json(name, doc, compact=True)
+    log(f"{name}: written ({len(events)} events)")
+    return True
+
+
+def stored_weeks() -> list:
+    d = os.path.join(DATA_DIR, "weeks")
+    if not os.path.isdir(d):
+        return []
+    return sorted(f[:-5] for f in os.listdir(d) if re.fullmatch(r"\d{4}-\d{2}-\d{2}\.json", f))
+
+
+def write_week_index():
+    keys = stored_weeks()
+    counts = {}
+    for k in keys:
+        doc = load_json(f"weeks/{k}.json", {})
+        counts[k] = len(doc.get("events", []))
+    idx = {"generated_at": iso_utc(NOW), "weeks": keys, "first": keys[0] if keys else None,
+           "last": keys[-1] if keys else None, "event_counts": counts}
+    write_if_changed("weeks/index.json", idx, heartbeat=False)
+
+
+def archive_weeks(fetched: dict):
+    """fetched: key -> (rows, source) from this run's this/next fetch. Then refresh the previous
+    week until complete and backfill a few missing old weeks. Extra FF requests only when the
+    main page fetch worked; failures here stop quietly and never touch FF_STATUS / the alert."""
+    for key, (rows, src) in fetched.items():
+        if key and rows:
+            save_week(key, rows, src)
+    page_ok = bool(FF_STATUS) and all(w["page_ok"] for w in FF_STATUS.values())
+    report = {"backfilled": [], "stopped": None}
+    if page_ok:
+        this_key = week_start(ff_today())
+        prev_key = (this_key - timedelta(days=7)).isoformat()
+        have = set(stored_weeks())
+        prev_doc = load_json(f"weeks/{prev_key}.json", None)
+        todo = []
+        if prev_doc is None or not prev_doc.get("complete"):
+            todo.append(prev_key)
+        for i in range(2, BACKFILL_WEEKS + 1):
+            k = (this_key - timedelta(days=7 * i)).isoformat()
+            if k not in have:
+                todo.append(k)
+        for n, key in enumerate(todo[:BACKFILL_PER_RUN + 1]):
+            time.sleep(FF_DELAY_S if n else 1.0)
+            rows, note, http = fetch_ff_html(week_param(key))
+            if not rows:
+                report["stopped"] = f"{key}: {note}"
+                log(f"backfill stopped at {key}: {note}")
+                break
+            got = rows[0].get("ff_week") or key
+            save_week(got, rows, "forexfactory.com (HTML)")
+            report["backfilled"].append(got)
+        if report["backfilled"]:
+            log(f"backfill: {len(report['backfilled'])} week(s): {report['backfilled']}")
+    write_week_index()
+    return report
+
+
 def build_calendar():
     prev = load_json("calendar.json", {})
     prev_actuals = {e["id"]: e.get("actual") for e in prev.get("events", []) if e.get("actual")}
     sources, events = {}, []
+    WEEK_ROWS.clear()
     for week, jweek in (("this", "thisweek"), ("next", "nextweek")):
         rows, note, http = fetch_ff_html(week)
         src = "forexfactory.com (HTML)"
@@ -319,6 +459,8 @@ def build_calendar():
             st["feed_ok"], st["feed_reason"] = bool(rows), note2
             if not rows:
                 continue
+            for r in rows:   # the feed carries no week id: derive it (feed only exists for "this")
+                r["ff_week"] = week_start(ff_today()).isoformat()
         for r in rows:
             r["id"] = event_id(r["currency"], r["title"], r["time_utc"])
             r["week"] = week
@@ -326,6 +468,8 @@ def build_calendar():
             if not r["actual"] and prev_actuals.get(r["id"]):
                 r["actual"] = prev_actuals[r["id"]]   # keep actuals from an earlier HTML run
             events.append(r)
+        k = rows[0].get("ff_week")
+        WEEK_ROWS[k] = (rows, src)
     # de-duplicate (same event can appear in both feeds at week edges)
     seen, uniq = set(), []
     for e in sorted(events, key=lambda x: (x["time_utc"], x["currency"], x["title"])):
@@ -359,8 +503,10 @@ CATEGORIES = [
     ("claims", re.compile(r"Unemployment Claims", re.I), -1),
     ("gdp", re.compile(r"GDP q/q", re.I), +1),
     ("core_pce", re.compile(r"Core PCE Price Index m/m", re.I), +1),
+    ("pce_mom", re.compile(r"^PCE Price Index m/m", re.I), +1),
     ("ppi", re.compile(r"^PPI m/m", re.I), +1),
     ("core_ppi", re.compile(r"^Core PPI m/m", re.I), +1),
+    ("core_retail", re.compile(r"^Core Retail Sales", re.I), +1),
     ("retail", re.compile(r"Retail Sales m/m", re.I), +1),
     ("ism_mfg", re.compile(r"ISM Manufacturing PMI", re.I), +1),
     ("speech", re.compile(r"Speaks|Testifies|Press Conference", re.I), 0),
@@ -372,7 +518,7 @@ CAT_BN = {
     "cpi_mom": "মূল্যস্ফীতি (মাসিক)", "cpi_yoy": "মূল্যস্ফীতি (বার্ষিক)",
     "nfp": "নন-ফার্ম পেরোল (চাকরি)", "unemployment": "বেকারত্বের হার",
     "claims": "সাপ্তাহিক বেকার ভাতা আবেদন", "gdp": "GDP প্রবৃদ্ধি", "core_pce": "কোর PCE মূল্যস্ফীতি",
-    "ppi": "উৎপাদক মূল্যসূচক (PPI)", "core_ppi": "কোর PPI", "retail": "খুচরা বিক্রি", "ism_mfg": "ISM ম্যানুফ্যাকচারিং",
+    "ppi": "উৎপাদক মূল্যসূচক (PPI)", "core_ppi": "কোর PPI", "pce_mom": "PCE মূল্যস্ফীতি", "core_retail": "কোর খুচরা বিক্রি", "retail": "খুচরা বিক্রি", "ism_mfg": "ISM ম্যানুফ্যাকচারিং",
     "speech": "বক্তব্য", "other": "অর্থনৈতিক ডেটা",
 }
 
@@ -936,6 +1082,310 @@ def build_briefs(cal, prob):
 
 
 # --------------------------------------------------------------------------- #
+# --------------------------------------------------------------------------- #
+# ForexFactory event specs (cached by ebase id) + release history
+# --------------------------------------------------------------------------- #
+_TAG = re.compile(r"<[^>]+>")
+
+
+def _text(html):
+    t = _TAG.sub(" ", (html or "").replace("<br>", " "))
+    t = re.sub(r"\s+", " ", t).strip().rstrip(";")
+    return t.replace("&amp;", "&").replace("&quot;", '"').replace("&#39;", "'")
+
+
+def fetch_specs(ev):
+    """FF details JSON for one event -> {specs:{title:text}, source_url, history:[...]} or None."""
+    if not ev.get("ff_id"):
+        return None
+    data, status = None, None
+    st, body = http_get(FF_DETAILS.format(id=ev["ff_id"]), accept="application/json")
+    if st == 200 and body:
+        try:
+            data = json.loads(body.decode("utf-8", "replace")).get("data")
+        except ValueError:
+            data = None
+    if not isinstance(data, dict):
+        return None
+    specs, src_url = {}, None
+    for sp in data.get("specs", []) or []:
+        title = _text(sp.get("title"))
+        if not title:
+            continue
+        specs[title] = _text(sp.get("html"))
+        if title == "Source" and not src_url:
+            m = re.search(r'href="(https?://[^"]+)"', sp.get("html") or "")
+            src_url = m.group(1) if m else None
+    hist = []
+    for h in ((data.get("history") or {}).get("events") or [])[:12]:
+        hist.append({"date": h.get("date"), "actual": h.get("actual") or "", "forecast": h.get("forecast") or "",
+                     "previous": h.get("previous") or "", "abw": h.get("actualBetterWorse") or 0})
+    return {"title": ev["title"], "fetched_at": iso_utc(NOW), "specs": specs, "source_url": src_url, "history": hist}
+
+
+def update_specs(events, page_ok):
+    cache = load_json("ff_specs.json", {"by_ebase": {}})
+    by = cache.setdefault("by_ebase", {})
+    todo = []
+    for e in events:
+        k = str(e.get("ebase") or "")
+        if not k or not e.get("ff_id"):
+            continue
+        cur = by.get(k)
+        age = NOW - (parse_iso((cur or {}).get("fetched_at")) or datetime(2000, 1, 1, tzinfo=UTC))
+        if (cur is None or age > timedelta(days=SPECS_MAX_AGE_D)) and k not in {str(t["ebase"]) for t in todo}:
+            todo.append(e)
+    fetched = 0
+    if page_ok:
+        for e in todo[:SPECS_PER_RUN]:
+            time.sleep(1.5)
+            sp = fetch_specs(e)
+            if sp is None:
+                log(f"specs: stopped at {e['title']}")
+                break
+            by[str(e["ebase"])] = sp
+            fetched += 1
+    if fetched:
+        cache["generated_at"] = iso_utc(NOW)
+        write_json("ff_specs.json", cache)
+        log(f"ff_specs.json: +{fetched} event types")
+    return by
+
+
+def load_archive():
+    evs = []
+    for k in stored_weeks():
+        evs.extend(load_json(f"weeks/{k}.json", {}).get("events", []))
+    return evs
+
+
+def history_for(ev, archive, specs_entry, n=6):
+    """Last n released values: stored weeks first (fresh), FF details history fills older gaps."""
+    t0 = parse_iso(ev["time_utc"])
+    same = [a for a in archive
+            if a.get("actual") and parse_iso(a["time_utc"]) and parse_iso(a["time_utc"]) < t0
+            and ((ev.get("ebase") and a.get("ebase") == ev.get("ebase"))
+                 or (a["currency"] == ev["currency"] and a["title"] == ev["title"]))]
+    seen, out = set(), []
+    for a in sorted(same, key=lambda x: x["time_utc"], reverse=True):
+        d = parse_iso(a["time_utc"]).astimezone(DHAKA).date().isoformat()
+        if d in seen:
+            continue
+        seen.add(d)
+        out.append({"date": d, "actual": a["actual"], "forecast": a.get("forecast") or "",
+                    "previous": a.get("previous") or "", "abw": a.get("abw") or 0})
+    for h in (specs_entry or {}).get("history", []):
+        try:
+            d = datetime.strptime(h["date"], "%b %d, %Y").date().isoformat()
+        except (TypeError, ValueError):
+            continue
+        if d in seen or not h.get("actual") or d >= t0.date().isoformat():
+            continue
+        seen.add(d)
+        out.append({**h, "date": d})
+    out.sort(key=lambda x: x["date"], reverse=True)
+    return out[:n]
+
+
+# --------------------------------------------------------------------------- #
+# Per-event analysis
+# --------------------------------------------------------------------------- #
+FED_CATS = ("fed_decision", "fed_talk")
+SIDE_BN = {"above": "বেশি", "inline": "কাছাকাছি/সমান", "below": "কম"}
+SOURCE_HEALTH = {}    # name -> "ok" | reason; nowcast sources touched this run (reported in status.json)
+
+
+def side_text(ref_bn, side):
+    return f"{ref_bn} কাছাকাছি/সমান" if side == "inline" else f"{ref_bn} চেয়ে {SIDE_BN[side]}"
+
+
+def decimals_of(s):
+    m = re.search(r"\d+\.(\d+)", s or "")
+    return len(m.group(1)) if m else 0
+
+
+def usual_dir(specs_entry, fallback):
+    eff = ((specs_entry or {}).get("specs") or {}).get("Usual Effect", "").lower()
+    if "greater than" in eff and "good" in eff:
+        return +1
+    if "less than" in eff and "good" in eff:
+        return -1
+    return fallback
+
+
+def avg_dists(dists):
+    dists = [d for d in dists if d]
+    if not dists:
+        return None
+    keys = dists[0].keys()
+    return {k: round(sum(d[k] for d in dists) / len(dists), 1) for k in keys}
+
+
+def market_source(name, src, vf, fv, generated_at):
+    ml = max(src["outcomes"], key=lambda o: o["prob"]) if src and src.get("outcomes") else None
+    return {
+        "name": name, "kind": "market", "ok": True, "url": src.get("url"), "title": src.get("title"),
+        "updated_at": generated_at, "closes_utc": src.get("closes_utc"),
+        "headline": (f"সবচেয়ে সম্ভাব্য: {ml['label']} — {bn(ml['prob'])}%" if ml else None),
+        "outcomes": [o for o in src["outcomes"] if o.get("prob") is not None][:14],
+        "kind_detail": src.get("kind"), "vs_forecast": vf, "fed_view": fv,
+        "low_liquidity": bool(src.get("low_liquidity")),
+    }
+
+
+def build_analysis(cal, prob, specs_by, archive):
+    today = NOW.astimezone(DHAKA).date()
+    pevents = prob.get("by_event", {})
+    out, order = {}, []
+    evs = [e for e in cal.get("events", [])
+           if e["currency"] == "USD" and e["impact"] in ("High", "Medium")
+           and parse_iso(e["time_utc"]).astimezone(DHAKA).date() >= today]
+    for e in evs:
+        t = parse_iso(e["time_utc"])
+        cat, cdir = classify(e["title"])
+        sp = specs_by.get(str(e.get("ebase") or ""))
+        d = usual_dir(sp, cdir)
+        ex = explainers.explain(e["title"])
+        p = pevents.get(e["id"], {})
+        f_raw = e.get("forecast") or ""
+        ref_kind = "forecast" if parse_value(f_raw) is not None else (
+            "previous" if parse_value(e.get("previous")) is not None else None)
+        ref_raw = e.get(ref_kind) if ref_kind else ""
+        ref_val = parse_value(ref_raw)
+        ref_bn = "Forecast" if ref_kind == "forecast" else "আগের মান"
+        ref_of = "Forecast-এর" if ref_kind == "forecast" else "আগের মানের"
+
+        # ---- sources
+        sources = []
+        vf = p.get("vs_forecast") or {}
+        fv = p.get("fed_view") or {}
+        for name, key in (("Polymarket", "polymarket"), ("Kalshi", "kalshi")):
+            src = p.get(key)
+            if src:
+                sources.append(market_source(name, src, vf.get(key), fv.get(key), prob.get("generated_at")))
+            else:
+                sources.append({"name": name, "kind": "market", "ok": False,
+                                "note": p.get(f"{key}_note") or "মিলে যায় এমন মার্কেট নেই"})
+        nc = None
+        if cat in nowcasts.CLE_SERIES:
+            nc, why = nowcasts.cleveland(cat, t, http_get)
+            SOURCE_HEALTH["cleveland_fed"] = "ok" if nc else why
+            sources.append({"name": "Cleveland Fed Nowcast", "kind": "nowcast", "ok": bool(nc), **(nc or {"note": why})})
+        if cat == "gdp":
+            nc, why = nowcasts.gdpnow(http_get)
+            SOURCE_HEALTH["gdpnow"] = "ok" if nc else why
+            sources.append({"name": "Atlanta Fed GDPNow", "kind": "nowcast", "ok": bool(nc), **(nc or {"note": why})})
+        if cat in FED_CATS:
+            fw = p.get("fedwatch") or {}
+            sources.append({"name": "CME FedWatch", "kind": "link", "ok": False, "url": FEDWATCH_URL,
+                            "note": fw.get("reason") or "CME সাইট স্ক্রিপ্ট ব্লক করে; অফিসিয়াল API পেইড — লিংকে দেখুন।"})
+        if f_raw:
+            sources.append({"name": "ForexFactory Forecast (কনসেনসাস)", "kind": "consensus", "ok": True,
+                            "headline": f"বাজারের সাধারণ প্রত্যাশা: {f_raw}", "updated_at": cal.get("generated_at"),
+                            "url": f"https://www.forexfactory.com/calendar?day={week_param(t.astimezone(FF_TZ).date().isoformat())}"})
+
+        # ---- nowcast lean
+        nc_side = None
+        if nc and ref_val is not None:
+            v = round(nc["value"], decimals_of(ref_raw))
+            nc_side = "above" if v > ref_val else ("below" if v < ref_val else "inline")
+            nc["vs_ref"] = nc_side
+            nc["vs_ref_text"] = side_text(f"{ref_bn} ({ref_raw})-এর", nc_side)
+
+        # ---- verdict
+        kind = "fed" if cat in FED_CATS else ("data" if ref_val is not None else "speech")
+        thin = any(s.get("low_liquidity") for s in sources if s.get("ok"))
+        markets_ok = [s for s in sources if s.get("kind") == "market" and s.get("ok")]
+        verdict = {"kind": kind, "probs": None, "top": None, "second": None, "basis": [], "confidence": "ডেটা নেই"}
+        lean = None
+        if kind == "fed":
+            views = [s["fed_view"] for s in markets_ok if s.get("fed_view")]
+            v = avg_dists(views)
+            if v:
+                probs = {"hawk": v["hike"], "neutral": v["hold"], "dove": v["cut"]}
+                talk = cat == "fed_talk"
+                lab = ({"hawk": "হকিশ ঝোঁক", "neutral": "নিরপেক্ষ", "dove": "ডোভিশ ঝোঁক"} if talk else
+                       {"hawk": "রেট হাইক (হকিশ)", "neutral": "রেট হোল্ড", "dove": "রেট কাট (ডোভিশ)"})
+                verdict["probs"] = probs
+                verdict["labels"] = lab
+                verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('fed_view'))}-এর "
+                                        + ("পরবর্তী FOMC মিটিংয়ের দাম থেকে আনুমানিক — বক্তব্যের টোনের সরাসরি বাজার নেই" if talk
+                                           else "এই মিটিংয়ের সিদ্ধান্ত-মার্কেট"))
+        elif kind == "data":
+            dists = [s["vs_forecast"] for s in markets_ok if s.get("vs_forecast")]
+            v = avg_dists(dists)
+            if v:
+                verdict["probs"] = v
+                verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('vs_forecast'))} — {ref_bn} {ref_raw}-এর তুলনায়")
+            verdict["labels"] = {k: side_text(ref_of, k) for k in SIDE_BN}
+            if nc_side:
+                verdict["basis"].append(f"{nc['source']}: {nc['value']}% → {nc['vs_ref_text']}")
+                if not v:
+                    lean = nc_side if nc_side != "inline" else None
+            if not v and not nc_side and ref_kind == "forecast" and parse_value(e.get("previous")) is not None:
+                pv = parse_value(e.get("previous"))
+                if ref_val != pv:
+                    lean = "above" if ref_val > pv else "below"
+                    verdict["basis"].append(f"Forecast আগের মানের চেয়ে {'বেশি' if ref_val > pv else 'কম'} — শুধু ট্রেন্ড-ঝোঁক")
+        probs = verdict["probs"]
+        if probs:
+            ranked = sorted(probs.items(), key=lambda kv: -kv[1])
+            verdict["top"] = {"key": ranked[0][0], "label": verdict["labels"][ranked[0][0]], "pct": ranked[0][1]}
+            verdict["second"] = {"key": ranked[1][0], "label": verdict["labels"][ranked[1][0]], "pct": ranked[1][1]}
+            n_src = len([1 for s in markets_ok if s.get("vs_forecast") or s.get("fed_view")])
+            if thin or n_src == 1 or ranked[0][1] < 50:
+                verdict["confidence"] = "নিম্ন"
+            elif n_src >= 2 and ranked[0][1] >= 65:
+                verdict["confidence"] = "মাঝারি–উচ্চ"
+            else:
+                verdict["confidence"] = "মাঝারি"
+            if thin:
+                verdict["basis"].append("কিছু মার্কেটে লিকুইডিটি কম — সংখ্যা কম নির্ভরযোগ্য")
+            if nc_side and kind == "data":
+                agree = nc_side == ranked[0][0]
+                verdict["basis"].append("নাউকাস্ট বাজারের সাথে " + ("একমত" if agree else "একমত নয় — সতর্ক থাকুন"))
+        elif lean:
+            verdict["top"] = {"key": lean, "label": verdict["labels"][lean], "pct": None}
+            verdict["confidence"] = "নিম্ন"
+        if kind == "fed" and not probs:
+            verdict["labels"] = {"hawk": "হকিশ", "neutral": "নিরপেক্ষ", "dove": "ডোভিশ"}
+
+        # ---- outcome (after release)
+        result = None
+        a = parse_value(e.get("actual"))
+        if a is not None and ref_val is not None and ref_kind == "forecast":
+            side = "above" if a > ref_val else ("below" if a < ref_val else "inline")
+            result = {"side": side, "text": f"Actual {e['actual']} — " + side_text(f"Forecast ({f_raw})-এর", side),
+                      "abw": e.get("abw") or 0}
+
+        sc = scenarios.build_scenarios(
+            theme=ex["theme"], impact=e["impact"], title=e["title"],
+            kind=("data" if kind == "data" else ("fed" if kind == "fed" else "speech")),
+            usd_dir=d, forecast=ref_raw, ref_label=ref_bn, probs=probs, lean=lean,
+            has_numbers=kind == "data", is_decision=cat == "fed_decision")
+        if result:
+            for x in sc:
+                x["happened"] = x["key"] == result["side"]
+
+        out[e["id"]] = json_safe({
+            "id": e["id"], "title": e["title"], "currency": e["currency"], "impact": e["impact"],
+            "time_utc": e["time_utc"], "time_special": e.get("time_special"), "category": cat, "dir": d,
+            "explainer": {**ex, "ff_specs": (sp or {}).get("specs"), "source_url": (sp or {}).get("source_url")},
+            "data": {"actual": e.get("actual") or "", "forecast": f_raw, "previous": e.get("previous") or "",
+                     "revision": e.get("revision") or "", "abw": e.get("abw") or 0, "result": result},
+            "history": history_for(e, archive, sp),
+            "sources": sources,
+            "verdict": verdict,
+            "scenarios": sc,
+            "ff_url": f"https://www.forexfactory.com/calendar?day={week_param(t.astimezone(FF_TZ).date().isoformat())}"
+                      + (f"#detail={e['ff_id']}" if e.get("ff_id") else ""),
+            "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।",
+        })
+        order.append(e["id"])
+    return {"generated_at": iso_utc(NOW), "today_dhaka": today.isoformat(), "order": order, "events": out}
+
+
+
 def build_status(cal, prob):
     weeks = FF_STATUS
     page_ok = bool(weeks) and all(w["page_ok"] for w in weeks.values())
@@ -994,6 +1444,21 @@ def main():
     briefs = write_if_changed("briefs.json", build_briefs(cal, prob))
     log(f"briefs: {len(briefs['briefs'])} (next 24h)")
     status = build_status(cal, prob)
+    page_ok = status["ff_page_ok"]
+    backfill = archive_weeks(dict(WEEK_ROWS))
+    analysis_targets = [e for e in cal.get("events", []) if e["currency"] == "USD" and e["impact"] in ("High", "Medium")]
+    specs_by = update_specs(analysis_targets, page_ok)
+    write_if_changed("analysis.json", build_analysis(cal, prob, specs_by, load_archive()))
+    if os.environ.get("PROBE_ALL") == "1":   # manual check of every free source from this machine
+        for name, fn in (("cleveland_fed", lambda: nowcasts.cleveland("cpi_mom", NOW + timedelta(days=10), http_get)),
+                         ("gdpnow", lambda: nowcasts.gdpnow(http_get))):
+            if name not in SOURCE_HEALTH:
+                r, why = fn()
+                SOURCE_HEALTH[name] = "ok" if r else why
+                log(f"probe {name}: {SOURCE_HEALTH[name]}" + (f" → {r.get('value')} {r.get('label')}" if r else ""))
+    status["archive"] = {"weeks": len(stored_weeks()), "first": (stored_weeks() or [None])[0],
+                         "backfill_stopped": backfill.get("stopped")}
+    status["nowcasts"] = dict(SOURCE_HEALTH) or None
     write_if_changed("status.json", status, field="checked_at")
     gh_outputs(status)
     log(f"status: ff_page_ok={status['ff_page_ok']} feed_ok={status['ff_feed_ok']} reason={status['ff_reason']}")
