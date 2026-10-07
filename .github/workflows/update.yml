@@ -4,7 +4,12 @@ on:
   schedule:
     - cron: "0 1 * * *"     # 01:00 UTC = 07:00 Dhaka — daily morning brief
     - cron: "17 */2 * * *"  # every 2 hours (GitHub may delay scheduled runs by a few minutes)
-  workflow_dispatch: {}     # manual "Run workflow" button
+  workflow_dispatch:        # manual "Run workflow" button
+    inputs:
+      simulate_block:
+        description: "Test the ForexFactory-blocked alert (opens a test issue; the next normal run closes it)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # commit data/
@@ -49,19 +54,19 @@ jobs:
           git push
 
       - name: Alert — ForexFactory blocked
-        if: always() && steps.update.outputs.ff_page_ok == 'false'
+        if: always() && (steps.update.outputs.ff_page_ok == 'false' || inputs.simulate_block)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           OWNER: ${{ github.repository_owner }}
-          FF_HTTP: ${{ steps.update.outputs.ff_http }}
-          FF_REASON: ${{ steps.update.outputs.ff_reason }}
+          FF_HTTP: ${{ inputs.simulate_block && 'TEST' || steps.update.outputs.ff_http }}
+          FF_REASON: ${{ inputs.simulate_block && 'পরীক্ষামূলক অ্যালার্ট (simulate_block) — আসল ব্লক নয়' || steps.update.outputs.ff_reason }}
           FF_FALLBACK: ${{ steps.update.outputs.ff_fallback }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: bash scripts/ff_alert.sh blocked
 
       - name: Resolve — ForexFactory reachable again
-        if: always() && steps.update.outputs.ff_page_ok == 'true'
+        if: always() && steps.update.outputs.ff_page_ok == 'true' && !inputs.simulate_block
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

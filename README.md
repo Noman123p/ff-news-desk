@@ -35,6 +35,7 @@ If no market matches, the site shows **"ডেটা নেই"**. Numbers are n
 - On every run, `update.py` records whether the ForexFactory page loaded. A failure can be an HTTP 403/429/503, a Cloudflare or captcha page, a timeout, or a layout change. The result goes to `data/status.json` and is also exposed as step outputs.
 - If the page fails, the workflow opens the issue **"⚠️ ForexFactory ব্লক করেছে — Actual ডেটা আসছে না"**. It carries the label `ff-blocked`, is assigned to the repo owner (so GitHub emails him), and its Bangla body gives the Dhaka time, HTTP status, reason and the fallback in use. Only one such issue is open at a time.
 - The next successful run comments **"✅ আবার ঠিক হয়েছে"** and closes the issue.
+- To test the alert path, run the workflow manually with **simulate_block = true**. This opens a test issue (and GitHub emails the owner). The next normal run closes it.
 - When the page is blocked, the site shows a small amber banner.
 - A file is rewritten only if its content changed. Timestamps, volumes and probability moves under 1.5 points don't count as changes. Every file is still refreshed at least every 12h as a heartbeat. Because of this, most runs produce no commit.
 

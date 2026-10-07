@@ -3,7 +3,7 @@ import json, sys, os
 from playwright.sync_api import sync_playwright
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8765/"
-OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "screenshots")
+OUT = os.environ.get("SHOTS") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "screenshots")
 CHROME = os.environ.get("CHROME", "/usr/bin/google-chrome")
 problems = []
 
