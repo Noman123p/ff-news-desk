@@ -128,80 +128,138 @@ def _markets(usd: str, range_key: str, show_range: bool) -> dict:
     }
 
 
+TIE_PP = 0.5   # probabilities within this many points are treated as a tie
+
+
+def _pct_bn(p):
+    return f"{round(p, 1)}%".translate(str.maketrans("0123456789", "০১২৩৪৫৬৭৮৯"))
+
+
 def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: int,
                     forecast: str | None, ref_label: str, probs: dict | None,
-                    lean: str | None, has_numbers: bool, is_decision: bool = False) -> list:
+                    lean: str | None, has_numbers: bool, is_decision: bool = False,
+                    dir_hint: str | None = None) -> list:
     """
-    kind: 'data' (numeric release), 'fed' (decision/talk), 'speech' (no numbers)
-    probs: {'above','inline','below'} or {'hawk','neutral','dove'} in percent (or None)
-    lean:  'above'|'below'|'hawk'|'dove'|None — direction to treat as primary when probs are missing
+    Three scenarios, ordered so that no title contradicts the numbers.
+
+    kind:  'data' (numeric release) · 'fed' (rate decision) · 'tone' (minutes / Fed speakers) · 'speech'
+    probs: {'above','inline','below'} or {'hawk','neutral','dove'} in percent (≈100 in total), or None
+    lean:  direction to treat as most likely when probs are missing ('above'|'below'|'inline'|'hawk'|'dove'|'neutral')
+    dir_hint: when lean is neutral, which surprise direction is the likelier one
+
+    With probs, scenario 1 is ALWAYS the highest-probability outcome:
+      · directional top → [most likely, opposite, neutral]
+      · neutral top     → [neutral (most likely), likelier direction, opposite direction]
+    Without probs nothing is called "most likely" unless a lean exists (then it's labelled approximate).
     """
     show_range = (has_numbers and impact in ("High", "Medium")) or (kind == "fed" and impact == "High")
     range_key = "fed" if is_decision else impact
     th = theme if theme in WHY else "other"
+    f = forecast or "—"
 
     if kind == "data":
-        p_up_side = probs.get("above") if probs else None
-        p_dn_side = probs.get("below") if probs else None
-        if probs:
-            primary_side = "above" if (p_up_side or 0) >= (p_dn_side or 0) else "below"
-        else:
-            primary_side = lean if lean in ("above", "below") else "above"
-        sides = [primary_side, "below" if primary_side == "above" else "above"]
-        f = forecast or "—"
-
-        def cond(side):
-            word = "বেশি" if side == "above" else "কম"
-            return f"Actual {ref_label} ({f})-এর চেয়ে স্পষ্টভাবে {word} এলে"
+        A, B, N = "above", "below", "inline"
 
         def usd_of(side):
             pos = (side == "above")
             return "up" if (pos if usd_dir >= 0 else not pos) else "down"
-        items = [(s, cond(s), usd_of(s), probs.get(s) if probs else None) for s in sides]
-        neutral = ("inline", f"Actual {ref_label} ({f})-এর সমান বা খুব কাছাকাছি এলে", "flat",
-                   probs.get("inline") if probs else None)
-    else:  # fed / speech
-        hawk = probs.get("hawk") if probs else None
-        dove = probs.get("dove") if probs else None
-        if probs:
-            primary = "hawk" if (hawk or 0) >= (dove or 0) else "dove"
-        else:
-            primary = lean if lean in ("hawk", "dove") else "hawk"
-        labels = {
+        ref = f"{ref_label} ({f})-এর" if forecast else "প্রত্যাশার"
+        tail = "" if forecast else " (Forecast এখনো প্রকাশ হয়নি)"
+        cond = {
+            "above": f"Actual {ref} চেয়ে স্পষ্টভাবে বেশি এলে{tail}",
+            "below": f"Actual {ref} চেয়ে স্পষ্টভাবে কম এলে{tail}",
+            "inline": f"Actual {ref} সমান বা খুব কাছাকাছি এলে{tail}",
+        }
+        usd = {A: usd_of(A), B: usd_of(B), N: "flat"}
+        neutral_word = "নিউট্রাল — প্রত্যাশার কাছাকাছি"
+    else:
+        A, B, N = "hawk", "dove", "neutral"
+        cond = {
             "fed": {"hawk": "Fed হকিশ হলে (হাইক, বা 'রেট বেশি দিন উঁচু' বার্তা)", "dove": "Fed ডোভিশ হলে (কাট, বা কাটের স্পষ্ট ইঙ্গিত)",
                     "neutral": "হোল্ড + প্রত্যাশিত/নিরপেক্ষ ভাষা হলে"},
+            "tone": {"hawk": "টোন হকিশ হলে (মূল্যস্ফীতি নিয়ে উদ্বেগ, 'রেট বেশি দিন উঁচু' বা হাইকের ইঙ্গিত)",
+                     "dove": "টোন ডোভিশ হলে (কাটের ইঙ্গিত, প্রবৃদ্ধি/চাকরি নিয়ে উদ্বেগ)",
+                     "neutral": "টোন ভারসাম্যপূর্ণ হলে — বর্তমান নীতি বহাল, নতুন কোনো ইঙ্গিত নেই"},
             "speech": {"hawk": "ডলার-সহায়ক/ঝুঁকি-বিমুখ মন্তব্য এলে", "dove": "ডলার-বিরোধী মন্তব্য এলে (যেমন Fed-কে রেট কমাতে চাপ)",
                        "neutral": "নতুন বা চমকপ্রদ কিছু না বললে"},
-        }[kind if kind in ("fed", "speech") else "speech"]
-        sides = [primary, "dove" if primary == "hawk" else "hawk"]
-        items = [(s, labels[s], "up" if s == "hawk" else "down", probs.get(s) if probs else None) for s in sides]
-        neutral = ("neutral", labels["neutral"], "flat", probs.get("neutral") if probs else None)
+        }[kind if kind in ("fed", "tone", "speech") else "speech"]
+        usd = {A: "up", B: "down", N: "flat"}
+        neutral_word = {"fed": "নিউট্রাল — হোল্ড/প্রত্যাশিত বার্তা", "tone": "নিউট্রাল — ভারসাম্যপূর্ণ টোন",
+                        "speech": "নিউট্রাল — নতুন কিছু নয়"}.get(kind, "নিউট্রাল")
 
-    overall_top = None
-    if probs:
-        allp = {k: v for k, v in probs.items() if isinstance(v, (int, float))}
-        overall_top = max(allp, key=allp.get) if allp else None
+    p = {k: (probs.get(k) if probs else None) for k in (A, B, N)}
+    notes = {}
+    if probs and all(isinstance(p[k], (int, float)) for k in (A, B, N)):
+        ranked = sorted((A, B, N), key=lambda k: -p[k])
+        top = ranked[0]
+        if top == N:
+            hi, lo = (A, B) if p[A] >= p[B] else (B, A)
+            order = [N, hi, lo]
+            tie_dir = abs(p[A] - p[B]) < TIE_PP
+            titles = [f"{neutral_word} (সবচেয়ে সম্ভাব্য)",
+                      "সারপ্রাইজ: দুই দিক প্রায় সমান — দিক ১" if tie_dir else "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে)",
+                      "সারপ্রাইজ: দিক ২" if tie_dir else "উল্টো দিক"]
+            roles = ["most_likely", "likelier_direction", "opposite_direction"]
+        else:
+            opp = B if top == A else A
+            order = [top, opp, N]
+            titles = ["সবচেয়ে সম্ভাব্য রেজাল্ট এলে", "উল্টো দিকে গেলে", neutral_word]
+            roles = ["most_likely", "opposite", "neutral"]
+        if p[ranked[0]] - p[ranked[1]] < TIE_PP:
+            notes[order[0]] = f"প্রথম দুটি ফলাফলের সম্ভাবনা প্রায় সমান ({_pct_bn(p[ranked[0]])} বনাম {_pct_bn(p[ranked[1]])})।"
+        prob_note = None
+        approx = False
+    elif lean in (A, B):
+        opp = B if lean == A else A
+        order = [lean, opp, N]
+        titles = ["সম্ভাব্য দিক — ঝোঁক অনুযায়ী (% নেই)", "উল্টো দিকে গেলে", neutral_word]
+        roles = ["most_likely", "opposite", "neutral"]
+        prob_note = "বাজারের সরাসরি সম্ভাবনা নেই"
+        approx = True
+        notes[lean] = "বাজারের % নেই — Forecast/নাউকাস্টের ঝোঁক অনুযায়ী সাজানো; নিশ্চয়তা কম।"
+    elif lean == N:
+        hi = dir_hint if dir_hint in (A, B) else A
+        lo = B if hi == A else A
+        order = [N, hi, lo]
+        titles = [f"{neutral_word} — বেশি সম্ভাব্য (আনুমানিক)",
+                  "বেশি সম্ভাব্য দিক (আনুমানিক)" if dir_hint in (A, B) else "সারপ্রাইজ: দিক ১",
+                  "উল্টো দিক" if dir_hint in (A, B) else "সারপ্রাইজ: দিক ২"]
+        roles = ["most_likely", "likelier_direction", "opposite_direction"]
+        prob_note = "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই"
+        approx = True
+        notes[N] = ("সরাসরি বাজার নেই — রেট-মার্কেটের প্রসঙ্গ থেকে আনুমানিক ক্রম; % দেওয়া হচ্ছে না।" if kind == "tone"
+                    else "বাজারের % নেই — নাউকাস্ট প্রত্যাশার কাছাকাছি; আনুমানিক ক্রম।")
+    else:
+        # nothing to rank by: show both directions neutrally, never call one "most likely"
+        first = A
+        order = [first, B, N]
+        titles = ["দিক ১ — " + ("ডলার-শক্তিশালী ফলাফল হলে" if usd[first] == "up" else "ডলার-দুর্বল ফলাফল হলে"),
+                  "দিক ২ — " + ("ডলার-শক্তিশালী ফলাফল হলে" if usd[B] == "up" else "ডলার-দুর্বল ফলাফল হলে"),
+                  neutral_word]
+        roles = ["direction_1", "direction_2", "neutral"]
+        prob_note = "সম্ভাবনা-ডেটা নেই"
+        approx = False
+        notes[first] = "সম্ভাবনা-ডেটা নেই — কোনো দিককে 'সবচেয়ে সম্ভাব্য' বলা হচ্ছে না; ক্রমটি শুধু সাজানোর জন্য।"
 
     out = []
-    titles = ["সবচেয়ে সম্ভাব্য রেজাল্ট এলে", "উল্টো দিকে গেলে", "নিউট্রাল — প্রত্যাশার কাছাকাছি"]
-    for i, (side, condition, usd, p) in enumerate(items + [neutral]):
-        note = None
-        if i == 0 and probs and overall_top and overall_top != side:
-            note = "দুই দিকের সারপ্রাইজের মধ্যে এই দিকটা বেশি সম্ভাব্য; সামগ্রিকভাবে নিউট্রাল ফলাফলই সবচেয়ে সম্ভাব্য।"
-        if i == 0 and not probs:
-            note = "বাজারের সম্ভাবনা-ডেটা নেই — " + ("Forecast/নাউকাস্টের ঝোঁক অনুযায়ী সাজানো" if lean else "দিক অনিশ্চিত, প্রচলিত ক্রম অনুযায়ী দেখানো হয়েছে") + "।"
-        why = WHY[th][usd] if usd in ("up", "down") else (
+    for i, side in enumerate(order):
+        u = usd[side]
+        why = WHY[th][u] if u in ("up", "down") else (
             "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।")
         out.append({
             "key": side,
+            "rank": i + 1,
+            "role": roles[i],
             "title": titles[i],
-            "condition": condition,
-            "usd_bias": usd,
-            "prob": p,
-            "is_overall_top": bool(probs and overall_top == side),
-            "note": note,
+            "condition": cond[side],
+            "usd_bias": u,
+            "prob": p[side],
+            "prob_note": None if p[side] is not None else prob_note,
+            "approx": approx and i == 0,
+            "is_overall_top": bool(i == 0 and roles[0] == "most_likely"),
+            "note": notes.get(side),
             "why": why,
-            "markets": _markets(usd, range_key, show_range),
+            "markets": _markets(u, range_key, show_range),
             "watch": WATCH.get(th, WATCH["other"]),
         })
     return out

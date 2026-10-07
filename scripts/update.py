@@ -1053,7 +1053,28 @@ def brief_for_group(group, probs):
     }
 
 
-def build_briefs(cal, prob):
+def align_brief(b, a):
+    """Make a Dashboard brief say exactly what the analysis verdict / scenario 1 says."""
+    v, sc = a.get("verdict") or {}, a.get("scenarios") or []
+    b["likely"]["text"] = v.get("summary") or b["likely"]["text"]
+    b["confidence_bn"] = v.get("confidence") or b.get("confidence_bn")
+    b["reasons"] = list(v.get("basis") or [])
+    if v.get("context"):
+        b["reasons"].append(v["context"]["text"])
+    if v.get("top") and sc:
+        s0 = sc[0]
+        b["likely"]["usd_bias"] = s0["usd_bias"]
+        b["likely"]["impact"] = {k: s0["markets"][k]["text"] for k in ("gold", "btc", "crypto", "forex")}
+        b["alternative"] = {"text": f"{sc[1]['title']}: {sc[1]['condition']}", "usd_bias": sc[1]["usd_bias"],
+                            "prob": sc[1]["prob"],
+                            "impact": {k: sc[1]["markets"][k]["text"] for k in ("gold", "btc", "crypto", "forex")}}
+    else:
+        b["likely"]["usd_bias"] = None
+    b["verdict_top"] = v.get("top")
+    return b
+
+
+def build_briefs(cal, prob, analysis=None):
     probs = prob.get("by_event", {})
     end = NOW + timedelta(hours=BRIEF_WINDOW_H)
     upcoming = [e for e in cal.get("events", [])
@@ -1063,6 +1084,8 @@ def build_briefs(cal, prob):
     for e in upcoming:
         groups.setdefault(e["time_utc"], []).append(e)
     briefs = [brief_for_group(g, probs) for _, g in sorted(groups.items())]
+    an = (analysis or {}).get("events", {})
+    briefs = [align_brief(b, an[b["id"]]) if b["id"] in an else b for b in briefs]
     today = NOW.astimezone(DHAKA).date()
     today_major = [e for e in cal.get("events", [])
                    if e["currency"] == "USD" and e["impact"] in ("High", "Medium")
@@ -1221,7 +1244,53 @@ def avg_dists(dists):
     return {k: round(sum(d[k] for d in dists) / len(dists), 1) for k in keys}
 
 
-def market_source(name, src, vf, fv, generated_at):
+def normalize_probs(d):
+    """Scale to exactly 100.0 (1 decimal); rounding remainder goes to the largest bucket."""
+    tot = sum(v for v in d.values() if v is not None)
+    if tot <= 0:
+        return None
+    out = {k: round(v / tot * 100, 1) for k, v in d.items()}
+    big = max(out, key=out.get)
+    out[big] = round(out[big] + (100.0 - sum(out.values())), 1)
+    return out
+
+
+def verdict_summary(v):
+    """One Bangla line used by the Dashboard and briefs — always consistent with the scenario order."""
+    top, sec, L = v.get("top"), v.get("second"), v.get("labels") or {}
+    if not top:
+        return "বাজারের সম্ভাবনা-ডেটা নেই — দুই দিকেই মুভ হতে পারে; রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন"
+    neutral = top["key"] in ("inline", "neutral")
+    if top.get("pct") is not None:
+        if neutral:
+            return (f"{L[top['key']]} সবচেয়ে সম্ভাব্য — {bn(top['pct'])}%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: "
+                    f"{sec['label']} {bn(sec['pct'])}%, উল্টো দিক {bn(v['third']['pct'])}%")
+        return (f"সবচেয়ে সম্ভাব্য: {top['label']} — {bn(top['pct'])}%; দ্বিতীয়: {sec['label']} {bn(sec['pct'])}%")
+    if v.get("kind") == "tone":
+        return (f"আনুমানিক ঝোঁক: {top['label']}" + (f"; সারপ্রাইজ হলে {sec['label']}-এর ঝুঁকি বেশি" if sec else "")
+                + " (টোনের সরাসরি বাজার নেই, % দেওয়া হচ্ছে না)")
+    return f"ঝোঁক: {top['label']} (বাজারের % নেই — নিশ্চয়তা কম)"
+
+
+def assert_consistent(verdict, sc):
+    """Guard: scenario 1 must be the verdict's top outcome and %s must match; raise loudly in tests/CI."""
+    top = verdict.get("top")
+    if top:
+        if sc[0]["key"] != top["key"]:
+            raise AssertionError(f"scenario order {[x['key'] for x in sc]} vs verdict top {top['key']}")
+        probs = verdict.get("probs") or {}
+        for x in sc:
+            if probs and x["prob"] != probs.get(x["key"]):
+                raise AssertionError(f"scenario {x['key']} prob {x['prob']} != verdict {probs.get(x['key'])}")
+        if probs:
+            ps = [x["prob"] for x in sc]
+            if ps[0] < max(ps) or (sc[0]["key"] in ("inline", "neutral") and ps[1] < ps[2]):
+                raise AssertionError(f"scenarios not ordered by probability: {ps}")
+    elif any(x["is_overall_top"] for x in sc):
+        raise AssertionError("a scenario is called most likely without any basis")
+
+
+def market_source(name, src, vf, fv, generated_at, context_only=False):
     ml = max(src["outcomes"], key=lambda o: o["prob"]) if src and src.get("outcomes") else None
     return {
         "name": name, "kind": "market", "ok": True, "url": src.get("url"), "title": src.get("title"),
@@ -1230,6 +1299,7 @@ def market_source(name, src, vf, fv, generated_at):
         "outcomes": [o for o in src["outcomes"] if o.get("prob") is not None][:14],
         "kind_detail": src.get("kind"), "vs_forecast": vf, "fed_view": fv,
         "low_liquidity": bool(src.get("low_liquidity")),
+        "context_only": context_only,
     }
 
 
@@ -1262,7 +1332,8 @@ def build_analysis(cal, prob, specs_by, archive):
         for name, key in (("Polymarket", "polymarket"), ("Kalshi", "kalshi")):
             src = p.get(key)
             if src:
-                sources.append(market_source(name, src, vf.get(key), fv.get(key), prob.get("generated_at")))
+                sources.append(market_source(name, src, vf.get(key), fv.get(key), prob.get("generated_at"),
+                                             context_only=cat == "fed_talk"))
             else:
                 sources.append({"name": name, "kind": "market", "ok": False,
                                 "note": p.get(f"{key}_note") or "মিলে যায় এমন মার্কেট নেই"})
@@ -1292,46 +1363,68 @@ def build_analysis(cal, prob, specs_by, archive):
             nc["vs_ref"] = nc_side
             nc["vs_ref_text"] = side_text(f"{ref_bn} ({ref_raw})-এর", nc_side)
 
-        # ---- verdict
-        kind = "fed" if cat in FED_CATS else ("data" if ref_val is not None else "speech")
+        # ---- verdict (the scenario tabs, section ঘ and the Dashboard all read from this one object)
+        if cat == "fed_decision":
+            kind = "fed"
+        elif cat == "fed_talk":
+            kind = "tone"     # minutes / Fed speakers: the outcome is a tone, not a rate decision
+        else:
+            # a scheduled number (even before its Forecast is out) is still a data release
+            hist = history_for(e, archive, sp)
+            kind = "data" if (ref_val is not None or hist) and ex["theme"] != "speech" else "speech"
         thin = any(s.get("low_liquidity") for s in sources if s.get("ok"))
         markets_ok = [s for s in sources if s.get("kind") == "market" and s.get("ok")]
-        verdict = {"kind": kind, "probs": None, "top": None, "second": None, "basis": [], "confidence": "ডেটা নেই"}
-        lean = None
+        verdict = {"kind": kind, "probs": None, "top": None, "second": None, "basis": [], "confidence": "ডেটা নেই",
+                   "context": None, "labels": None}
+        lean, dir_hint = None, None
         if kind == "fed":
-            views = [s["fed_view"] for s in markets_ok if s.get("fed_view")]
-            v = avg_dists(views)
+            v = avg_dists([s["fed_view"] for s in markets_ok if s.get("fed_view")])
+            verdict["labels"] = {"hawk": "রেট হাইক (হকিশ)", "neutral": "নিউট্রাল — রেট হোল্ড", "dove": "রেট কাট (ডোভিশ)"}
             if v:
-                probs = {"hawk": v["hike"], "neutral": v["hold"], "dove": v["cut"]}
-                talk = cat == "fed_talk"
-                lab = ({"hawk": "হকিশ ঝোঁক", "neutral": "নিরপেক্ষ", "dove": "ডোভিশ ঝোঁক"} if talk else
-                       {"hawk": "রেট হাইক (হকিশ)", "neutral": "রেট হোল্ড", "dove": "রেট কাট (ডোভিশ)"})
-                verdict["probs"] = probs
-                verdict["labels"] = lab
-                verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('fed_view'))}-এর "
-                                        + ("পরবর্তী FOMC মিটিংয়ের দাম থেকে আনুমানিক — বক্তব্যের টোনের সরাসরি বাজার নেই" if talk
-                                           else "এই মিটিংয়ের সিদ্ধান্ত-মার্কেট"))
+                verdict["probs"] = normalize_probs({"hawk": v["hike"], "neutral": v["hold"], "dove": v["cut"]})
+                verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('fed_view'))} — এই মিটিংয়ের সিদ্ধান্ত-মার্কেট")
+        elif kind == "tone":
+            verdict["labels"] = {"hawk": "হকিশ টোন", "neutral": "নিউট্রাল — ভারসাম্যপূর্ণ টোন", "dove": "ডোভিশ টোন"}
+            v = avg_dists([s["fed_view"] for s in markets_ok if s.get("fed_view")])
+            if v:
+                ctx_p = normalize_probs({"hike": v["hike"], "hold": v["hold"], "cut": v["cut"]})
+                verdict["context"] = {
+                    **ctx_p,
+                    "text": (f"রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড {bn(ctx_p['hold'])}% · হাইক {bn(ctx_p['hike'])}% · "
+                             f"কাট {bn(ctx_p['cut'])}% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।"),
+                    "sources": [s["name"] for s in markets_ok if s.get("fed_view")],
+                }
+                dir_hint = "hawk" if ctx_p["hike"] >= ctx_p["cut"] else "dove"
+                lean = "neutral" if ctx_p["hold"] >= 60 else dir_hint
+                verdict["basis"].append("টোনের সরাসরি কোনো বাজার নেই — রেট-মার্কেট শুধু প্রেক্ষাপট")
+                verdict["basis"].append("হোল্ড প্রত্যাশা প্রবল হলে ভারসাম্যপূর্ণ টোনই স্বাভাবিক; সারপ্রাইজ হলে "
+                                        + ("হকিশ" if dir_hint == "hawk" else "ডোভিশ") + " দিকের ঝুঁকি বেশি দাম পাচ্ছে")
         elif kind == "data":
-            dists = [s["vs_forecast"] for s in markets_ok if s.get("vs_forecast")]
-            v = avg_dists(dists)
+            v = avg_dists([s["vs_forecast"] for s in markets_ok if s.get("vs_forecast")])
             if v:
-                verdict["probs"] = v
+                verdict["probs"] = normalize_probs(v)
                 verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('vs_forecast'))} — {ref_bn} {ref_raw}-এর তুলনায়")
-            verdict["labels"] = {k: side_text(ref_of, k) for k in SIDE_BN}
+            verdict["labels"] = {"above": side_text(ref_of, "above"), "below": side_text(ref_of, "below"),
+                                 "inline": "নিউট্রাল — " + side_text(ref_of, "inline")}
             if nc_side:
                 verdict["basis"].append(f"{nc['source']}: {nc['value']}% → {nc['vs_ref_text']}")
                 if not v:
-                    lean = nc_side if nc_side != "inline" else None
+                    lean = nc_side
             if not v and not nc_side and ref_kind == "forecast" and parse_value(e.get("previous")) is not None:
                 pv = parse_value(e.get("previous"))
                 if ref_val != pv:
                     lean = "above" if ref_val > pv else "below"
                     verdict["basis"].append(f"Forecast আগের মানের চেয়ে {'বেশি' if ref_val > pv else 'কম'} — শুধু ট্রেন্ড-ঝোঁক")
+        else:
+            verdict["labels"] = {"hawk": "ডলার-সহায়ক মন্তব্য", "neutral": "নিউট্রাল — নতুন কিছু নয়", "dove": "ডলার-বিরোধী মন্তব্য"}
         probs = verdict["probs"]
+        L = verdict["labels"] or {}
         if probs:
             ranked = sorted(probs.items(), key=lambda kv: -kv[1])
-            verdict["top"] = {"key": ranked[0][0], "label": verdict["labels"][ranked[0][0]], "pct": ranked[0][1]}
-            verdict["second"] = {"key": ranked[1][0], "label": verdict["labels"][ranked[1][0]], "pct": ranked[1][1]}
+            verdict["top"] = {"key": ranked[0][0], "label": L[ranked[0][0]], "pct": ranked[0][1]}
+            verdict["second"] = {"key": ranked[1][0], "label": L[ranked[1][0]], "pct": ranked[1][1]}
+            verdict["third"] = {"key": ranked[2][0], "label": L[ranked[2][0]], "pct": ranked[2][1]}
+            verdict["total"] = round(sum(probs.values()), 1)
             n_src = len([1 for s in markets_ok if s.get("vs_forecast") or s.get("fed_view")])
             if thin or n_src == 1 or ranked[0][1] < 50:
                 verdict["confidence"] = "নিম্ন"
@@ -1343,12 +1436,13 @@ def build_analysis(cal, prob, specs_by, archive):
                 verdict["basis"].append("কিছু মার্কেটে লিকুইডিটি কম — সংখ্যা কম নির্ভরযোগ্য")
             if nc_side and kind == "data":
                 agree = nc_side == ranked[0][0]
-                verdict["basis"].append("নাউকাস্ট বাজারের সাথে " + ("একমত" if agree else "একমত নয় — সতর্ক থাকুন"))
+                verdict["basis"].append("নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে " + ("একমত" if agree else "একমত নয় — সতর্ক থাকুন"))
         elif lean:
-            verdict["top"] = {"key": lean, "label": verdict["labels"][lean], "pct": None}
-            verdict["confidence"] = "নিম্ন"
-        if kind == "fed" and not probs:
-            verdict["labels"] = {"hawk": "হকিশ", "neutral": "নিরপেক্ষ", "dove": "ডোভিশ"}
+            verdict["top"] = {"key": lean, "label": L[lean], "pct": None}
+            if lean in ("neutral", "inline") and dir_hint:
+                verdict["second"] = {"key": dir_hint, "label": L[dir_hint], "pct": None}
+            verdict["confidence"] = "নিম্ন" + (" — টোনের সরাসরি বাজার নেই" if kind == "tone" else " — বাজারের % নেই")
+        verdict["summary"] = verdict_summary(verdict)
 
         # ---- outcome (after release)
         result = None
@@ -1360,9 +1454,9 @@ def build_analysis(cal, prob, specs_by, archive):
 
         sc = scenarios.build_scenarios(
             theme=ex["theme"], impact=e["impact"], title=e["title"],
-            kind=("data" if kind == "data" else ("fed" if kind == "fed" else "speech")),
-            usd_dir=d, forecast=ref_raw, ref_label=ref_bn, probs=probs, lean=lean,
+            kind=kind, usd_dir=d, forecast=ref_raw, ref_label=ref_bn, probs=probs, lean=lean, dir_hint=dir_hint,
             has_numbers=kind == "data", is_decision=cat == "fed_decision")
+        assert_consistent(verdict, sc)
         if result:
             for x in sc:
                 x["happened"] = x["key"] == result["side"]
@@ -1439,16 +1533,16 @@ def main():
     log(f"calendar: {len(cal.get('events', []))} events · sources {cal.get('sources')}")
     prob = write_if_changed("probabilities.json", build_probabilities(cal))
     log(f"probabilities: {len(prob['by_event'])} USD events · {prob['sources']}")
-    # briefs are built from the probabilities that are on disk, so tiny price
-    # jitter (kept back by PROB_TOL) doesn't rewrite the Bangla text either
-    briefs = write_if_changed("briefs.json", build_briefs(cal, prob))
-    log(f"briefs: {len(briefs['briefs'])} (next 24h)")
     status = build_status(cal, prob)
     page_ok = status["ff_page_ok"]
     backfill = archive_weeks(dict(WEEK_ROWS))
     analysis_targets = [e for e in cal.get("events", []) if e["currency"] == "USD" and e["impact"] in ("High", "Medium")]
     specs_by = update_specs(analysis_targets, page_ok)
-    write_if_changed("analysis.json", build_analysis(cal, prob, specs_by, load_archive()))
+    analysis = write_if_changed("analysis.json", build_analysis(cal, prob, specs_by, load_archive()))
+    # briefs are built from the probabilities/analysis on disk, so tiny price jitter (kept back by
+    # PROB_TOL) doesn't rewrite the Bangla text, and they always match the analysis verdict
+    briefs = write_if_changed("briefs.json", build_briefs(cal, prob, analysis))
+    log(f"briefs: {len(briefs['briefs'])} (next 24h)")
     if os.environ.get("PROBE_ALL") == "1":   # manual check of every free source from this machine
         for name, fn in (("cleveland_fed", lambda: nowcasts.cleveland("cpi_mom", NOW + timedelta(days=10), http_get)),
                          ("gdpnow", lambda: nowcasts.gdpnow(http_get))):

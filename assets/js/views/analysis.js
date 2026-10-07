@@ -144,25 +144,48 @@ export function mount(el, route, ctx) {
       body = `<div class="nc"><b>${esc((s.headline || '').split(': ').pop())}</b><span>অর্থনীতিবিদদের গড় প্রত্যাশা</span></div>`;
     }
     const when = s.as_of || s.updated_at;
-    return `<div class="src"><div class="src-head"><b>${esc(s.name)}</b><span class="kind">${KIND_BN[s.kind] || ''}</span></div>
-      ${s.title ? `<p class="src-title">${esc(s.title)}</p>` : ''}${body}
+    return `<div class="src ${s.context_only ? 'ctx' : ''}"><div class="src-head"><b>${esc(s.name)}</b><span class="kind">${s.context_only ? 'শুধু প্রেক্ষাপট' : (KIND_BN[s.kind] || '')}</span></div>
+      ${s.title ? `<p class="src-title">${esc(s.title)}</p>` : ''}${s.context_only ? '<p class="src-note">পরবর্তী FOMC সিদ্ধান্তের দাম — এই ইভেন্টের (টোনের) ফলাফলের সম্ভাবনা নয়।</p>' : ''}${body}
       <div class="src-foot">${when ? `<span>${icon('clock')}${s.as_of ? `ডেটা: ${esc(s.as_of_label || s.as_of)}` : `আপডেট ${agoBn(when)}`}</span>` : ''}
         ${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">উৎস ${icon('ext')}</a>` : ''}</div></div>`;
   }
+  const RANK_ROLE = { 0: 'সবচেয়ে সম্ভাব্য', 1: 'দ্বিতীয়', 2: 'তৃতীয়' };
   function sProb(a) {
     const v = a.verdict || {};
     const conf = v.confidence || 'ডেটা নেই';
     const confCls = conf.startsWith('নিম্ন') ? 'low' : conf.startsWith('মাঝারি–') ? 'high' : conf.startsWith('মাঝারি') ? 'mid' : 'none';
-    const verdict = v.top ? `
+    const sc = a.scenarios || [];
+    const neutralTop = v.top && (v.top.key === 'inline' || v.top.key === 'neutral');
+    // ranked rows come straight from the scenario order, so section ঘ and the tabs can never disagree
+    const rows = v.probs ? sc.map((s, i) => {
+      const role = i === 0 ? 'সবচেয়ে সম্ভাব্য' : neutralTop ? (i === 1 ? 'বেশি সম্ভাব্য দিক' : 'উল্টো দিক') : (s.key === 'inline' || s.key === 'neutral' ? 'নিউট্রাল' : 'উল্টো দিক');
+      return `<div class="vr ${i === 0 ? 'top' : ''}"><span class="vr-role">${role}</span><span class="vr-label">${esc(v.labels?.[s.key] || s.key)}</span>
+        <span class="vr-track"><span class="vr-fill" style="--w:${s.prob}%"></span></span><b class="vr-pct">${pctTxt(s.prob)}</b></div>`;
+    }).join('') : '';
+    const ctxBox = v.context ? `<div class="v-context">${icon('info')}<div><b>রেট-মার্কেট — শুধু প্রেক্ষাপট</b><p>${esc(v.context.text)}</p></div></div>` : '';
+    let verdict;
+    if (v.top && v.probs) {
+      verdict = `
       <div class="verdict">
-        <div class="v-main"><small>সবচেয়ে সম্ভাব্য</small><b>${esc(v.top.label)}</b>${v.top.pct != null ? `<span class="v-pct">${pctTxt(v.top.pct)}</span>` : '<span class="v-pct na">% নেই</span>'}</div>
-        ${v.second ? `<div class="v-second"><small>দ্বিতীয় সম্ভাব্য</small><b>${esc(v.second.label)}</b><span>${pctTxt(v.second.pct)}</span></div>` : ''}
-        ${v.probs ? `<div class="v-split">${Object.entries(v.probs).map(([k, p]) => `<span class="${k === v.top.key ? 'on' : ''}" style="--w:${p}%" title="${esc(v.labels?.[k] || k)}: ${pctTxt(p)}"></span>`).join('')}</div>` : ''}
+        <div class="v-main"><small>সম্মিলিত রায়</small><b>${esc(v.top.label)}${neutralTop ? ' — সবচেয়ে সম্ভাব্য' : ''}</b><span class="v-pct">${pctTxt(v.top.pct)}</span></div>
+        <div class="v-rows">${rows}</div>
+        <p class="v-total">${icon('info')}তিনটি ফলাফল মিলে ${pctTxt(v.total ?? 100)} — একই সংখ্যা নিচের তিন সিনারিও ট্যাবেও।</p>
         <div class="v-foot"><span class="conf ${confCls}">আস্থা: ${esc(conf)}</span>${(v.basis || []).map((b) => `<span class="basis">${esc(b)}</span>`).join('')}</div>
-      </div>` : `
+      </div>`;
+    } else if (v.top) {
+      verdict = `
+      <div class="verdict approx">
+        <div class="v-main"><small>${v.kind === 'tone' ? 'আনুমানিক টোন-ঝোঁক' : 'আনুমানিক ঝোঁক'}</small><b>${esc(v.top.label)}</b><span class="v-pct na">% নেই</span></div>
+        ${v.second ? `<div class="v-second"><small>সারপ্রাইজ হলে বেশি ঝুঁকি</small><b>${esc(v.second.label)}</b></div>` : ''}
+        ${ctxBox}
+        <div class="v-foot"><span class="conf ${confCls}">আস্থা: ${esc(conf)}</span>${(v.basis || []).map((b) => `<span class="basis">${esc(b)}</span>`).join('')}</div>
+      </div>`;
+    } else {
+      verdict = `
       <div class="verdict none"><div class="v-main"><small>সম্মিলিত রায়</small><b>ডেটা নেই</b></div>
-        <p class="muted">এই নিউজের জন্য নির্ভরযোগ্য বাজার-সম্ভাবনা বা নাউকাস্ট পাওয়া যায়নি — অনুমান করে সংখ্যা দেখানো হচ্ছে না। নিচের সিনারিওগুলো প্রচলিত ক্রমে সাজানো।</p>
+        <p class="muted">এই নিউজের জন্য নির্ভরযোগ্য বাজার-সম্ভাবনা বা নাউকাস্ট পাওয়া যায়নি — অনুমান করে সংখ্যা দেখানো হচ্ছে না, কোনো দিককে "সবচেয়ে সম্ভাব্য" বলা হচ্ছে না।</p>
         ${(v.basis || []).length ? `<div class="v-foot">${v.basis.map((b) => `<span class="basis">${esc(b)}</span>`).join('')}</div>` : ''}</div>`;
+    }
     return `<section class="an-sec glass" id="sec-prob">${secHead('ঘ', 'সম্ভাবনা', 'প্রতিটি সূত্রের সংখ্যা, সময় ও লিংক — তারপর সম্মিলিত রায়', 'gauge')}
       ${verdict}
       <div class="src-grid">${(a.sources || []).map(sourceCard).join('')}</div>
@@ -179,7 +202,7 @@ export function mount(el, route, ctx) {
     return `
       <div class="sc-top">
         <p class="sc-cond">${esc(s.condition)}</p>
-        <div class="sc-badges"><span class="bias ${cls}">USD ${arrow}</span>${s.prob != null ? `<span class="badge">সম্ভাবনা ${pctTxt(s.prob)}</span>` : '<span class="badge muted">সম্ভাবনা: ডেটা নেই</span>'}${s.is_overall_top ? '<span class="badge hl">সবচেয়ে সম্ভাব্য</span>' : ''}${s.happened ? '<span class="badge done">যা ঘটেছে</span>' : ''}</div>
+        <div class="sc-badges"><span class="bias ${cls}">USD ${arrow}</span>${s.prob != null ? `<span class="badge">সম্ভাবনা ${pctTxt(s.prob)}</span>` : `<span class="badge muted">সম্ভাবনা: ${esc(s.prob_note || 'ডেটা নেই')}</span>`}${s.is_overall_top ? `<span class="badge hl">সবচেয়ে সম্ভাব্য${s.approx ? ' (আনুমানিক)' : ''}</span>` : ''}${s.happened ? '<span class="badge done">যা ঘটেছে</span>' : ''}</div>
       </div>
       ${s.note ? `<p class="sc-note">${icon('info')}${esc(s.note)}</p>` : ''}
       <div class="sc-why"><b>কেন</b><p>${esc(s.why)}</p></div>
@@ -192,7 +215,7 @@ export function mount(el, route, ctx) {
     scenarioIdx = Math.min(scenarioIdx, sc.length - 1);
     return `<section class="an-sec glass" id="sec-scen">${secHead('ঙ', 'তিনটা সিনারিও', 'প্রতিটি মার্কেটে সম্ভাব্য প্রতিক্রিয়া — নিয়মভিত্তিক, ঐতিহাসিক প্রবণতা থেকে', 'branch')}
       <div class="sc-tabs" role="tablist">${sc.map((s, i) => `<button role="tab" id="sct-${i}" aria-controls="scp" aria-selected="${i === scenarioIdx}" data-sc="${i}" class="${i === scenarioIdx ? 'on' : ''}">
-        <span class="sc-n">${bn(i + 1)}</span><span class="sc-t">${esc(s.title)}</span><span class="sc-p">${s.prob != null ? pctTxt(s.prob) : ''}</span></button>`).join('')}<span class="sc-ink" aria-hidden="true"></span></div>
+        <span class="sc-n">${bn(i + 1)}</span><span class="sc-t">${esc(s.title)}</span><span class="sc-p">${s.prob != null ? pctTxt(s.prob) : (i === 0 && s.approx ? 'আনুমানিক' : '')}</span></button>`).join('')}<span class="sc-ink" aria-hidden="true"></span></div>
       <div class="sc-panel" id="scp" role="tabpanel" aria-labelledby="sct-${scenarioIdx}">${scenarioPanel(sc[scenarioIdx])}</div>
       <p class="disclaimer">${icon('alert')}${esc(a.disclaimer || '')}</p>
     </section>`;
@@ -262,7 +285,7 @@ export function mount(el, route, ctx) {
         ${a.plain ? '' : `<p class="gen muted small">বিশ্লেষণ তৈরি: ${core.analysis?.generated_at ? stampDhaka(new Date(core.analysis.generated_at)) : '—'}</p>`}
       </div></div>`;
     el.querySelectorAll('.pick.on').forEach((p) => p.scrollIntoView({ block: 'nearest', inline: 'center' }));
-    requestAnimationFrame(() => el.querySelectorAll('.bar-fill, .tri-track span, .v-split span').forEach((b) => b.classList.add('go')));
+    requestAnimationFrame(() => el.querySelectorAll('.bar-fill, .tri-track span, .vr-fill').forEach((b) => b.classList.add('go')));
     moveInk();
     tick();
   }

@@ -15,7 +15,7 @@ const abwCls = (abw) => (abw === 1 ? 'beat' : abw === 2 ? 'miss' : '');
 function verdictChip(a) {
   const v = a?.verdict;
   if (!v?.top) return '<span class="vchip none">সম্ভাবনা-ডেটা নেই</span>';
-  const pct = v.top.pct != null ? ` · ${bn(Math.round(v.top.pct))}%` : '';
+  const pct = v.top.pct != null ? ` · ${bn(v.top.pct)}%` : ' · আনুমানিক';
   return `<span class="vchip">${icon('gauge')}${esc(v.top.label)}${pct}</span>`;
 }
 

@@ -218,13 +218,39 @@ class ExplainScen(unittest.TestCase):
         self.assertIsNone(sc2[0]["prob"])
         self.assertIn("নেই", sc2[0]["note"])
 
-    def test_scenarios_fed(self):
+    def test_scenarios_fed_neutral_top_comes_first(self):
         sc = scenarios.build_scenarios(theme="fed", impact="High", title="Federal Funds Rate", kind="fed", usd_dir=1,
                                        forecast=None, ref_label="", probs={"hawk": 10, "neutral": 85, "dove": 5},
                                        lean=None, has_numbers=False, is_decision=True)
-        self.assertEqual([s["key"] for s in sc], ["hawk", "dove", "neutral"])
-        self.assertTrue(sc[2]["is_overall_top"])
-        self.assertTrue(sc[0]["note"])
+        self.assertEqual([s["key"] for s in sc], ["neutral", "hawk", "dove"])
+        self.assertTrue(sc[0]["is_overall_top"])
+        self.assertIn("সবচেয়ে সম্ভাব্য", sc[0]["title"])
+        self.assertEqual(sc[1]["title"], "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে)")
+        self.assertEqual(sc[2]["title"], "উল্টো দিক")
+        self.assertFalse(any(s["is_overall_top"] for s in sc[1:]))
+
+    def test_scenarios_data_inline_top_orders_directions(self):
+        # the old bug: 'most likely' tab showed a 30% side while in-line was 36%
+        sc = scenarios.build_scenarios(theme="jobs", impact="High", title="Unemployment Claims", kind="data", usd_dir=-1,
+                                       forecast="200K", ref_label="Forecast", probs={"above": 30, "inline": 36, "below": 34},
+                                       lean=None, has_numbers=True)
+        self.assertEqual([s["key"] for s in sc], ["inline", "below", "above"])
+        self.assertEqual([s["prob"] for s in sc], [36, 34, 30])
+        self.assertEqual(sc[1]["usd_bias"], "up")      # fewer claims = USD up
+
+    def test_scenarios_never_claim_most_likely_without_data(self):
+        sc = scenarios.build_scenarios(theme="speech", impact="Medium", title="President Trump Speaks", kind="speech",
+                                       usd_dir=0, forecast=None, ref_label="", probs=None, lean=None, has_numbers=False)
+        self.assertFalse(any(s["is_overall_top"] for s in sc))
+        self.assertFalse(any("সবচেয়ে সম্ভাব্য" in s["title"] for s in sc))
+        self.assertTrue(all(s["prob"] is None and s["prob_note"] for s in sc))
+
+    def test_tie_is_flagged(self):
+        sc = scenarios.build_scenarios(theme="inflation", impact="High", title="CPI m/m", kind="data", usd_dir=1,
+                                       forecast="0.3%", ref_label="Forecast", probs={"above": 40, "inline": 40.2, "below": 19.8},
+                                       lean=None, has_numbers=True)
+        self.assertEqual(sc[0]["key"], "inline")
+        self.assertIn("প্রায় সমান", sc[0]["note"])
 
 
 class Analysis(TempData):
@@ -260,8 +286,10 @@ class Analysis(TempData):
         v = a["verdict"]
         self.assertEqual(v["top"]["key"], "above")      # 0.46 → 0.5 > 0.3
         self.assertIsNone(v["top"]["pct"])
-        self.assertEqual(v["confidence"], "নিম্ন")
+        self.assertTrue(v["confidence"].startswith("নিম্ন"))
         self.assertIsNone(v["probs"])
+        self.assertEqual(a["scenarios"][0]["key"], "above")
+        self.assertTrue(a["scenarios"][0]["approx"])
 
     def test_nothing_means_no_numbers(self):
         a = self.run_an(self.cal(title="President Trump Speaks", forecast=""), {})
@@ -269,6 +297,95 @@ class Analysis(TempData):
         self.assertEqual(a["verdict"]["confidence"], "ডেটা নেই")
         self.assertTrue(all(s["prob"] is None for s in a["scenarios"]))
         self.assertTrue(any(not s["ok"] for s in a["sources"]))
+
+
+class Consistency(TempData):
+    def fed_cal(self, title):
+        t = (u.NOW + timedelta(hours=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        return {"generated_at": u.iso_utc(u.NOW), "events": [{"id": "e1", "title": title, "currency": "USD", "impact": "High",
+                "time_utc": t, "time_special": None, "actual": "", "forecast": "", "previous": "", "revision": "", "abw": 0}]}
+
+    def fed_pe(self):
+        m = {"source": "Kalshi", "url": "https://k", "title": "Fed", "outcomes": [{"label": "Hike 25bps", "prob": 17.3}]}
+        return {"kalshi": m, "polymarket": dict(m, source="Polymarket"),
+                "fed_view": {"kalshi": {"hike": 16.9, "hold": 82.1, "cut": 1.0}, "polymarket": {"hike": 17.7, "hold": 81.7, "cut": 0.6}}}
+
+    def build(self, title, pe):
+        prob = {"generated_at": u.iso_utc(u.NOW), "by_event": {"e1": pe}}
+        with mock.patch.object(nowcasts, "cleveland", return_value=(None, "x")):
+            return u.build_analysis(self.fed_cal(title), prob, {}, [])["events"]["e1"]
+
+    def test_minutes_are_tone_not_rate_odds(self):
+        a = self.build("FOMC Meeting Minutes", self.fed_pe())
+        v = a["verdict"]
+        self.assertEqual(v["kind"], "tone")
+        self.assertIsNone(v["probs"])                       # no fake event-outcome %
+        self.assertEqual(v["top"]["key"], "neutral")
+        self.assertIsNone(v["top"]["pct"])
+        self.assertEqual(v["second"]["key"], "hawk")
+        self.assertTrue(v["confidence"].startswith("নিম্ন"))
+        self.assertIn("প্রেক্ষাপট", v["context"]["text"])
+        self.assertAlmostEqual(v["context"]["hike"] + v["context"]["hold"] + v["context"]["cut"], 100.0, places=6)
+        self.assertEqual([s["key"] for s in a["scenarios"]], ["neutral", "hawk", "dove"])
+        self.assertTrue(all(s["prob"] is None for s in a["scenarios"]))
+        self.assertIn("টোন", a["scenarios"][1]["condition"])
+        self.assertTrue(all(s["context_only"] for s in a["sources"] if s["kind"] == "market" and s["ok"]))
+        self.assertIn("% দেওয়া হচ্ছে না", v["summary"])
+
+    def test_rate_decision_uses_odds_and_neutral_first(self):
+        a = self.build("Federal Funds Rate", self.fed_pe())
+        v = a["verdict"]
+        self.assertEqual(v["kind"], "fed")
+        self.assertEqual(v["top"]["key"], "neutral")
+        self.assertEqual(v["total"], 100.0)
+        self.assertEqual([s["key"] for s in a["scenarios"]], ["neutral", "hawk", "dove"])
+        self.assertEqual(a["scenarios"][0]["prob"], v["top"]["pct"])
+        self.assertTrue(v["summary"].startswith("নিউট্রাল — রেট হোল্ড সবচেয়ে সম্ভাব্য"))
+
+    def test_normalize_and_brief_alignment(self):
+        n = u.normalize_probs({"a": 33.33, "b": 33.33, "c": 33.33})
+        self.assertEqual(round(sum(n.values()), 6), 100.0)
+        a = self.build("Federal Funds Rate", self.fed_pe())
+        b = {"id": "e1", "likely": {"text": "old", "usd_bias": True, "impact": {}}, "confidence_bn": "x", "reasons": []}
+        b = u.align_brief(b, a)
+        self.assertEqual(b["likely"]["text"], a["verdict"]["summary"])
+        self.assertEqual(b["likely"]["usd_bias"], "flat")
+        self.assertEqual(b["confidence_bn"], a["verdict"]["confidence"])
+
+    def test_guard_rejects_contradiction(self):
+        v = {"top": {"key": "neutral", "pct": 81.9}, "probs": {"hawk": 17.3, "neutral": 81.9, "dove": 0.8}}
+        bad = [{"key": "hawk", "prob": 17.3, "is_overall_top": True}, {"key": "dove", "prob": 0.8}, {"key": "neutral", "prob": 81.9}]
+        with self.assertRaises(AssertionError):
+            u.assert_consistent(v, bad)
+
+
+class GeneratedData(unittest.TestCase):
+    """Every event in the committed data/analysis.json must be internally consistent."""
+    def test_all_generated_events(self):
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "analysis.json")
+        if not os.path.exists(path):
+            self.skipTest("no generated analysis.json")
+        an = json.load(open(path, encoding="utf-8"))
+        briefs_p = os.path.join(os.path.dirname(path), "briefs.json")
+        briefs = {b["id"]: b for b in json.load(open(briefs_p, encoding="utf-8")).get("briefs", [])} if os.path.exists(briefs_p) else {}
+        for eid in an["order"]:
+            a = an["events"][eid]
+            v, sc = a["verdict"], a["scenarios"]
+            with self.subTest(title=a["title"]):
+                u.assert_consistent(v, sc)
+                if v.get("probs"):
+                    self.assertAlmostEqual(sum(v["probs"].values()), 100.0, delta=0.15)
+                    self.assertEqual(max(v["probs"], key=v["probs"].get), sc[0]["key"])
+                if a["category"] == "fed_talk":
+                    self.assertIsNone(v.get("probs"))
+                tops = [s for s in sc if s["is_overall_top"]]
+                self.assertLessEqual(len(tops), 1)
+                if tops:
+                    self.assertIs(tops[0], sc[0])
+                if not v.get("top"):
+                    self.assertFalse(any("সবচেয়ে সম্ভাব্য" in s["title"] for s in sc))
+                if eid in briefs:
+                    self.assertEqual(briefs[eid]["likely"]["text"], v["summary"])
 
 
 if __name__ == "__main__":

@@ -201,12 +201,31 @@ with sync_playwright() as p:
         check(pg.locator(".verdict .v-pct").count() == 1, "verdict % missing")
         pg.locator("#sec-prob").scroll_into_view_if_needed(); settle(pg, 1200)
         pg.screenshot(path=f"{OUT}/desktop-analysis-probability.png")
+        tabs = pg.eval_on_selector_all(".sc-tabs .sc-p", "els => els.map(e => e.textContent)")
+        bnd = str.maketrans("০১২৩৪৫৬৭৮৯", "0123456789")
+        nums = [float(t.translate(bnd).rstrip('%')) for t in tabs if t.strip()]
+        check(len(nums) == 3 and nums[0] == max(nums), f"tab 1 must be the highest probability: {tabs}")
+        check(abs(sum(nums) - 100) < 0.3, f"tab %s don't add to ~100: {tabs}")
+        vp = float(pg.inner_text(".verdict .v-pct").translate(bnd).rstrip('%'))
+        check(vp == nums[0], f"verdict % {vp} != tab 1 {nums[0]}")
         pg.click("[data-sc='1']"); settle(pg, 500)
         check(pg.get_attribute("[data-sc='1']", "aria-selected") == "true", "scenario tab 2 not selected")
         pg.locator("#sec-scen").scroll_into_view_if_needed(); settle(pg, 400)
         pg.screenshot(path=f"{OUT}/desktop-analysis-scenarios.png")
         pg.go_back(); settle(pg, 1200)
         check(h(pg) != f"#/analysis/{best}", "back from picked event did nothing")
+    # every generated event: tab order/labels never contradict the numbers (checked in the rendered page)
+    for eid in an["order"]:
+        ev = an["events"][eid]
+        pg.goto(BASE + f"#/analysis/{eid}"); settle(pg, 700)
+        titles = pg.eval_on_selector_all(".sc-tabs .sc-t", "els => els.map(e => e.textContent)")
+        if not ev["verdict"].get("top"):
+            check(not any("সবচেয়ে সম্ভাব্য" in t for t in titles), f"{ev['title']}: 'most likely' shown without data: {titles}")
+        if ev["category"] == "fed_talk":
+            check(pg.locator(".verdict .v-rows").count() == 0, f"{ev['title']}: rate odds shown as event outcome")
+            check(pg.locator(".v-context").count() == 1, f"{ev['title']}: rate-market context box missing")
+        dash_top = ev["verdict"].get("top")
+        check(pg.locator(".sc-tabs button").count() == 3, f"{ev['title']}: expected 3 scenario tabs")
     # live countdown on analysis
     fut = next((i for i in an["order"] if datetime.fromisoformat(an["events"][i]["time_utc"].replace("Z", "+00:00")) > now + timedelta(minutes=2)), None)
     if fut:
