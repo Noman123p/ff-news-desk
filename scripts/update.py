@@ -47,6 +47,7 @@ FEDWATCH_URL = "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-too
 BRIEF_WINDOW_H = 24
 HEARTBEAT_H = 12      # rewrite unchanged files at least this often (proves the updater is alive)
 PROB_TOL = 1.5        # percentage points: smaller probability moves don't count as a change
+PROB_TOL_THIN = 5.0   # same, for markets flagged low_liquidity (their quotes jump around)
 NOW = datetime.now(UTC)
 LAST_ERR = {}         # url -> short error text of the last failed request
 FF_STATUS = {}        # week -> fetch status, filled by build_calendar()
@@ -188,16 +189,19 @@ VOLATILE_KEYS = {"generated_at", "checked_at", "volume_usd", "volume"}
 PROB_KEYS = {"prob", "prob_above", "above", "inline", "below", "hike", "hold", "cut"}
 
 
-def same_content(a, b, key=None):
-    """Deep-compare ignoring timestamps/volumes; probabilities equal within PROB_TOL points."""
+def same_content(a, b, key=None, tol=PROB_TOL):
+    """Deep-compare ignoring timestamps/volumes; probabilities equal within tol points
+    (PROB_TOL_THIN inside a market flagged low_liquidity)."""
     if isinstance(a, dict) and isinstance(b, dict):
         ka = set(a) - VOLATILE_KEYS
         kb = set(b) - VOLATILE_KEYS
-        return ka == kb and all(same_content(a[k], b[k], k) for k in ka)
+        if a.get("low_liquidity") and b.get("low_liquidity"):
+            tol = max(tol, PROB_TOL_THIN)
+        return ka == kb and all(same_content(a[k], b[k], k, tol) for k in ka)
     if isinstance(a, list) and isinstance(b, list):
-        return len(a) == len(b) and all(same_content(x, y, key) for x, y in zip(a, b))
+        return len(a) == len(b) and all(same_content(x, y, key, tol) for x, y in zip(a, b))
     if key in PROB_KEYS and isinstance(a, (int, float)) and isinstance(b, (int, float)):
-        return abs(a - b) < PROB_TOL
+        return abs(a - b) < tol
     return a == b
 
 
@@ -512,14 +516,19 @@ _kalshi_cache = {}
 
 def kalshi_price(m):
     """Best estimate of P(yes) and whether the quote is thin.
-    Mid of bid/ask when the spread is reasonable; else last trade (if it traded); else None."""
+    Tight book -> bid/ask mid. Wide book -> last trade (moves only on real trades, so thin
+    markets don't flap between runs). Never traded -> mid if the spread is tolerable, else None."""
     bid, ask, last = (fnum(m.get("yes_bid_dollars")), fnum(m.get("yes_ask_dollars")),
                       fnum(m.get("last_price_dollars")))
     traded = (fnum(m.get("volume_fp")) or 0) > 0 and last is not None and last > 0
-    if bid is not None and ask is not None and ask >= bid and (ask - bid) <= 0.20 and (bid > 0 or ask > 0):
-        return (bid + ask) / 2, (ask - bid) > 0.10
+    quoted = bid is not None and ask is not None and ask >= bid and (bid > 0 or ask > 0)
+    spread = (ask - bid) if quoted else None
+    if quoted and spread <= 0.10:
+        return (bid + ask) / 2, False
     if traded:
         return last, True
+    if quoted and spread <= 0.20:
+        return (bid + ask) / 2, True
     return None, True
 
 

@@ -64,6 +64,8 @@ class Values(unittest.TestCase):
         self.assertAlmostEqual(u.kalshi_price({"yes_bid_dollars": "0.40", "yes_ask_dollars": "0.44", "last_price_dollars": "0.1"})[0], 0.42)
         # untraded, very wide spread -> no number rather than a fake 0
         self.assertIsNone(u.kalshi_price({"yes_bid_dollars": "0.00", "yes_ask_dollars": "1.00", "last_price_dollars": "0.0000", "volume_fp": "0"})[0])
+        # wide book but traded -> last trade, flagged thin
+        self.assertEqual(u.kalshi_price({"yes_bid_dollars": "0.20", "yes_ask_dollars": "0.50", "last_price_dollars": "0.30", "volume_fp": "12"}), (0.30, True))
 
     def test_json_safe(self):
         self.assertEqual(u.json_safe({"a": [math.inf, -math.inf, 1.0]}), {"a": [None, None, 1.0]})
@@ -141,6 +143,10 @@ class ChangeDetection(unittest.TestCase):
         b["by_event"]["e"]["prob"] = 52.0
         self.assertFalse(u.same_content(a, b))
         self.assertFalse(u.same_content({"k": [1, 2]}, {"k": [1, 2, 3]}))
+        thin_a = {"low_liquidity": True, "outcomes": [{"prob": 10.0}]}
+        thin_b = {"low_liquidity": True, "outcomes": [{"prob": 14.0}]}
+        self.assertTrue(u.same_content(thin_a, thin_b))                 # within thin tolerance
+        self.assertFalse(u.same_content(thin_a, {"low_liquidity": True, "outcomes": [{"prob": 16.0}]}))
 
     def test_write_if_changed_and_heartbeat(self):
         with tempfile.TemporaryDirectory() as d, mock.patch.object(u, "DATA_DIR", d):
