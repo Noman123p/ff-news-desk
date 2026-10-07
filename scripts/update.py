@@ -1456,6 +1456,11 @@ def main():
                 r, why = fn()
                 SOURCE_HEALTH[name] = "ok" if r else why
                 log(f"probe {name}: {SOURCE_HEALTH[name]}" + (f" → {r.get('value')} {r.get('label')}" if r else ""))
+        probe_ev = next((e for e in analysis_targets if e.get("ff_id")), None)
+        if probe_ev and page_ok:
+            sp = fetch_specs(probe_ev)
+            SOURCE_HEALTH["ff_specs"] = "ok" if sp and sp.get("specs") else f"ব্যর্থ ({LAST_ERR.get(FF_DETAILS.format(id=probe_ev['ff_id']), 'no data')})"
+            log(f"probe ff_specs ({probe_ev['title']}): {SOURCE_HEALTH['ff_specs']}")
     status["archive"] = {"weeks": len(stored_weeks()), "first": (stored_weeks() or [None])[0],
                          "backfill_stopped": backfill.get("stopped")}
     status["nowcasts"] = dict(SOURCE_HEALTH) or None
