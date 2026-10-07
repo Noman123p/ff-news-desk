@@ -130,6 +130,7 @@ body.drawer-open .drawer-nav a:nth-child(3) { transition-delay: 0s, 0s, .1s, .1s
 .banner .muted { color: rgba(255,217,168,.6); }
 
 /* --- View transitions ---------------------------------------------------- */
+.view-host { min-height: calc(100vh - 64px); }   /* footer stays below the fold while a view mounts (no CLS) */
 .view { transition: opacity .32s var(--ease), transform .42s var(--ease), filter .32s; }
 .view.view-enter { opacity: 0; transform: translateY(10px); filter: blur(2px); }
 .view.view-leave { opacity: 0; transform: translateY(-6px); transition-duration: .16s; }
