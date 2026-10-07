@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>নিউজ ডেস্ক · USD ইকোনমিক ক্যালেন্ডার</title>
+  <meta name="description" content="ForexFactory ক্যালেন্ডার, Polymarket/Kalshi সম্ভাবনা ও বাংলা ব্রিফ — ঢাকা সময়ে।">
+  <meta name="theme-color" content="#07090f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Icon sprite (stroke icons, 24px grid) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-gold" viewBox="0 0 24 24"><path d="M4 18h16l-2.5-6h-11z"/><path d="M8 12l1.6-4h4.8L16 12"/></symbol>
+      <symbol id="i-btc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 8h4a2 2 0 010 4h-4M9.5 12h4.5a2 2 0 010 4H9.5M11 6v2M11 16v2M13 6v2M13 16v2"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+      <symbol id="i-fx" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="M4 16l6-6 4 4 6-6"/><path d="M15 8h5v5"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M4 8l6 6 4-4 6 6"/><path d="M15 16h5v-5"/></symbol>
+      <symbol id="i-flat" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M16 8l4 4-4 4"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 108-8H8"/><path d="M8 1v6h6" transform="translate(-2 0)"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="bg" aria-hidden="true"><span class="glow g1"></span><span class="glow g2"></span><span class="glow g3"></span></div>
+
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="./" aria-label="নিউজ ডেস্ক">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9"/><path d="M7 19h4l2.5-7 4 11 2.5-6H25"/></svg>
+        <span class="brand-text"><b>নিউজ ডেস্ক</b><small>USD ম্যাক্রো · সম্ভাবনা · বাংলা ব্রিফ</small></span>
+      </a>
+      <div class="top-meta">
+        <div class="clock" title="ঢাকা সময় (UTC+6)"><svg class="ic"><use href="#i-clock"/></svg><span id="dhakaClock">--:--</span><em>ঢাকা</em></div>
+        <div class="status" id="status"><span class="status-dot"></span><span id="statusText">লোড হচ্ছে…</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero reveal" id="hero" aria-live="polite">
+      <div class="hero-main">
+        <span class="eyebrow">পরবর্তী হাই-ইমপ্যাক্ট USD নিউজ</span>
+        <h1 id="nextTitle">—</h1>
+        <p class="hero-sub" id="nextTime"></p>
+      </div>
+      <div class="countdown" id="countdown" aria-label="কাউন্টডাউন">
+        <div><b data-cd="h">--</b><span>ঘণ্টা</span></div>
+        <div><b data-cd="m">--</b><span>মিনিট</span></div>
+        <div><b data-cd="s">--</b><span>সেকেন্ড</span></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b id="statToday">–</b><span>আজ USD লাল/কমলা</span></div>
+        <div class="stat"><b id="statWeek">–</b><span>এই সপ্তাহে লাল USD</span></div>
+        <div class="stat"><b id="statProb">–</b><span>সম্ভাবনা-ডেটাসহ নিউজ</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="briefHead">
+      <div class="section-head">
+        <h2 id="briefHead"><svg class="ic"><use href="#i-spark"/></svg>বাংলা ব্রিফ <span class="muted">· পরবর্তী ২৪ ঘণ্টা</span></h2>
+        <p class="hint">নিয়মভিত্তিক বিশ্লেষণ — Forecast, আগের ট্রেন্ড ও প্রেডিকশন মার্কেটের দাম থেকে। গ্যারান্টি নয়।</p>
+      </div>
+      <div class="briefs" id="briefs"><div class="skeleton card"></div><div class="skeleton card"></div></div>
+    </section>
+
+    <section class="section" aria-labelledby="calHead">
+      <div class="section-head">
+        <h2 id="calHead"><svg class="ic"><use href="#i-calendar"/></svg>ইকোনমিক ক্যালেন্ডার <span class="muted">· ঢাকা সময়</span></h2>
+        <p class="hint">লাল/কমলা USD নিউজে ক্লিক করলে Polymarket · Kalshi · CME FedWatch সম্ভাবনা দেখাবে।</p>
+      </div>
+
+      <div class="filters glass" id="filters">
+        <div class="f-group">
+          <span class="f-label">সময়</span>
+          <div class="seg" role="radiogroup" id="fRange">
+            <button role="radio" data-v="today">আজ</button>
+            <button role="radio" data-v="this">এই সপ্তাহ</button>
+            <button role="radio" data-v="next">আগামী সপ্তাহ</button>
+            <button role="radio" data-v="all">সব</button>
+            <span class="seg-pill" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="f-group">
+          <span class="f-label">ইমপ্যাক্ট</span>
+          <div class="chips" id="fImpact">
+            <button class="chip" data-v="High"><i class="dot dot-High"></i>উচ্চ</button>
+            <button class="chip" data-v="Medium"><i class="dot dot-Medium"></i>মাঝারি</button>
+            <button class="chip" data-v="Low"><i class="dot dot-Low"></i>নিম্ন</button>
+            <button class="chip" data-v="Holiday"><i class="dot dot-Holiday"></i>ছুটি</button>
+          </div>
+        </div>
+        <div class="f-group f-grow">
+          <span class="f-label">কারেন্সি</span>
+          <div class="chips" id="fCur"></div>
+        </div>
+        <div class="f-group f-tools">
+          <label class="search"><svg class="ic"><use href="#i-search"/></svg><input id="fSearch" type="search" placeholder="নিউজ খুঁজুন (CPI, FOMC…)" autocomplete="off"></label>
+          <button class="ghost" id="fReset" title="ডিফল্ট ফিল্টার"><svg class="ic"><use href="#i-reset"/></svg><span>রিসেট</span></button>
+        </div>
+      </div>
+
+      <div class="cal-meta"><span id="resultCount"></span><span class="legend"><i class="dot dot-High"></i>উচ্চ <i class="dot dot-Medium"></i>মাঝারি <i class="dot dot-Low"></i>নিম্ন <i class="dot dot-Holiday"></i>ছুটি</span></div>
+
+      <div class="table glass" role="table" aria-label="ইকোনমিক ক্যালেন্ডার">
+        <div class="thead" role="row">
+          <span role="columnheader">সময়</span><span role="columnheader">কারেন্সি</span><span role="columnheader" aria-label="ইমপ্যাক্ট"></span>
+          <span role="columnheader">নিউজ</span><span role="columnheader" class="num">Actual</span><span role="columnheader" class="num">Forecast</span><span role="columnheader" class="num">Previous</span><span role="columnheader"></span>
+        </div>
+        <div id="rows" class="tbody"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div>
+      <b>ডেটা সোর্স:</b> <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory</a> ·
+      <a href="https://polymarket.com" target="_blank" rel="noopener">Polymarket</a> ·
+      <a href="https://kalshi.com" target="_blank" rel="noopener">Kalshi</a> ·
+      <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">CME FedWatch</a>
+    </div>
+    <div id="sourceStatus" class="muted"></div>
+    <p class="muted small">শুধু তথ্য ও শিক্ষার জন্য — বিনিয়োগ পরামর্শ নয়। সম্ভাবনা বাজারের দাম থেকে নেওয়া; ভুল হতে পারে।</p>
+  </footer>
+
+  <noscript><p class="wrap">এই সাইট চালাতে JavaScript চালু করুন।</p></noscript>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
