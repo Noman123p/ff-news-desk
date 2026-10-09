@@ -1,77 +1,14 @@
 {
- "generated_at": "2026-10-09T06:03:51Z",
+ "generated_at": "2026-10-09T19:31:40Z",
  "window_hours": 24,
- "has_major_today": true,
- "has_briefs": true,
- "empty_message": null,
+ "has_major_today": false,
+ "has_briefs": false,
+ "empty_message": "আজ বড় কোনো USD নিউজ নেই",
  "next_high": {
   "id": "49d6ce4dc761",
   "title": "CPI m/m",
   "time_utc": "2026-10-14T12:30:00Z",
   "time_dhaka": "14 Oct, 06:30 PM"
  },
- "briefs": [
-  {
-   "id": "85feef5f60bd",
-   "time_utc": "2026-10-09T14:00:00Z",
-   "time_dhaka": "09 Oct, 08:00 PM",
-   "impact": "Medium",
-   "title": "Prelim UoM Consumer Sentiment",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "events": [
-    {
-     "id": "85feef5f60bd",
-     "title": "Prelim UoM Consumer Sentiment",
-     "impact": "Medium",
-     "forecast": "47.5",
-     "previous": "47.8",
-     "actual": ""
-    },
-    {
-     "id": "0b144b6ae64b",
-     "title": "Prelim UoM Inflation Expectations",
-     "impact": "Medium",
-     "forecast": "",
-     "previous": "4.6%",
-     "actual": ""
-    }
-   ],
-   "likely": {
-    "text": "ঝোঁক: Forecast-এর চেয়ে কম (বাজারের % নেই — নিশ্চয়তা কম)",
-    "usd_bias": "down",
-    "impact": {
-     "gold": "উপরে (আনুমানিক ০.২–০.৬%) — দুর্বল ডলার ও কম ইল্ডে গোল্ড সাধারণত সাপোর্ট পায়।",
-     "btc": "উপরে (আনুমানিক ০.৫–১.৫%) — রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত পাম্প হতে পারে।",
-     "crypto": "অল্টকয়েন BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ১–৩%) — হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY নিচে (আনুমানিক ০.১–০.৩%); EUR/USD উপরে (আনুমানিক ০.১–০.৪%)। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-    }
-   },
-   "alternative": {
-    "text": "উল্টো দিকে গেলে: Actual Forecast (47.5)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
-    "usd_bias": "up",
-    "prob": null,
-    "impact": {
-     "gold": "নিচে (আনুমানিক ০.২–০.৬%) — ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
-     "btc": "নিচে (আনুমানিক ০.৫–১.৫%) — টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
-     "crypto": "অল্টকয়েন BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ১–৩%) — হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY উপরে (আনুমানিক ০.১–০.৩%); EUR/USD নিচে (আনুমানিক ০.১–০.৪%)। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-    }
-   },
-   "reasons": [
-    "Forecast আগের মানের চেয়ে কম — শুধু ট্রেন্ড-ঝোঁক"
-   ],
-   "confidence_bn": "নিম্ন — বাজারের % নেই",
-   "typical_range": {
-    "gold": "0.1–0.4%",
-    "btc": "0.3–1%",
-    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
-   },
-   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
-   "verdict_top": {
-    "key": "below",
-    "label": "Forecast-এর চেয়ে কম",
-    "pct": null
-   }
-  }
- ]
+ "briefs": []
 }
