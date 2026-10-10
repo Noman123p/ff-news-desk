@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T19:31:40Z",
+ "generated_at": "2026-10-10T00:01:05Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -18,37 +18,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 31382401,
+    "volume_usd": 31471561,
     "outcomes": [
      {
       "label": "No change",
       "prob": 83.5,
       "interval": null,
-      "volume": 8370296
+      "volume": 8445414
      },
      {
       "label": "25 bps increase",
       "prob": 15.5,
       "interval": null,
-      "volume": 7144807
+      "volume": 7148993
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 5826348
+      "volume": 5832015
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 4255854
+      "volume": 4255861
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 5785096
+      "volume": 5789277
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -128,7 +128,7 @@
      "label": "No change",
      "prob": 83.5,
      "interval": null,
-     "volume": 8370296
+     "volume": 8445414
     },
     "kalshi": {
      "label": "Fed maintains rate",
@@ -233,11 +233,11 @@
     "title": "September Inflation US - Monthly",
     "url": "https://polymarket.com/event/september-inflation-us-monthly",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 56786,
+    "volume_usd": 57884,
     "outcomes": [
      {
       "label": "≤0.0%",
-      "prob": 0.5,
+      "prob": 0.6,
       "interval": [
        null,
        0.0
@@ -255,7 +255,7 @@
      },
      {
       "label": "0.2%",
-      "prob": 1.4,
+      "prob": 2.1,
       "interval": [
        0.2,
        0.2
@@ -264,7 +264,7 @@
      },
      {
       "label": "0.3%",
-      "prob": 2.8,
+      "prob": 1.8,
       "interval": [
        0.3,
        0.3
@@ -273,7 +273,7 @@
      },
      {
       "label": "0.4%",
-      "prob": 8.5,
+      "prob": 8.0,
       "interval": [
        0.4,
        0.4
@@ -282,7 +282,7 @@
      },
      {
       "label": "0.5%",
-      "prob": 37.0,
+      "prob": 37.5,
       "interval": [
        0.5,
        0.5
@@ -296,7 +296,7 @@
        0.6,
        0.6
       ],
-      "volume": 11731
+      "volume": 12818
      },
      {
       "label": "0.7%",
@@ -305,11 +305,11 @@
        0.7,
        0.7
       ],
-      "volume": 4810
+      "volume": 4821
      },
      {
       "label": "≥0.8%",
-      "prob": 1.6,
+      "prob": 1.4,
       "interval": [
        0.8,
        null
@@ -393,7 +393,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 0.5,
+      "prob": 0.0,
       "interval": [
        0.2,
        0.3
@@ -402,7 +402,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 9.5,
+      "prob": 8.0,
       "interval": [
        0.3,
        0.4
@@ -411,7 +411,7 @@
      },
      {
       "label": ">0.4% ও ≤0.5%",
-      "prob": 35.5,
+      "prob": 33.5,
       "interval": [
        0.4,
        0.5
@@ -420,7 +420,7 @@
      },
      {
       "label": ">0.5% ও ≤0.6%",
-      "prob": 35.5,
+      "prob": 40.5,
       "interval": [
        0.5,
        0.6
@@ -429,7 +429,7 @@
      },
      {
       "label": ">0.6% ও ≤0.7%",
-      "prob": 15.0,
+      "prob": 14.0,
       "interval": [
        0.6,
        0.7
@@ -502,22 +502,22 @@
      },
      {
       "strike": 0.3,
-      "prob_above": 97.0,
+      "prob_above": 97.5,
       "inclusive": false
      },
      {
       "strike": 0.4,
-      "prob_above": 87.5,
+      "prob_above": 89.5,
       "inclusive": false
      },
      {
       "strike": 0.5,
-      "prob_above": 52.0,
+      "prob_above": 56.0,
       "inclusive": false
      },
      {
       "strike": 0.6,
-      "prob_above": 16.5,
+      "prob_above": 15.5,
       "inclusive": false
      },
      {
@@ -545,20 +545,20 @@
     "ref": "forecast",
     "ref_value": "0.6%",
     "polymarket": {
-     "above": 17.7,
-     "inline": 32.8,
+     "above": 17.6,
+     "inline": 32.9,
      "below": 49.5
     },
     "kalshi": {
-     "above": 16.5,
-     "inline": 35.5,
-     "below": 48.0
+     "above": 15.5,
+     "inline": 40.5,
+     "below": 44.0
     }
    },
    "most_likely": {
     "polymarket": {
      "label": "0.5%",
-     "prob": 37.0,
+     "prob": 37.5,
      "interval": [
       0.5,
       0.5
@@ -566,11 +566,11 @@
      "volume": 20089
     },
     "kalshi": {
-     "label": ">0.4% ও ≤0.5%",
-     "prob": 35.5,
+     "label": ">0.5% ও ≤0.6%",
+     "prob": 40.5,
      "interval": [
-      0.4,
-      0.5
+      0.5,
+      0.6
      ],
      "open": "lo"
     }
@@ -589,7 +589,7 @@
     "title": "September Inflation US - Annual",
     "url": "https://polymarket.com/event/september-inflation-us-annual",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 101683,
+    "volume_usd": 103251,
     "outcomes": [
      {
       "label": "≤2.9%",
@@ -620,7 +620,7 @@
      },
      {
       "label": "3.2%",
-      "prob": 0.1,
+      "prob": 0.2,
       "interval": [
        3.2,
        3.2
@@ -638,7 +638,7 @@
      },
      {
       "label": "3.4%",
-      "prob": 3.7,
+      "prob": 3.1,
       "interval": [
        3.4,
        3.4
@@ -647,7 +647,7 @@
      },
      {
       "label": "3.5%",
-      "prob": 12.0,
+      "prob": 11.0,
       "interval": [
        3.5,
        3.5
@@ -665,7 +665,7 @@
      },
      {
       "label": "3.7%",
-      "prob": 29.0,
+      "prob": 30.0,
       "interval": [
        3.7,
        3.7
@@ -674,16 +674,16 @@
      },
      {
       "label": "3.8%",
-      "prob": 7.0,
+      "prob": 5.5,
       "interval": [
        3.8,
        3.8
       ],
-      "volume": 8168
+      "volume": 9233
      },
      {
       "label": "3.9%",
-      "prob": 1.0,
+      "prob": 0.9,
       "interval": [
        3.9,
        3.9
@@ -692,12 +692,12 @@
      },
      {
       "label": "≥4.0%",
-      "prob": 2.5,
+      "prob": 1.8,
       "interval": [
        4.0,
        null
       ],
-      "volume": 4599
+      "volume": 5102
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
@@ -758,7 +758,7 @@
      },
      {
       "label": ">3.4% ও ≤3.5%",
-      "prob": 9.5,
+      "prob": 9.0,
       "interval": [
        3.4,
        3.5
@@ -767,7 +767,7 @@
      },
      {
       "label": ">3.5% ও ≤3.6%",
-      "prob": 48.5,
+      "prob": 49.0,
       "interval": [
        3.5,
        3.6
@@ -785,7 +785,7 @@
      },
      {
       "label": ">3.7% ও ≤3.8%",
-      "prob": 8.0,
+      "prob": 7.0,
       "interval": [
        3.7,
        3.8
@@ -794,7 +794,7 @@
      },
      {
       "label": ">3.8% ও ≤3.9%",
-      "prob": 0.5,
+      "prob": 1.5,
       "interval": [
        3.8,
        3.9
@@ -938,7 +938,7 @@
      },
      {
       "strike": 3.5,
-      "prob_above": 86.0,
+      "prob_above": 86.5,
       "inclusive": false
      },
      {
@@ -953,7 +953,7 @@
      },
      {
       "strike": 3.8,
-      "prob_above": 2.5,
+      "prob_above": 3.5,
       "inclusive": false
      },
      {
@@ -1026,14 +1026,14 @@
     "ref": "forecast",
     "ref_value": "3.6%",
     "polymarket": {
-     "above": 38.1,
-     "inline": 45.4,
-     "below": 16.5
+     "above": 37.9,
+     "inline": 46.6,
+     "below": 15.5
     },
     "kalshi": {
      "above": 37.5,
-     "inline": 48.5,
-     "below": 14.0
+     "inline": 49.0,
+     "below": 13.5
     }
    },
    "most_likely": {
@@ -1048,7 +1048,7 @@
     },
     "kalshi": {
      "label": ">3.5% ও ≤3.6%",
-     "prob": 48.5,
+     "prob": 49.0,
      "interval": [
       3.5,
       3.6
@@ -1070,47 +1070,47 @@
     "title": "Core CPI MoM - September 2026",
     "url": "https://polymarket.com/event/core-cpi-mom-september-2026",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 26836,
+    "volume_usd": 28311,
     "outcomes": [
      {
       "label": "≤0.0%",
-      "prob": 2.4,
+      "prob": 2.2,
       "interval": [
        null,
        0.0
       ],
-      "volume": 2714
+      "volume": 2968
      },
      {
       "label": "0.1%",
-      "prob": 19.0,
+      "prob": 18.5,
       "interval": [
        0.1,
        0.1
       ],
-      "volume": 4234
+      "volume": 4301
      },
      {
       "label": "0.2%",
-      "prob": 41.5,
+      "prob": 44.5,
       "interval": [
        0.2,
        0.2
       ],
-      "volume": 9306
+      "volume": 9833
      },
      {
       "label": "0.3%",
-      "prob": 32.5,
+      "prob": 33.0,
       "interval": [
        0.3,
        0.3
       ],
-      "volume": 7489
+      "volume": 8118
      },
      {
       "label": "0.4%",
-      "prob": 5.9,
+      "prob": 5.2,
       "interval": [
        0.4,
        0.4
@@ -1176,7 +1176,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 27.0,
+      "prob": 28.0,
       "interval": [
        0.2,
        0.3
@@ -1185,7 +1185,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 9.0,
+      "prob": 8.0,
       "interval": [
        0.3,
        0.4
@@ -1274,7 +1274,7 @@
      },
      {
       "strike": 0.3,
-      "prob_above": 9.5,
+      "prob_above": 8.5,
       "inclusive": false
      },
      {
@@ -1322,9 +1322,9 @@
     "ref": "forecast",
     "ref_value": "0.2%",
     "polymarket": {
-     "above": 38.0,
-     "inline": 40.9,
-     "below": 21.1
+     "above": 37.1,
+     "inline": 43.0,
+     "below": 20.0
     },
     "kalshi": {
      "above": 36.5,
@@ -1335,12 +1335,12 @@
    "most_likely": {
     "polymarket": {
      "label": "0.2%",
-     "prob": 41.5,
+     "prob": 44.5,
      "interval": [
       0.2,
       0.2
      ],
-     "volume": 9306
+     "volume": 9833
     },
     "kalshi": {
      "label": ">0.1% ও ≤0.2%",
@@ -1366,11 +1366,11 @@
     "title": "Core CPI YoY - September 2026",
     "url": "https://polymarket.com/event/core-cpi-yoy-september-2026",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 42797,
+    "volume_usd": 44204,
     "outcomes": [
      {
       "label": "≤2.0%",
-      "prob": 0.5,
+      "prob": 0.6,
       "interval": [
        null,
        2.0
@@ -1397,21 +1397,21 @@
      },
      {
       "label": "2.3%",
-      "prob": 14.0,
+      "prob": 12.5,
       "interval": [
        2.3,
        2.3
       ],
-      "volume": 7921
+      "volume": 8335
      },
      {
       "label": "2.4%",
-      "prob": 35.5,
+      "prob": 32.5,
       "interval": [
        2.4,
        2.4
       ],
-      "volume": 10916
+      "volume": 11341
      },
      {
       "label": "2.5%",
@@ -1420,16 +1420,16 @@
        2.5,
        2.5
       ],
-      "volume": 7065
+      "volume": 7075
      },
      {
       "label": "2.6%",
-      "prob": 12.0,
+      "prob": 14.5,
       "interval": [
        2.6,
        2.6
       ],
-      "volume": 6377
+      "volume": 6935
      },
      {
       "label": "2.7%",
@@ -1490,7 +1490,7 @@
      },
      {
       "label": ">2.2% ও ≤2.3%",
-      "prob": 16.5,
+      "prob": 16.0,
       "interval": [
        2.2,
        2.3
@@ -1508,7 +1508,7 @@
      },
      {
       "label": ">2.4% ও ≤2.5%",
-      "prob": 35.0,
+      "prob": 35.5,
       "interval": [
        2.4,
        2.5
@@ -1526,7 +1526,7 @@
      },
      {
       "label": ">2.6% ও ≤2.7%",
-      "prob": 1.0,
+      "prob": 1.5,
       "interval": [
        2.6,
        2.7
@@ -1535,7 +1535,7 @@
      },
      {
       "label": ">2.7% ও ≤2.8%",
-      "prob": 1.0,
+      "prob": 0.5,
       "interval": [
        2.7,
        2.8
@@ -1628,12 +1628,12 @@
      },
      {
       "strike": 2.3,
-      "prob_above": 82.0,
+      "prob_above": 82.5,
       "inclusive": false
      },
      {
       "strike": 2.4,
-      "prob_above": 48.5,
+      "prob_above": 49.0,
       "inclusive": false
      },
      {
@@ -1648,7 +1648,7 @@
      },
      {
       "strike": 2.7,
-      "prob_above": 1.5,
+      "prob_above": 1.0,
       "inclusive": false
      },
      {
@@ -1701,29 +1701,29 @@
     "ref": "forecast",
     "ref_value": "2.5%",
     "polymarket": {
-     "above": 14.0,
-     "inline": 34.2,
-     "below": 51.9
+     "above": 16.8,
+     "inline": 34.8,
+     "below": 48.4
     },
     "kalshi": {
      "above": 13.5,
-     "inline": 35.0,
-     "below": 51.5
+     "inline": 35.5,
+     "below": 51.0
     }
    },
    "most_likely": {
     "polymarket": {
-     "label": "2.4%",
-     "prob": 35.5,
+     "label": "2.5%",
+     "prob": 34.5,
      "interval": [
-      2.4,
-      2.4
+      2.5,
+      2.5
      ],
-     "volume": 10916
+     "volume": 7075
     },
     "kalshi": {
      "label": ">2.4% ও ≤2.5%",
-     "prob": 35.0,
+     "prob": 35.5,
      "interval": [
       2.4,
       2.5
@@ -2025,17 +2025,26 @@
       "open": "hi"
      },
      {
-      "label": "≥190K ও <205K",
-      "prob": 77.0,
+      "label": "≥190K ও <200K",
+      "prob": 1.0,
       "interval": [
        190000.0,
+       200000.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥200K ও <205K",
+      "prob": 75.0,
+      "interval": [
+       200000.0,
        205000.0
       ],
       "open": "hi"
      },
      {
       "label": "≥205K ও <215K",
-      "prob": 16.5,
+      "prob": 17.5,
       "interval": [
        205000.0,
        215000.0
@@ -2074,8 +2083,13 @@
       "inclusive": true
      },
      {
+      "strike": 200000.0,
+      "prob_above": 98.0,
+      "inclusive": true
+     },
+     {
       "strike": 205000.0,
-      "prob_above": 22.0,
+      "prob_above": 23.0,
       "inclusive": true
      },
      {
@@ -2094,18 +2108,18 @@
     "ref_value": "195K",
     "polymarket": null,
     "kalshi": {
-     "above": 22.0,
-     "inline": 77.0,
+     "above": 98.0,
+     "inline": 1.0,
      "below": 1.0
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥190K ও <205K",
-     "prob": 77.0,
+     "label": "≥200K ও <205K",
+     "prob": 75.0,
      "interval": [
-      190000.0,
+      200000.0,
       205000.0
      ],
      "open": "hi"
@@ -2125,37 +2139,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 31382401,
+    "volume_usd": 31471561,
     "outcomes": [
      {
       "label": "No change",
       "prob": 83.5,
       "interval": null,
-      "volume": 8370296
+      "volume": 8445414
      },
      {
       "label": "25 bps increase",
       "prob": 15.5,
       "interval": null,
-      "volume": 7144807
+      "volume": 7148993
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 5826348
+      "volume": 5832015
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 4255854
+      "volume": 4255861
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 5785096
+      "volume": 5789277
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -2235,7 +2249,7 @@
      "label": "No change",
      "prob": 83.5,
      "interval": null,
-     "volume": 8370296
+     "volume": 8445414
     },
     "kalshi": {
      "label": "Fed maintains rate",
