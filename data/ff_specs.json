@@ -933,7 +933,219 @@
      "abw": 0
     }
    ]
+  },
+  "552": {
+   "title": "Flash Manufacturing PMI",
+   "fetched_at": "2026-10-10T23:31:26Z",
+   "specs": {
+    "Source": "S&P Global ( latest release )",
+    "Measures": "Level of a diffusion index based on surveyed purchasing managers in the manufacturing industry",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, around 3 weeks into the current month",
+    "Next Release": "Nov 23, 2026",
+    "FF Notes": "Above 50.0 indicates industry expansion, below indicates contraction. There are 2 versions of this report released about a week apart &#x2013; Flash and Final. The Flash release, which the source first reported in May 2012, is the earliest and thus tends to have the most impact",
+    "Why Traders Care": "It's a leading indicator of economic health - businesses react quickly to market conditions, and their purchasing managers hold perhaps the most current and relevant insight into the company's view of the economy",
+    "Derived Via": "Survey of about 800 purchasing managers which asks respondents to rate the relative level of business conditions including employment, production, new orders, prices, supplier deliveries, and inventories",
+    "Acro Expand": "Purchasing Managers' Index (PMI)"
+   },
+   "source_url": "https://www.pmi.spglobal.com/",
+   "history": [
+    {
+     "date": "Sep 23, 2026",
+     "actual": "57.0",
+     "forecast": "53.6",
+     "previous": "53.2",
+     "abw": 1
+    },
+    {
+     "date": "Aug 21, 2026",
+     "actual": "53.2",
+     "forecast": "53.9",
+     "previous": "53.8",
+     "abw": 2
+    },
+    {
+     "date": "Jul 24, 2026",
+     "actual": "53.8",
+     "forecast": "54.4",
+     "previous": "55.7",
+     "abw": 2
+    },
+    {
+     "date": "Jun 23, 2026",
+     "actual": "55.7",
+     "forecast": "54.6",
+     "previous": "55.3",
+     "abw": 1
+    },
+    {
+     "date": "May 21, 2026",
+     "actual": "55.3",
+     "forecast": "53.8",
+     "previous": "54.0",
+     "abw": 1
+    }
+   ]
+  },
+  "583": {
+   "title": "Flash Services PMI",
+   "fetched_at": "2026-10-10T23:31:26Z",
+   "specs": {
+    "Source": "S&P Global ( latest release )",
+    "Measures": "Level of a diffusion index based on surveyed purchasing managers in the services industry",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, around 3 weeks into the current month",
+    "Next Release": "Nov 23, 2026",
+    "FF Notes": "Above 50.0 indicates industry expansion, below indicates contraction. There are 2 versions of this report released about a week apart &#x2013; Flash and Final. The Flash release, which the source first reported in Nov 2013, is the earliest and thus tends to have the most impact",
+    "Why Traders Care": "It's a leading indicator of economic health - businesses react quickly to market conditions, and their purchasing managers hold perhaps the most current and relevant insight into the company's view of the economy",
+    "Derived Via": "Survey of about 400 purchasing managers which asks respondents to rate the relative level of business conditions including employment, production, new orders, prices, supplier deliveries, and inventories",
+    "Acro Expand": "Purchasing Managers' Index (PMI)"
+   },
+   "source_url": "https://www.pmi.spglobal.com/",
+   "history": [
+    {
+     "date": "Sep 23, 2026",
+     "actual": "58.7",
+     "forecast": "55.8",
+     "previous": "56.8",
+     "abw": 1
+    },
+    {
+     "date": "Aug 21, 2026",
+     "actual": "56.8",
+     "forecast": "54.0",
+     "previous": "53.6",
+     "abw": 1
+    },
+    {
+     "date": "Jul 24, 2026",
+     "actual": "53.6",
+     "forecast": "51.3",
+     "previous": "51.3",
+     "abw": 1
+    },
+    {
+     "date": "Jun 23, 2026",
+     "actual": "51.3",
+     "forecast": "51.1",
+     "previous": "50.9",
+     "abw": 0
+    },
+    {
+     "date": "May 21, 2026",
+     "actual": "50.9",
+     "forecast": "51.1",
+     "previous": "51.3",
+     "abw": 0
+    }
+   ]
+  },
+  "54": {
+   "title": "Revised UoM Consumer Sentiment",
+   "fetched_at": "2026-10-10T23:31:26Z",
+   "specs": {
+    "Source": "University of Michigan ( latest release )",
+    "Measures": "Level of a composite index based on surveyed consumers",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, usually on the last Friday of the current month",
+    "Next Release": "Nov 20, 2026",
+    "FF Notes": "The 'Previous' listed is the 'Actual' from the Preliminary release and therefore the 'History' data will appear unconnected. There are 2 versions of this data released about 15 days apart &#x2013; Preliminary and Revised. The Preliminary release is the earliest and thus tends to have more impact",
+    "Why Traders Care": "Financial confidence is a leading indicator of consumer spending, which accounts for a majority of overall economic activity",
+    "Derived Via": "Survey of about 800 consumers which asks respondents to rate the relative level of current and future economic conditions",
+    "Acro Expand": "University of Michigan (UoM)"
+   },
+   "source_url": "https://umich.edu/",
+   "history": [
+    {
+     "date": "Sep 25, 2026",
+     "actual": "48.1",
+     "forecast": "47.4",
+     "previous": "47.8",
+     "abw": 1
+    },
+    {
+     "date": "Aug 28, 2026",
+     "actual": "51.7",
+     "forecast": "51.0",
+     "previous": "51.0",
+     "abw": 1
+    },
+    {
+     "date": "Jul 31, 2026",
+     "actual": "55.2",
+     "forecast": "53.9",
+     "previous": "54.4",
+     "abw": 1
+    },
+    {
+     "date": "Jun 26, 2026",
+     "actual": "49.5",
+     "forecast": "50.0",
+     "previous": "48.9",
+     "abw": 2
+    },
+    {
+     "date": "May 22, 2026",
+     "actual": "44.8",
+     "forecast": "48.2",
+     "previous": "48.2",
+     "abw": 2
+    }
+   ]
+  },
+  "238": {
+   "title": "Revised UoM Inflation Expectations",
+   "fetched_at": "2026-10-10T23:31:26Z",
+   "specs": {
+    "Source": "University of Michigan ( latest release )",
+    "Measures": "Percentage that consumers expect the price of goods and services to change during the next 12 months",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, usually on the last Friday of the current month",
+    "Next Release": "Nov 20, 2026",
+    "FF Notes": "The 'Previous' listed is the 'Actual' from the Preliminary release and therefore the 'History' data will appear unconnected. There are 2 versions of this data released about 15 days apart &#x2013; Preliminary and Revised. The Preliminary release is the earliest and thus tends to have more impact",
+    "Why Traders Care": "Expectations of future inflation can manifest into real inflation, primarily because workers tend to push for higher wages when they believe prices will rise",
+    "Derived Via": "Survey of about 800 consumers which asks respondents where they expect prices to be 12 months in the future",
+    "Acro Expand": "University of Michigan (UoM)"
+   },
+   "source_url": "https://umich.edu/",
+   "history": [
+    {
+     "date": "Sep 25, 2026",
+     "actual": "4.6%",
+     "forecast": "",
+     "previous": "4.6%",
+     "abw": 0
+    },
+    {
+     "date": "Aug 28, 2026",
+     "actual": "4.0%",
+     "forecast": "",
+     "previous": "4.3%",
+     "abw": 0
+    },
+    {
+     "date": "Jul 31, 2026",
+     "actual": "4.2%",
+     "forecast": "",
+     "previous": "4.2%",
+     "abw": 0
+    },
+    {
+     "date": "Jun 26, 2026",
+     "actual": "4.6%",
+     "forecast": "",
+     "previous": "4.6%",
+     "abw": 0
+    },
+    {
+     "date": "May 22, 2026",
+     "actual": "4.8%",
+     "forecast": "",
+     "previous": "4.5%",
+     "abw": 0
+    }
+   ]
   }
  },
- "generated_at": "2026-10-08T23:18:23Z"
+ "generated_at": "2026-10-10T23:31:26Z"
 }
