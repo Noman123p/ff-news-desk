@@ -2,8 +2,8 @@
 import { bn, esc, icon, timeDhaka, todayKey, dhakaKey, dayLong, dayShort, countdownParts, pad, relShort, impactIcon, IMPACT_BN } from '../util.js';
 
 const BIAS = {
-  up: ['up', 'USD ↑'], down: ['down', 'USD ↓'], flat: ['flat', 'USD →'],
-  true: ['up', 'USD ↑'], false: ['down', 'USD ↓'],
+  up: ['up', 'USD: Bullish'], down: ['down', 'USD: Bearish'], flat: ['flat', 'USD: নিউট্রাল'],
+  true: ['up', 'USD: Bullish'], false: ['down', 'USD: Bearish'],
 };
 const biasChip = (b) => {
   const [cls, label] = BIAS[String(b)] || ['flat', 'দিক অনিশ্চিত'];
@@ -24,7 +24,7 @@ function predLine(a, cls = 'pred-line') {
   const p = a?.prediction;
   if (!p || p.value_text == null) return '';
   const pct = p.value_prob != null ? ` (${bn(p.value_prob)}%)` : p.kind === 'tone' || p.approx_only ? ' (আনুমানিক)' : '';
-  return `<p class="${cls}"><span>ফাইনাল প্রেডিকশন</span><b>${esc(p.value_text)}</b>${p.compare && p.kind === 'data' ? ` — ${esc(p.compare)}` : ''}${pct}<em>আস্থা: ${esc((p.confidence || '').split(' — ')[0])}</em></p>`;
+  return `<p class="${cls}"><span>ফাইনাল প্রেডিকশন</span><b>${esc(p.value_text)}</b>${p.compare && p.kind === 'data' ? ` — ${esc(p.compare)}` : ''}${pct}${p.usd_text ? `<i class="pu ${p.usd_bias}">${esc(p.usd_text)}</i>` : ''}<em>আস্থা: ${esc((p.confidence || '').split(' — ')[0])}</em></p>`;
 }
 
 export function mount(el, route, ctx) {

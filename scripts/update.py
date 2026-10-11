@@ -491,7 +491,7 @@ def build_calendar():
 # --------------------------------------------------------------------------- #
 # Event classification
 # --------------------------------------------------------------------------- #
-# usd_dir: +1 => actual ABOVE forecast is USD-bullish (hawkish/strong), -1 => USD-bearish.
+# usd_dir: +1 => actual ABOVE forecast is USD Bullish, -1 => USD Bearish.
 CATEGORIES = [
     ("fed_decision", re.compile(r"^(Federal Funds Rate|FOMC Statement|FOMC Press Conference)", re.I), +1),
     ("fed_talk", re.compile(r"^(?!.*\b(Philly|Richmond|Kansas City|Empire|Chicago|Dallas|NY) Fed\b)"
@@ -923,27 +923,27 @@ def bn(s):
     return str(s).translate(BN_DIGITS)
 
 
-def impact_lines(usd_up, strength="normal"):
+def impact_lines(usd_up):
     """Market impact if the USD-bullish (usd_up=True) or USD-bearish scenario plays out."""
     if usd_up is None:
         return {
-            "gold": "দিক অনিশ্চিত — দুই দিকেই স্পাইক হতে পারে, রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন।",
-            "btc": "ভোলাটিলিটি বাড়তে পারে; লিকুইডেশন উইক দুই দিকেই সম্ভব।",
-            "crypto": "অল্টকয়েন BTC-কে ফলো করবে, বেশি দুলতে পারে।",
-            "forex": "DXY ও মেজর পেয়ারে (EURUSD, GBPUSD, USDJPY) সাময়িক হুইপস।",
+            "gold": "Gold: দিক অনিশ্চিত — দুই দিকেই স্পাইক হতে পারে, রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন।",
+            "btc": "BTC: দিক অনিশ্চিত — লিকুইডেশন উইক দুই দিকেই সম্ভব।",
+            "crypto": "Altcoin: দিক অনিশ্চিত — BTC-কে ফলো করবে, বেশি দুলতে পারে।",
+            "forex": "DXY ও মেজর পেয়ার: দিক অনিশ্চিত — সাময়িক হুইপস।",
         }
     if usd_up:
         return {
-            "gold": "নিম্নমুখী চাপ (ডলার ও বন্ড ইল্ড বাড়লে গোল্ড সাধারণত নামে)।",
-            "btc": "বেয়ারিশ চাপ — রিস্ক-অফ, ডাম্প/উইক নিচে যাওয়ার সম্ভাবনা বেশি।",
-            "crypto": "অল্টকয়েনে বড় পতনের ঝুঁকি (BTC-এর চেয়ে বেশি %)।",
-            "forex": "DXY ↑ · EURUSD/GBPUSD ↓ · USDJPY ↑",
+            "gold": "Gold: Bearish — ডলার ও বন্ড ইল্ড বাড়লে গোল্ড সাধারণত নামে।",
+            "btc": "BTC: Bearish — রিস্ক-অফ, DUMP/নিচে উইকের সম্ভাবনা বেশি।",
+            "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়ার ঝুঁকি।",
+            "forex": "DXY: Bullish · EUR/USD, GBP/USD: Bearish · USD/JPY: Bullish",
         }
     return {
-        "gold": "ঊর্ধ্বমুখী সাপোর্ট (দুর্বল ডলার ও কম ইল্ডে গোল্ড সাধারণত বাড়ে)।",
-        "btc": "বুলিশ — রিস্ক-অন, পাম্প হওয়ার সম্ভাবনা বেশি।",
-        "crypto": "অল্টকয়েন BTC-এর চেয়ে বেশি % উঠতে পারে।",
-        "forex": "DXY ↓ · EURUSD/GBPUSD ↑ · USDJPY ↓",
+        "gold": "Gold: Bullish — ডলার ও ইল্ড নামলে গোল্ড সাধারণত বাড়ে।",
+        "btc": "BTC: Bullish — রিস্ক-অন, PUMP হওয়ার সম্ভাবনা বেশি।",
+        "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে।",
+        "forex": "DXY: Bearish · EUR/USD, GBP/USD: Bullish · USD/JPY: Bearish",
     }
 
 
@@ -983,7 +983,7 @@ def brief_for_group(group, probs):
                     likely_up = None if abs(hawk_skew) <= 5 else hawk_skew > 0
                 alt_up = (not likely_up) if likely_up is not None else (hawk_skew <= 0)
             else:
-                tone = "হকিশ (কড়া)" if hawk_skew > 5 else ("ডোভিশ (নরম)" if hawk_skew < -5 else "নিরপেক্ষ")
+                tone = "USD Bullish" if hawk_skew > 5 else ("USD Bearish" if hawk_skew < -5 else "নিউট্রাল")
                 likely_text = (f"বাজারের ঝোঁক {tone} দিকে — পরবর্তী মিটিংয়ে {name} {bn(view[top])}%, "
                                f"হাইক {bn(view['hike'])}% বনাম কাট {bn(view['cut'])}%")
                 likely_up = True if hawk_skew > 5 else (False if hawk_skew < -5 else None)
@@ -1137,7 +1137,7 @@ def fetch_specs(ev):
         title = _text(sp.get("title"))
         if not title:
             continue
-        specs[title] = _text(sp.get("html"))
+        specs[title] = plain_words(_text(sp.get("html")))
         if title == "Source" and not src_url:
             m = re.search(r'href="(https?://[^"]+)"', sp.get("html") or "")
             src_url = m.group(1) if m else None
@@ -1148,9 +1148,28 @@ def fetch_specs(ev):
     return {"title": ev["title"], "fetched_at": iso_utc(NOW), "specs": specs, "source_url": src_url, "history": hist}
 
 
+# NOMAN's wording rule: sentiment is only ever Bullish / Bearish, for a named asset (see tests/test_wording.py).
+# FF's own English spec text sometimes uses other sentiment words; reword it once, at the source.
+PLAIN_WORDS = [(r"\bhawkish\b", "Bullish"), (r"\bdovish\b", "Bearish"), (r"\bstronger\b", "higher"),
+               (r"\bweaker\b", "lower"), (r"\bstrong\b", "high"), (r"\bweak\b", "low"),
+               (r"\bhotter\b", "higher"), (r"\bcooler\b", "lower"), (r"\bsofter\b", "lower")]
+
+
+def plain_words(text):
+    for pat, rep in PLAIN_WORDS:
+        text = re.sub(pat, lambda m, rep=rep: rep if m.group(0)[0].islower() else rep[0].upper() + rep[1:], text, flags=re.I)
+    return text
+
+
 def update_specs(events, page_ok):
     cache = load_json("ff_specs.json", {"by_ebase": {}})
     by = cache.setdefault("by_ebase", {})
+    reworded = 0
+    for ent in by.values():
+        for k, v in (ent.get("specs") or {}).items():
+            if isinstance(v, str) and plain_words(v) != v:
+                ent["specs"][k] = plain_words(v)
+                reworded += 1
     todo = []
     for e in events:
         k = str(e.get("ebase") or "")
@@ -1170,10 +1189,10 @@ def update_specs(events, page_ok):
                 break
             by[str(e["ebase"])] = sp
             fetched += 1
-    if fetched:
+    if fetched or reworded:
         cache["generated_at"] = iso_utc(NOW)
         write_json("ff_specs.json", cache)
-        log(f"ff_specs.json: +{fetched} event types")
+        log(f"ff_specs.json: +{fetched} event types" + (f", {reworded} spec lines reworded" if reworded else ""))
     return by
 
 
@@ -1397,12 +1416,12 @@ def build_analysis(cal, prob, specs_by, archive):
         lean, dir_hint, lean_note = None, None, None
         if kind == "fed":
             v = avg_dists([s["fed_view"] for s in markets_ok if s.get("fed_view")])
-            verdict["labels"] = {"hawk": "রেট হাইক (হকিশ)", "neutral": "নিউট্রাল — রেট হোল্ড", "dove": "রেট কাট (ডোভিশ)"}
+            verdict["labels"] = {"hawk": "রেট হাইক — USD Bullish", "neutral": "নিউট্রাল — রেট হোল্ড", "dove": "রেট কাট — USD Bearish"}
             if v:
                 verdict["probs"] = normalize_probs({"hawk": v["hike"], "neutral": v["hold"], "dove": v["cut"]})
                 verdict["basis"].append(f"{' + '.join(s['name'] for s in markets_ok if s.get('fed_view'))} — এই মিটিংয়ের সিদ্ধান্ত-মার্কেট")
         elif kind == "tone":
-            verdict["labels"] = {"hawk": "হকিশ টোন", "neutral": "নিউট্রাল — ভারসাম্যপূর্ণ টোন", "dove": "ডোভিশ টোন"}
+            verdict["labels"] = {"hawk": "USD Bullish টোন", "neutral": "নিউট্রাল — ভারসাম্যপূর্ণ টোন", "dove": "USD Bearish টোন"}
             v = avg_dists([s["fed_view"] for s in markets_ok if s.get("fed_view")])
             if v:
                 ctx_p = normalize_probs({"hike": v["hike"], "hold": v["hold"], "cut": v["cut"]})
@@ -1416,7 +1435,7 @@ def build_analysis(cal, prob, specs_by, archive):
                 lean = "neutral" if ctx_p["hold"] >= 60 else dir_hint
                 verdict["basis"].append("টোনের সরাসরি কোনো বাজার নেই — রেট-মার্কেট শুধু প্রেক্ষাপট")
                 verdict["basis"].append("হোল্ড প্রত্যাশা প্রবল হলে ভারসাম্যপূর্ণ টোনই স্বাভাবিক; সারপ্রাইজ হলে "
-                                        + ("হকিশ" if dir_hint == "hawk" else "ডোভিশ") + " দিকের ঝুঁকি বেশি দাম পাচ্ছে")
+                                        + ("USD Bullish" if dir_hint == "hawk" else "USD Bearish") + " দিকের ঝুঁকি বেশি দাম পাচ্ছে")
         elif kind == "data":
             v = avg_dists([s["vs_forecast"] for s in markets_ok if s.get("vs_forecast")])
             if v:
@@ -1441,7 +1460,7 @@ def build_analysis(cal, prob, specs_by, archive):
                     dir_hint = "above" if ref_val > pv else "below"
                     verdict["basis"].append(f"Forecast আগের মানের চেয়ে {'বেশি' if ref_val > pv else 'কম'} — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)")
         else:
-            verdict["labels"] = {"hawk": "ডলার-সহায়ক মন্তব্য", "neutral": "নিউট্রাল — নতুন কিছু নয়", "dove": "ডলার-বিরোধী মন্তব্য"}
+            verdict["labels"] = {"hawk": "USD Bullish মন্তব্য", "neutral": "নিউট্রাল — নতুন কিছু নয়", "dove": "USD Bearish মন্তব্য"}
         probs = verdict["probs"]
         L = verdict["labels"] or {}
         if probs:
@@ -1501,6 +1520,13 @@ def build_analysis(cal, prob, specs_by, archive):
             pred["result"] = {"actual": e["actual"], "hit": bool(hit),
                               "text": f"Actual {e['actual']} — প্রেডিকশন ({pred['value_text']}) " + ("মিলেছে" if hit else "মেলেনি")}
         assert_prediction(verdict, pred)
+        # which way the predicted outcome is for USD — stated plainly, e.g. "USD-এর জন্য Bullish ডেটা"
+        p_side = pred.get("side") or ((verdict or {}).get("top") or {}).get("key")
+        p_bias = next((x["usd_bias"] for x in sc if x["key"] == p_side), None) if pred.get("value_text") else None
+        noun = {"data": "ডেটা", "fed": "সিদ্ধান্ত", "tone": "টোন"}.get(kind, "মন্তব্য")
+        pred["usd_text"] = (None if p_bias is None else f"USD-এর জন্য নিউট্রাল {noun}" if p_bias == "flat"
+                            else f"USD-এর জন্য {scenarios.bias_word(p_bias)} {noun}")
+        pred["usd_bias"] = p_bias
         if result:
             for x in sc:
                 x["happened"] = x["key"] == result["side"]

@@ -43,6 +43,7 @@ scripts/ff_alert.sh        opens/closes the "ff-blocked" GitHub issue (uses gh +
 .github/workflows/update.yml  cron: 07:00 Dhaka daily + every 2h, commits data/ only on real changes
 tests/test_update.py       unit tests (stdlib)
 tests/test_round3.py       unit tests: week archive/backfill, specs, nowcasts, explainers, scenarios, verdict
+tests/test_wording.py      wording rule: scans templates, scripts, README and all data for banned sentiment words
 tests/test_round4.py       unit tests: prediction math, level math, PUMP/DUMP consistency, committed-data checks
 tests/smoke.py             headless browser test + screenshots (playwright)
 ```
@@ -103,3 +104,6 @@ pip install playwright && SHOTS=screenshots/v2 python tests/smoke.py http://loca
 5. The site will be at `https://noman123p.github.io/ff-news-desk/`.
 
 Scheduled runs can be delayed by GitHub by 5–20 minutes. If ForexFactory blocks GitHub's IPs, the updater falls back to the JSON feed. In that case Actual may stay blank until a later run succeeds, and next-week events may be missing.
+
+## Wording rule
+The site describes sentiment only with **Bullish** / **Bearish**, and always says which asset it is for: scenario tabs read "… — USD-এর জন্য Bullish ডেটা", market lines read "Gold: Bearish · DXY: Bullish", and the prediction box shows a "USD-এর জন্য … ডেটা" tag. A Fed tone is written as USD Bullish / USD Bearish. PUMP/DUMP stay on the price levels. FF's English spec text is reworded when it is cached (`plain_words`). `tests/test_wording.py` fails the build if a banned word shows up in any template, script, README line or generated data file, and the headless smoke test runs the same check on the rendered pages.

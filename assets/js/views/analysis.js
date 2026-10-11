@@ -5,6 +5,8 @@ import {
 } from '../util.js';
 
 const DIR = { up: ['up', '↑', 'উপরে'], down: ['down', '↓', 'নিচে'], flat: ['flat', '→', 'সীমিত'] };
+// the only sentiment words on the site: Bullish / Bearish, always next to the asset they describe
+const BIAS_WORD = { up: 'Bullish', down: 'Bearish', flat: 'নিউট্রাল' };
 const MARKETS = [
   ['gold', 'gold', 'Gold (XAU/USD)'], ['btc', 'btc', 'Bitcoin'], ['crypto', 'layers', 'ক্রিপ্টো / অল্টকয়েন'],
   ['forex', 'fx', 'Forex'], ['indices', 'index', 'US ইনডেক্স ও ইল্ড'],
@@ -189,7 +191,7 @@ export function mount(el, route, ctx) {
     const tally = (agreeN || disN) ? `<span class="tally">${bn(agreeN)}টা সূত্র একমত${disN ? ` · ${bn(disN)}টা একমত নয়` : ''}</span>` : '';
     return `<section class="pred glass" id="sec-pred" aria-label="ফাইনাল প্রেডিকশন">
       <div class="pred-head"><span class="eyebrow">${icon('scope')}ফাইনাল প্রেডিকশন</span><span class="conf ${confClass(conf)}">আস্থা: ${esc(conf)}</span></div>
-      <div class="pred-main">${big}<div class="pred-txt">${p.compare ? `<p class="pred-cmp">${esc(p.compare)}</p>` : ''}${sub ? `<p class="pred-sub">${sub}</p>` : ''}</div></div>
+      <div class="pred-main">${big}<div class="pred-txt">${p.compare ? `<p class="pred-cmp">${esc(p.compare)}</p>` : ''}${p.usd_text ? `<p class="pred-usd ${esc(p.usd_bias || 'flat')}">${esc(p.usd_text)}</p>` : ''}${sub ? `<p class="pred-sub">${sub}</p>` : ''}</div></div>
       ${p.result ? `<p class="pred-result ${p.result.hit ? 'hit' : 'miss'}">${icon('info')}${esc(p.result.text)}</p>` : ''}
       <p class="pred-method">${icon('info')}<span>${esc(p.method || '')}</span>${tally}</p>
       ${inputs}
@@ -262,7 +264,7 @@ export function mount(el, route, ctx) {
            <div class="lv-sub">এখান থেকে ${opp} দিলে <b>${px(k, lv.pullback, d)}</b> পর্যন্ত · বাতিল: <b class="inv">${px(k, lv.invalid, d)}</b>-এর ${lv.md > 0 ? 'নিচে' : 'উপরে'} ক্লোজ</div>`;
       return head + `<details class="lv-row ${cls}">
         <summary>
-          <div class="lv-mk"><b>${esc(m.label)}</b><span class="lv-px">${px(k, m.price, d)}${stale ? '<em>মার্কেট বন্ধ/পুরোনো দাম</em>' : ''}</span></div>
+          <div class="lv-mk"><b>${esc(m.label)}</b><span class="lv-bb ${cls}">${esc(m.label.split(' (')[0])}: ${lv.dir === 'PUMP' ? 'Bullish' : lv.dir === 'DUMP' ? 'Bearish' : 'নিউট্রাল'}</span><span class="lv-px">${px(k, m.price, d)}${stale ? '<em>মার্কেট বন্ধ/পুরোনো দাম</em>' : ''}</span></div>
           <span class="pd-chip ${cls}">${lv.dir === 'PUMP' ? '▲' : lv.dir === 'DUMP' ? '▼' : '↔'} ${WORD[lv.dir]}</span>
           <div class="lv-path"><span class="lv-first">প্রথম মুভ: ${esc(lv.first)}</span>${path}</div>
           ${ladder(lv)}
@@ -279,17 +281,17 @@ export function mount(el, route, ctx) {
     </div>`;
   }
   function scenarioPanel(s) {
-    const [cls, arrow] = DIR[s.usd_bias] || DIR.flat;
+    const [cls] = DIR[s.usd_bias] || DIR.flat;
     const mk = MARKETS.map(([k, ic, label]) => {
       const m = s.markets?.[k]; if (!m) return '';
       const [mc, ma] = DIR[m.dir] || DIR.flat;
-      const fx = k === 'forex' ? `<div class="fx-row">${[['dxy', 'DXY'], ['eurusd', 'EURUSD'], ['usdjpy', 'USDJPY'], ['gbpusd', 'GBPUSD']].map(([p, n]) => `<span class="fx ${m[p] === '↑' ? 'up' : m[p] === '↓' ? 'down' : 'flat'}">${n} <b>${esc(m[p] || '→')}</b></span>`).join('')}</div>` : '';
+      const fx = k === 'forex' ? `<div class="fx-row">${[['dxy', 'DXY'], ['eurusd', 'EURUSD'], ['usdjpy', 'USDJPY'], ['gbpusd', 'GBPUSD']].map(([p, n]) => `<span class="fx ${m[p] === '↑' ? 'up' : m[p] === '↓' ? 'down' : 'flat'}">${n}: <b>${m[p] === '↑' ? 'Bullish' : m[p] === '↓' ? 'Bearish' : 'নিউট্রাল'}</b></span>`).join('')}</div>` : '';
       return `<div class="mk"><div class="mk-head">${icon(ic)}<b>${label}</b><span class="arrow ${mc}">${ma}</span></div>${fx}<p>${esc(m.text)}</p></div>`;
     }).join('');
     return `
       <div class="sc-top">
         <p class="sc-cond">${esc(s.condition)}</p>
-        <div class="sc-badges"><span class="bias ${cls}">USD ${arrow}</span>${s.prob != null ? `<span class="badge">সম্ভাবনা ${pctTxt(s.prob)}</span>` : `<span class="badge muted">সম্ভাবনা: ${esc(s.prob_note || 'ডেটা নেই')}</span>`}${s.is_overall_top ? `<span class="badge hl">সবচেয়ে সম্ভাব্য${s.approx ? ' (আনুমানিক)' : ''}</span>` : ''}${s.happened ? '<span class="badge done">যা ঘটেছে</span>' : ''}</div>
+        <div class="sc-badges"><span class="bias ${cls}">USD: ${BIAS_WORD[s.usd_bias] || BIAS_WORD.flat}</span>${s.prob != null ? `<span class="badge">সম্ভাবনা ${pctTxt(s.prob)}</span>` : `<span class="badge muted">সম্ভাবনা: ${esc(s.prob_note || 'ডেটা নেই')}</span>`}${s.is_overall_top ? `<span class="badge hl">সবচেয়ে সম্ভাব্য${s.approx ? ' (আনুমানিক)' : ''}</span>` : ''}${s.happened ? '<span class="badge done">যা ঘটেছে</span>' : ''}</div>
       </div>
       ${s.note ? `<p class="sc-note">${icon('info')}${esc(s.note)}</p>` : ''}
       <div class="sc-why"><b>কেন</b><p>${esc(s.why)}</p></div>
@@ -340,7 +342,7 @@ export function mount(el, route, ctx) {
   }
 
   // ---------------------------------------------------------------- render
-  async function draw(soft) {
+  async function draw(quiet) {
     const L = list();
     if (!id) {
       const d = defaultId();
@@ -362,7 +364,7 @@ export function mount(el, route, ctx) {
     const toc = a.plain ? '' : `<div class="toc" role="navigation" aria-label="সেকশন">${[['pred', 'প্রেডিকশন'], ['what', 'নিউজটা কী'], ['when', 'কখন'], ['data', 'ডেটা'], ['prob', 'সম্ভাবনা'], ['scen', 'সিনারিও']].map(([k, n]) => `<button data-jump="sec-${k}">${n}</button>`).join('')}</div>`;
     el.innerHTML = `<div class="an-layout">
       ${picker(a.plain ? null : a.id)}
-      <div class="an-main ${soft ? '' : 'reveal'}">
+      <div class="an-main ${quiet ? '' : 'reveal'}">
         <header class="an-hero glass">
           <div class="an-meta"><span class="cur-badge">${esc(a.currency)}</span>${impactIcon(a.impact)}<span>${IMPACT_BN[a.impact] || ''} ইমপ্যাক্ট</span><span class="dot-sep"></span><span>${dayShort(dhakaKey(t))} · ${a.time_special ? esc(a.time_special) : timeDhaka(t)} ঢাকা</span></div>
           <h1>${esc(a.title)}</h1>

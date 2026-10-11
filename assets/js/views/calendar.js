@@ -179,7 +179,7 @@ export function mount(el, route, ctx) {
   }
 
   const vcell = (v, cls, label) => `<span class="v num ${v ? cls : 'na'}"><i class="v-label">${label}</i>${v ? esc(v) : (cls.includes('actual') ? '' : '')}</span>`;
-  function renderRows(soft) {
+  function renderRows(quiet) {
     const [a, b] = rangeOf(state);
     const now = Date.now();
     const fi = filters.impacts, fc = filters.curs;
@@ -214,7 +214,7 @@ export function mount(el, route, ctx) {
         const href = `#/analysis/${encodeURIComponent(e.id)}?w=${e._week}`;
         const ffEv = ffDayUrl(ffKeyOf(e._t)) + (e.ff_id ? `#detail=${e.ff_id}` : '');
         html += `
-        <div class="c-row ${e.actual || e.forecast || e.previous ? '' : 'novals'} ${past ? 'past' : ''} ${e === next ? 'next' : ''} imp-${e.impact} ${e.id === openId ? 'open' : ''} ${soft ? '' : 'rin'}" data-id="${esc(e.id)}" role="row" style="--i:${Math.min(i++, 30)}">
+        <div class="c-row ${e.actual || e.forecast || e.previous ? '' : 'novals'} ${past ? 'past' : ''} ${e === next ? 'next' : ''} imp-${e.impact} ${e.id === openId ? 'open' : ''} ${quiet ? '' : 'rin'}" data-id="${esc(e.id)}" role="row" style="--i:${Math.min(i++, 30)}">
           <div class="c-main" tabindex="0" role="button" aria-expanded="${e.id === openId}" aria-label="${esc(e.currency)} ${esc(e.title)}, ${esc(tl)}">
             <span class="c-time" role="cell">${showT ? esc(tl) : ''}${e === next ? '<em class="next-tag">পরবর্তী</em>' : ''}</span>
             <span class="c-cur" role="cell">${esc(e.currency)}</span>

@@ -225,8 +225,8 @@ class ExplainScen(unittest.TestCase):
         self.assertEqual([s["key"] for s in sc], ["neutral", "hawk", "dove"])
         self.assertTrue(sc[0]["is_overall_top"])
         self.assertIn("সবচেয়ে সম্ভাব্য", sc[0]["title"])
-        self.assertEqual(sc[1]["title"], "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে)")
-        self.assertEqual(sc[2]["title"], "উল্টো দিক")
+        self.assertTrue(sc[1]["title"].startswith("বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে) — USD-এর জন্য "))
+        self.assertTrue(sc[2]["title"].startswith("উল্টো দিক — USD-এর জন্য "))
         self.assertFalse(any(s["is_overall_top"] for s in sc[1:]))
 
     def test_scenarios_data_inline_top_orders_directions(self):

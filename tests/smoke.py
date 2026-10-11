@@ -9,6 +9,9 @@ import json, os, re, sys
 from datetime import datetime, timedelta, timezone
 from playwright.sync_api import sync_playwright
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from test_wording import hits as banned_hits  # noqa: E402  (NOMAN's Bullish/Bearish-only wording rule)
+
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8765/"
 OUT = os.environ.get("SHOTS") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "screenshots", "v2")
 CHROME = os.environ.get("CHROME", "/usr/bin/google-chrome")
@@ -228,6 +231,13 @@ with sync_playwright() as p:
             check(pg.locator(".verdict .v-rows").count() == 0, f"{ev['title']}: rate odds shown as event outcome")
             check(pg.locator(".v-context").count() == 1, f"{ev['title']}: rate-market context box missing")
         check(pg.locator(".sc-tabs button").count() == 3, f"{ev['title']}: expected 3 scenario tabs")
+        # wording rule on the rendered page (incl. collapsed <details>): only Bullish / Bearish, named per asset
+        bw = banned_hits(pg.evaluate("document.body.textContent"))
+        check(not bw, f"{ev['title']}: banned sentiment words on page: {bw}")
+        for i, sc in enumerate(ev["scenarios"]):
+            word = {"up": "Bullish", "down": "Bearish"}.get(sc["usd_bias"], "নিউট্রাল")
+            if sc["usd_bias"] in ("up", "down"):
+                check(f"USD-এর জন্য {word}" in titles[i], f"{ev['title']} tab {i+1}: title doesn't name USD bias: {titles[i]}")
         # final prediction box = analysis.prediction (same object the Dashboard reads)
         pr = ev.get("prediction") or {}
         check(pg.locator("#sec-pred").count() == 1, f"{ev['title']}: prediction box missing")
@@ -246,6 +256,11 @@ with sync_playwright() as p:
                 md = {"up": 1, "down": -1}.get(sc["usd_bias"], 0)
                 exp = [CHIP[BETA[k] * md] for k in ("gold", "dxy", "eurusd", "usdjpy", "gbpusd", "btc", "eth", "es", "nq") if k in want]
                 check(rows == exp, f"{ev['title']} tab {i+1}: PUMP/DUMP chips {rows} != {exp}")
+                badge = pg.inner_text("#scp .sc-badges .bias")
+                check(badge.strip() == "USD: " + {"up": "Bullish", "down": "Bearish"}.get(sc["usd_bias"], "নিউট্রাল"), f"{ev['title']} tab {i+1}: USD badge '{badge}'")
+                bb = pg.eval_on_selector_all(".lv-row:not(.off) .lv-bb", "els => els.map(e => e.textContent)")
+                want_bb = [{"pump": "Bullish", "dump": "Bearish", "range": "নিউট্রাল"}[c] for c in rows]
+                check([b.split(": ")[-1] for b in bb] == want_bb, f"{ev['title']} tab {i+1}: per-market Bullish/Bearish {bb} vs chips {rows}")
     # live countdown on analysis
     fut = next((i for i in an["order"] if datetime.fromisoformat(an["events"][i]["time_utc"].replace("Z", "+00:00")) > now + timedelta(minutes=2)), None)
     if fut:
@@ -264,6 +279,8 @@ with sync_playwright() as p:
     for r in ROUTES:
         pg.goto(BASE + r); settle(pg, 1200)
         check(overflow(pg) <= 0, f"desktop horizontal overflow on {r}: {overflow(pg)}px")
+        bw = banned_hits(pg.evaluate("document.body.textContent"))
+        check(not bw, f"banned sentiment words on {r}: {bw}")
     pg.keyboard.press("2"); settle(pg, 900)
     check(h(pg).startswith("#/calendar"), "keyboard shortcut 2 → calendar failed")
     # unknown route → dashboard

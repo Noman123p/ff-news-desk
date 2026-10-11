@@ -709,6 +709,8 @@ body.drawer-open .drawer-nav a:nth-child(3) { transition-delay: 0s, 0s, .1s, .1s
   .lv-row > summary .lv-mk { grid-area: mk; } .lv-row > summary .pd-chip { grid-area: chip; justify-self: end; }
   .lv-row > summary .lv-path { grid-area: path; } .lv-row > summary .ladder { display: none; }
   .lv-mk { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 8px; }
+  .lv-mk > b { display: none; }   /* the Bullish/Bearish tag already names the market */
+  .lv-bb { font-size: 12.5px; }
 
   .c-head { display: none; }
   .c-main { grid-template-columns: auto auto 1fr auto; grid-template-areas: "time cur imp chev" "ev ev ev ev" "vals vals vals vals"; gap: 6px 10px; padding: 10px 12px; }
@@ -749,3 +751,16 @@ body.drawer-open .drawer-nav a:nth-child(3) { transition-delay: 0s, 0s, .1s, .1s
   .reveal { opacity: 1; transform: none; }
   .brand-mark path { stroke-dashoffset: 0; }
 }
+
+/* --- Bullish / Bearish tags (always named after the asset) ------------------ */
+.pred-usd { display: inline-flex; align-items: center; gap: 6px; margin: 2px 0 4px; padding: 3px 10px; border-radius: 999px;
+  font: 650 12.5px var(--font-bn); color: var(--text-2); background: var(--surface-2); }
+.pred-usd::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pred-usd.up { color: var(--up); background: rgba(61,220,151,.1); }
+.pred-usd.down { color: var(--down); background: rgba(255,107,129,.1); }
+.pred-line .pu, .hero-pred .pu { font-style: normal; font-size: 11.5px; font-weight: 650; padding: 1px 7px; border-radius: 6px;
+  color: var(--text-2); background: var(--surface-2); }
+.pred-line .pu.up, .hero-pred .pu.up { color: var(--up); background: rgba(61,220,151,.1); }
+.pred-line .pu.down, .hero-pred .pu.down { color: var(--down); background: rgba(255,107,129,.1); }
+.lv-bb { font: 650 11px var(--font-bn); letter-spacing: .01em; white-space: nowrap; color: var(--text-3, var(--text-2)); }
+.lv-bb.pump { color: var(--up); } .lv-bb.dump { color: var(--down); }
