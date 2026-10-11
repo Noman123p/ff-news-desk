@@ -1,11 +1,59 @@
 {
- "generated_at": "2026-10-11T05:41:24Z",
+ "generated_at": "2026-10-11T06:59:19Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
   "cme_fedwatch": "CME সাইট অটোমেটেড অ্যাক্সেস ব্লক করে (HTTP 403); অফিসিয়াল FedWatch API পেইড। তাই সংখ্যা সরাসরি নেওয়া হয়নি — লিংকে গিয়ে মিলিয়ে নিন।"
  },
  "by_event": {
+  "85feef5f60bd": {
+   "event_id": "85feef5f60bd",
+   "title": "Prelim UoM Consumer Sentiment",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-10-09T14:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": "forecast",
+    "ref_value": "47.5",
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "0b144b6ae64b": {
+   "event_id": "0b144b6ae64b",
+   "title": "Prelim UoM Inflation Expectations",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-10-09T14:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": "previous",
+    "ref_value": "4.6%",
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
   "49d6ce4dc761": {
    "event_id": "49d6ce4dc761",
    "title": "CPI m/m",
@@ -18,7 +66,7 @@
     "title": "September Inflation US - Monthly",
     "url": "https://polymarket.com/event/september-inflation-us-monthly",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 61971,
+    "volume_usd": 61977,
     "outcomes": [
      {
       "label": "≤0.0%",
@@ -40,7 +88,7 @@
      },
      {
       "label": "0.2%",
-      "prob": 1.2,
+      "prob": 1.4,
       "interval": [
        0.2,
        0.2
@@ -76,12 +124,12 @@
      },
      {
       "label": "0.6%",
-      "prob": 40.5,
+      "prob": 39.5,
       "interval": [
        0.6,
        0.6
       ],
-      "volume": 14681
+      "volume": 14687
      },
      {
       "label": "0.7%",
@@ -94,7 +142,7 @@
      },
      {
       "label": "≥0.8%",
-      "prob": 0.9,
+      "prob": 1.4,
       "interval": [
        0.8,
        null
@@ -187,7 +235,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 6.0,
+      "prob": 6.5,
       "interval": [
        0.3,
        0.4
@@ -196,7 +244,7 @@
      },
      {
       "label": ">0.4% ও ≤0.5%",
-      "prob": 26.5,
+      "prob": 26.0,
       "interval": [
        0.4,
        0.5
@@ -214,7 +262,7 @@
      },
      {
       "label": ">0.6% ও ≤0.7%",
-      "prob": 17.0,
+      "prob": 16.5,
       "interval": [
        0.6,
        0.7
@@ -223,7 +271,7 @@
      },
      {
       "label": ">0.7% ও ≤0.8%",
-      "prob": 0.5,
+      "prob": 1.0,
       "interval": [
        0.7,
        0.8
@@ -292,7 +340,7 @@
      },
      {
       "strike": 0.4,
-      "prob_above": 91.5,
+      "prob_above": 91.0,
       "inclusive": false
      },
      {
@@ -307,7 +355,7 @@
      },
      {
       "strike": 0.7,
-      "prob_above": 1.0,
+      "prob_above": 1.5,
       "inclusive": false
      },
      {
@@ -330,9 +378,9 @@
     "ref": "forecast",
     "ref_value": "0.6%",
     "polymarket": {
-     "above": 17.0,
-     "inline": 40.7,
-     "below": 42.3
+     "above": 17.6,
+     "inline": 39.9,
+     "below": 42.6
     },
     "kalshi": {
      "above": 18.0,
@@ -343,12 +391,12 @@
    "most_likely": {
     "polymarket": {
      "label": "0.6%",
-     "prob": 40.5,
+     "prob": 39.5,
      "interval": [
       0.6,
       0.6
      ],
-     "volume": 14681
+     "volume": 14687
     },
     "kalshi": {
      "label": ">0.5% ও ≤0.6%",
@@ -374,7 +422,7 @@
     "title": "September Inflation US - Annual",
     "url": "https://polymarket.com/event/september-inflation-us-annual",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 139930,
+    "volume_usd": 139980,
     "outcomes": [
      {
       "label": "≤2.9%",
@@ -414,7 +462,7 @@
      },
      {
       "label": "3.3%",
-      "prob": 0.6,
+      "prob": 0.7,
       "interval": [
        3.3,
        3.3
@@ -428,11 +476,11 @@
        3.4,
        3.4
       ],
-      "volume": 11371
+      "volume": 11390
      },
      {
       "label": "3.5%",
-      "prob": 9.5,
+      "prob": 8.5,
       "interval": [
        3.5,
        3.5
@@ -450,12 +498,12 @@
      },
      {
       "label": "3.7%",
-      "prob": 38.5,
+      "prob": 39.0,
       "interval": [
        3.7,
        3.7
       ],
-      "volume": 19562
+      "volume": 19592
      },
      {
       "label": "3.8%",
@@ -468,7 +516,7 @@
      },
      {
       "label": "3.9%",
-      "prob": 0.7,
+      "prob": 1.2,
       "interval": [
        3.9,
        3.9
@@ -477,7 +525,7 @@
      },
      {
       "label": "≥4.0%",
-      "prob": 0.6,
+      "prob": 0.7,
       "interval": [
        4.0,
        null
@@ -811,9 +859,9 @@
     "ref": "forecast",
     "ref_value": "3.6%",
     "polymarket": {
-     "above": 48.4,
-     "inline": 39.6,
-     "below": 12.0
+     "above": 49.4,
+     "inline": 39.5,
+     "below": 11.1
     },
     "kalshi": {
      "above": 47.5,
@@ -855,7 +903,7 @@
     "title": "Core CPI MoM - September 2026",
     "url": "https://polymarket.com/event/core-cpi-mom-september-2026",
     "closes_utc": "2026-10-15T03:59:00Z",
-    "volume_usd": 34184,
+    "volume_usd": 34185,
     "outcomes": [
      {
       "label": "≤0.0%",
@@ -891,7 +939,7 @@
        0.3,
        0.3
       ],
-      "volume": 9124
+      "volume": 9125
      },
      {
       "label": "0.4%",
@@ -1284,7 +1332,7 @@
      },
      {
       "label": ">2.3% ও ≤2.4%",
-      "prob": 32.0,
+      "prob": 32.5,
       "interval": [
        2.3,
        2.4
@@ -1302,7 +1350,7 @@
      },
      {
       "label": ">2.5% ও ≤2.6%",
-      "prob": 14.5,
+      "prob": 14.0,
       "interval": [
        2.5,
        2.6
@@ -1418,12 +1466,12 @@
      },
      {
       "strike": 2.4,
-      "prob_above": 50.5,
+      "prob_above": 50.0,
       "inclusive": false
      },
      {
       "strike": 2.5,
-      "prob_above": 15.0,
+      "prob_above": 14.5,
       "inclusive": false
      },
      {
@@ -1491,9 +1539,9 @@
      "below": 46.8
     },
     "kalshi": {
-     "above": 15.0,
+     "above": 14.5,
      "inline": 35.5,
-     "below": 49.5
+     "below": 50.0
     }
    },
    "most_likely": {
@@ -1938,19 +1986,19 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 31659728,
+    "volume_usd": 31660601,
     "outcomes": [
      {
       "label": "No change",
       "prob": 83.5,
       "interval": null,
-      "volume": 8484532
+      "volume": 8485325
      },
      {
       "label": "25 bps increase",
       "prob": 15.5,
       "interval": null,
-      "volume": 7152213
+      "volume": 7152224
      },
      {
       "label": "25 bps decrease",
@@ -1962,7 +2010,7 @@
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 4279073
+      "volume": 4279144
      },
      {
       "label": "50+ bps decrease",
@@ -2048,7 +2096,7 @@
      "label": "No change",
      "prob": 83.5,
      "interval": null,
-     "volume": 8484532
+     "volume": 8485325
     },
     "kalshi": {
      "label": "Fed maintains rate",
@@ -2068,150 +2116,6 @@
      "cut": 1.0
     }
    }
-  },
-  "f3a1c9a41272": {
-   "event_id": "f3a1c9a41272",
-   "title": "Unemployment Claims",
-   "category": "claims",
-   "category_bn": "সাপ্তাহিক বেকার ভাতা আবেদন",
-   "usd_dir": -1,
-   "time_utc": "2026-10-22T12:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "17f2f9b27f8e": {
-   "event_id": "17f2f9b27f8e",
-   "title": "Flash Manufacturing PMI",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-10-23T13:45:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "b8e1624e9dbc": {
-   "event_id": "b8e1624e9dbc",
-   "title": "Flash Services PMI",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-10-23T13:45:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "f31fb276e7b6": {
-   "event_id": "f31fb276e7b6",
-   "title": "Revised UoM Consumer Sentiment",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-10-23T14:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "9fc1e539a801": {
-   "event_id": "9fc1e539a801",
-   "title": "Revised UoM Inflation Expectations",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-10-23T14:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "9c51985a891d": {
-   "event_id": "9c51985a891d",
-   "title": "Treasury Currency Report",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-10-23T20:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
   }
  }
 }
