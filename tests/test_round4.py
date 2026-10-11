@@ -289,7 +289,8 @@ class GeneratedData(unittest.TestCase):
         path = os.path.join(ROOT, "data", name)
         if not os.path.exists(path):
             self.skipTest(f"no {name}")
-        return json.load(open(path, encoding="utf-8"))
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
 
     def test_predictions_consistent(self):
         an = self.load("analysis.json")
