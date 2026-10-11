@@ -19,6 +19,14 @@ function verdictChip(a) {
   return `<span class="vchip">${icon('gauge')}${esc(v.top.label)}${pct}</span>`;
 }
 
+// one line from the analysis' final prediction — the same object the Analysis page shows
+function predLine(a, cls = 'pred-line') {
+  const p = a?.prediction;
+  if (!p || p.value_text == null) return '';
+  const pct = p.value_prob != null ? ` (${bn(p.value_prob)}%)` : p.kind === 'tone' || p.approx_only ? ' (আনুমানিক)' : '';
+  return `<p class="${cls}"><span>ফাইনাল প্রেডিকশন</span><b>${esc(p.value_text)}</b>${p.compare && p.kind === 'data' ? ` — ${esc(p.compare)}` : ''}${pct}<em>আস্থা: ${esc((p.confidence || '').split(' — ')[0])}</em></p>`;
+}
+
 export function mount(el, route, ctx) {
   let core = ctx.core || {};
   const draw = () => {
@@ -41,6 +49,7 @@ export function mount(el, route, ctx) {
           <h1><a href="#/analysis/${esc(next.id)}">${esc(next.title)}</a></h1>
           <p class="hero-sub">${dayShort(dhakaKey(new Date(next.time_utc)))} · ${timeDhaka(new Date(next.time_utc))} (ঢাকা)
             ${next.forecast ? ` · Forecast <b>${esc(next.forecast)}</b>` : ''}${next.previous ? ` · আগের <b>${esc(next.previous)}</b>` : ''}</p>
+          ${predLine(an[next.id], 'hero-pred')}
         </div>
         <div class="countdown" data-cd="${esc(next.time_utc)}" aria-label="কাউন্টডাউন">
           <div><b data-u="h">--</b><span>ঘণ্টা</span></div><div><b data-u="m">--</b><span>মিনিট</span></div><div><b data-u="s">--</b><span>সেকেন্ড</span></div>
@@ -66,6 +75,7 @@ export function mount(el, route, ctx) {
             <span><small>Forecast</small>${val(e.forecast)}</span>
             <span><small>Actual</small>${val(e.actual, `actual ${abwCls(e.abw)}`)}</span>
           </div>
+          ${predLine(a)}
         </div>
         <div class="ev-side">${verdictChip(a)}<span class="go">বিশ্লেষণ ${icon('right')}</span></div>
       </a>`;

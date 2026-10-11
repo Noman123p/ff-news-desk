@@ -153,7 +153,8 @@ def baseline_text(baseline):
 def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: int,
                     forecast: str | None, ref_label: str, probs: dict | None,
                     lean: str | None, has_numbers: bool, is_decision: bool = False,
-                    dir_hint: str | None = None, baseline: str | None = None) -> list:
+                    dir_hint: str | None = None, baseline: str | None = None,
+                    lean_note: str | None = None) -> list:
     """
     Three scenarios, ordered so that no title contradicts the numbers.
 
@@ -237,7 +238,7 @@ def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: 
         roles = ["most_likely", "opposite", "neutral"]
         prob_note = "বাজারের সরাসরি সম্ভাবনা নেই"
         approx = True
-        notes[lean] = "বাজারের % নেই — Forecast/নাউকাস্টের ঝোঁক অনুযায়ী সাজানো; নিশ্চয়তা কম।"
+        notes[lean] = lean_note or "বাজারের % নেই — Forecast/নাউকাস্টের ঝোঁক অনুযায়ী সাজানো; নিশ্চয়তা কম।"
     elif lean == N:
         hi = dir_hint if dir_hint in (A, B) else A
         lo = B if hi == A else A
@@ -248,7 +249,7 @@ def build_scenarios(*, theme: str, impact: str, title: str, kind: str, usd_dir: 
         roles = ["most_likely", "likelier_direction", "opposite_direction"]
         prob_note = "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই"
         approx = True
-        notes[N] = ("সরাসরি বাজার নেই — রেট-মার্কেটের প্রসঙ্গ থেকে আনুমানিক ক্রম; % দেওয়া হচ্ছে না।" if kind == "tone"
+        notes[N] = lean_note or ("সরাসরি বাজার নেই — রেট-মার্কেটের প্রসঙ্গ থেকে আনুমানিক ক্রম; % দেওয়া হচ্ছে না।" if kind == "tone"
                     else "বাজারের % নেই — নাউকাস্ট " + ("আগের মানের" if baseline == "previous" else "প্রত্যাশার") + " কাছাকাছি; আনুমানিক ক্রম।")
     else:
         # nothing to rank by: show both directions neutrally, never call one "most likely"

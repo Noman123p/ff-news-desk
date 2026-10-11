@@ -32,6 +32,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import explainers  # noqa: E402
 import nowcasts  # noqa: E402
 import scenarios  # noqa: E402
+import predict  # noqa: E402
+import levels  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
@@ -75,14 +77,14 @@ def log(*a):
 # --------------------------------------------------------------------------- #
 # HTTP
 # --------------------------------------------------------------------------- #
-def http_get(url, params=None, accept="application/json", timeout=25, retries=2):
+def http_get(url, params=None, accept="application/json", timeout=25, retries=2, headers=None):
     if params:
         url = url + ("&" if "?" in url else "?") + urllib.parse.urlencode(params)
     last = None
     for attempt in range(retries + 1):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": accept,
-                                                       "Accept-Language": "en-US,en;q=0.9"})
+                                                       "Accept-Language": "en-US,en;q=0.9", **(headers or {})})
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.status, r.read()
         except urllib.error.HTTPError as e:
@@ -1272,6 +1274,23 @@ def verdict_summary(v):
     return f"ঝোঁক: {top['label']} (বাজারের % নেই — নিশ্চয়তা কম)"
 
 
+def bracket_side(iv, open_side, f):
+    """side_of() for stored intervals (JSON keeps open ends as null)."""
+    lo, hi = iv[0], iv[1]
+    return side_of((-math.inf if lo is None else lo, math.inf if hi is None else hi), open_side, f)
+
+
+def assert_prediction(verdict, pred):
+    """The prediction box must name the same outcome side as the verdict (and so the tabs/Dashboard)."""
+    top = (verdict or {}).get("top")
+    if not top or (pred.get("value") is None and pred.get("side") is None):
+        return
+    if pred.get("approx_only"):
+        assert top["key"] == "inline", ("prediction says near Forecast but verdict top is", top["key"])
+        return
+    assert pred.get("side") == top["key"], ("prediction side", pred.get("side"), "≠ verdict top", top["key"])
+
+
 def assert_consistent(verdict, sc):
     """Guard: scenario 1 must be the verdict's top outcome and %s must match; raise loudly in tests/CI."""
     top = verdict.get("top")
@@ -1375,7 +1394,7 @@ def build_analysis(cal, prob, specs_by, archive):
         markets_ok = [s for s in sources if s.get("kind") == "market" and s.get("ok")]
         verdict = {"kind": kind, "probs": None, "top": None, "second": None, "basis": [], "confidence": "ডেটা নেই",
                    "context": None, "labels": None}
-        lean, dir_hint = None, None
+        lean, dir_hint, lean_note = None, None, None
         if kind == "fed":
             v = avg_dists([s["fed_view"] for s in markets_ok if s.get("fed_view")])
             verdict["labels"] = {"hawk": "রেট হাইক (হকিশ)", "neutral": "নিউট্রাল — রেট হোল্ড", "dove": "রেট কাট (ডোভিশ)"}
@@ -1410,11 +1429,17 @@ def build_analysis(cal, prob, specs_by, archive):
                 verdict["basis"].append(f"{nc['source']}: {nc['value']}% → {nc['vs_ref_text']}")
                 if not v:
                     lean = nc_side
-            if not v and not nc_side and ref_kind == "forecast" and parse_value(e.get("previous")) is not None:
+                    lean_note = f"বাজারের % নেই — {nc['source']} নাউকাস্ট অনুযায়ী আনুমানিক ক্রম।"
+            if not v and not nc_side and ref_kind == "forecast":
+                # only FF Forecast/Previous: the honest call is "near Forecast" (low confidence);
+                # Forecast vs Previous only tells which surprise side is likelier
+                lean = "inline"
+                lean_note = "বাজার বা নাউকাস্ট নেই — শুধু ForexFactory Forecast; তাই Forecast-এর কাছাকাছি ধরা হলো, নিশ্চয়তা কম।"
+                verdict["basis"].append("বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে")
                 pv = parse_value(e.get("previous"))
-                if ref_val != pv:
-                    lean = "above" if ref_val > pv else "below"
-                    verdict["basis"].append(f"Forecast আগের মানের চেয়ে {'বেশি' if ref_val > pv else 'কম'} — শুধু ট্রেন্ড-ঝোঁক")
+                if pv is not None and ref_val != pv:
+                    dir_hint = "above" if ref_val > pv else "below"
+                    verdict["basis"].append(f"Forecast আগের মানের চেয়ে {'বেশি' if ref_val > pv else 'কম'} — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)")
         else:
             verdict["labels"] = {"hawk": "ডলার-সহায়ক মন্তব্য", "neutral": "নিউট্রাল — নতুন কিছু নয়", "dove": "ডলার-বিরোধী মন্তব্য"}
         probs = verdict["probs"]
@@ -1455,8 +1480,27 @@ def build_analysis(cal, prob, specs_by, archive):
         sc = scenarios.build_scenarios(
             theme=ex["theme"], impact=e["impact"], title=e["title"],
             kind=kind, usd_dir=d, forecast=ref_raw, ref_label=ref_bn, baseline=ref_kind if kind == "data" else None, probs=probs, lean=lean, dir_hint=dir_hint,
-            has_numbers=kind == "data", is_decision=cat == "fed_decision")
+            has_numbers=kind == "data", is_decision=cat == "fed_decision", lean_note=lean_note)
         assert_consistent(verdict, sc)
+
+        # ---- final prediction (one value / decision), picked inside the verdict's top side
+        used = [{"name": n, "outcomes": (p.get(k) or {}).get("outcomes")} for n, k in (("Polymarket", "polymarket"), ("Kalshi", "kalshi"))
+                if p.get(k) and ((kind == "data" and vf.get(k)) or (kind == "fed" and fv.get(k)))]
+        if kind == "data":
+            pred = predict.predict_data(title=e["title"], forecast_raw=f_raw, previous_raw=e.get("previous") or "",
+                                        verdict=verdict, market_srcs=used, nowcast=nc if nc_side else None,
+                                        history=history_for(e, archive, sp), side_fn=bracket_side)
+        elif kind == "fed":
+            pred = predict.predict_fed(title=e["title"], verdict=verdict, market_srcs=used)
+        elif kind == "tone":
+            pred = predict.predict_tone(title=e["title"], verdict=verdict)
+        else:
+            pred = predict.predict_speech(title=e["title"])
+        if a is not None and pred.get("value") is not None and kind == "data":
+            hit = abs(a - pred["value"]) < (10 ** -decimals_of(f_raw or e.get("previous")) * (predict.SCALE.get(predict.unit_of(f_raw).upper(), 1))) / 2
+            pred["result"] = {"actual": e["actual"], "hit": bool(hit),
+                              "text": f"Actual {e['actual']} — প্রেডিকশন ({pred['value_text']}) " + ("মিলেছে" if hit else "মেলেনি")}
+        assert_prediction(verdict, pred)
         if result:
             for x in sc:
                 x["happened"] = x["key"] == result["side"]
@@ -1470,6 +1514,7 @@ def build_analysis(cal, prob, specs_by, archive):
             "history": history_for(e, archive, sp),
             "sources": sources,
             "verdict": verdict,
+            "prediction": pred,
             "scenarios": sc,
             "ff_url": f"https://www.forexfactory.com/calendar?day={week_param(t.astimezone(FF_TZ).date().isoformat())}"
                       + (f"#detail={e['ff_id']}" if e.get("ff_id") else ""),
@@ -1525,6 +1570,26 @@ def gh_outputs(status):
         f.write(f"ff_fallback={one(status['fallback_in_use'])}\n")
 
 
+def update_levels(analysis):
+    """Per-scenario price levels (data/levels.json). Rewritten only when a level moves > 0.25 ATR,
+    the event set changes, or the 12h heartbeat is due — price ticks alone don't make commits."""
+    prev = load_json("levels.json", {})
+    try:
+        doc = levels.build_levels(analysis, load_archive(), http_get, prev, NOW, log)
+    except Exception as ex:   # never let price levels break the calendar update
+        log(f"levels: failed — {ex!r}; keeping previous file")
+        SOURCE_HEALTH["price_all"] = f"ব্যর্থ ({type(ex).__name__})"
+        return prev
+    for k, v in doc["health"].items():
+        SOURCE_HEALTH[f"price_{k}"] = v
+    if levels.levels_changed(prev, doc):
+        write_json("levels.json", doc)
+        log(f"levels.json: written ({sum(1 for v in doc['markets'].values() if v.get('ok'))}/{len(doc['markets'])} markets)")
+        return doc
+    log("levels.json: unchanged (< 0.25 ATR) — kept")
+    return prev
+
+
 def main():
     cal = build_calendar()
     for e in cal.get("events", []):
@@ -1543,6 +1608,7 @@ def main():
     # PROB_TOL) doesn't rewrite the Bangla text, and they always match the analysis verdict
     briefs = write_if_changed("briefs.json", build_briefs(cal, prob, analysis))
     log(f"briefs: {len(briefs['briefs'])} (next 24h)")
+    update_levels(analysis)
     if os.environ.get("PROBE_ALL") == "1":   # manual check of every free source from this machine
         for name, fn in (("cleveland_fed", lambda: nowcasts.cleveland("cpi_mom", NOW + timedelta(days=10), http_get)),
                          ("gdpnow", lambda: nowcasts.gdpnow(http_get))):
@@ -1557,7 +1623,8 @@ def main():
             log(f"probe ff_specs ({probe_ev['title']}): {SOURCE_HEALTH['ff_specs']}")
     status["archive"] = {"weeks": len(stored_weeks()), "first": (stored_weeks() or [None])[0],
                          "backfill_stopped": backfill.get("stopped")}
-    status["nowcasts"] = dict(SOURCE_HEALTH) or None
+    status["nowcasts"] = {k: v for k, v in SOURCE_HEALTH.items() if not k.startswith("price_")} or None
+    status["prices"] = {k[6:]: v for k, v in SOURCE_HEALTH.items() if k.startswith("price_")} or None
     write_if_changed("status.json", status, field="checked_at")
     gh_outputs(status)
     log(f"status: ff_page_ok={status['ff_page_ok']} feed_ok={status['ff_feed_ok']} reason={status['ff_reason']}")

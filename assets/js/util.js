@@ -86,7 +86,8 @@ export const loadCore = () => Promise.all([
   loadJSON('data/briefs.json', { optional: true }),
   loadJSON('data/status.json', { optional: true }),
   loadJSON('data/analysis.json', { optional: true }),
-]).then(([calendar, briefs, status, analysis]) => ({ calendar, briefs, status, analysis }));
+  loadJSON('data/levels.json', { optional: true }),
+]).then(([calendar, briefs, status, analysis, levels]) => ({ calendar, briefs, status, analysis, levels }));
 
 export const store = {
   get(k, def) { try { const v = JSON.parse(localStorage.getItem(k)); return v ?? def; } catch { return def; } },

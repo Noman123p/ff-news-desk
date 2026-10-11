@@ -29,17 +29,21 @@ scripts/update.py          data updater (Python stdlib only)
 scripts/explainers.py      Bangla explainer dictionary (+ generic fallback)
 scripts/scenarios.py       rule-based three-scenario market analysis
 scripts/nowcasts.py        Cleveland Fed inflation nowcast + Atlanta Fed GDPNow
+scripts/predict.py         final prediction: bracket mode / expected value, Fed decision bucket, input agreement
+scripts/levels.py          price levels per scenario (Yahoo/Coinbase prices, ATR, past reactions, S/R snapping)
 data/calendar.json         events (this + next week)
 data/weeks/YYYY-MM-DD.json one file per FF week (key = Sunday week start); index.json lists them
 data/ff_specs.json         FF event specs + release history, cached per event type
 data/analysis.json         per-event analysis (explainer, data, history, sources, verdict, scenarios)
 data/probabilities.json    Polymarket / Kalshi / FedWatch per USD event
+data/levels.json           per event × scenario × market: PUMP/DUMP, targets, pullback, invalidation, basis
 data/briefs.json           Bangla briefs for the next 24h (or "আজ বড় কোনো USD নিউজ নেই")
 data/status.json           ForexFactory page/feed status (ff_page_ok, ff_feed_ok, reason, fallback)
 scripts/ff_alert.sh        opens/closes the "ff-blocked" GitHub issue (uses gh + GITHUB_TOKEN)
 .github/workflows/update.yml  cron: 07:00 Dhaka daily + every 2h, commits data/ only on real changes
 tests/test_update.py       unit tests (stdlib)
 tests/test_round3.py       unit tests: week archive/backfill, specs, nowcasts, explainers, scenarios, verdict
+tests/test_round4.py       unit tests: prediction math, level math, PUMP/DUMP consistency, committed-data checks
 tests/smoke.py             headless browser test + screenshots (playwright)
 ```
 
@@ -58,6 +62,15 @@ tests/smoke.py             headless browser test + screenshots (playwright)
 If no market matches, the site shows **"ডেটা নেই"**. Numbers are never invented.
 
 **The combined verdict** averages the markets' "above / near / below Forecast" split (for Fed events: hike / hold / cut). Confidence is **নিম্ন** when only one market is available, when liquidity is thin, or when the top outcome is under 50%. A nowcast on its own gives a direction but **no percentage**. With no source at all, the verdict reads "ডেটা নেই".
+
+**The final prediction** ("ফাইনাল প্রেডিকশন", top of Analysis and on Dashboard cards) is the single most likely released value. Polymarket and Kalshi brackets are turned into a distribution over release values, for example Kalshi's (0.5, 0.6] means 0.6. The distributions are averaged, and the site reports the modal value and the expected value. The value is always picked **inside the side the verdict calls most likely**, so the box, the verdict, the tabs and the Dashboard can't disagree (`assert_prediction` enforces this). Nowcast, past-release trend and FF Forecast/Previous are listed as agreeing or disagreeing, and disagreement lowers confidence. With only FF Forecast the box says "Forecast-এর কাছাকাছি", confidence low. Fed decisions use hold / 25 / 50 bps buckets. Minutes and speeches get a tone (no %).
+
+## Price levels (`data/levels.json`)
+- **Prices**: Yahoo Finance chart API: GC=F, DX-Y.NYB, EURUSD=X, JPY=X, GBPUSD=X, BTC-USD, ETH-USD, ES=F, NQ=F (1h/730d and 15m/60d). Coinbase is the fallback for BTC/ETH. Health goes to `status.json → prices`.
+- **Move size**: for each market, the reaction to past releases of the same event, taken from the FF week archive × 1h bars. It runs from the open of the release hour to the close of the bar one hour later, measured in units of a 5-day 1h ATR. T1 = median, T2 = 75th percentile; the multiples are scaled by today's ATR. With fewer than 4 past releases, the pooled reaction to all USD releases of the same impact is used instead, and it is labelled as such.
+- **Snapping**: targets move to a nearby real level when one is close: previous-day high/low, 5-day high/low, 1h swing highs/lows, round numbers. Pullback = about halfway back from T1. Invalidation = about 0.6× the move on the other side.
+- **Direction**: PUMP/DUMP follow the scenario's USD bias (USD up → DXY, USD/JPY PUMP; EUR/USD, GBP/USD, Gold, BTC, ETH, ES, NQ DUMP). "আগে হালকা PUMP → তারপর DUMP" is shown only when, over the last 60 days of 15m data, at least half of the high-impact releases had a first 15 minutes against the final move.
+- **Commit noise**: the file is rewritten only if a level moves by more than 0.25 ATR, the event set changes, or 12h pass. After a release, the pre-release levels are kept and the scenario that happened is marked.
 
 ## Week archive & backfill
 - Every run refreshes this week and next week. It also re-fetches last week until that week is complete.

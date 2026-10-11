@@ -54,6 +54,9 @@ with sync_playwright() as p:
     an = json.loads(pg.evaluate("fetch('data/analysis.json').then(r=>r.text())"))
     cal = json.loads(pg.evaluate("fetch('data/calendar.json').then(r=>r.text())"))
     idx = json.loads(pg.evaluate("fetch('data/weeks/index.json').then(r=>r.text())"))
+    lvdoc = json.loads(pg.evaluate("fetch('data/levels.json').then(r=>r.ok?r.text():'{}')"))
+    BETA = {"gold": -1, "dxy": 1, "eurusd": -1, "usdjpy": 1, "gbpusd": -1, "btc": -1, "eth": -1, "es": -1, "nq": -1}
+    CHIP = {1: "pump", -1: "dump", 0: "range"}
     now = datetime.now(timezone.utc)
     today = now.astimezone(DHAKA).date()
 
@@ -224,8 +227,25 @@ with sync_playwright() as p:
         if ev["category"] == "fed_talk":
             check(pg.locator(".verdict .v-rows").count() == 0, f"{ev['title']}: rate odds shown as event outcome")
             check(pg.locator(".v-context").count() == 1, f"{ev['title']}: rate-market context box missing")
-        dash_top = ev["verdict"].get("top")
         check(pg.locator(".sc-tabs button").count() == 3, f"{ev['title']}: expected 3 scenario tabs")
+        # final prediction box = analysis.prediction (same object the Dashboard reads)
+        pr = ev.get("prediction") or {}
+        check(pg.locator("#sec-pred").count() == 1, f"{ev['title']}: prediction box missing")
+        if pr.get("value_text"):
+            check(pg.inner_text("#sec-pred .pred-val").strip() == pr["value_text"], f"{ev['title']}: prediction value mismatch")
+        if pr.get("compare"):
+            check(pg.inner_text("#sec-pred .pred-cmp").strip() == pr["compare"], f"{ev['title']}: prediction compare mismatch")
+        # price levels: one row per market, PUMP/DUMP chip follows the scenario's USD bias
+        le = (lvdoc.get("events") or {}).get(eid) or {}
+        if le.get("status") == "pre":
+            for i, sc in enumerate(ev["scenarios"]):
+                pg.click(f"[data-sc='{i}']"); settle(pg, 260)
+                want = le["scenarios"].get(sc["key"], {})
+                rows = pg.eval_on_selector_all(".lv-row:not(.off)", "els => els.map(e => [...e.classList].find(c => ['pump','dump','range'].includes(c)))")
+                check(len(rows) == len(want), f"{ev['title']} tab {i+1}: {len(rows)} level rows, want {len(want)}")
+                md = {"up": 1, "down": -1}.get(sc["usd_bias"], 0)
+                exp = [CHIP[BETA[k] * md] for k in ("gold", "dxy", "eurusd", "usdjpy", "gbpusd", "btc", "eth", "es", "nq") if k in want]
+                check(rows == exp, f"{ev['title']} tab {i+1}: PUMP/DUMP chips {rows} != {exp}")
     # live countdown on analysis
     fut = next((i for i in an["order"] if datetime.fromisoformat(an["events"][i]["time_utc"].replace("Z", "+00:00")) > now + timedelta(minutes=2)), None)
     if fut:
@@ -272,7 +292,24 @@ with sync_playwright() as p:
     mp.locator(".c-row .c-main").first.click(); settle(mp, 500)
     check(overflow(mp) <= 0, "mobile overflow with expanded row")
     mp.screenshot(path=f"{OUT}/mobile-calendar-expanded.png")
+    lv_ev = next((i for i in an["order"] if ((lvdoc.get("events") or {}).get(i) or {}).get("status") == "pre"), None)
+    if lv_ev:
+        mp.goto(BASE + f"#/analysis/{lv_ev}"); settle(mp, 1400)
+        for i in range(3):
+            mp.click(f"[data-sc='{i}']"); settle(mp, 300)
+            mp.evaluate("document.querySelectorAll('.lv-row').forEach(d => d.open = true)"); settle(mp, 200)
+            check(overflow(mp) <= 0, f"mobile overflow in levels (tab {i+1}): {overflow(mp)}px")
+            chip = mp.locator(".lv-row .pd-chip").first.bounding_box()
+            check(chip is not None and chip["x"] + chip["width"] <= 390, "mobile PUMP/DUMP chip off-screen")
     m.close()
+    # levels file missing → page still renders, says levels aren't ready (no errors)
+    nl = br.new_context(viewport={"width": 1366, "height": 900}); nlp = nl.new_page(); attach(nlp, "no-levels", allow_404=("levels.json",))
+    nlp.route("**/data/levels.json*", lambda r: r.fulfill(status=404, body="nope"))
+    if lv_ev:
+        nlp.goto(BASE + f"#/analysis/{lv_ev}"); settle(nlp, 1500)
+        check(nlp.locator("#sec-pred").count() == 1, "prediction box missing when levels.json is absent")
+        check("লেভেল এখনো তৈরি হয়নি" in nlp.inner_text("#sec-scen"), "missing-levels message not shown")
+    nl.close()
 
     # ---------------- failure modes
     bctx = br.new_context(viewport={"width": 1366, "height": 900})

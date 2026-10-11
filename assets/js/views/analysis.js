@@ -14,6 +14,29 @@ const SPEC_BN = { Source: 'সূত্র', Measures: 'কী মাপে', 'U
 const KIND_BN = { market: 'প্রেডিকশন মার্কেট', nowcast: 'নাউকাস্ট মডেল', consensus: 'কনসেনসাস', link: 'শুধু লিংক' };
 const pctTxt = (p) => (p == null ? '—' : `${bn(Math.round(p * 10) / 10)}%`);
 const abwCls = (abw) => (abw === 1 ? 'beat' : abw === 2 ? 'miss' : '');
+const confClass = (c = '') => (c.startsWith('নিম্ন') || c.startsWith('খুব') ? 'low' : c.startsWith('মাঝারি–') || c.startsWith('উচ্চ') ? 'high' : c.startsWith('মাঝারি') ? 'mid' : 'none');
+// market rows of the levels table, in display order (key, group)
+const LV_ORDER = [['gold', 'গোল্ড'], ['dxy', 'ডলার ও ফরেক্স'], ['eurusd'], ['usdjpy'], ['gbpusd'], ['btc', 'ক্রিপ্টো'], ['eth'], ['es', 'US স্টক ইনডেক্স'], ['nq']];
+const LV_PREFIX = { gold: '$', btc: '$', eth: '$' };
+function px(k, v, dec) {
+  if (v == null || Number.isNaN(v)) return '—';
+  return (LV_PREFIX[k] || '') + Number(v).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+}
+const WORD = { PUMP: 'PUMP', DUMP: 'DUMP', RANGE: 'রেঞ্জ' };
+
+function ladder(lv) {
+  // tiny vertical level map: invalidation · now · pullback · T1 · T2 (or range + breaks)
+  const pts = lv.md === 0
+    ? [['b', lv.break[0]], ['r', lv.range[0]], ['n', lv.from], ['r', lv.range[1]], ['b', lv.break[1]]]
+    : [['x', lv.invalid], ['n', lv.from], ['p', lv.pullback], ['t', lv.t1], ['t2', lv.t2]];
+  const vals = pts.map((p) => p[1]).filter((v) => v != null);
+  const lo = Math.min(...vals), hi = Math.max(...vals), span = hi - lo || 1;
+  const H = 64, y = (v) => 6 + (1 - (v - lo) / span) * (H - 12);
+  const band = lv.md === 0 ? `<rect class="lband" x="9" width="10" y="${y(lv.range[1])}" height="${Math.max(2, y(lv.range[0]) - y(lv.range[1]))}" rx="3"/>`
+    : `<line class="lpath" x1="14" x2="14" y1="${y(lv.from)}" y2="${y(lv.t2)}"/>`;
+  return `<svg class="ladder" viewBox="0 0 28 ${H}" aria-hidden="true"><line class="lrail" x1="14" x2="14" y1="4" y2="${H - 4}"/>${band}
+    ${pts.map(([c, v]) => (v == null ? '' : `<circle class="l-${c}" cx="14" cy="${y(v)}" r="${c === 'n' ? 3.6 : 3}"/>`)).join('')}</svg>`;
+}
 
 function dayLabel(k) {
   const t = todayKey();
@@ -149,11 +172,34 @@ export function mount(el, route, ctx) {
       <div class="src-foot">${when ? `<span>${icon('clock')}${s.as_of ? `ডেটা: ${esc(s.as_of_label || s.as_of)}` : `আপডেট ${agoBn(when)}`}</span>` : ''}
         ${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">উৎস ${icon('ext')}</a>` : ''}</div></div>`;
   }
+  function sPred(a) {
+    const p = a.prediction;
+    if (!p) return '';
+    const conf = p.confidence || 'ডেটা নেই';
+    const ins = p.inputs || [];
+    const agreeN = ins.filter((i) => i.agree === true).length, disN = ins.filter((i) => i.agree === false).length;
+    const mark = (i) => (i.agree === true ? ['ok', '✓', 'একমত'] : i.agree === false ? ['no', '✕', 'একমত নয়'] : ['na', '•', 'তথ্য']);
+    const inputs = ins.length ? `<ul class="pred-inputs">${ins.map((i) => { const [c, g, t] = mark(i); return `<li class="${c}"><i aria-label="${t}">${g}</i><b>${esc(i.name)}</b><span>${esc(i.text)}</span></li>`; }).join('')}</ul>` : '';
+    const has = p.value_text != null;
+    const big = has ? `<b class="pred-val ${p.kind === 'data' && !p.word ? '' : 'word'}">${esc(p.value_text)}</b>` : '<b class="pred-val word na">ডেটা নেই</b>';
+    const sub = [
+      p.value_prob != null ? `${p.kind === 'fed' ? 'এই সিদ্ধান্তের' : p.word ? 'এই দিকের' : 'এই মানটির'} সম্ভাবনা ${pctTxt(p.value_prob)}` : '',
+      p.ev_text ? esc(p.ev_text) : '', p.vs_previous ? esc(p.vs_previous) : '',
+    ].filter(Boolean).join(' · ');
+    const tally = (agreeN || disN) ? `<span class="tally">${bn(agreeN)}টা সূত্র একমত${disN ? ` · ${bn(disN)}টা একমত নয়` : ''}</span>` : '';
+    return `<section class="pred glass" id="sec-pred" aria-label="ফাইনাল প্রেডিকশন">
+      <div class="pred-head"><span class="eyebrow">${icon('scope')}ফাইনাল প্রেডিকশন</span><span class="conf ${confClass(conf)}">আস্থা: ${esc(conf)}</span></div>
+      <div class="pred-main">${big}<div class="pred-txt">${p.compare ? `<p class="pred-cmp">${esc(p.compare)}</p>` : ''}${sub ? `<p class="pred-sub">${sub}</p>` : ''}</div></div>
+      ${p.result ? `<p class="pred-result ${p.result.hit ? 'hit' : 'miss'}">${icon('info')}${esc(p.result.text)}</p>` : ''}
+      <p class="pred-method">${icon('info')}<span>${esc(p.method || '')}</span>${tally}</p>
+      ${inputs}
+    </section>`;
+  }
   const RANK_ROLE = { 0: 'সবচেয়ে সম্ভাব্য', 1: 'দ্বিতীয়', 2: 'তৃতীয়' };
   function sProb(a) {
     const v = a.verdict || {};
     const conf = v.confidence || 'ডেটা নেই';
-    const confCls = conf.startsWith('নিম্ন') ? 'low' : conf.startsWith('মাঝারি–') ? 'high' : conf.startsWith('মাঝারি') ? 'mid' : 'none';
+    const confCls = confClass(conf);
     const sc = a.scenarios || [];
     const neutralTop = v.top && (v.top.key === 'inline' || v.top.key === 'neutral');
     // ranked rows come straight from the scenario order, so section ঘ and the tabs can never disagree
@@ -194,6 +240,44 @@ export function mount(el, route, ctx) {
       <div class="src-grid">${(a.sources || []).map(sourceCard).join('')}</div>
     </section>`;
   }
+  function levelsBlock(a, s) {
+    const L = core.levels, E = L?.events?.[a.id];
+    if (!L || !E) return `<div class="lv glass-in"><p class="nodata">${icon('info')}এই ইভেন্টের প্রাইস-লেভেল এখনো তৈরি হয়নি (পরের আপডেটে আসবে)।</p></div>`;
+    const S = E.scenarios?.[s.key] || {};
+    const released = E.status === 'released';
+    if (!Object.keys(S).length) return `<div class="lv glass-in"><p class="nodata">${icon('info')}${esc(E.note || 'লেভেল নেই — দামের ডেটা পাওয়া যায়নি')}</p></div>`;
+    const times = Object.values(L.markets || {}).filter((m) => m.ok).map((m) => Date.parse(m.price_time));
+    const newest = times.length ? new Date(Math.max(...times)) : null;
+    const rows = LV_ORDER.map(([k, group]) => {
+      const lv = S[k], m = L.markets?.[k];
+      const head = group ? `<div class="lv-group">${group}</div>` : '';
+      if (!lv || !m?.ok) return head + `<div class="lv-row off"><div class="lv-mk"><b>${esc(m?.label || k)}</b></div><span class="muted small">ডেটা নেই${m?.note ? ` — ${esc(m.note)}` : ''}</span></div>`;
+      const d = m.dec, cls = lv.dir === 'PUMP' ? 'pump' : lv.dir === 'DUMP' ? 'dump' : 'range';
+      const opp = lv.dir === 'PUMP' ? 'DUMP' : 'PUMP';
+      const stale = Date.now() - Date.parse(m.price_time) > 6 * 3600e3;
+      const path = lv.md === 0
+        ? `<div class="lv-arrow"><span class="from">${px(k, lv.from, d)}</span><span class="to">রেঞ্জ <b>${px(k, lv.range[0], d)}</b> – <b>${px(k, lv.range[1], d)}</b></span></div>
+           <div class="lv-sub">ভাঙলে: <b class="pump-t">${px(k, lv.break[1], d)}</b>-এর উপরে PUMP · <b class="dump-t">${px(k, lv.break[0], d)}</b>-এর নিচে DUMP</div>`
+        : `<div class="lv-arrow"><span class="from">${px(k, lv.from, d)}</span><span class="ar">→</span><span class="to"><b>${px(k, lv.t1, d)}</b><small>${esc(lv.t1_tag)}</small></span><span class="ar">→</span><span class="to ext"><b>${px(k, lv.t2, d)}</b><small>বর্ধিত · ${esc(lv.t2_tag)}</small></span></div>
+           <div class="lv-sub">এখান থেকে ${opp} দিলে <b>${px(k, lv.pullback, d)}</b> পর্যন্ত · বাতিল: <b class="inv">${px(k, lv.invalid, d)}</b>-এর ${lv.md > 0 ? 'নিচে' : 'উপরে'} ক্লোজ</div>`;
+      return head + `<details class="lv-row ${cls}">
+        <summary>
+          <div class="lv-mk"><b>${esc(m.label)}</b><span class="lv-px">${px(k, m.price, d)}${stale ? '<em>মার্কেট বন্ধ/পুরোনো দাম</em>' : ''}</span></div>
+          <span class="pd-chip ${cls}">${lv.dir === 'PUMP' ? '▲' : lv.dir === 'DUMP' ? '▼' : '↔'} ${WORD[lv.dir]}</span>
+          <div class="lv-path"><span class="lv-first">প্রথম মুভ: ${esc(lv.first)}</span>${path}</div>
+          ${ladder(lv)}
+        </summary>
+        <div class="lv-basis">${E.basis?.[k] ? `<p>${icon('info')}${esc(E.basis[k])}</p>` : ''}${E.first_move_basis?.[k] ? `<p>${icon('clock')}${esc(E.first_move_basis[k])}</p>` : ''}
+          <p class="muted">${esc(m.source || '')} · দাম: ${stampDhaka(new Date(m.price_time))}${m.note ? ` · ${esc(m.note)}` : ''}</p></div>
+      </details>`;
+    }).join('');
+    return `<div class="lv">
+      <div class="lv-head"><b>${icon('gauge')}প্রাইস লেভেল <span class="approx-tag">আনুমানিক</span></b>
+        <span class="muted small">${released ? (E.happened === s.key ? 'রিলিজ হয়েছে — এই সিনারিওটাই ঘটেছে; রিলিজের আগের লেভেল' : 'রিলিজ হয়েছে — রিলিজের আগের লেভেল দেখানো হচ্ছে') : `রিলিজের আগের সর্বশেষ দাম থেকে${newest ? ` · ${stampDhaka(newest)}` : ''}`}</span></div>
+      <div class="lv-rows">${rows}</div>
+      <p class="lv-foot muted small">${icon('info')}${esc(L.method || '')} সারিতে ক্লিক করলে হিসাবের ভিত্তি দেখা যাবে।</p>
+    </div>`;
+  }
   function scenarioPanel(s) {
     const [cls, arrow] = DIR[s.usd_bias] || DIR.flat;
     const mk = MARKETS.map(([k, ic, label]) => {
@@ -209,7 +293,8 @@ export function mount(el, route, ctx) {
       </div>
       ${s.note ? `<p class="sc-note">${icon('info')}${esc(s.note)}</p>` : ''}
       <div class="sc-why"><b>কেন</b><p>${esc(s.why)}</p></div>
-      <div class="mk-grid">${mk}</div>
+      ${ev && !ev.plain ? levelsBlock(ev, s) : ''}
+      <details class="mk-more"><summary>${icon('chevron')}প্রতিটি মার্কেট কেন এভাবে নড়ে</summary><div class="mk-grid">${mk}</div></details>
       <div class="watch"><b>${icon('eye')}প্রথম ১৫–৬০ মিনিটে কী দেখবেন</b><ul>${(s.watch || []).map((w) => `<li>${esc(w)}</li>`).join('')}</ul></div>`;
   }
   function sScen(a) {
@@ -274,7 +359,7 @@ export function mount(el, route, ctx) {
       return;
     }
     const a = ev, t = new Date(a.time_utc);
-    const toc = a.plain ? '' : `<div class="toc" role="navigation" aria-label="সেকশন">${[['what', 'নিউজটা কী'], ['when', 'কখন'], ['data', 'ডেটা'], ['prob', 'সম্ভাবনা'], ['scen', 'সিনারিও']].map(([k, n]) => `<button data-jump="sec-${k}">${n}</button>`).join('')}</div>`;
+    const toc = a.plain ? '' : `<div class="toc" role="navigation" aria-label="সেকশন">${[['pred', 'প্রেডিকশন'], ['what', 'নিউজটা কী'], ['when', 'কখন'], ['data', 'ডেটা'], ['prob', 'সম্ভাবনা'], ['scen', 'সিনারিও']].map(([k, n]) => `<button data-jump="sec-${k}">${n}</button>`).join('')}</div>`;
     el.innerHTML = `<div class="an-layout">
       ${picker(a.plain ? null : a.id)}
       <div class="an-main ${soft ? '' : 'reveal'}">
@@ -284,7 +369,7 @@ export function mount(el, route, ctx) {
           ${a.explainer?.name_bn ? `<p class="an-bn">${esc(a.explainer.name_bn)}</p>` : ''}
           ${toc}
         </header>
-        ${a.plain ? plainView(a) : sWhat(a) + sWhen(a) + sData(a) + sProb(a) + sScen(a)}
+        ${a.plain ? plainView(a) : sPred(a) + sWhat(a) + sWhen(a) + sData(a) + sProb(a) + sScen(a)}
         ${a.plain ? '' : `<p class="gen muted small">বিশ্লেষণ তৈরি: ${core.analysis?.generated_at ? stampDhaka(new Date(core.analysis.generated_at)) : '—'}</p>`}
       </div></div>`;
     el.querySelectorAll('.pick.on').forEach((p) => p.scrollIntoView({ block: 'nearest', inline: 'center' }));

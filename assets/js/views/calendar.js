@@ -229,6 +229,7 @@ export function mount(el, route, ctx) {
               ${a2 ? `<p class="cd-what"><b>${esc(a2.explainer?.name_bn || '')}</b> — ${esc((a2.explainer?.what || '').split('।')[0])}।</p>` : ''}
               ${e.revision ? `<p class="cd-rev">আগের মান সংশোধিত হয়ে <b>${esc(e.revision)}</b></p>` : ''}
               ${a2?.verdict?.top ? `<p class="cd-verdict">${icon('gauge')}সম্ভাব্য: <b>${esc(a2.verdict.top.label)}</b>${a2.verdict.top.pct != null ? ` (${bn(a2.verdict.top.pct)}%)` : ' (আনুমানিক, % নেই)'}</p>` : ''}
+              ${a2?.prediction?.value_text ? `<p class="cd-pred">${icon('scope')}ফাইনাল প্রেডিকশন: <b>${esc(a2.prediction.value_text)}</b>${a2.prediction.kind === 'data' && a2.prediction.compare ? ` — ${esc(a2.prediction.compare)}` : ''}</p>` : ''}
             </div>
             <div class="cd-actions">
               <a class="btn" href="${href}">${icon('scope')}বিশ্লেষণ পেজ</a>

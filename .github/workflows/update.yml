@@ -40,7 +40,7 @@ jobs:
       # Also keeps data/weeks/ (one file per FF week): this + next week every run, last week
       # until complete, and at most FF_BACKFILL_PER_RUN missing old weeks (polite, stops on
       # the first refusal — never affects the ff-blocked alert).
-      - name: Fetch calendar, weeks, probabilities, nowcasts, analysis
+      - name: Fetch calendar, weeks, probabilities, nowcasts, analysis, price levels
         id: update
         env:
           FF_BACKFILL_WEEKS: "52"
