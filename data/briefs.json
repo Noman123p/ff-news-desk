@@ -1,14 +1,95 @@
 {
- "generated_at": "2026-10-12T22:56:18Z",
+ "generated_at": "2026-10-13T15:55:26Z",
  "window_hours": 24,
  "has_major_today": false,
- "has_briefs": false,
- "empty_message": "আজ বড় কোনো USD নিউজ নেই",
+ "has_briefs": true,
+ "empty_message": null,
  "next_high": {
   "id": "49d6ce4dc761",
   "title": "CPI m/m",
   "time_utc": "2026-10-14T12:30:00Z",
   "time_dhaka": "14 Oct, 06:30 PM"
  },
- "briefs": []
+ "briefs": [
+  {
+   "id": "49d6ce4dc761",
+   "time_utc": "2026-10-14T12:30:00Z",
+   "time_dhaka": "14 Oct, 06:30 PM",
+   "impact": "High",
+   "title": "CPI m/m",
+   "category_bn": "মূল্যস্ফীতি (মাসিক)",
+   "events": [
+    {
+     "id": "49d6ce4dc761",
+     "title": "CPI m/m",
+     "impact": "High",
+     "forecast": "0.6%",
+     "previous": "0.4%",
+     "actual": ""
+    },
+    {
+     "id": "4c872ac3b68e",
+     "title": "CPI y/y",
+     "impact": "High",
+     "forecast": "3.6%",
+     "previous": "3.4%",
+     "actual": ""
+    },
+    {
+     "id": "4aaa2c8d35cc",
+     "title": "Core CPI m/m",
+     "impact": "High",
+     "forecast": "0.2%",
+     "previous": "0.3%",
+     "actual": ""
+    },
+    {
+     "id": "b12543d75f7a",
+     "title": "Core CPI y/y",
+     "impact": "High",
+     "forecast": "2.5%",
+     "previous": "2.4%",
+     "actual": ""
+    }
+   ],
+   "likely": {
+    "text": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৪৭.২%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে কম ৩৯.৩%, উল্টো দিক ১৩.৫%",
+    "usd_bias": "flat",
+    "impact": {
+     "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
+     "btc": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।",
+     "crypto": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।",
+     "forex": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
+    }
+   },
+   "alternative": {
+    "text": "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে) — USD-এর জন্য Bearish ডেটা: Actual Forecast (0.6%)-এর চেয়ে স্পষ্টভাবে কম এলে",
+    "usd_bias": "down",
+    "prob": 39.3,
+    "impact": {
+     "gold": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
+     "btc": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
+     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
+     "forex": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+    }
+   },
+   "reasons": [
+    "Polymarket + Kalshi — Forecast 0.6%-এর তুলনায়",
+    "Cleveland Fed Inflation Nowcast: 0.53% → Forecast (0.6%)-এর চেয়ে কম",
+    "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
+   ],
+   "confidence_bn": "নিম্ন",
+   "typical_range": {
+    "gold": "0.5–1.5%",
+    "btc": "1–3%",
+    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
+   },
+   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
+   "verdict_top": {
+    "key": "inline",
+    "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
+    "pct": 47.2
+   }
+  }
+ ]
 }
