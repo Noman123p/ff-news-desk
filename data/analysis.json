@@ -1,11 +1,7 @@
 {
- "generated_at": "2026-10-14T13:40:38Z",
- "today_dhaka": "2026-10-14",
+ "generated_at": "2026-10-14T18:34:41Z",
+ "today_dhaka": "2026-10-15",
  "order": [
-  "49d6ce4dc761",
-  "4c872ac3b68e",
-  "4aaa2c8d35cc",
-  "b12543d75f7a",
   "6c1941622500",
   "68ccd326daa5",
   "2f2b03f070de",
@@ -21,1855 +17,6 @@
   "9c51985a891d"
  ],
  "events": {
-  "49d6ce4dc761": {
-   "id": "49d6ce4dc761",
-   "title": "CPI m/m",
-   "currency": "USD",
-   "impact": "High",
-   "time_utc": "2026-10-14T12:30:00Z",
-   "time_special": null,
-   "category": "cpi_mom",
-   "dir": 1,
-   "explainer": {
-    "key": "cpi",
-    "theme": "inflation",
-    "name_bn": "ভোক্তা মূল্যসূচক (CPI)",
-    "what": "গৃহস্থালির কেনা পণ্য ও সেবার (খাদ্য, জ্বালানি, ভাড়া, পরিবহন ইত্যাদি) গড় দামের পরিবর্তন — m/m মানে আগের মাসের তুলনায়, y/y মানে এক বছর আগের তুলনায়।",
-    "publisher": "U.S. Bureau of Labor Statistics (BLS)",
-    "frequency": "মাসিক — সাধারণত মাস শেষ হওয়ার ১০–১৫ দিন পর",
-    "why": "মূল্যস্ফীতিই Fed-এর রেট সিদ্ধান্তের কেন্দ্র। বেশি CPI → রেট বেশি দিন উঁচু থাকার প্রত্যাশা → ইল্ড ও USD ওঠে; কম CPI → রেট কাটের আশা → গোল্ড ও ক্রিপ্টো সাপোর্ট পায়।",
-    "effect": "Actual > Forecast হলে সাধারণত USD Bullish; কম হলে USD Bearish।",
-    "ff_specs": {
-     "Source": "Bureau of Labor Statistics ( latest release )",
-     "Measures": "Change in the price of goods and services purchased by consumers",
-     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
-     "Frequency": "Released monthly, about 11 days after the month ends",
-     "Next Release": "Nov 10, 2026",
-     "Why Traders Care": "Consumer prices account for a majority of overall inflation. Inflation is important to currency valuation because rising prices lead the central bank to raise interest rates out of respect for their inflation containment mandate",
-     "Derived Via": "The average price of various goods and services are sampled and then compared to the previous sampling",
-     "Acro Expand": "Consumer Price Index (CPI)"
-    },
-    "source_url": "https://www.bls.gov/"
-   },
-   "data": {
-    "actual": "0.6%",
-    "forecast": "0.6%",
-    "previous": "0.4%",
-    "revision": "",
-    "abw": 0,
-    "result": {
-     "side": "inline",
-     "text": "Actual 0.6% — Forecast (0.6%)-এর কাছাকাছি/সমান",
-     "abw": 0
-    }
-   },
-   "history": [
-    {
-     "date": "2026-09-11",
-     "actual": "0.4%",
-     "forecast": "0.4%",
-     "previous": "0.1%",
-     "abw": 0
-    },
-    {
-     "date": "2026-08-12",
-     "actual": "0.1%",
-     "forecast": "0.1%",
-     "previous": "-0.4%",
-     "abw": 0
-    },
-    {
-     "date": "2026-07-14",
-     "actual": "-0.4%",
-     "forecast": "-0.1%",
-     "previous": "0.5%",
-     "abw": 2
-    },
-    {
-     "date": "2026-06-10",
-     "actual": "0.5%",
-     "forecast": "0.5%",
-     "previous": "0.6%",
-     "abw": 0
-    },
-    {
-     "date": "2026-05-12",
-     "actual": "0.6%",
-     "forecast": "0.6%",
-     "previous": "0.9%",
-     "abw": 0
-    },
-    {
-     "date": "2026-04-10",
-     "actual": "0.9%",
-     "forecast": "1.0%",
-     "previous": "0.3%",
-     "abw": 2
-    }
-   ],
-   "sources": [
-    {
-     "name": "Polymarket",
-     "kind": "market",
-     "ok": true,
-     "url": "https://polymarket.com/event/september-inflation-us-monthly",
-     "title": "September Inflation US - Monthly",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "closes_utc": "2026-10-15T03:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 0.6% — ১০০.০%",
-     "outcomes": [
-      {
-       "label": "≤0.0%",
-       "prob": 0.1,
-       "interval": [
-        null,
-        0.0
-       ],
-       "volume": 4411
-      },
-      {
-       "label": "0.1%",
-       "prob": 0.1,
-       "interval": [
-        0.1,
-        0.1
-       ],
-       "volume": 3168
-      },
-      {
-       "label": "0.2%",
-       "prob": 0.1,
-       "interval": [
-        0.2,
-        0.2
-       ],
-       "volume": 2954
-      },
-      {
-       "label": "0.3%",
-       "prob": 0.1,
-       "interval": [
-        0.3,
-        0.3
-       ],
-       "volume": 3865
-      },
-      {
-       "label": "0.4%",
-       "prob": 0.1,
-       "interval": [
-        0.4,
-        0.4
-       ],
-       "volume": 13088
-      },
-      {
-       "label": "0.5%",
-       "prob": 0.1,
-       "interval": [
-        0.5,
-        0.5
-       ],
-       "volume": 29122
-      },
-      {
-       "label": "0.6%",
-       "prob": 100.0,
-       "interval": [
-        0.6,
-        0.6
-       ],
-       "volume": 25022
-      },
-      {
-       "label": "0.7%",
-       "prob": 0.1,
-       "interval": [
-        0.7,
-        0.7
-       ],
-       "volume": 9089
-      },
-      {
-       "label": "≥0.8%",
-       "prob": 0.1,
-       "interval": [
-        0.8,
-        null
-       ],
-       "volume": 6475
-      }
-     ],
-     "kind_detail": null,
-     "vs_forecast": {
-      "above": 0.2,
-      "inline": 99.2,
-      "below": 0.6
-     },
-     "fed_view": null,
-     "low_liquidity": false,
-     "context_only": false
-    },
-    {
-     "name": "Kalshi",
-     "kind": "market",
-     "ok": false,
-     "note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই"
-    },
-    {
-     "name": "Cleveland Fed Nowcast",
-     "kind": "nowcast",
-     "ok": true,
-     "source": "Cleveland Fed Inflation Nowcast",
-     "value": 0.53,
-     "unit": "%",
-     "label": "CPI Inflation (m/m) · 2026-9",
-     "as_of": "2026-10-13",
-     "as_of_label": "2026-10-13",
-     "url": "https://www.clevelandfed.org/indicators-and-data/inflation-nowcasting",
-     "note": "দৈনিক আপডেট হওয়া মডেল-অনুমান (তেল ও পেট্রলের দাম + আগের ডেটা)। বাজারের সম্ভাবনা নয়।"
-    },
-    {
-     "name": "ForexFactory Forecast (কনসেনসাস)",
-     "kind": "consensus",
-     "ok": true,
-     "headline": "বাজারের সাধারণ প্রত্যাশা: 0.6%",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "url": "https://www.forexfactory.com/calendar?day=oct14.2026"
-    }
-   ],
-   "verdict": {
-    "kind": "data",
-    "probs": {
-     "above": 0.2,
-     "inline": 99.2,
-     "below": 0.6
-    },
-    "top": {
-     "key": "inline",
-     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 99.2
-    },
-    "second": {
-     "key": "below",
-     "label": "Forecast-এর চেয়ে কম",
-     "pct": 0.6
-    },
-    "basis": [
-     "Polymarket — Forecast 0.6%-এর তুলনায়",
-     "Cleveland Fed Inflation Nowcast: 0.53% → Forecast (0.6%)-এর চেয়ে কম",
-     "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
-    ],
-    "confidence": "নিম্ন",
-    "context": null,
-    "labels": {
-     "above": "Forecast-এর চেয়ে বেশি",
-     "below": "Forecast-এর চেয়ে কম",
-     "inline": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি"
-    },
-    "baseline": "forecast",
-    "baseline_text": "তুলনা: Forecast",
-    "third": {
-     "key": "above",
-     "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 0.2
-    },
-    "total": 100.0,
-    "summary": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৯৯.২%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে কম ০.৬%, উল্টো দিক ০.২%"
-   },
-   "prediction": {
-    "kind": "data",
-    "title": "CPI m/m",
-    "value": 0.6,
-    "value_text": "0.6%",
-    "compare": "Forecast-এর সমান (0.6%)",
-    "value_prob": 99.2,
-    "side": "inline",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 0.60%",
-    "inputs": [
-     {
-      "name": "Polymarket",
-      "text": "সবচেয়ে সম্ভাব্য 0.6% (৯৯.২%), গড় প্রত্যাশা 0.60%",
-      "value": 0.6,
-      "ev": 0.598,
-      "side": "inline",
-      "agree": true
-     },
-     {
-      "name": "Cleveland Fed Inflation Nowcast",
-      "text": "0.53% → Forecast (0.6%)-এর চেয়ে কম",
-      "value": 0.5,
-      "side": "below",
-      "agree": false
-     },
-     {
-      "name": "আগের রিলিজের ধারা",
-      "text": "গত ৬ রিলিজে Forecast-এর চেয়ে বেশি ০ বার, কম ২, সমান ৪; সাম্প্রতিক ধারা উপরের দিকে",
-      "side": null,
-      "agree": null
-     },
-     {
-      "name": "ForexFactory Forecast/Previous",
-      "text": "Forecast 0.6%, Previous 0.4%",
-      "value": 0.6,
-      "side": "inline",
-      "agree": true
-     }
-    ],
-    "confidence": "নিম্ন",
-    "method": "Polymarket-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি’ দিকের (৯৯.২%) মধ্যে সবচেয়ে সম্ভাব্য মান",
-    "baseline": "forecast",
-    "vs_previous": "আগের মানের (0.4%) চেয়ে বেশি",
-    "headline": "CPI m/m সম্ভাব্য 0.6% — Forecast-এর সমান (0.6%)",
-    "result": {
-     "actual": "0.6%",
-     "hit": true,
-     "text": "Actual 0.6% — প্রেডিকশন (0.6%) মিলেছে"
-    },
-    "usd_text": "USD-এর জন্য নিউট্রাল ডেটা",
-    "usd_bias": "flat"
-   },
-   "scenarios": [
-    {
-     "key": "inline",
-     "rank": 1,
-     "role": "most_likely",
-     "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (সবচেয়ে সম্ভাব্য)",
-     "condition": "Actual Forecast (0.6%)-এর সমান বা খুব কাছাকাছি এলে",
-     "usd_bias": "flat",
-     "prob": 99.2,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": true,
-     "note": null,
-     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
-     "markets": {
-      "gold": {
-       "dir": "flat",
-       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
-      },
-      "btc": {
-       "dir": "flat",
-       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
-      },
-      "crypto": {
-       "dir": "flat",
-       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
-      },
-      "forex": {
-       "dir": "flat",
-       "dxy": "→",
-       "eurusd": "→",
-       "usdjpy": "→",
-       "gbpusd": "→",
-       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-      },
-      "indices": {
-       "dir": "flat",
-       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": true
-    },
-    {
-     "key": "below",
-     "rank": 2,
-     "role": "likelier_direction",
-     "title": "সারপ্রাইজ: দুই দিক প্রায় সমান — দিক ১ — USD-এর জন্য Bearish ডেটা",
-     "condition": "Actual Forecast (0.6%)-এর চেয়ে স্পষ্টভাবে কম এলে",
-     "usd_bias": "down",
-     "prob": 0.6,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে কম (USD-এর জন্য Bearish ডেটা) → রেট কাটের আশা বাড়ে → ইল্ড ও ডলার নামে, ঝুঁকিপূর্ণ অ্যাসেট সাপোর্ট পায়।",
-     "markets": {
-      "gold": {
-       "dir": "up",
-       "text": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।"
-      },
-      "btc": {
-       "dir": "up",
-       "text": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।"
-      },
-      "crypto": {
-       "dir": "up",
-       "text": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "down",
-       "dxy": "↓",
-       "eurusd": "↑",
-       "usdjpy": "↓",
-       "gbpusd": "↑",
-       "text": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "up",
-       "text": "S&P 500/Nasdaq: Bullish — US 2Y/10Y ইল্ড ↓ (যদি রিসেশন-ভীতি না আসে)।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    },
-    {
-     "key": "above",
-     "rank": 3,
-     "role": "opposite_direction",
-     "title": "সারপ্রাইজ: দিক ২ — USD-এর জন্য Bullish ডেটা",
-     "condition": "Actual Forecast (0.6%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
-     "usd_bias": "up",
-     "prob": 0.2,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে বেশি (USD-এর জন্য Bullish ডেটা) → Fed-এর রেট কাট পিছিয়ে যাওয়ার (বা হাইকের) প্রত্যাশা বাড়ে → 2Y ইল্ড ও ডলার ওঠে।",
-     "markets": {
-      "gold": {
-       "dir": "down",
-       "text": "Gold: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।"
-      },
-      "btc": {
-       "dir": "down",
-       "text": "BTC: Bearish — নিচে (আনুমানিক ১–৩%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।"
-      },
-      "crypto": {
-       "dir": "down",
-       "text": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "up",
-       "dxy": "↑",
-       "eurusd": "↓",
-       "usdjpy": "↑",
-       "gbpusd": "↓",
-       "text": "DXY: Bullish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bearish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "down",
-       "text": "S&P 500/Nasdaq: Bearish — US 2Y/10Y ইল্ড ↑; টেক বেশি সংবেদনশীল।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    }
-   ],
-   "ff_url": "https://www.forexfactory.com/calendar?day=oct14.2026#detail=148337",
-   "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।"
-  },
-  "4c872ac3b68e": {
-   "id": "4c872ac3b68e",
-   "title": "CPI y/y",
-   "currency": "USD",
-   "impact": "High",
-   "time_utc": "2026-10-14T12:30:00Z",
-   "time_special": null,
-   "category": "cpi_yoy",
-   "dir": 1,
-   "explainer": {
-    "key": "cpi",
-    "theme": "inflation",
-    "name_bn": "ভোক্তা মূল্যসূচক (CPI)",
-    "what": "গৃহস্থালির কেনা পণ্য ও সেবার (খাদ্য, জ্বালানি, ভাড়া, পরিবহন ইত্যাদি) গড় দামের পরিবর্তন — m/m মানে আগের মাসের তুলনায়, y/y মানে এক বছর আগের তুলনায়।",
-    "publisher": "U.S. Bureau of Labor Statistics (BLS)",
-    "frequency": "মাসিক — সাধারণত মাস শেষ হওয়ার ১০–১৫ দিন পর",
-    "why": "মূল্যস্ফীতিই Fed-এর রেট সিদ্ধান্তের কেন্দ্র। বেশি CPI → রেট বেশি দিন উঁচু থাকার প্রত্যাশা → ইল্ড ও USD ওঠে; কম CPI → রেট কাটের আশা → গোল্ড ও ক্রিপ্টো সাপোর্ট পায়।",
-    "effect": "Actual > Forecast হলে সাধারণত USD Bullish; কম হলে USD Bearish।",
-    "ff_specs": {
-     "Source": "Bureau of Labor Statistics ( latest release )",
-     "Measures": "Change in the price of goods and services purchased by consumers",
-     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
-     "Frequency": "Released monthly, about 11 days after the month ends",
-     "Next Release": "Nov 10, 2026",
-     "FF Notes": "This is among the few non-seasonally adjusted numbers reported on the calendar",
-     "Why Traders Care": "Consumer prices account for a majority of overall inflation. Inflation is important to currency valuation because rising prices lead the central bank to raise interest rates out of respect for their inflation containment mandate",
-     "Derived Via": "The average price of various goods and services are sampled and then compared to the previous sampling",
-     "Acro Expand": "Consumer Price Index (CPI)"
-    },
-    "source_url": "https://www.bls.gov/"
-   },
-   "data": {
-    "actual": "3.7%",
-    "forecast": "3.6%",
-    "previous": "3.4%",
-    "revision": "",
-    "abw": 1,
-    "result": {
-     "side": "above",
-     "text": "Actual 3.7% — Forecast (3.6%)-এর চেয়ে বেশি",
-     "abw": 1
-    }
-   },
-   "history": [
-    {
-     "date": "2026-09-11",
-     "actual": "3.4%",
-     "forecast": "3.4%",
-     "previous": "3.4%",
-     "abw": 0
-    },
-    {
-     "date": "2026-08-12",
-     "actual": "3.4%",
-     "forecast": "3.4%",
-     "previous": "3.5%",
-     "abw": 0
-    },
-    {
-     "date": "2026-07-14",
-     "actual": "3.5%",
-     "forecast": "3.8%",
-     "previous": "4.2%",
-     "abw": 2
-    },
-    {
-     "date": "2026-06-10",
-     "actual": "4.2%",
-     "forecast": "4.2%",
-     "previous": "3.8%",
-     "abw": 0
-    },
-    {
-     "date": "2026-05-12",
-     "actual": "3.8%",
-     "forecast": "3.7%",
-     "previous": "3.3%",
-     "abw": 1
-    },
-    {
-     "date": "2026-04-10",
-     "actual": "3.3%",
-     "forecast": "3.4%",
-     "previous": "2.4%",
-     "abw": 2
-    }
-   ],
-   "sources": [
-    {
-     "name": "Polymarket",
-     "kind": "market",
-     "ok": true,
-     "url": "https://polymarket.com/event/september-inflation-us-annual",
-     "title": "September Inflation US - Annual",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "closes_utc": "2026-10-15T03:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 3.7% — ১০০.০%",
-     "outcomes": [
-      {
-       "label": "≤2.9%",
-       "prob": 0.1,
-       "interval": [
-        null,
-        2.9
-       ],
-       "volume": 10001
-      },
-      {
-       "label": "3.0%",
-       "prob": 0.1,
-       "interval": [
-        3.0,
-        3.0
-       ],
-       "volume": 11761
-      },
-      {
-       "label": "3.1%",
-       "prob": 0.1,
-       "interval": [
-        3.1,
-        3.1
-       ],
-       "volume": 12790
-      },
-      {
-       "label": "3.2%",
-       "prob": 0.1,
-       "interval": [
-        3.2,
-        3.2
-       ],
-       "volume": 11639
-      },
-      {
-       "label": "3.3%",
-       "prob": 0.1,
-       "interval": [
-        3.3,
-        3.3
-       ],
-       "volume": 14637
-      },
-      {
-       "label": "3.4%",
-       "prob": 0.1,
-       "interval": [
-        3.4,
-        3.4
-       ],
-       "volume": 25536
-      },
-      {
-       "label": "3.5%",
-       "prob": 0.1,
-       "interval": [
-        3.5,
-        3.5
-       ],
-       "volume": 32368
-      },
-      {
-       "label": "3.6%",
-       "prob": 0.1,
-       "interval": [
-        3.6,
-        3.6
-       ],
-       "volume": 46477
-      },
-      {
-       "label": "3.7%",
-       "prob": 100.0,
-       "interval": [
-        3.7,
-        3.7
-       ],
-       "volume": 36868
-      },
-      {
-       "label": "3.8%",
-       "prob": 0.1,
-       "interval": [
-        3.8,
-        3.8
-       ],
-       "volume": 22375
-      },
-      {
-       "label": "3.9%",
-       "prob": 0.1,
-       "interval": [
-        3.9,
-        3.9
-       ],
-       "volume": 28588
-      },
-      {
-       "label": "≥4.0%",
-       "prob": 0.1,
-       "interval": [
-        4.0,
-        null
-       ],
-       "volume": 20418
-      }
-     ],
-     "kind_detail": null,
-     "vs_forecast": {
-      "above": 99.2,
-      "inline": 0.1,
-      "below": 0.7
-     },
-     "fed_view": null,
-     "low_liquidity": false,
-     "context_only": false
-    },
-    {
-     "name": "Kalshi",
-     "kind": "market",
-     "ok": false,
-     "note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই"
-    },
-    {
-     "name": "Cleveland Fed Nowcast",
-     "kind": "nowcast",
-     "ok": true,
-     "source": "Cleveland Fed Inflation Nowcast",
-     "value": 3.6,
-     "unit": "%",
-     "label": "CPI Inflation (y/y) · 2026-9",
-     "as_of": "2026-10-13",
-     "as_of_label": "2026-10-13",
-     "url": "https://www.clevelandfed.org/indicators-and-data/inflation-nowcasting",
-     "note": "দৈনিক আপডেট হওয়া মডেল-অনুমান (তেল ও পেট্রলের দাম + আগের ডেটা)। বাজারের সম্ভাবনা নয়।"
-    },
-    {
-     "name": "ForexFactory Forecast (কনসেনসাস)",
-     "kind": "consensus",
-     "ok": true,
-     "headline": "বাজারের সাধারণ প্রত্যাশা: 3.6%",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "url": "https://www.forexfactory.com/calendar?day=oct14.2026"
-    }
-   ],
-   "verdict": {
-    "kind": "data",
-    "probs": {
-     "above": 99.2,
-     "inline": 0.1,
-     "below": 0.7
-    },
-    "top": {
-     "key": "above",
-     "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 99.2
-    },
-    "second": {
-     "key": "below",
-     "label": "Forecast-এর চেয়ে কম",
-     "pct": 0.7
-    },
-    "basis": [
-     "Polymarket — Forecast 3.6%-এর তুলনায়",
-     "Cleveland Fed Inflation Nowcast: 3.6% → Forecast (3.6%)-এর কাছাকাছি/সমান",
-     "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
-    ],
-    "confidence": "নিম্ন",
-    "context": null,
-    "labels": {
-     "above": "Forecast-এর চেয়ে বেশি",
-     "below": "Forecast-এর চেয়ে কম",
-     "inline": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি"
-    },
-    "baseline": "forecast",
-    "baseline_text": "তুলনা: Forecast",
-    "third": {
-     "key": "inline",
-     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 0.1
-    },
-    "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৯৯.২%; দ্বিতীয়: Forecast-এর চেয়ে কম ০.৭%"
-   },
-   "prediction": {
-    "kind": "data",
-    "title": "CPI y/y",
-    "value": 3.7,
-    "value_text": "3.7%",
-    "compare": "Forecast (3.6%)-এর চেয়ে বেশি",
-    "value_prob": 98.9,
-    "side": "above",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 3.70%",
-    "inputs": [
-     {
-      "name": "Polymarket",
-      "text": "সবচেয়ে সম্ভাব্য 3.7% (৯৮.৯%), গড় প্রত্যাশা 3.70%",
-      "value": 3.7,
-      "ev": 3.697,
-      "side": "above",
-      "agree": true
-     },
-     {
-      "name": "Cleveland Fed Inflation Nowcast",
-      "text": "3.6% → Forecast-এর সমান (3.6%)",
-      "value": 3.6,
-      "side": "inline",
-      "agree": false
-     },
-     {
-      "name": "আগের রিলিজের ধারা",
-      "text": "গত ৬ রিলিজে Forecast-এর চেয়ে বেশি ১ বার, কম ২, সমান ৩; সাম্প্রতিক ধারা নিচের দিকে",
-      "side": null,
-      "agree": null
-     },
-     {
-      "name": "ForexFactory Forecast/Previous",
-      "text": "Forecast 3.6%, Previous 3.4%",
-      "value": 3.6,
-      "side": "inline",
-      "agree": false
-     }
-    ],
-    "confidence": "নিম্ন",
-    "method": "Polymarket-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৯৯.২%) মধ্যে সবচেয়ে সম্ভাব্য মান",
-    "baseline": "forecast",
-    "vs_previous": "আগের মানের (3.4%) চেয়ে বেশি",
-    "headline": "CPI y/y সম্ভাব্য 3.7% — Forecast (3.6%)-এর চেয়ে বেশি",
-    "result": {
-     "actual": "3.7%",
-     "hit": true,
-     "text": "Actual 3.7% — প্রেডিকশন (3.7%) মিলেছে"
-    },
-    "usd_text": "USD-এর জন্য Bullish ডেটা",
-    "usd_bias": "up"
-   },
-   "scenarios": [
-    {
-     "key": "above",
-     "rank": 1,
-     "role": "most_likely",
-     "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
-     "condition": "Actual Forecast (3.6%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
-     "usd_bias": "up",
-     "prob": 99.2,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": true,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে বেশি (USD-এর জন্য Bullish ডেটা) → Fed-এর রেট কাট পিছিয়ে যাওয়ার (বা হাইকের) প্রত্যাশা বাড়ে → 2Y ইল্ড ও ডলার ওঠে।",
-     "markets": {
-      "gold": {
-       "dir": "down",
-       "text": "Gold: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।"
-      },
-      "btc": {
-       "dir": "down",
-       "text": "BTC: Bearish — নিচে (আনুমানিক ১–৩%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।"
-      },
-      "crypto": {
-       "dir": "down",
-       "text": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "up",
-       "dxy": "↑",
-       "eurusd": "↓",
-       "usdjpy": "↑",
-       "gbpusd": "↓",
-       "text": "DXY: Bullish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bearish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "down",
-       "text": "S&P 500/Nasdaq: Bearish — US 2Y/10Y ইল্ড ↑; টেক বেশি সংবেদনশীল।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": true
-    },
-    {
-     "key": "below",
-     "rank": 2,
-     "role": "opposite",
-     "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
-     "condition": "Actual Forecast (3.6%)-এর চেয়ে স্পষ্টভাবে কম এলে",
-     "usd_bias": "down",
-     "prob": 0.7,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে কম (USD-এর জন্য Bearish ডেটা) → রেট কাটের আশা বাড়ে → ইল্ড ও ডলার নামে, ঝুঁকিপূর্ণ অ্যাসেট সাপোর্ট পায়।",
-     "markets": {
-      "gold": {
-       "dir": "up",
-       "text": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।"
-      },
-      "btc": {
-       "dir": "up",
-       "text": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।"
-      },
-      "crypto": {
-       "dir": "up",
-       "text": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "down",
-       "dxy": "↓",
-       "eurusd": "↑",
-       "usdjpy": "↓",
-       "gbpusd": "↑",
-       "text": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "up",
-       "text": "S&P 500/Nasdaq: Bullish — US 2Y/10Y ইল্ড ↓ (যদি রিসেশন-ভীতি না আসে)।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    },
-    {
-     "key": "inline",
-     "rank": 3,
-     "role": "neutral",
-     "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "condition": "Actual Forecast (3.6%)-এর সমান বা খুব কাছাকাছি এলে",
-     "usd_bias": "flat",
-     "prob": 0.1,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
-     "markets": {
-      "gold": {
-       "dir": "flat",
-       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
-      },
-      "btc": {
-       "dir": "flat",
-       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
-      },
-      "crypto": {
-       "dir": "flat",
-       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
-      },
-      "forex": {
-       "dir": "flat",
-       "dxy": "→",
-       "eurusd": "→",
-       "usdjpy": "→",
-       "gbpusd": "→",
-       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-      },
-      "indices": {
-       "dir": "flat",
-       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    }
-   ],
-   "ff_url": "https://www.forexfactory.com/calendar?day=oct14.2026#detail=148352",
-   "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।"
-  },
-  "4aaa2c8d35cc": {
-   "id": "4aaa2c8d35cc",
-   "title": "Core CPI m/m",
-   "currency": "USD",
-   "impact": "High",
-   "time_utc": "2026-10-14T12:30:00Z",
-   "time_special": null,
-   "category": "core_cpi_mom",
-   "dir": 1,
-   "explainer": {
-    "key": "core_cpi",
-    "theme": "inflation",
-    "name_bn": "কোর ভোক্তা মূল্যসূচক (Core CPI)",
-    "what": "খাদ্য ও জ্বালানি বাদ দিয়ে ভোক্তারা যে পণ্য ও সেবা কেনেন তার দামের পরিবর্তন। অস্থির দামগুলো বাদ থাকায় এটাকে 'আসল' মূল্যস্ফীতির ট্রেন্ড ধরা হয়।",
-    "publisher": "U.S. Bureau of Labor Statistics (BLS)",
-    "frequency": "মাসিক — সাধারণত মাস শেষ হওয়ার ১০–১৫ দিন পর",
-    "why": "Fed সুদের হার ঠিক করে মূল্যস্ফীতি দেখে। কোর CPI বেশি এলে রেট কাট পিছিয়ে যায় বা হাইকের ঝুঁকি বাড়ে — বন্ড ইল্ড ও ডলার ওঠে, গোল্ড-ক্রিপ্টোর ওপর চাপ পড়ে। মাসের সবচেয়ে বড় মুভারগুলোর একটি।",
-    "effect": "Actual > Forecast হলে সাধারণত USD Bullish; কম হলে USD Bearish।",
-    "ff_specs": {
-     "Source": "Bureau of Labor Statistics ( latest release )",
-     "Measures": "Change in the price of goods and services purchased by consumers, excluding food and energy",
-     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
-     "Frequency": "Released monthly, about 11 days after the month ends",
-     "Next Release": "Nov 10, 2026",
-     "FF Notes": "Food and energy prices account for about a quarter of CPI, but they tend to be very volatile and distort the underlying trend. The Federal Open Market Committee usually pays more attention to the Core data - so do traders",
-     "Why Traders Care": "Consumer prices account for a majority of overall inflation. Inflation is important to currency valuation because rising prices lead the central bank to raise interest rates out of respect for their inflation containment mandate",
-     "Also Called": "CPI Ex Food and Energy, Underlying CPI",
-     "Acro Expand": "Consumer Price Index (CPI)"
-    },
-    "source_url": "https://www.bls.gov/"
-   },
-   "data": {
-    "actual": "0.3%",
-    "forecast": "0.2%",
-    "previous": "0.3%",
-    "revision": "",
-    "abw": 1,
-    "result": {
-     "side": "above",
-     "text": "Actual 0.3% — Forecast (0.2%)-এর চেয়ে বেশি",
-     "abw": 1
-    }
-   },
-   "history": [
-    {
-     "date": "2026-09-11",
-     "actual": "0.3%",
-     "forecast": "0.2%",
-     "previous": "0.2%",
-     "abw": 1
-    },
-    {
-     "date": "2026-08-12",
-     "actual": "0.2%",
-     "forecast": "0.2%",
-     "previous": "0.0%",
-     "abw": 0
-    },
-    {
-     "date": "2026-07-14",
-     "actual": "0.0%",
-     "forecast": "0.2%",
-     "previous": "0.2%",
-     "abw": 2
-    },
-    {
-     "date": "2026-06-10",
-     "actual": "0.2%",
-     "forecast": "0.3%",
-     "previous": "0.4%",
-     "abw": 2
-    },
-    {
-     "date": "2026-05-12",
-     "actual": "0.4%",
-     "forecast": "0.3%",
-     "previous": "0.2%",
-     "abw": 1
-    },
-    {
-     "date": "2026-04-10",
-     "actual": "0.2%",
-     "forecast": "0.3%",
-     "previous": "0.2%",
-     "abw": 2
-    }
-   ],
-   "sources": [
-    {
-     "name": "Polymarket",
-     "kind": "market",
-     "ok": true,
-     "url": "https://polymarket.com/event/core-cpi-mom-september-2026",
-     "title": "Core CPI MoM - September 2026",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "closes_utc": "2026-10-15T03:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 0.3% — ১০০.০%",
-     "outcomes": [
-      {
-       "label": "≤0.0%",
-       "prob": 0.1,
-       "interval": [
-        null,
-        0.0
-       ],
-       "volume": 9646
-      },
-      {
-       "label": "0.1%",
-       "prob": 0.1,
-       "interval": [
-        0.1,
-        0.1
-       ],
-       "volume": 14154
-      },
-      {
-       "label": "0.2%",
-       "prob": 0.1,
-       "interval": [
-        0.2,
-        0.2
-       ],
-       "volume": 23147
-      },
-      {
-       "label": "0.3%",
-       "prob": 100.0,
-       "interval": [
-        0.3,
-        0.3
-       ],
-       "volume": 30060
-      },
-      {
-       "label": "0.4%",
-       "prob": 0.1,
-       "interval": [
-        0.4,
-        0.4
-       ],
-       "volume": 8875
-      },
-      {
-       "label": "0.5%",
-       "prob": 0.1,
-       "interval": [
-        0.5,
-        0.5
-       ],
-       "volume": 4126
-      },
-      {
-       "label": "0.6%+",
-       "prob": 0.1,
-       "interval": [
-        0.6,
-        null
-       ],
-       "volume": 2671
-      }
-     ],
-     "kind_detail": null,
-     "vs_forecast": {
-      "above": 99.7,
-      "inline": 0.1,
-      "below": 0.2
-     },
-     "fed_view": null,
-     "low_liquidity": false,
-     "context_only": false
-    },
-    {
-     "name": "Kalshi",
-     "kind": "market",
-     "ok": false,
-     "note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই"
-    },
-    {
-     "name": "Cleveland Fed Nowcast",
-     "kind": "nowcast",
-     "ok": true,
-     "source": "Cleveland Fed Inflation Nowcast",
-     "value": 0.2,
-     "unit": "%",
-     "label": "Core CPI Inflation (m/m) · 2026-9",
-     "as_of": "2026-10-13",
-     "as_of_label": "2026-10-13",
-     "url": "https://www.clevelandfed.org/indicators-and-data/inflation-nowcasting",
-     "note": "দৈনিক আপডেট হওয়া মডেল-অনুমান (তেল ও পেট্রলের দাম + আগের ডেটা)। বাজারের সম্ভাবনা নয়।"
-    },
-    {
-     "name": "ForexFactory Forecast (কনসেনসাস)",
-     "kind": "consensus",
-     "ok": true,
-     "headline": "বাজারের সাধারণ প্রত্যাশা: 0.2%",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "url": "https://www.forexfactory.com/calendar?day=oct14.2026"
-    }
-   ],
-   "verdict": {
-    "kind": "data",
-    "probs": {
-     "above": 99.7,
-     "inline": 0.1,
-     "below": 0.2
-    },
-    "top": {
-     "key": "above",
-     "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 99.7
-    },
-    "second": {
-     "key": "below",
-     "label": "Forecast-এর চেয়ে কম",
-     "pct": 0.2
-    },
-    "basis": [
-     "Polymarket — Forecast 0.2%-এর তুলনায়",
-     "Cleveland Fed Inflation Nowcast: 0.2% → Forecast (0.2%)-এর কাছাকাছি/সমান",
-     "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
-    ],
-    "confidence": "নিম্ন",
-    "context": null,
-    "labels": {
-     "above": "Forecast-এর চেয়ে বেশি",
-     "below": "Forecast-এর চেয়ে কম",
-     "inline": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি"
-    },
-    "baseline": "forecast",
-    "baseline_text": "তুলনা: Forecast",
-    "third": {
-     "key": "inline",
-     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 0.1
-    },
-    "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৯৯.৭%; দ্বিতীয়: Forecast-এর চেয়ে কম ০.২%"
-   },
-   "prediction": {
-    "kind": "data",
-    "title": "Core CPI m/m",
-    "value": 0.3,
-    "value_text": "0.3%",
-    "compare": "Forecast (0.2%)-এর চেয়ে বেশি",
-    "value_prob": 99.4,
-    "side": "above",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 0.30%",
-    "inputs": [
-     {
-      "name": "Polymarket",
-      "text": "সবচেয়ে সম্ভাব্য 0.3% (৯৯.৪%), গড় প্রত্যাশা 0.30%",
-      "value": 0.3,
-      "ev": 0.3,
-      "side": "above",
-      "agree": true
-     },
-     {
-      "name": "Cleveland Fed Inflation Nowcast",
-      "text": "0.2% → Forecast-এর সমান (0.2%)",
-      "value": 0.2,
-      "side": "inline",
-      "agree": false
-     },
-     {
-      "name": "আগের রিলিজের ধারা",
-      "text": "গত ৬ রিলিজে Forecast-এর চেয়ে বেশি ২ বার, কম ৩, সমান ১; সাম্প্রতিক ধারা উপরের দিকে",
-      "side": null,
-      "agree": null
-     },
-     {
-      "name": "ForexFactory Forecast/Previous",
-      "text": "Forecast 0.2%, Previous 0.3%",
-      "value": 0.2,
-      "side": "inline",
-      "agree": false
-     }
-    ],
-    "confidence": "নিম্ন",
-    "method": "Polymarket-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৯৯.৭%) মধ্যে সবচেয়ে সম্ভাব্য মান",
-    "baseline": "forecast",
-    "vs_previous": "আগের মানের সমান",
-    "headline": "Core CPI m/m সম্ভাব্য 0.3% — Forecast (0.2%)-এর চেয়ে বেশি",
-    "result": {
-     "actual": "0.3%",
-     "hit": true,
-     "text": "Actual 0.3% — প্রেডিকশন (0.3%) মিলেছে"
-    },
-    "usd_text": "USD-এর জন্য Bullish ডেটা",
-    "usd_bias": "up"
-   },
-   "scenarios": [
-    {
-     "key": "above",
-     "rank": 1,
-     "role": "most_likely",
-     "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
-     "condition": "Actual Forecast (0.2%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
-     "usd_bias": "up",
-     "prob": 99.7,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": true,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে বেশি (USD-এর জন্য Bullish ডেটা) → Fed-এর রেট কাট পিছিয়ে যাওয়ার (বা হাইকের) প্রত্যাশা বাড়ে → 2Y ইল্ড ও ডলার ওঠে।",
-     "markets": {
-      "gold": {
-       "dir": "down",
-       "text": "Gold: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।"
-      },
-      "btc": {
-       "dir": "down",
-       "text": "BTC: Bearish — নিচে (আনুমানিক ১–৩%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।"
-      },
-      "crypto": {
-       "dir": "down",
-       "text": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "up",
-       "dxy": "↑",
-       "eurusd": "↓",
-       "usdjpy": "↑",
-       "gbpusd": "↓",
-       "text": "DXY: Bullish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bearish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "down",
-       "text": "S&P 500/Nasdaq: Bearish — US 2Y/10Y ইল্ড ↑; টেক বেশি সংবেদনশীল।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": true
-    },
-    {
-     "key": "below",
-     "rank": 2,
-     "role": "opposite",
-     "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
-     "condition": "Actual Forecast (0.2%)-এর চেয়ে স্পষ্টভাবে কম এলে",
-     "usd_bias": "down",
-     "prob": 0.2,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে কম (USD-এর জন্য Bearish ডেটা) → রেট কাটের আশা বাড়ে → ইল্ড ও ডলার নামে, ঝুঁকিপূর্ণ অ্যাসেট সাপোর্ট পায়।",
-     "markets": {
-      "gold": {
-       "dir": "up",
-       "text": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।"
-      },
-      "btc": {
-       "dir": "up",
-       "text": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।"
-      },
-      "crypto": {
-       "dir": "up",
-       "text": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "down",
-       "dxy": "↓",
-       "eurusd": "↑",
-       "usdjpy": "↓",
-       "gbpusd": "↑",
-       "text": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "up",
-       "text": "S&P 500/Nasdaq: Bullish — US 2Y/10Y ইল্ড ↓ (যদি রিসেশন-ভীতি না আসে)।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    },
-    {
-     "key": "inline",
-     "rank": 3,
-     "role": "neutral",
-     "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "condition": "Actual Forecast (0.2%)-এর সমান বা খুব কাছাকাছি এলে",
-     "usd_bias": "flat",
-     "prob": 0.1,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
-     "markets": {
-      "gold": {
-       "dir": "flat",
-       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
-      },
-      "btc": {
-       "dir": "flat",
-       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
-      },
-      "crypto": {
-       "dir": "flat",
-       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
-      },
-      "forex": {
-       "dir": "flat",
-       "dxy": "→",
-       "eurusd": "→",
-       "usdjpy": "→",
-       "gbpusd": "→",
-       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-      },
-      "indices": {
-       "dir": "flat",
-       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    }
-   ],
-   "ff_url": "https://www.forexfactory.com/calendar?day=oct14.2026#detail=148368",
-   "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।"
-  },
-  "b12543d75f7a": {
-   "id": "b12543d75f7a",
-   "title": "Core CPI y/y",
-   "currency": "USD",
-   "impact": "High",
-   "time_utc": "2026-10-14T12:30:00Z",
-   "time_special": null,
-   "category": "core_cpi_yoy",
-   "dir": 1,
-   "explainer": {
-    "key": "core_cpi",
-    "theme": "inflation",
-    "name_bn": "কোর ভোক্তা মূল্যসূচক (Core CPI)",
-    "what": "খাদ্য ও জ্বালানি বাদ দিয়ে ভোক্তারা যে পণ্য ও সেবা কেনেন তার দামের পরিবর্তন। অস্থির দামগুলো বাদ থাকায় এটাকে 'আসল' মূল্যস্ফীতির ট্রেন্ড ধরা হয়।",
-    "publisher": "U.S. Bureau of Labor Statistics (BLS)",
-    "frequency": "মাসিক — সাধারণত মাস শেষ হওয়ার ১০–১৫ দিন পর",
-    "why": "Fed সুদের হার ঠিক করে মূল্যস্ফীতি দেখে। কোর CPI বেশি এলে রেট কাট পিছিয়ে যায় বা হাইকের ঝুঁকি বাড়ে — বন্ড ইল্ড ও ডলার ওঠে, গোল্ড-ক্রিপ্টোর ওপর চাপ পড়ে। মাসের সবচেয়ে বড় মুভারগুলোর একটি।",
-    "effect": "Actual > Forecast হলে সাধারণত USD Bullish; কম হলে USD Bearish।",
-    "ff_specs": {
-     "Source": "Bureau of Labor Statistics ( latest release )",
-     "Measures": "Change in the price of goods and services purchased by consumers, excluding food and energy",
-     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
-     "Frequency": "Released monthly, about 11 days after the month ends",
-     "Next Release": "Nov 10, 2026",
-     "FF Notes": "Food and energy prices account for about a quarter of CPI, but they tend to be very volatile and distort the underlying trend. The Federal Open Market Committee usually pays more attention to the Core data - so do traders",
-     "Why Traders Care": "Consumer prices account for a majority of overall inflation. Inflation is important to currency valuation because rising prices lead the central bank to raise interest rates out of respect for their inflation containment mandate",
-     "Also Called": "CPI Ex Food and Energy, Underlying CPI",
-     "Acro Expand": "Consumer Price Index (CPI)"
-    },
-    "source_url": "https://www.bls.gov/"
-   },
-   "data": {
-    "actual": "2.6%",
-    "forecast": "2.5%",
-    "previous": "2.4%",
-    "revision": "",
-    "abw": 1,
-    "result": {
-     "side": "above",
-     "text": "Actual 2.6% — Forecast (2.5%)-এর চেয়ে বেশি",
-     "abw": 1
-    }
-   },
-   "history": [
-    {
-     "date": "2026-09-11",
-     "actual": "2.4%",
-     "forecast": "2.4%",
-     "previous": "2.5%",
-     "abw": 0
-    },
-    {
-     "date": "2026-08-12",
-     "actual": "2.5%",
-     "forecast": "2.5%",
-     "previous": "2.6%",
-     "abw": 0
-    },
-    {
-     "date": "2026-07-14",
-     "actual": "2.6%",
-     "forecast": "2.8%",
-     "previous": "2.9%",
-     "abw": 2
-    },
-    {
-     "date": "2026-06-10",
-     "actual": "2.9%",
-     "forecast": "2.9%",
-     "previous": "2.8%",
-     "abw": 0
-    },
-    {
-     "date": "2026-05-12",
-     "actual": "2.8%",
-     "forecast": "2.7%",
-     "previous": "2.6%",
-     "abw": 1
-    },
-    {
-     "date": "2026-04-10",
-     "actual": "2.6%",
-     "forecast": "2.7%",
-     "previous": "2.5%",
-     "abw": 2
-    }
-   ],
-   "sources": [
-    {
-     "name": "Polymarket",
-     "kind": "market",
-     "ok": true,
-     "url": "https://polymarket.com/event/core-cpi-yoy-september-2026",
-     "title": "Core CPI YoY - September 2026",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "closes_utc": "2026-10-15T03:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 2.6% — ১০০.০%",
-     "outcomes": [
-      {
-       "label": "≤2.0%",
-       "prob": 0.1,
-       "interval": [
-        null,
-        2.0
-       ],
-       "volume": 1752
-      },
-      {
-       "label": "2.1%",
-       "prob": 0.1,
-       "interval": [
-        2.1,
-        2.1
-       ],
-       "volume": 2010
-      },
-      {
-       "label": "2.2%",
-       "prob": 0.1,
-       "interval": [
-        2.2,
-        2.2
-       ],
-       "volume": 2133
-      },
-      {
-       "label": "2.3%",
-       "prob": 0.1,
-       "interval": [
-        2.3,
-        2.3
-       ],
-       "volume": 9775
-      },
-      {
-       "label": "2.4%",
-       "prob": 0.1,
-       "interval": [
-        2.4,
-        2.4
-       ],
-       "volume": 16214
-      },
-      {
-       "label": "2.5%",
-       "prob": 0.1,
-       "interval": [
-        2.5,
-        2.5
-       ],
-       "volume": 8127
-      },
-      {
-       "label": "2.6%",
-       "prob": 100.0,
-       "interval": [
-        2.6,
-        2.6
-       ],
-       "volume": 13560
-      },
-      {
-       "label": "2.7%",
-       "prob": 0.1,
-       "interval": [
-        2.7,
-        2.7
-       ],
-       "volume": 2068
-      },
-      {
-       "label": "2.8%",
-       "prob": 0.1,
-       "interval": [
-        2.8,
-        2.8
-       ],
-       "volume": 1673
-      },
-      {
-       "label": "≥2.9%",
-       "prob": 0.1,
-       "interval": [
-        2.9,
-        null
-       ],
-       "volume": 2117
-      }
-     ],
-     "kind_detail": null,
-     "vs_forecast": {
-      "above": 99.4,
-      "inline": 0.1,
-      "below": 0.5
-     },
-     "fed_view": null,
-     "low_liquidity": false,
-     "context_only": false
-    },
-    {
-     "name": "Kalshi",
-     "kind": "market",
-     "ok": false,
-     "note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই"
-    },
-    {
-     "name": "Cleveland Fed Nowcast",
-     "kind": "nowcast",
-     "ok": true,
-     "source": "Cleveland Fed Inflation Nowcast",
-     "value": 2.39,
-     "unit": "%",
-     "label": "Core CPI Inflation (y/y) · 2026-9",
-     "as_of": "2026-10-13",
-     "as_of_label": "2026-10-13",
-     "url": "https://www.clevelandfed.org/indicators-and-data/inflation-nowcasting",
-     "note": "দৈনিক আপডেট হওয়া মডেল-অনুমান (তেল ও পেট্রলের দাম + আগের ডেটা)। বাজারের সম্ভাবনা নয়।"
-    },
-    {
-     "name": "ForexFactory Forecast (কনসেনসাস)",
-     "kind": "consensus",
-     "ok": true,
-     "headline": "বাজারের সাধারণ প্রত্যাশা: 2.5%",
-     "updated_at": "2026-10-14T13:40:38Z",
-     "url": "https://www.forexfactory.com/calendar?day=oct14.2026"
-    }
-   ],
-   "verdict": {
-    "kind": "data",
-    "probs": {
-     "above": 99.4,
-     "inline": 0.1,
-     "below": 0.5
-    },
-    "top": {
-     "key": "above",
-     "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 99.4
-    },
-    "second": {
-     "key": "below",
-     "label": "Forecast-এর চেয়ে কম",
-     "pct": 0.5
-    },
-    "basis": [
-     "Polymarket — Forecast 2.5%-এর তুলনায়",
-     "Cleveland Fed Inflation Nowcast: 2.39% → Forecast (2.5%)-এর চেয়ে কম",
-     "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
-    ],
-    "confidence": "নিম্ন",
-    "context": null,
-    "labels": {
-     "above": "Forecast-এর চেয়ে বেশি",
-     "below": "Forecast-এর চেয়ে কম",
-     "inline": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি"
-    },
-    "baseline": "forecast",
-    "baseline_text": "তুলনা: Forecast",
-    "third": {
-     "key": "inline",
-     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 0.1
-    },
-    "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৯৯.৪%; দ্বিতীয়: Forecast-এর চেয়ে কম ০.৫%"
-   },
-   "prediction": {
-    "kind": "data",
-    "title": "Core CPI y/y",
-    "value": 2.6,
-    "value_text": "2.6%",
-    "compare": "Forecast (2.5%)-এর চেয়ে বেশি",
-    "value_prob": 99.1,
-    "side": "above",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 2.60%",
-    "inputs": [
-     {
-      "name": "Polymarket",
-      "text": "সবচেয়ে সম্ভাব্য 2.6% (৯৯.১%), গড় প্রত্যাশা 2.60%",
-      "value": 2.6,
-      "ev": 2.599,
-      "side": "above",
-      "agree": true
-     },
-     {
-      "name": "Cleveland Fed Inflation Nowcast",
-      "text": "2.39% → Forecast (2.5%)-এর চেয়ে কম",
-      "value": 2.4,
-      "side": "below",
-      "agree": false
-     },
-     {
-      "name": "আগের রিলিজের ধারা",
-      "text": "গত ৬ রিলিজে Forecast-এর চেয়ে বেশি ১ বার, কম ২, সমান ৩; সাম্প্রতিক ধারা নিচের দিকে",
-      "side": null,
-      "agree": null
-     },
-     {
-      "name": "ForexFactory Forecast/Previous",
-      "text": "Forecast 2.5%, Previous 2.4%",
-      "value": 2.5,
-      "side": "inline",
-      "agree": false
-     }
-    ],
-    "confidence": "নিম্ন",
-    "method": "Polymarket-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৯৯.৪%) মধ্যে সবচেয়ে সম্ভাব্য মান",
-    "baseline": "forecast",
-    "vs_previous": "আগের মানের (2.4%) চেয়ে বেশি",
-    "headline": "Core CPI y/y সম্ভাব্য 2.6% — Forecast (2.5%)-এর চেয়ে বেশি",
-    "result": {
-     "actual": "2.6%",
-     "hit": true,
-     "text": "Actual 2.6% — প্রেডিকশন (2.6%) মিলেছে"
-    },
-    "usd_text": "USD-এর জন্য Bullish ডেটা",
-    "usd_bias": "up"
-   },
-   "scenarios": [
-    {
-     "key": "above",
-     "rank": 1,
-     "role": "most_likely",
-     "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
-     "condition": "Actual Forecast (2.5%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
-     "usd_bias": "up",
-     "prob": 99.4,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": true,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে বেশি (USD-এর জন্য Bullish ডেটা) → Fed-এর রেট কাট পিছিয়ে যাওয়ার (বা হাইকের) প্রত্যাশা বাড়ে → 2Y ইল্ড ও ডলার ওঠে।",
-     "markets": {
-      "gold": {
-       "dir": "down",
-       "text": "Gold: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।"
-      },
-      "btc": {
-       "dir": "down",
-       "text": "BTC: Bearish — নিচে (আনুমানিক ১–৩%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।"
-      },
-      "crypto": {
-       "dir": "down",
-       "text": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "up",
-       "dxy": "↑",
-       "eurusd": "↓",
-       "usdjpy": "↑",
-       "gbpusd": "↓",
-       "text": "DXY: Bullish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bearish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "down",
-       "text": "S&P 500/Nasdaq: Bearish — US 2Y/10Y ইল্ড ↑; টেক বেশি সংবেদনশীল।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": true
-    },
-    {
-     "key": "below",
-     "rank": 2,
-     "role": "opposite",
-     "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
-     "condition": "Actual Forecast (2.5%)-এর চেয়ে স্পষ্টভাবে কম এলে",
-     "usd_bias": "down",
-     "prob": 0.5,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "মূল্যস্ফীতি প্রত্যাশার চেয়ে কম (USD-এর জন্য Bearish ডেটা) → রেট কাটের আশা বাড়ে → ইল্ড ও ডলার নামে, ঝুঁকিপূর্ণ অ্যাসেট সাপোর্ট পায়।",
-     "markets": {
-      "gold": {
-       "dir": "up",
-       "text": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।"
-      },
-      "btc": {
-       "dir": "up",
-       "text": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।"
-      },
-      "crypto": {
-       "dir": "up",
-       "text": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "down",
-       "dxy": "↓",
-       "eurusd": "↑",
-       "usdjpy": "↓",
-       "gbpusd": "↑",
-       "text": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "up",
-       "text": "S&P 500/Nasdaq: Bullish — US 2Y/10Y ইল্ড ↓ (যদি রিসেশন-ভীতি না আসে)।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    },
-    {
-     "key": "inline",
-     "rank": 3,
-     "role": "neutral",
-     "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "condition": "Actual Forecast (2.5%)-এর সমান বা খুব কাছাকাছি এলে",
-     "usd_bias": "flat",
-     "prob": 0.1,
-     "prob_note": null,
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
-     "markets": {
-      "gold": {
-       "dir": "flat",
-       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
-      },
-      "btc": {
-       "dir": "flat",
-       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
-      },
-      "crypto": {
-       "dir": "flat",
-       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
-      },
-      "forex": {
-       "dir": "flat",
-       "dxy": "→",
-       "eurusd": "→",
-       "usdjpy": "→",
-       "gbpusd": "→",
-       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-      },
-      "indices": {
-       "dir": "flat",
-       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
-      }
-     },
-     "watch": [
-      "হেডলাইন বনাম কোর — দুটো উল্টো দিকে গেলে কোরকে প্রাধান্য দিন।",
-      "প্রথম ১–৫ মিনিটের স্পাইক প্রায়ই রিভার্স হয় — 2Y ইল্ড ও DXY একই দিকে টিকে থাকছে কিনা দেখুন।",
-      "BTC/অল্টে দুই দিকেই লিকুইডেশন উইক — ১৫ মিনিটের ক্যান্ডেল ক্লোজের আগে এন্ট্রি নয়।",
-      "আগের মাসের রিভিশন বড় হলে হেডলাইনের অর্থ বদলে যায়।",
-      "৩০–৬০ মিনিট পর CME FedWatch/Kalshi-তে পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ],
-     "happened": false
-    }
-   ],
-   "ff_url": "https://www.forexfactory.com/calendar?day=oct14.2026#detail=153057",
-   "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।"
-  },
   "6c1941622500": {
    "id": "6c1941622500",
    "title": "Core PPI m/m",
@@ -2580,7 +727,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxusppi",
      "title": "PPI MoM in September",
-     "updated_at": "2026-10-14T13:40:38Z",
+     "updated_at": "2026-10-14T18:34:41Z",
      "closes_utc": "2026-10-15T12:29:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: >0.1% ও ≤0.2% — ৭৪.০%",
      "outcomes": [
@@ -3613,9 +1760,9 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending October 10, 2026",
-     "updated_at": "2026-10-14T13:40:38Z",
+     "updated_at": "2026-10-14T18:34:41Z",
      "closes_utc": "2026-10-15T12:25:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: ≥185K ও <190K — ২৯.০%",
+     "headline": "সবচেয়ে সম্ভাব্য: ≥185K ও <190K — ২৭.৫%",
      "outcomes": [
       {
        "label": "< 175K",
@@ -3637,7 +1784,7 @@
       },
       {
        "label": "≥180K ও <185K",
-       "prob": 0.0,
+       "prob": 2.0,
        "interval": [
         180000.0,
         185000.0
@@ -3646,7 +1793,7 @@
       },
       {
        "label": "≥185K ও <190K",
-       "prob": 29.0,
+       "prob": 27.5,
        "interval": [
         185000.0,
         190000.0
@@ -3655,7 +1802,7 @@
       },
       {
        "label": "≥190K ও <195K",
-       "prob": 21.0,
+       "prob": 18.5,
        "interval": [
         190000.0,
         195000.0
@@ -3664,7 +1811,7 @@
       },
       {
        "label": "≥195K ও <200K",
-       "prob": 19.0,
+       "prob": 23.5,
        "interval": [
         195000.0,
         200000.0
@@ -3673,7 +1820,7 @@
       },
       {
        "label": "≥200K ও <205K",
-       "prob": 15.5,
+       "prob": 17.0,
        "interval": [
         200000.0,
         205000.0
@@ -3691,7 +1838,7 @@
       },
       {
        "label": "≥210K ও <215K",
-       "prob": 5.0,
+       "prob": 0.5,
        "interval": [
         210000.0,
         215000.0
@@ -3718,7 +1865,7 @@
       },
       {
        "label": "≥ 225K",
-       "prob": 1.5,
+       "prob": 2.0,
        "interval": [
         225000.0,
         null
@@ -3728,9 +1875,9 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 26.0,
-      "inline": 19.0,
-      "below": 55.0
+      "above": 23.5,
+      "inline": 23.5,
+      "below": 53.0
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -3748,19 +1895,19 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 26.0,
-     "inline": 19.0,
-     "below": 55.0
+     "above": 23.5,
+     "inline": 23.5,
+     "below": 53.0
     },
     "top": {
      "key": "below",
      "label": "Forecast-এর চেয়ে কম",
-     "pct": 55.0
+     "pct": 53.0
     },
     "second": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 26.0
+     "pct": 23.5
     },
     "basis": [
      "Kalshi — Forecast 199K-এর তুলনায়"
@@ -3777,10 +1924,10 @@
     "third": {
      "key": "inline",
      "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 19.0
+     "pct": 23.5
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৫৫.০%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ২৬.০%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৫৩.০%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ২৩.৫%"
    },
    "prediction": {
     "kind": "data",
@@ -3788,15 +1935,15 @@
     "value": 187500.0,
     "value_text": "185K–190K",
     "compare": "Forecast (199K)-এর চেয়ে কম",
-    "value_prob": 29.0,
+    "value_prob": 27.5,
     "side": "below",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 194.9K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 194.4K",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 188K (২৯.০%), গড় প্রত্যাশা 194.9K",
+      "text": "সবচেয়ে সম্ভাব্য 188K (২৭.৫%), গড় প্রত্যাশা 194.4K",
       "value": 187500.0,
-      "ev": 194870.0,
+      "ev": 194382.5,
       "side": "below",
       "agree": true
      },
@@ -3815,7 +1962,7 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৫৫.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৫৩.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (197K) চেয়ে কম",
     "headline": "Unemployment Claims সম্ভাব্য 185K–190K — Forecast (199K)-এর চেয়ে কম",
@@ -3830,7 +1977,7 @@
      "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
      "condition": "Actual Forecast (199K)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "up",
-     "prob": 55.0,
+     "prob": 53.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -3876,7 +2023,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (199K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 26.0,
+     "prob": 23.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -3922,7 +2069,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (199K)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 19.0,
+     "prob": 23.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -4010,46 +2157,46 @@
      "ok": true,
      "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
      "title": "Fed Decision in October?",
-     "updated_at": "2026-10-14T13:40:38Z",
+     "updated_at": "2026-10-14T18:34:41Z",
      "closes_utc": "2026-10-29T03:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: No change — ৫৭.০%",
+     "headline": "সবচেয়ে সম্ভাব্য: No change — ৭০.৫%",
      "outcomes": [
       {
        "label": "No change",
-       "prob": 57.0,
+       "prob": 70.5,
        "interval": null,
-       "volume": 11058167
+       "volume": 11473651
       },
       {
        "label": "25 bps increase",
-       "prob": 43.0,
+       "prob": 28.5,
        "interval": null,
-       "volume": 8884960
+       "volume": 9112602
       },
       {
        "label": "50+ bps increase",
-       "prob": 0.7,
+       "prob": 0.5,
        "interval": null,
-       "volume": 5017486
+       "volume": 5321456
       },
       {
        "label": "25 bps decrease",
        "prob": 0.4,
        "interval": null,
-       "volume": 6860830
+       "volume": 6904278
       },
       {
        "label": "50+ bps decrease",
        "prob": 0.1,
        "interval": null,
-       "volume": 6348151
+       "volume": 6366429
       }
      ],
      "kind_detail": null,
      "vs_forecast": null,
      "fed_view": {
-      "hike": 43.2,
-      "hold": 56.3,
+      "hike": 29.0,
+      "hold": 70.5,
       "cut": 0.5
      },
      "low_liquidity": false,
@@ -4061,18 +2208,18 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxfeddecision",
      "title": "Fed decision in Oct 2026?",
-     "updated_at": "2026-10-14T13:40:38Z",
+     "updated_at": "2026-10-14T18:34:41Z",
      "closes_utc": "2026-10-28T17:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: Fed maintains rate — ৫৭.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: Fed maintains rate — ৬৮.৫%",
      "outcomes": [
       {
        "label": "Fed maintains rate",
-       "prob": 57.5,
+       "prob": 68.5,
        "interval": null
       },
       {
        "label": "Hike 25bps",
-       "prob": 42.5,
+       "prob": 30.5,
        "interval": null
       },
       {
@@ -4094,8 +2241,8 @@
      "kind_detail": "buckets",
      "vs_forecast": null,
      "fed_view": {
-      "hike": 42.4,
-      "hold": 56.7,
+      "hike": 30.8,
+      "hold": 68.2,
       "cut": 1.0
      },
      "low_liquidity": false,
@@ -4113,21 +2260,25 @@
     "kind": "tone",
     "probs": null,
     "top": {
+     "key": "neutral",
+     "label": "নিউট্রাল — ভারসাম্যপূর্ণ টোন",
+     "pct": null
+    },
+    "second": {
      "key": "hawk",
      "label": "USD Bullish টোন",
      "pct": null
     },
-    "second": null,
     "basis": [
      "টোনের সরাসরি কোনো বাজার নেই — রেট-মার্কেট শুধু প্রেক্ষাপট",
      "হোল্ড প্রত্যাশা প্রবল হলে ভারসাম্যপূর্ণ টোনই স্বাভাবিক; সারপ্রাইজ হলে USD Bullish দিকের ঝুঁকি বেশি দাম পাচ্ছে"
     ],
     "confidence": "নিম্ন — টোনের সরাসরি বাজার নেই",
     "context": {
-     "hike": 42.8,
-     "hold": 56.4,
+     "hike": 29.9,
+     "hold": 69.3,
      "cut": 0.8,
-     "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৫৬.৪% · হাইক ৪২.৮% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
+     "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৬৯.৩% · হাইক ২৯.৯% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
      "sources": [
       "Polymarket",
       "Kalshi"
@@ -4138,7 +2289,7 @@
      "neutral": "নিউট্রাল — ভারসাম্যপূর্ণ টোন",
      "dove": "USD Bearish টোন"
     },
-    "summary": "আনুমানিক ঝোঁক: USD Bullish টোন (টোনের সরাসরি বাজার নেই, % দেওয়া হচ্ছে না)"
+    "summary": "আনুমানিক ঝোঁক: নিউট্রাল — ভারসাম্যপূর্ণ টোন; সারপ্রাইজ হলে USD Bullish টোন-এর ঝুঁকি বেশি (টোনের সরাসরি বাজার নেই, % দেওয়া হচ্ছে না)"
    },
    "prediction": {
     "kind": "tone",
@@ -4146,34 +2297,80 @@
     "inputs": [
      {
       "name": "রেট-মার্কেট (প্রেক্ষাপট)",
-      "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৫৬.৪% · হাইক ৪২.৮% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
+      "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৬৯.৩% · হাইক ২৯.৯% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
       "agree": null
      }
     ],
     "value_prob": null,
     "confidence": "নিম্ন — টোনের সরাসরি বাজার নেই",
-    "value": "hawk",
-    "side": "hawk",
-    "value_text": "USD Bullish টোন",
+    "value": "neutral",
+    "side": "neutral",
+    "value_text": "ভারসাম্যপূর্ণ টোন",
     "compare": "আনুমানিক — % নেই",
     "method": "টোনের সরাসরি বাজার নেই; পরবর্তী FOMC-র রেট-মার্কেট শুধু প্রেক্ষাপট হিসেবে",
-    "headline": "সম্ভাব্য টোন: USD Bullish টোন (আনুমানিক)",
-    "usd_text": "USD-এর জন্য Bullish টোন",
-    "usd_bias": "up"
+    "headline": "সম্ভাব্য টোন: ভারসাম্যপূর্ণ টোন (আনুমানিক)",
+    "usd_text": "USD-এর জন্য নিউট্রাল টোন",
+    "usd_bias": "flat"
    },
    "scenarios": [
     {
-     "key": "hawk",
+     "key": "neutral",
      "rank": 1,
      "role": "most_likely",
-     "title": "সম্ভাব্য দিক — ঝোঁক অনুযায়ী (% নেই) — USD-এর জন্য Bullish টোন",
+     "title": "নিউট্রাল — ভারসাম্যপূর্ণ টোন — বেশি সম্ভাব্য (আনুমানিক)",
+     "condition": "টোন ভারসাম্যপূর্ণ হলে — বর্তমান নীতি বহাল, নতুন কোনো ইঙ্গিত নেই",
+     "usd_bias": "flat",
+     "prob": null,
+     "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
+     "approx": true,
+     "is_overall_top": true,
+     "note": "সরাসরি বাজার নেই — রেট-মার্কেটের প্রসঙ্গ থেকে আনুমানিক ক্রম; % দেওয়া হচ্ছে না।",
+     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
+     "markets": {
+      "gold": {
+       "dir": "flat",
+       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
+      },
+      "btc": {
+       "dir": "flat",
+       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
+      },
+      "crypto": {
+       "dir": "flat",
+       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
+      },
+      "forex": {
+       "dir": "flat",
+       "dxy": "→",
+       "eurusd": "→",
+       "usdjpy": "→",
+       "gbpusd": "→",
+       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
+      },
+      "indices": {
+       "dir": "flat",
+       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
+      }
+     },
+     "watch": [
+      "স্টেটমেন্টের শব্দ বদল (অর্থনীতির মূল্যায়ন, ভবিষ্যৎ নির্দেশনা)।",
+      "প্রেস কনফারেন্সে চেয়ারের টোন — প্রথম মুভ প্রায়ই উল্টে যায়, তাই প্রথম ৩০ মিনিট সাবধান।",
+      "ডট-প্লট থাকলে (মার্চ/জুন/সেপ্টেম্বর/ডিসেম্বর) পরের বছরের রেট পথ।",
+      "Kalshi/Polymarket ও CME FedWatch-এ পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
+     ]
+    },
+    {
+     "key": "hawk",
+     "rank": 2,
+     "role": "likelier_direction",
+     "title": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bullish টোন",
      "condition": "টোন USD-এর জন্য Bullish হলে (মূল্যস্ফীতি নিয়ে উদ্বেগ, 'রেট বেশি দিন উঁচু' বা হাইকের ইঙ্গিত)",
      "usd_bias": "up",
      "prob": null,
-     "prob_note": "বাজারের সরাসরি সম্ভাবনা নেই",
-     "approx": true,
-     "is_overall_top": true,
-     "note": "বাজারের % নেই — Forecast/নাউকাস্টের ঝোঁক অনুযায়ী সাজানো; নিশ্চয়তা কম।",
+     "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
+     "approx": false,
+     "is_overall_top": false,
+     "note": null,
      "why": "Fed-এর বার্তা USD-এর জন্য Bullish — রেট বেশি দিন উঁচু থাকবে বা আরও বাড়তে পারে → ইল্ড ও ডলার ওঠে, লিকুইডিটি টাইট হওয়ার ভয়।",
      "markets": {
       "gold": {
@@ -4210,13 +2407,13 @@
     },
     {
      "key": "dove",
-     "rank": 2,
-     "role": "opposite",
-     "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish টোন",
+     "rank": 3,
+     "role": "opposite_direction",
+     "title": "উল্টো দিক — USD-এর জন্য Bearish টোন",
      "condition": "টোন USD-এর জন্য Bearish হলে (কাটের ইঙ্গিত, প্রবৃদ্ধি/চাকরি নিয়ে উদ্বেগ)",
      "usd_bias": "down",
      "prob": null,
-     "prob_note": "বাজারের সরাসরি সম্ভাবনা নেই",
+     "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
      "approx": false,
      "is_overall_top": false,
      "note": null,
@@ -4245,52 +2442,6 @@
       "indices": {
        "dir": "up",
        "text": "S&P 500/Nasdaq: Bullish — US 2Y/10Y ইল্ড ↓ (যদি রিসেশন-ভীতি না আসে)।"
-      }
-     },
-     "watch": [
-      "স্টেটমেন্টের শব্দ বদল (অর্থনীতির মূল্যায়ন, ভবিষ্যৎ নির্দেশনা)।",
-      "প্রেস কনফারেন্সে চেয়ারের টোন — প্রথম মুভ প্রায়ই উল্টে যায়, তাই প্রথম ৩০ মিনিট সাবধান।",
-      "ডট-প্লট থাকলে (মার্চ/জুন/সেপ্টেম্বর/ডিসেম্বর) পরের বছরের রেট পথ।",
-      "Kalshi/Polymarket ও CME FedWatch-এ পরবর্তী মিটিংয়ের সম্ভাবনা কতটা বদলাল।"
-     ]
-    },
-    {
-     "key": "neutral",
-     "rank": 3,
-     "role": "neutral",
-     "title": "নিউট্রাল — ভারসাম্যপূর্ণ টোন",
-     "condition": "টোন ভারসাম্যপূর্ণ হলে — বর্তমান নীতি বহাল, নতুন কোনো ইঙ্গিত নেই",
-     "usd_bias": "flat",
-     "prob": null,
-     "prob_note": "বাজারের সরাসরি সম্ভাবনা নেই",
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
-     "markets": {
-      "gold": {
-       "dir": "flat",
-       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
-      },
-      "btc": {
-       "dir": "flat",
-       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
-      },
-      "crypto": {
-       "dir": "flat",
-       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
-      },
-      "forex": {
-       "dir": "flat",
-       "dxy": "→",
-       "eurusd": "→",
-       "usdjpy": "→",
-       "gbpusd": "→",
-       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-      },
-      "indices": {
-       "dir": "flat",
-       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
       }
      },
      "watch": [
