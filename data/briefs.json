@@ -1,71 +1,76 @@
 {
- "generated_at": "2026-10-14T07:33:26Z",
+ "generated_at": "2026-10-14T13:40:38Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
  "empty_message": null,
  "next_high": {
-  "id": "49d6ce4dc761",
-  "title": "CPI m/m",
-  "time_utc": "2026-10-14T12:30:00Z",
-  "time_dhaka": "14 Oct, 06:30 PM"
+  "id": "6c1941622500",
+  "title": "Core PPI m/m",
+  "time_utc": "2026-10-15T12:30:00Z",
+  "time_dhaka": "15 Oct, 06:30 PM"
  },
  "briefs": [
   {
-   "id": "49d6ce4dc761",
-   "time_utc": "2026-10-14T12:30:00Z",
-   "time_dhaka": "14 Oct, 06:30 PM",
+   "id": "2f2b03f070de",
+   "time_utc": "2026-10-15T12:30:00Z",
+   "time_dhaka": "15 Oct, 06:30 PM",
    "impact": "High",
-   "title": "CPI m/m",
-   "category_bn": "মূল্যস্ফীতি (মাসিক)",
+   "title": "PPI m/m",
+   "category_bn": "উৎপাদক মূল্যসূচক (PPI)",
    "events": [
     {
-     "id": "49d6ce4dc761",
-     "title": "CPI m/m",
+     "id": "6c1941622500",
+     "title": "Core PPI m/m",
+     "impact": "High",
+     "forecast": "0.3%",
+     "previous": "0.2%",
+     "actual": ""
+    },
+    {
+     "id": "68ccd326daa5",
+     "title": "Core Retail Sales m/m",
+     "impact": "High",
+     "forecast": "0.6%",
+     "previous": "1.4%",
+     "actual": ""
+    },
+    {
+     "id": "2f2b03f070de",
+     "title": "PPI m/m",
      "impact": "High",
      "forecast": "0.6%",
      "previous": "0.4%",
      "actual": ""
     },
     {
-     "id": "4c872ac3b68e",
-     "title": "CPI y/y",
-     "impact": "High",
-     "forecast": "3.6%",
-     "previous": "3.4%",
+     "id": "818f40acb90e",
+     "title": "Philly Fed Manufacturing Index",
+     "impact": "Medium",
+     "forecast": "28.2",
+     "previous": "37.8",
      "actual": ""
     },
     {
-     "id": "4aaa2c8d35cc",
-     "title": "Core CPI m/m",
+     "id": "d60d088b8bfe",
+     "title": "Retail Sales m/m",
      "impact": "High",
-     "forecast": "0.2%",
-     "previous": "0.3%",
+     "forecast": "0.3%",
+     "previous": "1.2%",
      "actual": ""
     },
     {
-     "id": "b12543d75f7a",
-     "title": "Core CPI y/y",
-     "impact": "High",
-     "forecast": "2.5%",
-     "previous": "2.4%",
+     "id": "f03496632ba2",
+     "title": "Unemployment Claims",
+     "impact": "Medium",
+     "forecast": "199K",
+     "previous": "197K",
      "actual": ""
     }
    ],
    "likely": {
-    "text": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৪৯.৬%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে কম ৩৪.২%, উল্টো দিক ১৬.২%",
-    "usd_bias": "flat",
-    "impact": {
-     "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
-     "btc": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।",
-     "crypto": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।",
-     "forex": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-    }
-   },
-   "alternative": {
-    "text": "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে) — USD-এর জন্য Bearish ডেটা: Actual Forecast (0.6%)-এর চেয়ে স্পষ্টভাবে কম এলে",
+    "text": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭৬.০%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ২৪.০%",
     "usd_bias": "down",
-    "prob": 34.2,
     "impact": {
      "gold": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
      "btc": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
@@ -73,22 +78,32 @@
      "forex": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
     }
    },
+   "alternative": {
+    "text": "উল্টো দিকে গেলে — USD-এর জন্য Bullish ডেটা: Actual Forecast (0.6%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
+    "usd_bias": "up",
+    "prob": 24.0,
+    "impact": {
+     "gold": "Gold: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
+     "btc": "BTC: Bearish — নিচে (আনুমানিক ১–৩%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
+     "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
+     "forex": "DXY: Bullish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bearish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+    }
+   },
    "reasons": [
-    "Polymarket + Kalshi — Forecast 0.6%-এর তুলনায়",
-    "Cleveland Fed Inflation Nowcast: 0.53% → Forecast (0.6%)-এর চেয়ে কম",
-    "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
+    "Kalshi — Forecast 0.6%-এর তুলনায়",
+    "কিছু মার্কেটে লিকুইডিটি কম — সংখ্যা কম নির্ভরযোগ্য"
    ],
    "confidence_bn": "নিম্ন",
    "typical_range": {
-    "gold": "0.5–1.5%",
-    "btc": "1–3%",
+    "gold": "0.2–0.6%",
+    "btc": "0.5–1.5%",
     "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
    },
    "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
    "verdict_top": {
-    "key": "inline",
-    "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-    "pct": 49.6
+    "key": "below",
+    "label": "Forecast-এর চেয়ে কম",
+    "pct": 76.0
    }
   }
  ]
