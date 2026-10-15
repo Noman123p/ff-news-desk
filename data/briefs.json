@@ -1,111 +1,16 @@
 {
- "generated_at": "2026-10-15T11:22:47Z",
+ "generated_at": "2026-10-15T16:56:41Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
  "empty_message": null,
  "next_high": {
-  "id": "6c1941622500",
-  "title": "Core PPI m/m",
-  "time_utc": "2026-10-15T12:30:00Z",
-  "time_dhaka": "15 Oct, 06:30 PM"
+  "id": "923cb8fbe266",
+  "title": "Fed Chairman Warsh Speaks",
+  "time_utc": "2026-10-16T03:30:00Z",
+  "time_dhaka": "16 Oct, 09:30 AM"
  },
  "briefs": [
-  {
-   "id": "2f2b03f070de",
-   "time_utc": "2026-10-15T12:30:00Z",
-   "time_dhaka": "15 Oct, 06:30 PM",
-   "impact": "High",
-   "title": "PPI m/m",
-   "category_bn": "উৎপাদক মূল্যসূচক (PPI)",
-   "events": [
-    {
-     "id": "6c1941622500",
-     "title": "Core PPI m/m",
-     "impact": "High",
-     "forecast": "0.3%",
-     "previous": "0.2%",
-     "actual": ""
-    },
-    {
-     "id": "68ccd326daa5",
-     "title": "Core Retail Sales m/m",
-     "impact": "High",
-     "forecast": "0.6%",
-     "previous": "1.4%",
-     "actual": ""
-    },
-    {
-     "id": "2f2b03f070de",
-     "title": "PPI m/m",
-     "impact": "High",
-     "forecast": "0.6%",
-     "previous": "0.4%",
-     "actual": ""
-    },
-    {
-     "id": "818f40acb90e",
-     "title": "Philly Fed Manufacturing Index",
-     "impact": "Medium",
-     "forecast": "28.2",
-     "previous": "37.8",
-     "actual": ""
-    },
-    {
-     "id": "d60d088b8bfe",
-     "title": "Retail Sales m/m",
-     "impact": "High",
-     "forecast": "0.3%",
-     "previous": "1.2%",
-     "actual": ""
-    },
-    {
-     "id": "f03496632ba2",
-     "title": "Unemployment Claims",
-     "impact": "Medium",
-     "forecast": "199K",
-     "previous": "197K",
-     "actual": ""
-    }
-   ],
-   "likely": {
-    "text": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭৬.০%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ২৪.০%",
-    "usd_bias": "down",
-    "impact": {
-     "gold": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
-     "btc": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
-     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-    }
-   },
-   "alternative": {
-    "text": "উল্টো দিকে গেলে — USD-এর জন্য Bullish ডেটা: Actual Forecast (0.6%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
-    "usd_bias": "up",
-    "prob": 24.0,
-    "impact": {
-     "gold": "Gold: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
-     "btc": "BTC: Bearish — নিচে (আনুমানিক ১–৩%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
-     "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY: Bullish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bearish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-    }
-   },
-   "reasons": [
-    "Kalshi — Forecast 0.6%-এর তুলনায়",
-    "কিছু মার্কেটে লিকুইডিটি কম — সংখ্যা কম নির্ভরযোগ্য"
-   ],
-   "confidence_bn": "নিম্ন",
-   "typical_range": {
-    "gold": "0.2–0.6%",
-    "btc": "0.5–1.5%",
-    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
-   },
-   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
-   "verdict_top": {
-    "key": "below",
-    "label": "Forecast-এর চেয়ে কম",
-    "pct": 76.0
-   }
-  },
   {
    "id": "923cb8fbe266",
    "time_utc": "2026-10-16T03:30:00Z",
@@ -147,7 +52,7 @@
    "reasons": [
     "টোনের সরাসরি কোনো বাজার নেই — রেট-মার্কেট শুধু প্রেক্ষাপট",
     "হোল্ড প্রত্যাশা প্রবল হলে ভারসাম্যপূর্ণ টোনই স্বাভাবিক; সারপ্রাইজ হলে USD Bullish দিকের ঝুঁকি বেশি দাম পাচ্ছে",
-    "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৭২.৮% · হাইক ২৬.৪% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।"
+    "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৭১.৪% · হাইক ২৭.৮% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।"
    ],
    "confidence_bn": "নিম্ন — টোনের সরাসরি বাজার নেই",
    "typical_range": {
