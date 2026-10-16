@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T05:43:02Z",
+ "generated_at": "2026-10-16T07:06:40Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -258,37 +258,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 42573089,
+    "volume_usd": 42616124,
     "outcomes": [
      {
       "label": "No change",
-      "prob": 83.5,
+      "prob": 84.5,
       "interval": null,
-      "volume": 13000893
+      "volume": 13009175
      },
      {
       "label": "25 bps increase",
-      "prob": 15.5,
+      "prob": 14.5,
       "interval": null,
-      "volume": 9853765
+      "volume": 9867545
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 7166149
+      "volume": 7166385
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 5813608
+      "volume": 5815881
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 6751486
+      "volume": 6757138
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -304,12 +304,12 @@
     "outcomes": [
      {
       "label": "Fed maintains rate",
-      "prob": 84.0,
+      "prob": 85.5,
       "interval": null
      },
      {
       "label": "Hike 25bps",
-      "prob": 14.5,
+      "prob": 14.0,
       "interval": null
      },
      {
@@ -342,12 +342,12 @@
     "proxy_outcomes": [
      {
       "label": "Fed maintains rate",
-      "prob": 84.0,
+      "prob": 85.5,
       "interval": null
      },
      {
       "label": "Hike 25bps",
-      "prob": 14.5,
+      "prob": 14.0,
       "interval": null
      },
      {
@@ -366,25 +366,25 @@
    "most_likely": {
     "polymarket": {
      "label": "No change",
-     "prob": 83.5,
+     "prob": 84.5,
      "interval": null,
-     "volume": 13000893
+     "volume": 13009175
     },
     "kalshi": {
      "label": "Fed maintains rate",
-     "prob": 84.0,
+     "prob": 85.5,
      "interval": null
     }
    },
    "fed_view": {
     "polymarket": {
-     "hike": 15.9,
-     "hold": 83.6,
+     "hike": 14.9,
+     "hold": 84.6,
      "cut": 0.5
     },
     "kalshi": {
-     "hike": 15.0,
-     "hold": 84.0,
+     "hike": 14.4,
+     "hold": 84.7,
      "cut": 1.0
     }
    }
@@ -434,10 +434,19 @@
       "open": "hi"
      },
      {
-      "label": "≥ 185K",
-      "prob": 99.0,
+      "label": "≥185K ও <190K",
+      "prob": 98.0,
       "interval": [
        185000.0,
+       190000.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥ 190K",
+      "prob": 1.0,
+      "interval": [
+       190000.0,
        null
       ],
       "open": "hi"
@@ -458,6 +467,11 @@
       "strike": 185000.0,
       "prob_above": 99.0,
       "inclusive": true
+     },
+     {
+      "strike": 190000.0,
+      "prob_above": 1.0,
+      "inclusive": true
      }
     ],
     "low_liquidity": true,
@@ -471,18 +485,18 @@
     "polymarket": null,
     "kalshi": {
      "above": 0.0,
-     "inline": 99.0,
-     "below": 1.0
+     "inline": 1.0,
+     "below": 99.0
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥ 185K",
-     "prob": 99.0,
+     "label": "≥185K ও <190K",
+     "prob": 98.0,
      "interval": [
       185000.0,
-      null
+      190000.0
      ],
      "open": "hi"
     }
