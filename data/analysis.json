@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T21:20:11Z",
+ "generated_at": "2026-10-16T05:43:02Z",
  "today_dhaka": "2026-10-16",
  "order": [
   "923cb8fbe266",
@@ -7,8 +7,7 @@
   "17f2f9b27f8e",
   "b8e1624e9dbc",
   "f31fb276e7b6",
-  "9fc1e539a801",
-  "9c51985a891d"
+  "9fc1e539a801"
  ],
  "events": {
   "923cb8fbe266": {
@@ -56,46 +55,46 @@
      "ok": true,
      "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
      "title": "Fed Decision in October?",
-     "updated_at": "2026-10-15T21:20:11Z",
+     "updated_at": "2026-10-16T05:43:02Z",
      "closes_utc": "2026-10-29T03:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: No change — ৭১.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: No change — ৮৩.৫%",
      "outcomes": [
       {
        "label": "No change",
-       "prob": 71.5,
+       "prob": 83.5,
        "interval": null,
-       "volume": 12793355
+       "volume": 13000893
       },
       {
        "label": "25 bps increase",
-       "prob": 27.5,
+       "prob": 15.5,
        "interval": null,
-       "volume": 9763652
+       "volume": 9853765
       },
       {
        "label": "25 bps decrease",
        "prob": 0.4,
        "interval": null,
-       "volume": 7142373
+       "volume": 7166149
       },
       {
        "label": "50+ bps increase",
        "prob": 0.4,
        "interval": null,
-       "volume": 5757549
+       "volume": 5813608
       },
       {
        "label": "50+ bps decrease",
        "prob": 0.1,
        "interval": null,
-       "volume": 6629693
+       "volume": 6751486
       }
      ],
      "kind_detail": null,
      "vs_forecast": null,
      "fed_view": {
-      "hike": 27.9,
-      "hold": 71.6,
+      "hike": 15.9,
+      "hold": 83.6,
       "cut": 0.5
      },
      "low_liquidity": false,
@@ -107,18 +106,18 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxfeddecision",
      "title": "Fed decision in Oct 2026?",
-     "updated_at": "2026-10-15T21:20:11Z",
+     "updated_at": "2026-10-16T05:43:02Z",
      "closes_utc": "2026-10-28T17:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: Fed maintains rate — ৭০.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: Fed maintains rate — ৮৪.০%",
      "outcomes": [
       {
        "label": "Fed maintains rate",
-       "prob": 70.5,
+       "prob": 84.0,
        "interval": null
       },
       {
        "label": "Hike 25bps",
-       "prob": 27.5,
+       "prob": 14.5,
        "interval": null
       },
       {
@@ -140,8 +139,8 @@
      "kind_detail": "buckets",
      "vs_forecast": null,
      "fed_view": {
-      "hike": 28.1,
-      "hold": 70.9,
+      "hike": 15.0,
+      "hold": 84.0,
       "cut": 1.0
      },
      "low_liquidity": false,
@@ -174,10 +173,10 @@
     ],
     "confidence": "নিম্ন — টোনের সরাসরি বাজার নেই",
     "context": {
-     "hike": 28.0,
-     "hold": 71.2,
+     "hike": 15.4,
+     "hold": 83.8,
      "cut": 0.8,
-     "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৭১.২% · হাইক ২৮.০% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
+     "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৮৩.৮% · হাইক ১৫.৪% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
      "sources": [
       "Polymarket",
       "Kalshi"
@@ -196,7 +195,7 @@
     "inputs": [
      {
       "name": "রেট-মার্কেট (প্রেক্ষাপট)",
-      "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৭১.২% · হাইক ২৮.০% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
+      "text": "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ৮৩.৮% · হাইক ১৫.৪% · কাট ০.৮% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।",
       "agree": null
      }
     ],
@@ -449,7 +448,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending October 17, 2026",
-     "updated_at": "2026-10-15T21:20:11Z",
+     "updated_at": "2026-10-16T05:43:02Z",
      "closes_utc": "2026-10-22T12:25:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: ≥ 185K — ৯৯.০%",
      "outcomes": [
@@ -1848,215 +1847,6 @@
     }
    ],
    "ff_url": "https://www.forexfactory.com/calendar?day=oct23.2026#detail=148615",
-   "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।"
-  },
-  "9c51985a891d": {
-   "id": "9c51985a891d",
-   "title": "Treasury Currency Report",
-   "currency": "USD",
-   "impact": "Medium",
-   "time_utc": "2026-10-23T20:00:00Z",
-   "time_special": "Tentative",
-   "category": "other",
-   "dir": 1,
-   "explainer": {
-    "key": "treasury_fx",
-    "theme": "other",
-    "name_bn": "ট্রেজারি মুদ্রা রিপোর্ট",
-    "what": "কোন দেশ মুদ্রা কারসাজি করছে কিনা তা নিয়ে মার্কিন ট্রেজারির অর্ধবার্ষিক রিপোর্ট।",
-    "publisher": "U.S. Department of the Treasury",
-    "frequency": "বছরে দুবার (অনির্ধারিত সময়)",
-    "why": "কোনো দেশকে 'manipulator' ঘোষণা করলে সংশ্লিষ্ট মুদ্রায় (CNY, JPY ইত্যাদি) মুভ হতে পারে।",
-    "effect": "সাধারণত নির্দিষ্ট দিক নেই।",
-    "ff_specs": {
-     "Source": "US Department of the Treasury ( latest release )",
-     "Frequency": "Twice per year",
-     "FF Notes": "Source does not provide a reliable release time and the report can be delayed for several days - the event will be listed as 'Tentative' until the report is issued. Market impact tends to vary and is mostly dependent on which countries the report will accuse of currency manipulation",
-     "Why Traders Care": "It provides a detailed review of global exchange rate policies, economic conditions, and central bank and government actions around the world. Most importantly, the report outlines countries that the Treasury deems currency manipulators",
-     "Also Called": "Report on International Economic and Exchange Rate Policies"
-    },
-    "source_url": "https://home.treasury.gov/"
-   },
-   "data": {
-    "actual": "",
-    "forecast": "",
-    "previous": "",
-    "revision": "",
-    "abw": 0,
-    "result": null
-   },
-   "history": [],
-   "sources": [
-    {
-     "name": "Polymarket",
-     "kind": "market",
-     "ok": false,
-     "note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই"
-    },
-    {
-     "name": "Kalshi",
-     "kind": "market",
-     "ok": false,
-     "note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই"
-    }
-   ],
-   "verdict": {
-    "kind": "speech",
-    "probs": null,
-    "top": null,
-    "second": null,
-    "basis": [],
-    "confidence": "ডেটা নেই",
-    "context": null,
-    "labels": {
-     "hawk": "USD Bullish মন্তব্য",
-     "neutral": "নিউট্রাল — নতুন কিছু নয়",
-     "dove": "USD Bearish মন্তব্য"
-    },
-    "summary": "বাজারের সম্ভাবনা-ডেটা নেই — দুই দিকেই মুভ হতে পারে; রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন"
-   },
-   "prediction": {
-    "kind": "speech",
-    "title": "Treasury Currency Report",
-    "value_text": null,
-    "inputs": [],
-    "confidence": "ডেটা নেই",
-    "method": "বক্তব্যের ফলাফলের আগাম বাজার বা মডেল নেই — নির্দিষ্ট প্রেডিকশন দেওয়া হচ্ছে না",
-    "usd_text": null,
-    "usd_bias": null
-   },
-   "scenarios": [
-    {
-     "key": "hawk",
-     "rank": 1,
-     "role": "direction_1",
-     "title": "দিক ১ — USD-এর জন্য Bullish মন্তব্য",
-     "condition": "USD-এর জন্য Bullish (বা ঝুঁকি-বিমুখ) মন্তব্য এলে",
-     "usd_bias": "up",
-     "prob": null,
-     "prob_note": "সম্ভাবনা-ডেটা নেই",
-     "approx": false,
-     "is_overall_top": false,
-     "note": "সম্ভাবনা-ডেটা নেই — কোনো দিককে 'সবচেয়ে সম্ভাব্য' বলা হচ্ছে না; ক্রমটি শুধু সাজানোর জন্য।",
-     "why": "ডেটা প্রত্যাশার চেয়ে ভালো → USD-এর জন্য Bullish।",
-     "markets": {
-      "gold": {
-       "dir": "down",
-       "text": "Gold: Bearish — নিচে; ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।"
-      },
-      "btc": {
-       "dir": "down",
-       "text": "BTC: Bearish — নিচে; টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।"
-      },
-      "crypto": {
-       "dir": "down",
-       "text": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে; হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "up",
-       "dxy": "↑",
-       "eurusd": "↓",
-       "usdjpy": "↑",
-       "gbpusd": "↓",
-       "text": "DXY: Bullish · EUR/USD: Bearish · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "down",
-       "text": "S&P 500/Nasdaq: Bearish — US 2Y/10Y ইল্ড ↑; টেক বেশি সংবেদনশীল।"
-      }
-     },
-     "watch": [
-      "প্রথম ১৫ মিনিটের দিক টিকে থাকে কিনা দেখুন; স্প্রেড স্বাভাবিক হওয়া পর্যন্ত অপেক্ষা করুন।"
-     ]
-    },
-    {
-     "key": "dove",
-     "rank": 2,
-     "role": "direction_2",
-     "title": "দিক ২ — USD-এর জন্য Bearish মন্তব্য",
-     "condition": "USD-এর জন্য Bearish মন্তব্য এলে (যেমন Fed-কে রেট কমাতে চাপ)",
-     "usd_bias": "down",
-     "prob": null,
-     "prob_note": "সম্ভাবনা-ডেটা নেই",
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "ডেটা প্রত্যাশার চেয়ে খারাপ → USD-এর জন্য Bearish।",
-     "markets": {
-      "gold": {
-       "dir": "up",
-       "text": "Gold: Bullish — উপরে; ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।"
-      },
-      "btc": {
-       "dir": "up",
-       "text": "BTC: Bullish — উপরে; রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।"
-      },
-      "crypto": {
-       "dir": "up",
-       "text": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে; হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।"
-      },
-      "forex": {
-       "dir": "down",
-       "dxy": "↓",
-       "eurusd": "↑",
-       "usdjpy": "↓",
-       "gbpusd": "↑",
-       "text": "DXY: Bearish · EUR/USD: Bullish · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-      },
-      "indices": {
-       "dir": "up",
-       "text": "S&P 500/Nasdaq: Bullish — US 2Y/10Y ইল্ড ↓ (যদি রিসেশন-ভীতি না আসে)।"
-      }
-     },
-     "watch": [
-      "প্রথম ১৫ মিনিটের দিক টিকে থাকে কিনা দেখুন; স্প্রেড স্বাভাবিক হওয়া পর্যন্ত অপেক্ষা করুন।"
-     ]
-    },
-    {
-     "key": "neutral",
-     "rank": 3,
-     "role": "neutral",
-     "title": "নিউট্রাল — নতুন কিছু নয়",
-     "condition": "নতুন বা চমকপ্রদ কিছু না বললে",
-     "usd_bias": "flat",
-     "prob": null,
-     "prob_note": "সম্ভাবনা-ডেটা নেই",
-     "approx": false,
-     "is_overall_top": false,
-     "note": null,
-     "why": "ফলাফল প্রত্যাশার কাছাকাছি হলে বাজারে নতুন তথ্য কম — রিলিজের আগের পজিশন খুলে যাওয়াই মূল মুভ।",
-     "markets": {
-      "gold": {
-       "dir": "flat",
-       "text": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।"
-      },
-      "btc": {
-       "dir": "flat",
-       "text": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।"
-      },
-      "crypto": {
-       "dir": "flat",
-       "text": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।"
-      },
-      "forex": {
-       "dir": "flat",
-       "dxy": "→",
-       "eurusd": "→",
-       "usdjpy": "→",
-       "gbpusd": "→",
-       "text": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-      },
-      "indices": {
-       "dir": "flat",
-       "text": "S&P 500/Nasdaq: নিউট্রাল — ইল্ড স্থির থাকলে স্বাভাবিক সেশন-ট্রেন্ডে চলবে।"
-      }
-     },
-     "watch": [
-      "প্রথম ১৫ মিনিটের দিক টিকে থাকে কিনা দেখুন; স্প্রেড স্বাভাবিক হওয়া পর্যন্ত অপেক্ষা করুন।"
-     ]
-    }
-   ],
-   "ff_url": "https://www.forexfactory.com/calendar?day=oct23.2026#detail=148787",
    "disclaimer": "এটি নিয়মভিত্তিক বিশ্লেষণ ও বাজারের সম্ভাবনার সারাংশ — নিশ্চয়তা নয়। রিলিজের সময় স্প্রেড/স্লিপেজ বাড়ে; SL ছাড়া ট্রেড নয়।"
   }
  }
