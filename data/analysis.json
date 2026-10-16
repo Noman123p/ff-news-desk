@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T18:00:56Z",
+ "generated_at": "2026-10-16T21:03:26Z",
  "today_dhaka": "2026-10-17",
  "order": [
   "f3a1c9a41272",
@@ -104,13 +104,13 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending October 17, 2026",
-     "updated_at": "2026-10-16T18:00:56Z",
+     "updated_at": "2026-10-16T21:03:26Z",
      "closes_utc": "2026-10-22T12:25:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: ≥185K ও <190K — ৭০.০%",
+     "headline": "সবচেয়ে সম্ভাব্য: ≥195K ও <200K — ৬০.০%",
      "outcomes": [
       {
        "label": "< 125K",
-       "prob": 2.0,
+       "prob": 1.0,
        "interval": [
         null,
         125000.0
@@ -118,10 +118,91 @@
        "open": "hi"
       },
       {
-       "label": "≥125K ও <175K",
-       "prob": 0.0,
+       "label": "≥125K ও <130K",
+       "prob": 3.0,
        "interval": [
         125000.0,
+        130000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥130K ও <135K",
+       "prob": 5.0,
+       "interval": [
+        130000.0,
+        135000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥135K ও <140K",
+       "prob": 0.0,
+       "interval": [
+        135000.0,
+        140000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥140K ও <145K",
+       "prob": 0.0,
+       "interval": [
+        140000.0,
+        145000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥145K ও <150K",
+       "prob": 2.0,
+       "interval": [
+        145000.0,
+        150000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥150K ও <155K",
+       "prob": 1.0,
+       "interval": [
+        150000.0,
+        155000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥155K ও <160K",
+       "prob": 0.0,
+       "interval": [
+        155000.0,
+        160000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥160K ও <165K",
+       "prob": 0.0,
+       "interval": [
+        160000.0,
+        165000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥165K ও <170K",
+       "prob": 0.0,
+       "interval": [
+        165000.0,
+        170000.0
+       ],
+       "open": "hi"
+      },
+      {
+       "label": "≥170K ও <175K",
+       "prob": 0.0,
+       "interval": [
+        170000.0,
         175000.0
        ],
        "open": "hi"
@@ -146,72 +227,18 @@
       },
       {
        "label": "≥185K ও <190K",
-       "prob": 70.0,
+       "prob": 0.0,
        "interval": [
         185000.0,
         190000.0
-       ],
-       "open": "hi"
-      },
-      {
-       "label": "≥190K ও <195K",
-       "prob": 0.0,
-       "interval": [
-        190000.0,
-        195000.0
-       ],
-       "open": "hi"
-      },
-      {
-       "label": "≥195K ও <200K",
-       "prob": 0.0,
-       "interval": [
-        195000.0,
-        200000.0
-       ],
-       "open": "hi"
-      },
-      {
-       "label": "≥200K ও <215K",
-       "prob": 26.5,
-       "interval": [
-        200000.0,
-        215000.0
-       ],
-       "open": "hi"
-      },
-      {
-       "label": "≥215K ও <220K",
-       "prob": 0.0,
-       "interval": [
-        215000.0,
-        220000.0
-       ],
-       "open": "hi"
-      },
-      {
-       "label": "≥220K ও <225K",
-       "prob": 0.0,
-       "interval": [
-        220000.0,
-        225000.0
-       ],
-       "open": "hi"
-      },
-      {
-       "label": "≥ 225K",
-       "prob": 1.5,
-       "interval": [
-        225000.0,
-        null
        ],
        "open": "hi"
       }
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 1.5,
-      "inline": 26.5,
+      "above": 3.5,
+      "inline": 24.5,
       "below": 72.0
      },
      "fed_view": null,
@@ -223,15 +250,15 @@
      "kind": "consensus",
      "ok": true,
      "headline": "বাজারের সাধারণ প্রত্যাশা: 200K",
-     "updated_at": "2026-10-16T18:00:56Z",
+     "updated_at": "2026-10-16T21:03:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct22.2026"
     }
    ],
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 1.5,
-     "inline": 26.5,
+     "above": 3.5,
+     "inline": 24.5,
      "below": 72.0
     },
     "top": {
@@ -242,7 +269,7 @@
     "second": {
      "key": "inline",
      "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 26.5
+     "pct": 24.5
     },
     "basis": [
      "Kalshi — Forecast 200K-এর তুলনায়",
@@ -260,26 +287,26 @@
     "third": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 1.5
+     "pct": 3.5
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭২.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ২৬.৫%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭২.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ২৪.৫%"
    },
    "prediction": {
     "kind": "data",
     "title": "Unemployment Claims",
-    "value": 187500.0,
-    "value_text": "185K–190K",
+    "value": 197500.0,
+    "value_text": "195K–200K",
     "compare": "Forecast (200K)-এর চেয়ে কম",
-    "value_prob": 70.0,
+    "value_prob": 60.0,
     "side": "below",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 192.1K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 192.5K",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 188K (৭০.০%), গড় প্রত্যাশা 192.1K",
-      "value": 187500.0,
-      "ev": 192092.5,
+      "text": "সবচেয়ে সম্ভাব্য 198K (৬০.০%), গড় প্রত্যাশা 192.5K",
+      "value": 197500.0,
+      "ev": 192515.0,
       "side": "below",
       "agree": true
      },
@@ -301,7 +328,7 @@
     "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৭২.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (199K) চেয়ে কম",
-    "headline": "Unemployment Claims সম্ভাব্য 185K–190K — Forecast (200K)-এর চেয়ে কম",
+    "headline": "Unemployment Claims সম্ভাব্য 195K–200K — Forecast (200K)-এর চেয়ে কম",
     "usd_text": "USD-এর জন্য Bullish ডেটা",
     "usd_bias": "up"
    },
@@ -359,7 +386,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (200K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 1.5,
+     "prob": 3.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -405,7 +432,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (200K)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 26.5,
+     "prob": 24.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -481,7 +508,7 @@
    },
    "data": {
     "actual": "",
-    "forecast": "55.6",
+    "forecast": "55.5",
     "previous": "57.0",
     "revision": "55.9",
     "abw": 0,
@@ -548,8 +575,8 @@
      "name": "ForexFactory Forecast (কনসেনসাস)",
      "kind": "consensus",
      "ok": true,
-     "headline": "বাজারের সাধারণ প্রত্যাশা: 55.6",
-     "updated_at": "2026-10-16T18:00:56Z",
+     "headline": "বাজারের সাধারণ প্রত্যাশা: 55.5",
+     "updated_at": "2026-10-16T21:03:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct23.2026"
     }
    ],
@@ -584,8 +611,8 @@
    "prediction": {
     "kind": "data",
     "title": "Flash Manufacturing PMI",
-    "value": 55.6,
-    "value_text": "55.6",
+    "value": 55.5,
+    "value_text": "55.5",
     "compare": "Forecast-এর কাছাকাছি",
     "value_prob": null,
     "side": "inline",
@@ -599,8 +626,8 @@
      },
      {
       "name": "ForexFactory Forecast/Previous",
-      "text": "Forecast 55.6, Previous 57.0",
-      "value": 55.6,
+      "text": "Forecast 55.5, Previous 57.0",
+      "value": 55.5,
       "side": "inline",
       "agree": true
      }
@@ -609,7 +636,7 @@
     "method": "শুধু ForexFactory Forecast/Previous আছে — বাজার বা নাউকাস্ট নেই, তাই Forecast-এর কাছাকাছি ধরা হলো",
     "baseline": "forecast",
     "approx_only": true,
-    "headline": "Flash Manufacturing PMI সম্ভাব্য 55.6 — Forecast-এর কাছাকাছি",
+    "headline": "Flash Manufacturing PMI সম্ভাব্য 55.5 — Forecast-এর কাছাকাছি",
     "usd_text": "USD-এর জন্য নিউট্রাল ডেটা",
     "usd_bias": "flat"
    },
@@ -619,7 +646,7 @@
      "rank": 1,
      "role": "most_likely",
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি — বেশি সম্ভাব্য (আনুমানিক)",
-     "condition": "Actual Forecast (55.6)-এর সমান বা খুব কাছাকাছি এলে",
+     "condition": "Actual Forecast (55.5)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
      "prob": null,
      "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
@@ -664,7 +691,7 @@
      "rank": 2,
      "role": "likelier_direction",
      "title": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bearish ডেটা",
-     "condition": "Actual Forecast (55.6)-এর চেয়ে স্পষ্টভাবে কম এলে",
+     "condition": "Actual Forecast (55.5)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "down",
      "prob": null,
      "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
@@ -709,7 +736,7 @@
      "rank": 3,
      "role": "opposite_direction",
      "title": "উল্টো দিক — USD-এর জন্য Bullish ডেটা",
-     "condition": "Actual Forecast (55.6)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
+     "condition": "Actual Forecast (55.5)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "up",
      "prob": null,
      "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
@@ -786,7 +813,7 @@
    },
    "data": {
     "actual": "",
-    "forecast": "57.9",
+    "forecast": "58.0",
     "previous": "58.7",
     "revision": "58.8",
     "abw": 0,
@@ -853,8 +880,8 @@
      "name": "ForexFactory Forecast (কনসেনসাস)",
      "kind": "consensus",
      "ok": true,
-     "headline": "বাজারের সাধারণ প্রত্যাশা: 57.9",
-     "updated_at": "2026-10-16T18:00:56Z",
+     "headline": "বাজারের সাধারণ প্রত্যাশা: 58.0",
+     "updated_at": "2026-10-16T21:03:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct23.2026"
     }
    ],
@@ -889,8 +916,8 @@
    "prediction": {
     "kind": "data",
     "title": "Flash Services PMI",
-    "value": 57.9,
-    "value_text": "57.9",
+    "value": 58.0,
+    "value_text": "58.0",
     "compare": "Forecast-এর কাছাকাছি",
     "value_prob": null,
     "side": "inline",
@@ -904,8 +931,8 @@
      },
      {
       "name": "ForexFactory Forecast/Previous",
-      "text": "Forecast 57.9, Previous 58.7",
-      "value": 57.9,
+      "text": "Forecast 58.0, Previous 58.7",
+      "value": 58.0,
       "side": "inline",
       "agree": true
      }
@@ -914,7 +941,7 @@
     "method": "শুধু ForexFactory Forecast/Previous আছে — বাজার বা নাউকাস্ট নেই, তাই Forecast-এর কাছাকাছি ধরা হলো",
     "baseline": "forecast",
     "approx_only": true,
-    "headline": "Flash Services PMI সম্ভাব্য 57.9 — Forecast-এর কাছাকাছি",
+    "headline": "Flash Services PMI সম্ভাব্য 58.0 — Forecast-এর কাছাকাছি",
     "usd_text": "USD-এর জন্য নিউট্রাল ডেটা",
     "usd_bias": "flat"
    },
@@ -924,7 +951,7 @@
      "rank": 1,
      "role": "most_likely",
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি — বেশি সম্ভাব্য (আনুমানিক)",
-     "condition": "Actual Forecast (57.9)-এর সমান বা খুব কাছাকাছি এলে",
+     "condition": "Actual Forecast (58.0)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
      "prob": null,
      "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
@@ -969,7 +996,7 @@
      "rank": 2,
      "role": "likelier_direction",
      "title": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bearish ডেটা",
-     "condition": "Actual Forecast (57.9)-এর চেয়ে স্পষ্টভাবে কম এলে",
+     "condition": "Actual Forecast (58.0)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "down",
      "prob": null,
      "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
@@ -1014,7 +1041,7 @@
      "rank": 3,
      "role": "opposite_direction",
      "title": "উল্টো দিক — USD-এর জন্য Bullish ডেটা",
-     "condition": "Actual Forecast (57.9)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
+     "condition": "Actual Forecast (58.0)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "up",
      "prob": null,
      "prob_note": "এই ইভেন্টের ফলাফলের সরাসরি বাজার নেই",
@@ -1159,7 +1186,7 @@
      "kind": "consensus",
      "ok": true,
      "headline": "বাজারের সাধারণ প্রত্যাশা: 46.3",
-     "updated_at": "2026-10-16T18:00:56Z",
+     "updated_at": "2026-10-16T21:03:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct23.2026"
     }
    ],
