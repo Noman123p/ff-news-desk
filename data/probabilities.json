@@ -1,107 +1,11 @@
 {
- "generated_at": "2026-10-16T07:06:40Z",
+ "generated_at": "2026-10-16T13:13:39Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
   "cme_fedwatch": "CME সাইট অটোমেটেড অ্যাক্সেস ব্লক করে (HTTP 403); অফিসিয়াল FedWatch API পেইড। তাই সংখ্যা সরাসরি নেওয়া হয়নি — লিংকে গিয়ে মিলিয়ে নিন।"
  },
  "by_event": {
-  "49d6ce4dc761": {
-   "event_id": "49d6ce4dc761",
-   "title": "CPI m/m",
-   "category": "cpi_mom",
-   "category_bn": "মূল্যস্ফীতি (মাসিক)",
-   "usd_dir": 1,
-   "time_utc": "2026-10-14T12:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "মিলে যায় এমন সক্রিয় মার্কেট পাওয়া যায়নি",
-   "kalshi": null,
-   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "0.6%",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "4c872ac3b68e": {
-   "event_id": "4c872ac3b68e",
-   "title": "CPI y/y",
-   "category": "cpi_yoy",
-   "category_bn": "মূল্যস্ফীতি (বার্ষিক)",
-   "usd_dir": 1,
-   "time_utc": "2026-10-14T12:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "মিলে যায় এমন সক্রিয় মার্কেট পাওয়া যায়নি",
-   "kalshi": null,
-   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "3.6%",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "4aaa2c8d35cc": {
-   "event_id": "4aaa2c8d35cc",
-   "title": "Core CPI m/m",
-   "category": "core_cpi_mom",
-   "category_bn": "কোর মূল্যস্ফীতি (মাসিক)",
-   "usd_dir": 1,
-   "time_utc": "2026-10-14T12:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "মিলে যায় এমন সক্রিয় মার্কেট পাওয়া যায়নি",
-   "kalshi": null,
-   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "0.2%",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "b12543d75f7a": {
-   "event_id": "b12543d75f7a",
-   "title": "Core CPI y/y",
-   "category": "core_cpi_yoy",
-   "category_bn": "কোর মূল্যস্ফীতি (বার্ষিক)",
-   "usd_dir": 1,
-   "time_utc": "2026-10-14T12:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "মিলে যায় এমন সক্রিয় মার্কেট পাওয়া যায়নি",
-   "kalshi": null,
-   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "2.5%",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
   "6c1941622500": {
    "event_id": "6c1941622500",
    "title": "Core PPI m/m",
@@ -258,37 +162,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 42616124,
+    "volume_usd": 43626994,
     "outcomes": [
      {
       "label": "No change",
-      "prob": 84.5,
+      "prob": 86.5,
       "interval": null,
-      "volume": 13009175
+      "volume": 13148428
      },
      {
       "label": "25 bps increase",
-      "prob": 14.5,
+      "prob": 13.5,
       "interval": null,
-      "volume": 9867545
+      "volume": 9959489
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 7166385
+      "volume": 7168965
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 5815881
+      "volume": 5822984
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 6757138
+      "volume": 7532410
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -304,12 +208,12 @@
     "outcomes": [
      {
       "label": "Fed maintains rate",
-      "prob": 85.5,
+      "prob": 86.0,
       "interval": null
      },
      {
       "label": "Hike 25bps",
-      "prob": 14.0,
+      "prob": 12.5,
       "interval": null
      },
      {
@@ -342,12 +246,12 @@
     "proxy_outcomes": [
      {
       "label": "Fed maintains rate",
-      "prob": 85.5,
+      "prob": 86.0,
       "interval": null
      },
      {
       "label": "Hike 25bps",
-      "prob": 14.0,
+      "prob": 12.5,
       "interval": null
      },
      {
@@ -366,25 +270,25 @@
    "most_likely": {
     "polymarket": {
      "label": "No change",
-     "prob": 84.5,
+     "prob": 86.5,
      "interval": null,
-     "volume": 13009175
+     "volume": 13148428
     },
     "kalshi": {
      "label": "Fed maintains rate",
-     "prob": 85.5,
+     "prob": 86.0,
      "interval": null
     }
    },
    "fed_view": {
     "polymarket": {
-     "hike": 14.9,
-     "hold": 84.6,
+     "hike": 13.8,
+     "hold": 85.7,
      "cut": 0.5
     },
     "kalshi": {
-     "hike": 14.4,
-     "hold": 84.7,
+     "hike": 13.0,
+     "hold": 86.0,
      "cut": 1.0
     }
    }
@@ -408,7 +312,7 @@
     "outcomes": [
      {
       "label": "< 175K",
-      "prob": 1.0,
+      "prob": 72.0,
       "interval": [
        null,
        175000.0
@@ -435,7 +339,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 98.0,
+      "prob": 0.0,
       "interval": [
        185000.0,
        190000.0
@@ -443,10 +347,37 @@
       "open": "hi"
      },
      {
-      "label": "≥ 190K",
-      "prob": 1.0,
+      "label": "≥190K ও <195K",
+      "prob": 0.0,
       "interval": [
        190000.0,
+       195000.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥195K ও <200K",
+      "prob": 0.0,
+      "interval": [
+       195000.0,
+       200000.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥200K ও <215K",
+      "prob": 26.0,
+      "interval": [
+       200000.0,
+       215000.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥ 215K",
+      "prob": 2.0,
+      "interval": [
+       215000.0,
        null
       ],
       "open": "hi"
@@ -455,22 +386,37 @@
     "thresholds": [
      {
       "strike": 175000.0,
-      "prob_above": 99.0,
+      "prob_above": 28.0,
       "inclusive": true
      },
      {
       "strike": 180000.0,
-      "prob_above": 99.0,
+      "prob_above": 28.0,
       "inclusive": true
      },
      {
       "strike": 185000.0,
-      "prob_above": 99.0,
+      "prob_above": 28.0,
       "inclusive": true
      },
      {
       "strike": 190000.0,
-      "prob_above": 1.0,
+      "prob_above": 28.0,
+      "inclusive": true
+     },
+     {
+      "strike": 195000.0,
+      "prob_above": 28.0,
+      "inclusive": true
+     },
+     {
+      "strike": 200000.0,
+      "prob_above": 28.0,
+      "inclusive": true
+     },
+     {
+      "strike": 215000.0,
+      "prob_above": 2.0,
       "inclusive": true
      }
     ],
@@ -480,23 +426,23 @@
    "kalshi_note": null,
    "fedwatch": null,
    "vs_forecast": {
-    "ref": "previous",
-    "ref_value": "199K",
+    "ref": "forecast",
+    "ref_value": "200K",
     "polymarket": null,
     "kalshi": {
-     "above": 0.0,
-     "inline": 1.0,
-     "below": 99.0
+     "above": 2.0,
+     "inline": 26.0,
+     "below": 72.0
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥185K ও <190K",
-     "prob": 98.0,
+     "label": "< 175K",
+     "prob": 72.0,
      "interval": [
-      185000.0,
-      190000.0
+      null,
+      175000.0
      ],
      "open": "hi"
     }
@@ -516,8 +462,8 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": "previous",
-    "ref_value": "57.0",
+    "ref": "forecast",
+    "ref_value": "55.6",
     "polymarket": null,
     "kalshi": null
    },
@@ -540,8 +486,8 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": "previous",
-    "ref_value": "58.7",
+    "ref": "forecast",
+    "ref_value": "57.9",
     "polymarket": null,
     "kalshi": null
    },
@@ -564,7 +510,7 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": "previous",
+    "ref": "forecast",
     "ref_value": "46.3",
     "polymarket": null,
     "kalshi": null
