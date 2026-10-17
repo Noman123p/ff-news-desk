@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T18:27:55Z",
+ "generated_at": "2026-10-17T22:15:44Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -18,37 +18,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 44910605,
+    "volume_usd": 45035020,
     "outcomes": [
      {
       "label": "No change",
       "prob": 86.5,
       "interval": null,
-      "volume": 13367160
+      "volume": 13384108
      },
      {
       "label": "25 bps increase",
       "prob": 13.5,
       "interval": null,
-      "volume": 10177592
+      "volume": 10180047
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 7539395
+      "volume": 7549056
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 6227756
+      "volume": 6318095
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 7598702
+      "volume": 7603713
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -128,7 +128,7 @@
      "label": "No change",
      "prob": 86.5,
      "interval": null,
-     "volume": 13367160
+     "volume": 13384108
     },
     "kalshi": {
      "label": "Fed maintains rate",
@@ -312,7 +312,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 10.0,
+      "prob": 24.0,
       "interval": [
        200000.0,
        205000.0
@@ -321,7 +321,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 15.5,
+      "prob": 1.5,
       "interval": [
        205000.0,
        210000.0
@@ -448,7 +448,7 @@
      },
      {
       "strike": 205000.0,
-      "prob_above": 18.0,
+      "prob_above": 4.0,
       "inclusive": true
      },
      {
@@ -482,8 +482,8 @@
     "ref_value": "200K",
     "polymarket": null,
     "kalshi": {
-     "above": 18.0,
-     "inline": 10.0,
+     "above": 4.0,
+     "inline": 24.0,
      "below": 72.0
     }
    },
