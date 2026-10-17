@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T21:03:26Z",
+ "generated_at": "2026-10-17T00:26:26Z",
  "today_dhaka": "2026-10-17",
  "order": [
   "f3a1c9a41272",
@@ -104,13 +104,13 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending October 17, 2026",
-     "updated_at": "2026-10-16T21:03:26Z",
+     "updated_at": "2026-10-17T00:26:26Z",
      "closes_utc": "2026-10-22T12:25:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: ≥195K ও <200K — ৬০.০%",
      "outcomes": [
       {
        "label": "< 125K",
-       "prob": 1.0,
+       "prob": 9.0,
        "interval": [
         null,
         125000.0
@@ -119,7 +119,7 @@
       },
       {
        "label": "≥125K ও <130K",
-       "prob": 3.0,
+       "prob": 0.0,
        "interval": [
         125000.0,
         130000.0
@@ -128,7 +128,7 @@
       },
       {
        "label": "≥130K ও <135K",
-       "prob": 5.0,
+       "prob": 0.0,
        "interval": [
         130000.0,
         135000.0
@@ -237,8 +237,8 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 3.5,
-      "inline": 24.5,
+      "above": 2.5,
+      "inline": 25.5,
       "below": 72.0
      },
      "fed_view": null,
@@ -250,15 +250,15 @@
      "kind": "consensus",
      "ok": true,
      "headline": "বাজারের সাধারণ প্রত্যাশা: 200K",
-     "updated_at": "2026-10-16T21:03:26Z",
+     "updated_at": "2026-10-17T00:26:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct22.2026"
     }
    ],
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 3.5,
-     "inline": 24.5,
+     "above": 2.5,
+     "inline": 25.5,
      "below": 72.0
     },
     "top": {
@@ -269,7 +269,7 @@
     "second": {
      "key": "inline",
      "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 24.5
+     "pct": 25.5
     },
     "basis": [
      "Kalshi — Forecast 200K-এর তুলনায়",
@@ -287,10 +287,10 @@
     "third": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 3.5
+     "pct": 2.5
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭২.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ২৪.৫%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭২.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ২৫.৫%"
    },
    "prediction": {
     "kind": "data",
@@ -300,13 +300,13 @@
     "compare": "Forecast (200K)-এর চেয়ে কম",
     "value_prob": 60.0,
     "side": "below",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 192.5K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 191.9K",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 198K (৬০.০%), গড় প্রত্যাশা 192.5K",
+      "text": "সবচেয়ে সম্ভাব্য 198K (৬০.০%), গড় প্রত্যাশা 191.9K",
       "value": 197500.0,
-      "ev": 192515.0,
+      "ev": 191910.0,
       "side": "below",
       "agree": true
      },
@@ -386,7 +386,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (200K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 3.5,
+     "prob": 2.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -432,7 +432,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (200K)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 24.5,
+     "prob": 25.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -576,7 +576,7 @@
      "kind": "consensus",
      "ok": true,
      "headline": "বাজারের সাধারণ প্রত্যাশা: 55.5",
-     "updated_at": "2026-10-16T21:03:26Z",
+     "updated_at": "2026-10-17T00:26:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct23.2026"
     }
    ],
@@ -881,7 +881,7 @@
      "kind": "consensus",
      "ok": true,
      "headline": "বাজারের সাধারণ প্রত্যাশা: 58.0",
-     "updated_at": "2026-10-16T21:03:26Z",
+     "updated_at": "2026-10-17T00:26:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct23.2026"
     }
    ],
@@ -1186,7 +1186,7 @@
      "kind": "consensus",
      "ok": true,
      "headline": "বাজারের সাধারণ প্রত্যাশা: 46.3",
-     "updated_at": "2026-10-16T21:03:26Z",
+     "updated_at": "2026-10-17T00:26:26Z",
      "url": "https://www.forexfactory.com/calendar?day=oct23.2026"
     }
    ],
