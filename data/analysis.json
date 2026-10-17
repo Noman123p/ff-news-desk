@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-17T15:29:36Z",
- "today_dhaka": "2026-10-17",
+ "generated_at": "2026-10-17T18:27:55Z",
+ "today_dhaka": "2026-10-18",
  "order": [
   "f3a1c9a41272",
   "17f2f9b27f8e",
@@ -104,7 +104,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending October 17, 2026",
-     "updated_at": "2026-10-17T15:29:36Z",
+     "updated_at": "2026-10-17T18:27:55Z",
      "closes_utc": "2026-10-22T12:25:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: ≥195K ও <200K — ৬০.০%",
      "outcomes": [
@@ -237,8 +237,8 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 10.0,
-      "inline": 18.0,
+      "above": 18.0,
+      "inline": 10.0,
       "below": 72.0
      },
      "fed_view": null,
@@ -257,8 +257,8 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 10.0,
-     "inline": 18.0,
+     "above": 18.0,
+     "inline": 10.0,
      "below": 72.0
     },
     "top": {
@@ -267,8 +267,8 @@
      "pct": 72.0
     },
     "second": {
-     "key": "inline",
-     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
+     "key": "above",
+     "label": "Forecast-এর চেয়ে বেশি",
      "pct": 18.0
     },
     "basis": [
@@ -285,12 +285,12 @@
     "baseline": "forecast",
     "baseline_text": "তুলনা: Forecast",
     "third": {
-     "key": "above",
-     "label": "Forecast-এর চেয়ে বেশি",
+     "key": "inline",
+     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "pct": 10.0
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭২.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ১৮.০%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৭২.০%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ১৮.০%"
    },
    "prediction": {
     "kind": "data",
@@ -300,13 +300,13 @@
     "compare": "Forecast (200K)-এর চেয়ে কম",
     "value_prob": 60.0,
     "side": "below",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 191.7K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 192.1K",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 198K (৬০.০%), গড় প্রত্যাশা 191.7K",
+      "text": "সবচেয়ে সম্ভাব্য 198K (৬০.০%), গড় প্রত্যাশা 192.1K",
       "value": 197500.0,
-      "ev": 191660.0,
+      "ev": 192060.0,
       "side": "below",
       "agree": true
      },
@@ -386,7 +386,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (200K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 10.0,
+     "prob": 18.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -432,7 +432,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (200K)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 18.0,
+     "prob": 10.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
