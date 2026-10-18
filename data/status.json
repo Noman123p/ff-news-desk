@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-17T18:27:55Z",
+ "checked_at": "2026-10-18T04:26:03Z",
  "ff_page_ok": true,
  "ff_feed_ok": null,
  "ff_http_status": null,
@@ -24,11 +24,14 @@
  "polymarket_ok": true,
  "kalshi_ok": true,
  "archive": {
-  "weeks": 55,
+  "weeks": 56,
   "first": "2025-10-05",
   "backfill_stopped": null
  },
- "nowcasts": null,
+ "nowcasts": {
+  "gdpnow": "ok",
+  "cleveland_fed": "ok"
+ },
  "prices": {
   "gold": "ok",
   "dxy": "ok",

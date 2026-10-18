@@ -1145,7 +1145,426 @@
      "abw": 0
     }
    ]
+  },
+  "208": {
+   "title": "CB Consumer Confidence",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "The Conference Board Inc. ( latest release )",
+    "Measures": "Level of a composite index based on surveyed households",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, on the last Tuesday of the current month",
+    "Next Release": "Nov 24, 2026",
+    "Why Traders Care": "Financial confidence is a leading indicator of consumer spending, which accounts for a majority of overall economic activity",
+    "Derived Via": "Survey of about 3,000 households which asks respondents to rate the relative level of current and future economic conditions including labor availability, business conditions, and overall economic situation",
+    "Acro Expand": "The Conference Board (CB)"
+   },
+   "source_url": "https://www.conference-board.org/",
+   "history": [
+    {
+     "date": "Sep 29, 2026",
+     "actual": "81.9",
+     "forecast": "89.2",
+     "previous": "89.4",
+     "abw": 2
+    },
+    {
+     "date": "Aug 25, 2026",
+     "actual": "89.4",
+     "forecast": "90.3",
+     "previous": "90.8",
+     "abw": 2
+    },
+    {
+     "date": "Jul 28, 2026",
+     "actual": "90.8",
+     "forecast": "92.4",
+     "previous": "91.2",
+     "abw": 2
+    },
+    {
+     "date": "Jun 30, 2026",
+     "actual": "91.2",
+     "forecast": "94.4",
+     "previous": "93.1",
+     "abw": 2
+    },
+    {
+     "date": "May 26, 2026",
+     "actual": "93.1",
+     "forecast": "91.9",
+     "previous": "92.8",
+     "abw": 1
+    }
+   ]
+  },
+  "4": {
+   "title": "FOMC Statement",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Federal Reserve ( latest release )",
+    "Usual Effect": "More Bullish than expected is good for currency",
+    "Frequency": "Scheduled 8 times per year",
+    "Next Release": "Dec 9, 2026",
+    "FF Notes": "The FOMC usually changes the statement slightly at each release. It's these changes that traders focus on",
+    "Why Traders Care": "It's the primary tool the FOMC uses to communicate with investors about monetary policy. It contains the outcome of their vote on interest rates and other policy measures, along with commentary about the economic conditions that influenced their votes. Most importantly, it discusses the economic outlook and offers clues on the outcome of future votes",
+    "Also Called": "Interest Rate Statement, Fed Statement, Monetary Policy Statement",
+    "Acro Expand": "Federal Open Market Committee (FOMC)"
+   },
+   "source_url": "https://www.federalreserve.gov/",
+   "history": [
+    {
+     "date": "Sep 16, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Jul 29, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Jun 17, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Apr 29, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Mar 18, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    }
+   ]
+  },
+  "1": {
+   "title": "Federal Funds Rate",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Federal Reserve ( latest release )",
+    "Measures": "Interest rate at which depository institutions lend balances held at the Federal Reserve to other depository institutions overnight",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Scheduled 8 times per year",
+    "Next Release": "Dec 9, 2026",
+    "FF Notes": "The rate decision is usually priced into the market, so it tends to be overshadowed by the FOMC Statement, which is focused on the future",
+    "Why Traders Care": "Short term interest rates are the paramount factor in currency valuation - traders look at most other indicators merely to predict how rates will change in the future",
+    "Derived Via": "FOMC members vote on where to set the target rate. The individual votes are published in the FOMC statement",
+    "Also Called": "Interest Rates, Fed Funds Rate",
+    "Acro Expand": "Federal Open Market Committee (FOMC)"
+   },
+   "source_url": "https://www.federalreserve.gov/",
+   "history": [
+    {
+     "date": "Sep 16, 2026",
+     "actual": "4.00%",
+     "forecast": "4.00%",
+     "previous": "3.75%",
+     "abw": 0
+    },
+    {
+     "date": "Jul 29, 2026",
+     "actual": "3.75%",
+     "forecast": "3.75%",
+     "previous": "3.75%",
+     "abw": 0
+    },
+    {
+     "date": "Jun 17, 2026",
+     "actual": "3.75%",
+     "forecast": "3.75%",
+     "previous": "3.75%",
+     "abw": 0
+    },
+    {
+     "date": "Apr 29, 2026",
+     "actual": "3.75%",
+     "forecast": "3.75%",
+     "previous": "3.75%",
+     "abw": 0
+    },
+    {
+     "date": "Mar 18, 2026",
+     "actual": "3.75%",
+     "forecast": "3.75%",
+     "previous": "3.75%",
+     "abw": 0
+    }
+   ]
+  },
+  "512": {
+   "title": "FOMC Press Conference",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Federal Reserve ( latest release )",
+    "Speaker": "Federal Reserve Chair",
+    "Usual Effect": "More Bullish than expected is good for currency",
+    "Frequency": "Scheduled 8 times per year",
+    "Next Release": "Dec 9, 2026",
+    "FF Notes": "The press conference is about an hour long and has 2 parts - first a prepared statement is read, then the conference is open to press questions. The questions often lead to unscripted answers that create heavy market volatility. The press conference is webcasted on the Fed's YouTube channel in real-time. Source first conducted in Apr 2011",
+    "Why Traders Care": "It's among the primary methods the Fed uses to communicate with investors regarding monetary policy. It covers in detail the factors that affected the most recent interest rate and other policy decisions, along with commentary about economic conditions such as the future growth outlook and inflation. Most importantly, it provides clues regarding future monetary policy",
+    "Also Called": "Chair's Press Briefing",
+    "Acro Expand": "Federal Open Market Committee (FOMC), Federal Reserve (Fed)"
+   },
+   "source_url": "https://www.federalreserve.gov/",
+   "history": [
+    {
+     "date": "Sep 16, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Jul 29, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Jun 17, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Apr 29, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Mar 18, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    }
+   ]
+  },
+  "3": {
+   "title": "Advance GDP Price Index q/q",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Bureau of Economic Analysis ( latest release )",
+    "Measures": "Annualized change in the price of all goods and services included in GDP",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released quarterly, about 30 days after the quarter ends",
+    "Next Release": "Jan 28, 2027",
+    "FF Notes": "While this is q/q data, it's reported in an annualized format (quarterly change x4).",
+    "Why Traders Care": "It's the broadest measure of inflation, encompassing all activities included in GDP, and is a primary instrument that the central bank uses to assess inflation",
+    "Also Called": "GDP Deflator",
+    "Acro Expand": "Gross Domestic Product (GDP)"
+   },
+   "source_url": "https://www.bea.gov/",
+   "history": [
+    {
+     "date": "Jul 30, 2026",
+     "actual": "6.2%",
+     "forecast": "4.1%",
+     "previous": "3.6%",
+     "abw": 1
+    },
+    {
+     "date": "Apr 30, 2026",
+     "actual": "3.6%",
+     "forecast": "3.8%",
+     "previous": "3.6%",
+     "abw": 2
+    },
+    {
+     "date": "Feb 20, 2026",
+     "actual": "3.6%",
+     "forecast": "2.8%",
+     "previous": "2.0%",
+     "abw": 1
+    },
+    {
+     "date": "Jul 30, 2025",
+     "actual": "2.0%",
+     "forecast": "2.2%",
+     "previous": "3.7%",
+     "abw": 2
+    },
+    {
+     "date": "Apr 30, 2025",
+     "actual": "3.7%",
+     "forecast": "3.1%",
+     "previous": "2.2%",
+     "abw": 1
+    }
+   ]
+  },
+  "2": {
+   "title": "Advance GDP q/q",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Bureau of Economic Analysis ( latest release )",
+    "Measures": "Annualized change in the inflation-adjusted value of all goods and services produced by the economy",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released quarterly, about 30 days after the quarter ends",
+    "Next Release": "Jan 28, 2027",
+    "FF Notes": "While this is q/q data, it's reported in an annualized format (quarterly change x4). There are 3 versions of GDP released a month apart &#x2013; Advance, Preliminary, and Final. The Advance release is the earliest and thus tends to have the most impact",
+    "Why Traders Care": "It's the broadest measure of economic activity and the primary gauge of the economy's health",
+    "Also Called": "GDP First Release, Estimated GDP",
+    "Acro Expand": "Gross Domestic Product (GDP)"
+   },
+   "source_url": "https://www.bea.gov/",
+   "history": [
+    {
+     "date": "Jul 30, 2026",
+     "actual": "1.5%",
+     "forecast": "2.1%",
+     "previous": "2.0%",
+     "abw": 2
+    },
+    {
+     "date": "Apr 30, 2026",
+     "actual": "2.0%",
+     "forecast": "2.2%",
+     "previous": "1.4%",
+     "abw": 2
+    },
+    {
+     "date": "Feb 20, 2026",
+     "actual": "1.4%",
+     "forecast": "2.8%",
+     "previous": "3.0%",
+     "abw": 2
+    },
+    {
+     "date": "Jul 30, 2025",
+     "actual": "3.0%",
+     "forecast": "2.5%",
+     "previous": "-0.3%",
+     "abw": 1
+    },
+    {
+     "date": "Apr 30, 2025",
+     "actual": "-0.3%",
+     "forecast": "0.2%",
+     "previous": "2.3%",
+     "abw": 2
+    }
+   ]
+  },
+  "85": {
+   "title": "Core PCE Price Index m/m",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Bureau of Economic Analysis ( latest release )",
+    "Measures": "Change in the price of goods and services purchased by consumers, excluding food and energy",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, about 29 days after the month ends",
+    "Next Release": "Nov 25, 2026",
+    "FF Notes": "Differs from Core CPI in that it only measures goods and services targeted towards and consumed by individuals. Prices are weighted according to total expenditure per item which gives important insights into consumer spending behavior. CPI is released about 10 days earlier and tends to garner most of the attention",
+    "Why Traders Care": "It's the Federal Reserve's primary inflation measure. Inflation is important to currency valuation because rising prices lead the central bank to raise interest rates out of respect for their inflation containment mandate",
+    "Acro Expand": "Personal Consumption Expenditures (PCE), Consumer Price Index (CPI)"
+   },
+   "source_url": "https://www.bea.gov/",
+   "history": [
+    {
+     "date": "Sep 30, 2026",
+     "actual": "0.2%",
+     "forecast": "0.3%",
+     "previous": "0.2%",
+     "abw": 2
+    },
+    {
+     "date": "Aug 26, 2026",
+     "actual": "0.2%",
+     "forecast": "0.2%",
+     "previous": "0.1%",
+     "abw": 0
+    },
+    {
+     "date": "Jul 30, 2026",
+     "actual": "0.1%",
+     "forecast": "0.2%",
+     "previous": "0.3%",
+     "abw": 2
+    },
+    {
+     "date": "Jun 25, 2026",
+     "actual": "0.3%",
+     "forecast": "0.3%",
+     "previous": "0.2%",
+     "abw": 0
+    },
+    {
+     "date": "May 28, 2026",
+     "actual": "0.2%",
+     "forecast": "0.3%",
+     "previous": "0.3%",
+     "abw": 2
+    }
+   ]
+  },
+  "179": {
+   "title": "Employment Cost Index q/q",
+   "fetched_at": "2026-10-18T04:26:03Z",
+   "specs": {
+    "Source": "Bureau of Labor Statistics ( latest release )",
+    "Measures": "Change in the price businesses and the government pay for civilian labor",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released quarterly, about 30 days after the quarter ends",
+    "Next Release": "Jan 29, 2027",
+    "Why Traders Care": "It's a leading indicator of consumer inflation - when businesses pay more for labor the higher costs are usually passed on to the consumer"
+   },
+   "source_url": "https://www.bls.gov/",
+   "history": [
+    {
+     "date": "Jul 31, 2026",
+     "actual": "0.9%",
+     "forecast": "0.8%",
+     "previous": "0.9%",
+     "abw": 1
+    },
+    {
+     "date": "Apr 30, 2026",
+     "actual": "0.9%",
+     "forecast": "0.8%",
+     "previous": "0.7%",
+     "abw": 1
+    },
+    {
+     "date": "Feb 10, 2026",
+     "actual": "0.7%",
+     "forecast": "0.8%",
+     "previous": "0.8%",
+     "abw": 2
+    },
+    {
+     "date": "Dec 10, 2025",
+     "actual": "0.8%",
+     "forecast": "0.9%",
+     "previous": "0.9%",
+     "abw": 2
+    },
+    {
+     "date": "Jul 31, 2025",
+     "actual": "0.9%",
+     "forecast": "0.8%",
+     "previous": "0.9%",
+     "abw": 1
+    }
+   ]
   }
  },
- "generated_at": "2026-10-11T03:23:58Z"
+ "generated_at": "2026-10-18T04:26:03Z"
 }
