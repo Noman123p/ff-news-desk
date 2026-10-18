@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T05:40:54Z",
+ "generated_at": "2026-10-18T10:59:00Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -25,7 +25,7 @@
     "outcomes": [
      {
       "label": "< 125K",
-      "prob": 3.0,
+      "prob": 2.5,
       "interval": [
        null,
        125000.0
@@ -43,7 +43,7 @@
      },
      {
       "label": "≥130K ও <135K",
-      "prob": 5.0,
+      "prob": 5.5,
       "interval": [
        130000.0,
        135000.0
@@ -169,7 +169,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 22.0,
+      "prob": 21.5,
       "interval": [
        200000.0,
        205000.0
@@ -196,7 +196,7 @@
      },
      {
       "label": "≥215K ও <220K",
-      "prob": 0.0,
+      "prob": 1.0,
       "interval": [
        215000.0,
        220000.0
@@ -214,7 +214,7 @@
      },
      {
       "label": "≥ 225K",
-      "prob": 1.5,
+      "prob": 1.0,
       "interval": [
        225000.0,
        null
@@ -225,12 +225,12 @@
     "thresholds": [
      {
       "strike": 125000.0,
-      "prob_above": 97.0,
+      "prob_above": 97.5,
       "inclusive": true
      },
      {
       "strike": 130000.0,
-      "prob_above": 96.0,
+      "prob_above": 96.5,
       "inclusive": true
      },
      {
@@ -305,27 +305,27 @@
      },
      {
       "strike": 205000.0,
-      "prob_above": 3.0,
+      "prob_above": 3.5,
       "inclusive": true
      },
      {
       "strike": 210000.0,
-      "prob_above": 3.0,
+      "prob_above": 3.5,
       "inclusive": true
      },
      {
       "strike": 215000.0,
-      "prob_above": 1.5,
+      "prob_above": 2.0,
       "inclusive": true
      },
      {
       "strike": 220000.0,
-      "prob_above": 1.5,
+      "prob_above": 1.0,
       "inclusive": true
      },
      {
       "strike": 225000.0,
-      "prob_above": 1.5,
+      "prob_above": 1.0,
       "inclusive": true
      }
     ],
@@ -339,8 +339,8 @@
     "ref_value": "200K",
     "polymarket": null,
     "kalshi": {
-     "above": 3.0,
-     "inline": 22.0,
+     "above": 3.5,
+     "inline": 21.5,
      "below": 75.0
     }
    },
@@ -490,37 +490,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 45145106,
+    "volume_usd": 45204339,
     "outcomes": [
      {
       "label": "No change",
       "prob": 86.5,
       "interval": null,
-      "volume": 13398537
+      "volume": 13404840
      },
      {
       "label": "25 bps increase",
       "prob": 13.5,
       "interval": null,
-      "volume": 10180674
+      "volume": 10200288
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 7556166
+      "volume": 7579559
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 6365498
+      "volume": 6369366
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 7644231
+      "volume": 7650286
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
@@ -600,7 +600,7 @@
      "label": "No change",
      "prob": 86.5,
      "interval": null,
-     "volume": 13398537
+     "volume": 13404840
     },
     "kalshi": {
      "label": "Fed maintains rate",
@@ -633,37 +633,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 45145106,
+    "volume_usd": 45204339,
     "outcomes": [
      {
       "label": "No change",
       "prob": 86.5,
       "interval": null,
-      "volume": 13398537
+      "volume": 13404840
      },
      {
       "label": "25 bps increase",
       "prob": 13.5,
       "interval": null,
-      "volume": 10180674
+      "volume": 10200288
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 7556166
+      "volume": 7579559
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 6365498
+      "volume": 6369366
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 7644231
+      "volume": 7650286
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
@@ -743,7 +743,7 @@
      "label": "No change",
      "prob": 86.5,
      "interval": null,
-     "volume": 13398537
+     "volume": 13404840
     },
     "kalshi": {
      "label": "Fed maintains rate",
@@ -776,37 +776,37 @@
     "title": "Fed Decision in October?",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
     "closes_utc": "2026-10-29T03:59:00Z",
-    "volume_usd": 45145106,
+    "volume_usd": 45204339,
     "outcomes": [
      {
       "label": "No change",
       "prob": 86.5,
       "interval": null,
-      "volume": 13398537
+      "volume": 13404840
      },
      {
       "label": "25 bps increase",
       "prob": 13.5,
       "interval": null,
-      "volume": 10180674
+      "volume": 10200288
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 7556166
+      "volume": 7579559
      },
      {
       "label": "50+ bps increase",
       "prob": 0.4,
       "interval": null,
-      "volume": 6365498
+      "volume": 6369366
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 7644231
+      "volume": 7650286
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
@@ -886,7 +886,7 @@
      "label": "No change",
      "prob": 86.5,
      "interval": null,
-     "volume": 13398537
+     "volume": 13404840
     },
     "kalshi": {
      "label": "Fed maintains rate",
@@ -956,7 +956,7 @@
      },
      {
       "label": "0.5–1.0%",
-      "prob": 3.9,
+      "prob": 1.1,
       "interval": [
        0.5,
        1.0
@@ -974,7 +974,7 @@
      },
      {
       "label": "1.5–2.0%",
-      "prob": 4.0,
+      "prob": 3.9,
       "interval": [
        1.5,
        2.0
@@ -1001,7 +1001,7 @@
      },
      {
       "label": "≥3.0%",
-      "prob": 66.0,
+      "prob": 65.5,
       "interval": [
        3.0,
        null
@@ -1058,7 +1058,7 @@
      },
      {
       "label": ">1.5% ও ≤2%",
-      "prob": 5.5,
+      "prob": 4.5,
       "interval": [
        1.5,
        2.0
@@ -1067,7 +1067,7 @@
      },
      {
       "label": ">2% ও ≤2.5%",
-      "prob": 1.0,
+      "prob": 1.5,
       "interval": [
        2.0,
        2.5
@@ -1085,7 +1085,7 @@
      },
      {
       "label": ">3% ও ≤3.5%",
-      "prob": 29.5,
+      "prob": 30.0,
       "interval": [
        3.0,
        3.5
@@ -1134,17 +1134,17 @@
      },
      {
       "strike": 2.0,
-      "prob_above": 90.0,
+      "prob_above": 91.0,
       "inclusive": false
      },
      {
       "strike": 2.5,
-      "prob_above": 89.0,
+      "prob_above": 89.5,
       "inclusive": false
      },
      {
       "strike": 3.0,
-      "prob_above": 66.0,
+      "prob_above": 66.5,
       "inclusive": false
      },
      {
@@ -1167,9 +1167,9 @@
     "ref": "previous",
     "ref_value": "1.5%",
     "polymarket": {
-     "above": 89.5,
-     "inline": 5.4,
-     "below": 5.0
+     "above": 92.1,
+     "inline": 5.5,
+     "below": 2.4
     },
     "kalshi": {
      "above": 95.5,
@@ -1180,7 +1180,7 @@
    "most_likely": {
     "polymarket": {
      "label": "≥3.0%",
-     "prob": 66.0,
+     "prob": 65.5,
      "interval": [
       3.0,
       null
@@ -1189,7 +1189,7 @@
     },
     "kalshi": {
      "label": ">3% ও ≤3.5%",
-     "prob": 29.5,
+     "prob": 30.0,
      "interval": [
       3.0,
       3.5
@@ -1254,7 +1254,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 34.0,
+      "prob": 33.0,
       "interval": [
        0.3,
        0.4
@@ -1263,7 +1263,7 @@
      },
      {
       "label": ">0.4% ও ≤0.5%",
-      "prob": 2.0,
+      "prob": 3.0,
       "interval": [
        0.4,
        0.5
@@ -1312,7 +1312,7 @@
      },
      {
       "strike": 0.4,
-      "prob_above": 2.5,
+      "prob_above": 3.5,
       "inclusive": false
      },
      {
