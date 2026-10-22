@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T11:45:59Z",
+ "generated_at": "2026-10-22T17:06:55Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
@@ -12,36 +12,44 @@
  },
  "briefs": [
   {
-   "id": "f3a1c9a41272",
-   "time_utc": "2026-10-22T12:30:00Z",
-   "time_dhaka": "22 Oct, 06:30 PM",
+   "id": "17f2f9b27f8e",
+   "time_utc": "2026-10-23T13:45:00Z",
+   "time_dhaka": "23 Oct, 07:45 PM",
    "impact": "Medium",
-   "title": "Unemployment Claims",
-   "category_bn": "সাপ্তাহিক বেকার ভাতা আবেদন",
+   "title": "Flash Manufacturing PMI",
+   "category_bn": "অর্থনৈতিক ডেটা",
    "events": [
     {
-     "id": "f3a1c9a41272",
-     "title": "Unemployment Claims",
+     "id": "17f2f9b27f8e",
+     "title": "Flash Manufacturing PMI",
      "impact": "Medium",
-     "forecast": "200K",
-     "previous": "199K",
+     "forecast": "55.4",
+     "previous": "57.0",
+     "actual": ""
+    },
+    {
+     "id": "b8e1624e9dbc",
+     "title": "Flash Services PMI",
+     "impact": "Medium",
+     "forecast": "57.9",
+     "previous": "58.7",
      "actual": ""
     }
    ],
    "likely": {
-    "text": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৫৫.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ২৩.০%",
-    "usd_bias": "up",
+    "text": "ঝোঁক: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (বাজারের % নেই — নিশ্চয়তা কম)",
+    "usd_bias": "flat",
     "impact": {
-     "gold": "Gold: Bearish — নিচে (আনুমানিক ০.২–০.৬%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
-     "btc": "BTC: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
-     "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ১–৩%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY: Bullish (আনুমানিক ০.১–০.৩%) · EUR/USD: Bearish (আনুমানিক ০.১–০.৪%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+     "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
+     "btc": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।",
+     "crypto": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।",
+     "forex": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
     }
    },
    "alternative": {
-    "text": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা: Actual Forecast (200K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
+    "text": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bearish ডেটা: Actual Forecast (55.4)-এর চেয়ে স্পষ্টভাবে কম এলে",
     "usd_bias": "down",
-    "prob": 22.0,
+    "prob": null,
     "impact": {
      "gold": "Gold: Bullish — উপরে (আনুমানিক ০.২–০.৬%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
      "btc": "BTC: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
@@ -50,9 +58,10 @@
     }
    },
    "reasons": [
-    "Kalshi — Forecast 200K-এর তুলনায়"
+    "বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে",
+    "Forecast আগের মানের চেয়ে কম — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)"
    ],
-   "confidence_bn": "নিম্ন",
+   "confidence_bn": "নিম্ন — বাজারের % নেই",
    "typical_range": {
     "gold": "0.1–0.4%",
     "btc": "0.3–1%",
@@ -60,9 +69,71 @@
    },
    "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
    "verdict_top": {
-    "key": "below",
-    "label": "Forecast-এর চেয়ে কম",
-    "pct": 55.0
+    "key": "inline",
+    "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
+    "pct": null
+   }
+  },
+  {
+   "id": "f31fb276e7b6",
+   "time_utc": "2026-10-23T14:00:00Z",
+   "time_dhaka": "23 Oct, 08:00 PM",
+   "impact": "Medium",
+   "title": "Revised UoM Consumer Sentiment",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "events": [
+    {
+     "id": "f31fb276e7b6",
+     "title": "Revised UoM Consumer Sentiment",
+     "impact": "Medium",
+     "forecast": "46.3",
+     "previous": "46.3",
+     "actual": ""
+    },
+    {
+     "id": "9fc1e539a801",
+     "title": "Revised UoM Inflation Expectations",
+     "impact": "Medium",
+     "forecast": "",
+     "previous": "4.7%",
+     "actual": ""
+    }
+   ],
+   "likely": {
+    "text": "ঝোঁক: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (বাজারের % নেই — নিশ্চয়তা কম)",
+    "usd_bias": "flat",
+    "impact": {
+     "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
+     "btc": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।",
+     "crypto": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।",
+     "forex": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
+    }
+   },
+   "alternative": {
+    "text": "সারপ্রাইজ: দিক ১ — USD-এর জন্য Bullish ডেটা: Actual Forecast (46.3)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
+    "usd_bias": "up",
+    "prob": null,
+    "impact": {
+     "gold": "Gold: Bearish — নিচে (আনুমানিক ০.২–০.৬%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
+     "btc": "BTC: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
+     "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে (আনুমানিক ১–৩%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
+     "forex": "DXY: Bullish (আনুমানিক ০.১–০.৩%) · EUR/USD: Bearish (আনুমানিক ০.১–০.৪%) · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+    }
+   },
+   "reasons": [
+    "বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে"
+   ],
+   "confidence_bn": "নিম্ন — বাজারের % নেই",
+   "typical_range": {
+    "gold": "0.1–0.4%",
+    "btc": "0.3–1%",
+    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
+   },
+   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
+   "verdict_top": {
+    "key": "inline",
+    "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
+    "pct": null
    }
   }
  ]
