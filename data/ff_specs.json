@@ -1564,7 +1564,315 @@
      "abw": 1
     }
    ]
+  },
+  "252": {
+   "title": "ISM Manufacturing PMI",
+   "fetched_at": "2026-10-25T04:36:01Z",
+   "specs": {
+    "Source": "Institute for Supply Management ( latest release )",
+    "Measures": "Level of a diffusion index based on surveyed purchasing managers in the manufacturing industry",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, on the first business day after the month ends",
+    "Next Release": "Dec 1, 2026",
+    "FF Notes": "Above 50.0 indicates industry expansion, below indicates contraction",
+    "Why Traders Care": "It's a leading indicator of economic health - businesses react quickly to market conditions, and their purchasing managers hold perhaps the most current and relevant insight into the company's view of the economy",
+    "Derived Via": "Survey of about 300 purchasing managers which asks respondents to rate the relative level of business conditions including employment, production, new orders, prices, supplier deliveries, and inventories",
+    "Also Called": "Manufacturing ISM Report On Business",
+    "Acro Expand": "The Institute for Supply Management (ISM), Purchasing Managers' Index (PMI)"
+   },
+   "source_url": "https://www.ismworld.org/",
+   "history": [
+    {
+     "date": "Oct 1, 2026",
+     "actual": "54.5",
+     "forecast": "54.8",
+     "previous": "54.6",
+     "abw": 0
+    },
+    {
+     "date": "Sep 1, 2026",
+     "actual": "54.6",
+     "forecast": "55.2",
+     "previous": "55.6",
+     "abw": 2
+    },
+    {
+     "date": "Aug 3, 2026",
+     "actual": "55.6",
+     "forecast": "54.0",
+     "previous": "53.3",
+     "abw": 1
+    },
+    {
+     "date": "Jul 1, 2026",
+     "actual": "53.3",
+     "forecast": "53.8",
+     "previous": "54.0",
+     "abw": 2
+    },
+    {
+     "date": "Jun 1, 2026",
+     "actual": "54.0",
+     "forecast": "53.3",
+     "previous": "52.7",
+     "abw": 1
+    }
+   ]
+  },
+  "578": {
+   "title": "JOLTS Job Openings",
+   "fetched_at": "2026-10-25T04:36:01Z",
+   "specs": {
+    "Source": "Bureau of Labor Statistics ( latest release )",
+    "Measures": "Number of job openings during the reported month, excluding the farming industry",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, about 35 days after the month ends",
+    "Next Release": "Dec 1, 2026",
+    "FF Notes": "It's released late, but can impact the market because job openings are a leading indicator of overall employment",
+    "Why Traders Care": "Job creation is an important leading indicator of consumer spending, which accounts for a majority of overall economic activity",
+    "Acro Expand": "Job Openings and Labor Turnover Survey (JOLTS)"
+   },
+   "source_url": "https://www.bls.gov/",
+   "history": [
+    {
+     "date": "Sep 29, 2026",
+     "actual": "7.08M",
+     "forecast": "7.23M",
+     "previous": "7.27M",
+     "abw": 2
+    },
+    {
+     "date": "Sep 1, 2026",
+     "actual": "7.27M",
+     "forecast": "7.33M",
+     "previous": "7.36M",
+     "abw": 0
+    },
+    {
+     "date": "Aug 4, 2026",
+     "actual": "7.36M",
+     "forecast": "7.44M",
+     "previous": "7.59M",
+     "abw": 2
+    },
+    {
+     "date": "Jun 30, 2026",
+     "actual": "7.59M",
+     "forecast": "7.28M",
+     "previous": "7.62M",
+     "abw": 1
+    },
+    {
+     "date": "Jun 2, 2026",
+     "actual": "7.62M",
+     "forecast": "6.87M",
+     "previous": "6.87M",
+     "abw": 1
+    }
+   ]
+  },
+  "503": {
+   "title": "Congressional Elections",
+   "fetched_at": "2026-10-25T04:36:01Z",
+   "specs": {
+    "Description": "Voters will elect all 435 members to the US House of Representatives, and 33 members to the Senate",
+    "Frequency": "Every 2 years",
+    "FF Notes": "The outcome will likely be projected before the official vote count is completed, based on early vote counts and exit polling",
+    "Also Called": "House of Representatives Elections, Senate Elections"
+   },
+   "source_url": null,
+   "history": [
+    {
+     "date": "Nov 5, 2024",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Nov 8, 2022",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Nov 3, 2020",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Nov 6, 2018",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
+    {
+     "date": "Nov 8, 2016",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    }
+   ]
+  },
+  "159": {
+   "title": "Average Hourly Earnings m/m",
+   "fetched_at": "2026-10-25T04:36:01Z",
+   "specs": {
+    "Source": "Bureau of Labor Statistics ( latest release )",
+    "Measures": "Change in the price businesses pay for labor, excluding the farming industry",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, usually on the first Friday after the month ends",
+    "Next Release": "Dec 4, 2026",
+    "FF Notes": "This is the earliest data related to labor inflation. Source changed series calculation formula as of Feb 2010",
+    "Why Traders Care": "It's a leading indicator of consumer inflation - when businesses pay more for labor the higher costs are usually passed on to the consumer"
+   },
+   "source_url": "https://www.bls.gov/",
+   "history": [
+    {
+     "date": "Oct 2, 2026",
+     "actual": "0.1%",
+     "forecast": "0.3%",
+     "previous": "0.3%",
+     "abw": 2
+    },
+    {
+     "date": "Sep 4, 2026",
+     "actual": "0.3%",
+     "forecast": "0.3%",
+     "previous": "0.1%",
+     "abw": 0
+    },
+    {
+     "date": "Aug 7, 2026",
+     "actual": "0.1%",
+     "forecast": "0.3%",
+     "previous": "0.3%",
+     "abw": 2
+    },
+    {
+     "date": "Jul 2, 2026",
+     "actual": "0.3%",
+     "forecast": "0.3%",
+     "previous": "0.3%",
+     "abw": 0
+    },
+    {
+     "date": "Jun 5, 2026",
+     "actual": "0.3%",
+     "forecast": "0.3%",
+     "previous": "0.2%",
+     "abw": 0
+    }
+   ]
+  },
+  "66": {
+   "title": "Non-Farm Employment Change",
+   "fetched_at": "2026-10-25T04:36:01Z",
+   "specs": {
+    "Source": "Bureau of Labor Statistics ( latest release )",
+    "Measures": "Change in the number of employed people during the previous month, excluding the farming industry",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, usually on the first Friday after the month ends",
+    "Next Release": "Dec 4, 2026",
+    "FF Notes": "This is vital economic data released shortly after the month ends. The combination of importance and earliness makes for hefty market impacts",
+    "Why Traders Care": "Job creation is an important leading indicator of consumer spending, which accounts for a majority of overall economic activity",
+    "Also Called": "Non-Farm Payrolls, NFP, Employment Change"
+   },
+   "source_url": "https://www.bls.gov/",
+   "history": [
+    {
+     "date": "Oct 2, 2026",
+     "actual": "29K",
+     "forecast": "89K",
+     "previous": "162K",
+     "abw": 2
+    },
+    {
+     "date": "Sep 4, 2026",
+     "actual": "162K",
+     "forecast": "55K",
+     "previous": "-23K",
+     "abw": 1
+    },
+    {
+     "date": "Aug 7, 2026",
+     "actual": "-23K",
+     "forecast": "85K",
+     "previous": "57K",
+     "abw": 2
+    },
+    {
+     "date": "Jul 2, 2026",
+     "actual": "57K",
+     "forecast": "114K",
+     "previous": "172K",
+     "abw": 2
+    },
+    {
+     "date": "Jun 5, 2026",
+     "actual": "172K",
+     "forecast": "85K",
+     "previous": "115K",
+     "abw": 1
+    }
+   ]
+  },
+  "56": {
+   "title": "Unemployment Rate",
+   "fetched_at": "2026-10-25T04:36:01Z",
+   "specs": {
+    "Source": "Bureau of Labor Statistics ( latest release )",
+    "Measures": "Percentage of the total work force that is unemployed and actively seeking employment during the previous month",
+    "Usual Effect": "'Actual' less than 'Forecast' is good for currency",
+    "Frequency": "Released monthly, usually on the first Friday after the month ends",
+    "Next Release": "Dec 4, 2026",
+    "Why Traders Care": "Although it's generally viewed as a lagging indicator, the number of unemployed people is an important signal of overall economic health because consumer spending is highly correlated with labor-market conditions. Unemployment is also a major consideration for those steering the country's monetary policy",
+    "Also Called": "Jobless Rate"
+   },
+   "source_url": "https://www.bls.gov/",
+   "history": [
+    {
+     "date": "Oct 2, 2026",
+     "actual": "4.2%",
+     "forecast": "4.1%",
+     "previous": "4.1%",
+     "abw": 2
+    },
+    {
+     "date": "Sep 4, 2026",
+     "actual": "4.1%",
+     "forecast": "4.1%",
+     "previous": "4.1%",
+     "abw": 0
+    },
+    {
+     "date": "Aug 7, 2026",
+     "actual": "4.1%",
+     "forecast": "4.2%",
+     "previous": "4.2%",
+     "abw": 1
+    },
+    {
+     "date": "Jul 2, 2026",
+     "actual": "4.2%",
+     "forecast": "4.3%",
+     "previous": "4.3%",
+     "abw": 1
+    },
+    {
+     "date": "Jun 5, 2026",
+     "actual": "4.3%",
+     "forecast": "4.3%",
+     "previous": "4.3%",
+     "abw": 0
+    }
+   ]
   }
  },
- "generated_at": "2026-10-18T04:26:03Z"
+ "generated_at": "2026-10-25T04:36:01Z"
 }
