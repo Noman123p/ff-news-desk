@@ -1,59 +1,35 @@
 {
- "generated_at": "2026-10-29T06:54:49Z",
+ "generated_at": "2026-10-29T12:54:46Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
  "empty_message": null,
  "next_high": {
-  "id": "311189546a6d",
-  "title": "Advance GDP q/q",
-  "time_utc": "2026-10-29T12:30:00Z",
-  "time_dhaka": "29 Oct, 06:30 PM"
+  "id": "ed050e33399f",
+  "title": "Congressional Elections",
+  "time_utc": "2026-11-03T15:16:00Z",
+  "time_dhaka": "03 Nov, 09:16 PM"
  },
  "briefs": [
   {
-   "id": "311189546a6d",
-   "time_utc": "2026-10-29T12:30:00Z",
-   "time_dhaka": "29 Oct, 06:30 PM",
-   "impact": "High",
-   "title": "Advance GDP q/q",
-   "category_bn": "GDP প্রবৃদ্ধি",
+   "id": "d77d76055680",
+   "time_utc": "2026-10-30T12:30:00Z",
+   "time_dhaka": "30 Oct, 06:30 PM",
+   "impact": "Medium",
+   "title": "Employment Cost Index q/q",
+   "category_bn": "অর্থনৈতিক ডেটা",
    "events": [
     {
-     "id": "f743cc9edad7",
-     "title": "Advance GDP Price Index q/q",
+     "id": "d77d76055680",
+     "title": "Employment Cost Index q/q",
      "impact": "Medium",
-     "forecast": "3.2%",
-     "previous": "6.2%",
-     "actual": ""
-    },
-    {
-     "id": "311189546a6d",
-     "title": "Advance GDP q/q",
-     "impact": "High",
-     "forecast": "3.2%",
-     "previous": "1.5%",
-     "actual": ""
-    },
-    {
-     "id": "99c2f6c067d7",
-     "title": "Core PCE Price Index m/m",
-     "impact": "High",
-     "forecast": "0.3%",
-     "previous": "0.2%",
-     "actual": ""
-    },
-    {
-     "id": "110e0f102fc4",
-     "title": "Unemployment Claims",
-     "impact": "Medium",
-     "forecast": "198K",
-     "previous": "194K",
+     "forecast": "0.8%",
+     "previous": "0.9%",
      "actual": ""
     }
    ],
    "likely": {
-    "text": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৫১.১%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে কম ৩৬.৪%, উল্টো দিক ১২.৫%",
+    "text": "ঝোঁক: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (বাজারের % নেই — নিশ্চয়তা কম)",
     "usd_bias": "flat",
     "impact": {
      "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
@@ -63,32 +39,31 @@
     }
    },
    "alternative": {
-    "text": "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে) — USD-এর জন্য Bearish ডেটা: Actual Forecast (3.2%)-এর চেয়ে স্পষ্টভাবে কম এলে",
+    "text": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bearish ডেটা: Actual Forecast (0.8%)-এর চেয়ে স্পষ্টভাবে কম এলে",
     "usd_bias": "down",
-    "prob": 36.4,
+    "prob": null,
     "impact": {
-     "gold": "Gold: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
-     "btc": "BTC: Bullish — উপরে (আনুমানিক ১–৩%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
-     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ২–৫%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY: Bearish (আনুমানিক ০.৩–০.৭%) · EUR/USD: Bullish (আনুমানিক ০.৩–০.৮%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+     "gold": "Gold: Bullish — উপরে (আনুমানিক ০.২–০.৬%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
+     "btc": "BTC: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
+     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ১–৩%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
+     "forex": "DXY: Bearish (আনুমানিক ০.১–০.৩%) · EUR/USD: Bullish (আনুমানিক ০.১–০.৪%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
     }
    },
    "reasons": [
-    "Polymarket + Kalshi — Forecast 3.2%-এর তুলনায়",
-    "Atlanta Fed GDPNow: 3.27% → Forecast (3.2%)-এর চেয়ে বেশি",
-    "নাউকাস্ট বাজারের সবচেয়ে সম্ভাব্য ফলাফলের সাথে একমত নয় — সতর্ক থাকুন"
+    "বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে",
+    "Forecast আগের মানের চেয়ে কম — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)"
    ],
-   "confidence_bn": "মাঝারি",
+   "confidence_bn": "নিম্ন — বাজারের % নেই",
    "typical_range": {
-    "gold": "0.2–0.6%",
-    "btc": "0.5–1.5%",
+    "gold": "0.1–0.4%",
+    "btc": "0.3–1%",
     "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
    },
    "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
    "verdict_top": {
     "key": "inline",
     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-    "pct": 51.1
+    "pct": null
    }
   }
  ]
