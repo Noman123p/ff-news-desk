@@ -1,70 +1,14 @@
 {
- "generated_at": "2026-10-30T05:41:46Z",
+ "generated_at": "2026-10-30T12:47:51Z",
  "window_hours": 24,
  "has_major_today": true,
- "has_briefs": true,
- "empty_message": null,
+ "has_briefs": false,
+ "empty_message": "আজ বড় কোনো USD নিউজ নেই",
  "next_high": {
   "id": "ed050e33399f",
   "title": "Congressional Elections",
   "time_utc": "2026-11-03T15:16:00Z",
   "time_dhaka": "03 Nov, 09:16 PM"
  },
- "briefs": [
-  {
-   "id": "d77d76055680",
-   "time_utc": "2026-10-30T12:30:00Z",
-   "time_dhaka": "30 Oct, 06:30 PM",
-   "impact": "Medium",
-   "title": "Employment Cost Index q/q",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "events": [
-    {
-     "id": "d77d76055680",
-     "title": "Employment Cost Index q/q",
-     "impact": "Medium",
-     "forecast": "0.8%",
-     "previous": "0.9%",
-     "actual": ""
-    }
-   ],
-   "likely": {
-    "text": "ঝোঁক: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (বাজারের % নেই — নিশ্চয়তা কম)",
-    "usd_bias": "flat",
-    "impact": {
-     "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
-     "btc": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।",
-     "crypto": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।",
-     "forex": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
-    }
-   },
-   "alternative": {
-    "text": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bearish ডেটা: Actual Forecast (0.8%)-এর চেয়ে স্পষ্টভাবে কম এলে",
-    "usd_bias": "down",
-    "prob": null,
-    "impact": {
-     "gold": "Gold: Bullish — উপরে (আনুমানিক ০.২–০.৬%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
-     "btc": "BTC: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
-     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ১–৩%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY: Bearish (আনুমানিক ০.১–০.৩%) · EUR/USD: Bullish (আনুমানিক ০.১–০.৪%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
-    }
-   },
-   "reasons": [
-    "বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে",
-    "Forecast আগের মানের চেয়ে কম — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)"
-   ],
-   "confidence_bn": "নিম্ন — বাজারের % নেই",
-   "typical_range": {
-    "gold": "0.1–0.4%",
-    "btc": "0.3–1%",
-    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
-   },
-   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
-   "verdict_top": {
-    "key": "inline",
-    "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-    "pct": null
-   }
-  }
- ]
+ "briefs": []
 }
