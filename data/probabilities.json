@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T05:41:46Z",
+ "generated_at": "2026-10-30T06:57:48Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -731,7 +731,7 @@
      },
      {
       "label": "-25k to 0",
-      "prob": 4.3,
+      "prob": 5.8,
       "interval": [
        -25000.0,
        0.0
@@ -740,7 +740,7 @@
      },
      {
       "label": "0 to 25k",
-      "prob": 7.4,
+      "prob": 8.0,
       "interval": [
        0.0,
        25000.0
@@ -758,7 +758,7 @@
      },
      {
       "label": "50k to 75k",
-      "prob": 23.5,
+      "prob": 17.5,
       "interval": [
        50000.0,
        75000.0
@@ -767,7 +767,7 @@
      },
      {
       "label": "75k to 100k",
-      "prob": 15.2,
+      "prob": 15.3,
       "interval": [
        75000.0,
        100000.0
@@ -998,9 +998,9 @@
     "ref": "previous",
     "ref_value": "29K",
     "polymarket": {
-     "above": 67.1,
-     "inline": 15.7,
-     "below": 17.2
+     "above": 63.6,
+     "inline": 16.3,
+     "below": 20.0
     },
     "kalshi": {
      "above": 68.5,
@@ -1073,7 +1073,7 @@
      },
      {
       "label": "4.1%",
-      "prob": 31.5,
+      "prob": 31.0,
       "interval": [
        4.1,
        4.1
@@ -1100,7 +1100,7 @@
      },
      {
       "label": "4.4%",
-      "prob": 1.7,
+      "prob": 1.6,
       "interval": [
        4.4,
        4.4
@@ -1355,8 +1355,8 @@
     "ref_value": "4.2%",
     "polymarket": {
      "above": 23.9,
-     "inline": 39.0,
-     "below": 37.1
+     "inline": 39.3,
+     "below": 36.8
     },
     "kalshi": {
      "above": 27.0,
