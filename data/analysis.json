@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T19:19:15Z",
+ "generated_at": "2026-10-30T23:43:16Z",
  "today_dhaka": "2026-10-31",
  "order": [
   "1addd0aaac31",
@@ -111,9 +111,9 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxismpmi",
      "title": "ISM Manufacturing PMI in October",
-     "updated_at": "2026-10-30T19:19:15Z",
+     "updated_at": "2026-10-30T23:43:16Z",
      "closes_utc": "2026-11-02T14:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: ≥54 ও <55 — ৩৩.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: ≥54 ও <55 — ৩০.০%",
      "outcomes": [
       {
        "label": "< 51",
@@ -135,7 +135,7 @@
       },
       {
        "label": "≥52 ও <53",
-       "prob": 4.5,
+       "prob": 7.5,
        "interval": [
         52.0,
         53.0
@@ -144,7 +144,7 @@
       },
       {
        "label": "≥53 ও <54",
-       "prob": 15.5,
+       "prob": 21.0,
        "interval": [
         53.0,
         54.0
@@ -153,7 +153,7 @@
       },
       {
        "label": "≥54 ও <55",
-       "prob": 33.5,
+       "prob": 30.0,
        "interval": [
         54.0,
         55.0
@@ -162,7 +162,7 @@
       },
       {
        "label": "≥55 ও <56",
-       "prob": 22.0,
+       "prob": 15.0,
        "interval": [
         55.0,
         56.0
@@ -171,7 +171,7 @@
       },
       {
        "label": "≥56 ও <57",
-       "prob": 15.0,
+       "prob": 16.0,
        "interval": [
         56.0,
         57.0
@@ -189,7 +189,7 @@
       },
       {
        "label": "≥ 58",
-       "prob": 3.0,
+       "prob": 4.0,
        "interval": [
         58.0,
         null
@@ -199,9 +199,9 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 43.0,
-      "inline": 33.5,
-      "below": 23.5
+      "above": 38.0,
+      "inline": 30.0,
+      "below": 32.0
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -219,19 +219,19 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 43.0,
-     "inline": 33.5,
-     "below": 23.5
+     "above": 38.0,
+     "inline": 30.0,
+     "below": 32.0
     },
     "top": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 43.0
+     "pct": 38.0
     },
     "second": {
-     "key": "inline",
-     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 33.5
+     "key": "below",
+     "label": "Forecast-এর চেয়ে কম",
+     "pct": 32.0
     },
     "basis": [
      "Kalshi — Forecast 54.7-এর তুলনায়"
@@ -246,28 +246,28 @@
     "baseline": "forecast",
     "baseline_text": "তুলনা: Forecast",
     "third": {
-     "key": "below",
-     "label": "Forecast-এর চেয়ে কম",
-     "pct": 23.5
+     "key": "inline",
+     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
+     "pct": 30.0
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৪৩.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ৩৩.৫%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৩৮.০%; দ্বিতীয়: Forecast-এর চেয়ে কম ৩২.০%"
    },
    "prediction": {
     "kind": "data",
     "title": "ISM Manufacturing PMI",
-    "value": 55.5,
-    "value_text": "55.0–56.0",
+    "value": 56.5,
+    "value_text": "56.0–57.0",
     "compare": "Forecast (54.7)-এর চেয়ে বেশি",
-    "value_prob": 22.0,
+    "value_prob": 16.0,
     "side": "above",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 54.85",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 54.72",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 54.5 (৩৩.৫%), গড় প্রত্যাশা 54.85",
+      "text": "সবচেয়ে সম্ভাব্য 54.5 (৩০.০%), গড় প্রত্যাশা 54.72",
       "value": 54.5,
-      "ev": 54.85,
+      "ev": 54.72,
       "side": "inline",
       "agree": false
      },
@@ -286,10 +286,10 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৪৩.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৩৮.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (54.5) চেয়ে বেশি",
-    "headline": "ISM Manufacturing PMI সম্ভাব্য 55.0–56.0 — Forecast (54.7)-এর চেয়ে বেশি",
+    "headline": "ISM Manufacturing PMI সম্ভাব্য 56.0–57.0 — Forecast (54.7)-এর চেয়ে বেশি",
     "usd_text": "USD-এর জন্য Bullish ডেটা",
     "usd_bias": "up"
    },
@@ -301,7 +301,7 @@
      "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
      "condition": "Actual Forecast (54.7)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "up",
-     "prob": 43.0,
+     "prob": 38.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -346,7 +346,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (54.7)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "down",
-     "prob": 23.5,
+     "prob": 32.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -391,7 +391,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (54.7)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 33.5,
+     "prob": 30.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -1344,9 +1344,9 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending October 31, 2026",
-     "updated_at": "2026-10-30T19:19:15Z",
+     "updated_at": "2026-10-30T23:43:16Z",
      "closes_utc": "2026-11-05T13:25:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: ≥195K ও <200K — ৩০.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: ≥195K ও <200K — ৩৩.৫%",
      "outcomes": [
       {
        "label": "< 170K",
@@ -1395,7 +1395,7 @@
       },
       {
        "label": "≥190K ও <195K",
-       "prob": 22.0,
+       "prob": 18.5,
        "interval": [
         190000.0,
         195000.0
@@ -1404,7 +1404,7 @@
       },
       {
        "label": "≥195K ও <200K",
-       "prob": 30.5,
+       "prob": 33.5,
        "interval": [
         195000.0,
         200000.0
@@ -1413,7 +1413,7 @@
       },
       {
        "label": "≥200K ও <205K",
-       "prob": 22.0,
+       "prob": 18.5,
        "interval": [
         200000.0,
         205000.0
@@ -1422,7 +1422,7 @@
       },
       {
        "label": "≥205K ও <210K",
-       "prob": 4.5,
+       "prob": 8.0,
        "interval": [
         205000.0,
         210000.0
@@ -1440,7 +1440,7 @@
       },
       {
        "label": "≥215K ও <220K",
-       "prob": 0.5,
+       "prob": 1.0,
        "interval": [
         215000.0,
         220000.0
@@ -1459,9 +1459,9 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 29.5,
-      "inline": 30.5,
-      "below": 40.0
+      "above": 30.0,
+      "inline": 33.5,
+      "below": 36.5
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -1479,19 +1479,19 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 29.5,
-     "inline": 30.5,
-     "below": 40.0
+     "above": 30.0,
+     "inline": 33.5,
+     "below": 36.5
     },
     "top": {
      "key": "below",
      "label": "Forecast-এর চেয়ে কম",
-     "pct": 40.0
+     "pct": 36.5
     },
     "second": {
      "key": "inline",
      "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 30.5
+     "pct": 33.5
     },
     "basis": [
      "Kalshi — Forecast 197K-এর তুলনায়"
@@ -1508,10 +1508,10 @@
     "third": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 29.5
+     "pct": 30.0
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৪০.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ৩০.৫%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৩৬.৫%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ৩৩.৫%"
    },
    "prediction": {
     "kind": "data",
@@ -1519,15 +1519,15 @@
     "value": 192500.0,
     "value_text": "190K–195K",
     "compare": "Forecast (197K)-এর চেয়ে কম",
-    "value_prob": 22.0,
+    "value_prob": 18.5,
     "side": "below",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 196.0K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 196.4K",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 198K (৩০.৫%), গড় প্রত্যাশা 196.0K",
+      "text": "সবচেয়ে সম্ভাব্য 198K (৩৩.৫%), গড় প্রত্যাশা 196.4K",
       "value": 197500.0,
-      "ev": 195987.5,
+      "ev": 196437.5,
       "side": "inline",
       "agree": false
      },
@@ -1546,7 +1546,7 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৪০.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৩৬.৫%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (194K) চেয়ে কম",
     "headline": "Unemployment Claims সম্ভাব্য 190K–195K — Forecast (197K)-এর চেয়ে কম",
@@ -1561,7 +1561,7 @@
      "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
      "condition": "Actual Forecast (197K)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "up",
-     "prob": 40.0,
+     "prob": 36.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -1607,7 +1607,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (197K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 29.5,
+     "prob": 30.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -1653,7 +1653,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (197K)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 30.5,
+     "prob": 33.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -2091,13 +2091,13 @@
      "ok": true,
      "url": "https://polymarket.com/event/how-many-jobs-added-in-october-2026",
      "title": "How many jobs added in October?",
-     "updated_at": "2026-10-30T19:19:15Z",
+     "updated_at": "2026-10-30T23:43:16Z",
      "closes_utc": "2026-11-07T04:59:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 100k+ — ২৭.০%",
+     "headline": "সবচেয়ে সম্ভাব্য: 100k+ — ২৯.০%",
      "outcomes": [
       {
        "label": "<-25k",
-       "prob": 3.5,
+       "prob": 4.1,
        "interval": [
         null,
         -25000.0
@@ -2106,7 +2106,7 @@
       },
       {
        "label": "-25k to 0",
-       "prob": 4.5,
+       "prob": 8.5,
        "interval": [
         -25000.0,
         0.0
@@ -2115,12 +2115,12 @@
       },
       {
        "label": "0 to 25k",
-       "prob": 11.9,
+       "prob": 11.8,
        "interval": [
         0.0,
         25000.0
        ],
-       "volume": 2967
+       "volume": 3024
       },
       {
        "label": "25k to 50k",
@@ -2138,11 +2138,11 @@
         50000.0,
         75000.0
        ],
-       "volume": 2129
+       "volume": 2138
       },
       {
        "label": "75k to 100k",
-       "prob": 20.2,
+       "prob": 16.4,
        "interval": [
         75000.0,
         100000.0
@@ -2151,19 +2151,19 @@
       },
       {
        "label": "100k+",
-       "prob": 27.0,
+       "prob": 29.0,
        "interval": [
         100000.0,
         null
        ],
-       "volume": 13768
+       "volume": 14072
       }
      ],
      "kind_detail": null,
      "vs_forecast": {
-      "above": 46.2,
-      "inline": 18.6,
-      "below": 35.2
+      "above": 43.3,
+      "inline": 18.1,
+      "below": 38.5
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -2175,9 +2175,9 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxpayrolls",
      "title": "Jobs numbers in October 2026?",
-     "updated_at": "2026-10-30T19:19:15Z",
+     "updated_at": "2026-10-30T23:43:16Z",
      "closes_utc": "2026-11-06T13:29:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: > 125K — ১৫.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: > 125K — ১৫.০%",
      "outcomes": [
       {
        "label": "≤ -25K",
@@ -2190,7 +2190,7 @@
       },
       {
        "label": ">-25K ও ≤0K",
-       "prob": 8.0,
+       "prob": 7.0,
        "interval": [
         -25000.0,
         0.0
@@ -2208,7 +2208,7 @@
       },
       {
        "label": ">10K ও ≤20K",
-       "prob": 1.5,
+       "prob": 2.5,
        "interval": [
         10000.0,
         20000.0
@@ -2217,7 +2217,7 @@
       },
       {
        "label": ">20K ও ≤30K",
-       "prob": 10.5,
+       "prob": 9.5,
        "interval": [
         20000.0,
         30000.0
@@ -2226,7 +2226,7 @@
       },
       {
        "label": ">30K ও ≤40K",
-       "prob": 5.5,
+       "prob": 6.5,
        "interval": [
         30000.0,
         40000.0
@@ -2235,7 +2235,7 @@
       },
       {
        "label": ">40K ও ≤50K",
-       "prob": 5.0,
+       "prob": 4.0,
        "interval": [
         40000.0,
         50000.0
@@ -2262,7 +2262,7 @@
       },
       {
        "label": ">70K ও ≤80K",
-       "prob": 7.0,
+       "prob": 6.5,
        "interval": [
         70000.0,
         80000.0
@@ -2271,7 +2271,7 @@
       },
       {
        "label": ">80K ও ≤90K",
-       "prob": 5.0,
+       "prob": 6.0,
        "interval": [
         80000.0,
         90000.0
@@ -2280,7 +2280,7 @@
       },
       {
        "label": ">90K ও ≤100K",
-       "prob": 4.5,
+       "prob": 5.5,
        "interval": [
         90000.0,
         100000.0
@@ -2298,7 +2298,7 @@
       },
       {
        "label": "> 125K",
-       "prob": 15.5,
+       "prob": 15.0,
        "interval": [
         125000.0,
         null
@@ -2308,9 +2308,9 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 43.0,
+      "above": 44.0,
       "inline": 12.5,
-      "below": 44.5
+      "below": 43.5
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -2328,19 +2328,19 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 44.5,
-     "inline": 15.6,
-     "below": 39.9
+     "above": 43.7,
+     "inline": 15.3,
+     "below": 41.0
     },
     "top": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 44.5
+     "pct": 43.7
     },
     "second": {
      "key": "below",
      "label": "Forecast-এর চেয়ে কম",
-     "pct": 39.9
+     "pct": 41.0
     },
     "basis": [
      "Polymarket + Kalshi — Forecast 63K-এর তুলনায়"
@@ -2357,10 +2357,10 @@
     "third": {
      "key": "inline",
      "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 15.6
+     "pct": 15.3
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৪৪.৫%; দ্বিতীয়: Forecast-এর চেয়ে কম ৩৯.৯%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে বেশি — ৪৩.৭%; দ্বিতীয়: Forecast-এর চেয়ে কম ৪১.০%"
    },
    "prediction": {
     "kind": "data",
@@ -2368,23 +2368,23 @@
     "value": 100000.0,
     "value_text": "≥100K",
     "compare": "Forecast (63K)-এর চেয়ে বেশি",
-    "value_prob": 13.2,
+    "value_prob": 13.8,
     "side": "above",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 60.7K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 59.3K",
     "inputs": [
      {
       "name": "Polymarket",
-      "text": "সবচেয়ে সম্ভাব্য 100K (২৬.৪%), গড় প্রত্যাশা 61.3K",
+      "text": "সবচেয়ে সম্ভাব্য 100K (২৭.৭%), গড় প্রত্যাশা 57.8K",
       "value": 100000.0,
-      "ev": 61312.44,
+      "ev": 57836.35,
       "side": "above",
       "agree": true
      },
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 126K (১৫.৫%), গড় প্রত্যাশা 60.1K",
+      "text": "সবচেয়ে সম্ভাব্য 126K (১৫.০%), গড় প্রত্যাশা 60.8K",
       "value": 126000.0,
-      "ev": 60080.0,
+      "ev": 60800.0,
       "side": "above",
       "agree": true
      },
@@ -2403,7 +2403,7 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Polymarket + Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৪৪.৫%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Polymarket + Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে বেশি’ দিকের (৪৩.৭%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (29K) চেয়ে বেশি",
     "headline": "Non-Farm Employment Change সম্ভাব্য ≥100K — Forecast (63K)-এর চেয়ে বেশি",
@@ -2418,7 +2418,7 @@
      "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
      "condition": "Actual Forecast (63K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "up",
-     "prob": 44.5,
+     "prob": 43.7,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -2464,7 +2464,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (63K)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "down",
-     "prob": 39.9,
+     "prob": 41.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -2510,7 +2510,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
      "condition": "Actual Forecast (63K)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 15.6,
+     "prob": 15.3,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -2641,9 +2641,9 @@
      "ok": true,
      "url": "https://polymarket.com/event/october-unemployment-rate-2026",
      "title": "October Unemployment Rate",
-     "updated_at": "2026-10-30T19:19:15Z",
+     "updated_at": "2026-10-30T23:43:16Z",
      "closes_utc": "2026-11-06T13:30:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 4.2% — ৪০.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: 4.2% — ৪১.৫%",
      "outcomes": [
       {
        "label": "≤3.8%",
@@ -2665,48 +2665,48 @@
       },
       {
        "label": "4.0%",
-       "prob": 5.5,
+       "prob": 5.7,
        "interval": [
         4.0,
         4.0
        ],
-       "volume": 1599
+       "volume": 1643
       },
       {
        "label": "4.1%",
-       "prob": 32.0,
+       "prob": 31.0,
        "interval": [
         4.1,
         4.1
        ],
-       "volume": 11311
+       "volume": 11390
       },
       {
        "label": "4.2%",
-       "prob": 40.5,
+       "prob": 41.5,
        "interval": [
         4.2,
         4.2
        ],
-       "volume": 9971
+       "volume": 10016
       },
       {
        "label": "4.3%",
-       "prob": 22.5,
+       "prob": 20.0,
        "interval": [
         4.3,
         4.3
        ],
-       "volume": 5555
+       "volume": 5684
       },
       {
        "label": "4.4%",
-       "prob": 1.1,
+       "prob": 1.7,
        "interval": [
         4.4,
         4.4
        ],
-       "volume": 1947
+       "volume": 1960
       },
       {
        "label": "4.5%",
@@ -2729,9 +2729,9 @@
      ],
      "kind_detail": null,
      "vs_forecast": {
-      "above": 23.2,
-      "inline": 39.4,
-      "below": 37.4
+      "above": 21.8,
+      "inline": 41.0,
+      "below": 37.2
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -2743,9 +2743,9 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxu3",
      "title": "Unemployment in October",
-     "updated_at": "2026-10-30T19:19:15Z",
+     "updated_at": "2026-10-30T23:43:16Z",
      "closes_utc": "2026-11-06T13:29:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: >4.1% ও ≤4.2% — ৩৫.০%",
+     "headline": "সবচেয়ে সম্ভাব্য: >4.1% ও ≤4.2% — ৩৩.৫%",
      "outcomes": [
       {
        "label": "≤ 3.7%",
@@ -2758,7 +2758,7 @@
       },
       {
        "label": ">3.7% ও ≤3.8%",
-       "prob": 0.5,
+       "prob": 0.0,
        "interval": [
         3.7,
         3.8
@@ -2767,7 +2767,7 @@
       },
       {
        "label": ">3.8% ও ≤3.9%",
-       "prob": 1.0,
+       "prob": 1.5,
        "interval": [
         3.8,
         3.9
@@ -2785,7 +2785,7 @@
       },
       {
        "label": ">4% ও ≤4.1%",
-       "prob": 27.5,
+       "prob": 28.5,
        "interval": [
         4.0,
         4.1
@@ -2794,7 +2794,7 @@
       },
       {
        "label": ">4.1% ও ≤4.2%",
-       "prob": 35.0,
+       "prob": 33.5,
        "interval": [
         4.1,
         4.2
@@ -2803,7 +2803,7 @@
       },
       {
        "label": ">4.2% ও ≤4.3%",
-       "prob": 21.0,
+       "prob": 22.5,
        "interval": [
         4.2,
         4.3
@@ -2812,7 +2812,7 @@
       },
       {
        "label": ">4.3% ও ≤4.4%",
-       "prob": 4.0,
+       "prob": 3.5,
        "interval": [
         4.3,
         4.4
@@ -2866,7 +2866,7 @@
       },
       {
        "label": ">4.9% ও ≤5%",
-       "prob": 0.5,
+       "prob": 0.0,
        "interval": [
         4.9,
         5.0
@@ -2876,9 +2876,9 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 26.5,
-      "inline": 35.0,
-      "below": 38.5
+      "above": 27.0,
+      "inline": 33.5,
+      "below": 39.5
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -2896,14 +2896,14 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 24.9,
+     "above": 24.4,
      "inline": 37.2,
-     "below": 37.9
+     "below": 38.4
     },
     "top": {
      "key": "below",
      "label": "Forecast-এর চেয়ে কম",
-     "pct": 37.9
+     "pct": 38.4
     },
     "second": {
      "key": "inline",
@@ -2925,10 +2925,10 @@
     "third": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 24.9
+     "pct": 24.4
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৩৭.৯%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ৩৭.২%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৩৮.৪%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ৩৭.২%"
    },
    "prediction": {
     "kind": "data",
@@ -2936,23 +2936,23 @@
     "value": 4.1,
     "value_text": "4.1%",
     "compare": "Forecast (4.2%)-এর চেয়ে কম",
-    "value_prob": 29.3,
+    "value_prob": 29.6,
     "side": "below",
     "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 4.18%",
     "inputs": [
      {
       "name": "Polymarket",
-      "text": "সবচেয়ে সম্ভাব্য 4.2% (৩৯.৪%), গড় প্রত্যাশা 4.18%",
+      "text": "সবচেয়ে সম্ভাব্য 4.2% (৪১.০%), গড় প্রত্যাশা 4.18%",
       "value": 4.2,
-      "ev": 4.18,
+      "ev": 4.179,
       "side": "inline",
       "agree": false
      },
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 4.2% (৩৫.০%), গড় প্রত্যাশা 4.19%",
+      "text": "সবচেয়ে সম্ভাব্য 4.2% (৩৩.৫%), গড় প্রত্যাশা 4.18%",
       "value": 4.2,
-      "ev": 4.186,
+      "ev": 4.182,
       "side": "inline",
       "agree": false
      },
@@ -2971,7 +2971,7 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Polymarket + Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৩৭.৯%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Polymarket + Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৩৮.৪%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (4.2%) চেয়ে কম",
     "headline": "Unemployment Rate সম্ভাব্য 4.1% — Forecast (4.2%)-এর চেয়ে কম",
@@ -2986,7 +2986,7 @@
      "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
      "condition": "Actual Forecast (4.2%)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "up",
-     "prob": 37.9,
+     "prob": 38.4,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -3032,7 +3032,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (4.2%)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 24.9,
+     "prob": 24.4,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
