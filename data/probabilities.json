@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T05:33:50Z",
+ "generated_at": "2026-10-31T06:51:51Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -423,7 +423,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 11.0,
+      "prob": 12.0,
       "interval": [
        185000.0,
        190000.0
@@ -432,7 +432,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 22.5,
+      "prob": 22.0,
       "interval": [
        190000.0,
        195000.0
@@ -441,7 +441,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 32.0,
+      "prob": 31.5,
       "interval": [
        195000.0,
        200000.0
@@ -517,12 +517,12 @@
      },
      {
       "strike": 190000.0,
-      "prob_above": 83.0,
+      "prob_above": 82.0,
       "inclusive": true
      },
      {
       "strike": 195000.0,
-      "prob_above": 60.5,
+      "prob_above": 60.0,
       "inclusive": true
      },
      {
@@ -562,15 +562,15 @@
     "polymarket": null,
     "kalshi": {
      "above": 28.5,
-     "inline": 32.0,
-     "below": 39.5
+     "inline": 31.5,
+     "below": 40.0
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
      "label": "≥195K ও <200K",
-     "prob": 32.0,
+     "prob": 31.5,
      "interval": [
       195000.0,
       200000.0
@@ -620,7 +620,7 @@
     "outcomes": [
      {
       "label": "<-25k",
-      "prob": 4.2,
+      "prob": 4.7,
       "interval": [
        null,
        -25000.0
@@ -629,7 +629,7 @@
      },
      {
       "label": "-25k to 0",
-      "prob": 3.5,
+      "prob": 5.0,
       "interval": [
        -25000.0,
        0.0
@@ -638,7 +638,7 @@
      },
      {
       "label": "0 to 25k",
-      "prob": 18.1,
+      "prob": 17.5,
       "interval": [
        0.0,
        25000.0
@@ -647,7 +647,7 @@
      },
      {
       "label": "25k to 50k",
-      "prob": 19.0,
+      "prob": 19.5,
       "interval": [
        25000.0,
        50000.0
@@ -665,7 +665,7 @@
      },
      {
       "label": "75k to 100k",
-      "prob": 17.1,
+      "prob": 15.2,
       "interval": [
        75000.0,
        100000.0
@@ -674,7 +674,7 @@
      },
      {
       "label": "100k+",
-      "prob": 28.5,
+      "prob": 27.0,
       "interval": [
        100000.0,
        null
@@ -758,7 +758,7 @@
      },
      {
       "label": ">50K ও ≤60K",
-      "prob": 6.5,
+      "prob": 8.0,
       "interval": [
        50000.0,
        60000.0
@@ -767,7 +767,7 @@
      },
      {
       "label": ">60K ও ≤70K",
-      "prob": 8.5,
+      "prob": 7.0,
       "interval": [
        60000.0,
        70000.0
@@ -858,7 +858,7 @@
      },
      {
       "strike": 60000.0,
-      "prob_above": 52.0,
+      "prob_above": 50.5,
       "inclusive": false
      },
      {
@@ -896,20 +896,20 @@
     "ref": "forecast",
     "ref_value": "63K",
     "polymarket": {
-     "above": 42.5,
-     "inline": 15.8,
-     "below": 41.7
+     "above": 39.8,
+     "inline": 16.1,
+     "below": 44.1
     },
     "kalshi": {
      "above": 43.5,
-     "inline": 8.5,
-     "below": 48.0
+     "inline": 7.0,
+     "below": 49.5
     }
    },
    "most_likely": {
     "polymarket": {
      "label": "100k+",
-     "prob": 28.5,
+     "prob": 27.0,
      "interval": [
       100000.0,
       null
@@ -962,7 +962,7 @@
      },
      {
       "label": "4.0%",
-      "prob": 7.1,
+      "prob": 6.5,
       "interval": [
        4.0,
        4.0
@@ -980,7 +980,7 @@
      },
      {
       "label": "4.2%",
-      "prob": 39.5,
+      "prob": 39.0,
       "interval": [
        4.2,
        4.2
@@ -989,7 +989,7 @@
      },
      {
       "label": "4.3%",
-      "prob": 20.0,
+      "prob": 19.0,
       "interval": [
        4.3,
        4.3
@@ -998,7 +998,7 @@
      },
      {
       "label": "4.4%",
-      "prob": 1.7,
+      "prob": 1.8,
       "interval": [
        4.4,
        4.4
@@ -1100,7 +1100,7 @@
      },
      {
       "label": ">4.3% ও ≤4.4%",
-      "prob": 4.5,
+      "prob": 4.0,
       "interval": [
        4.3,
        4.4
@@ -1109,7 +1109,7 @@
      },
      {
       "label": ">4.4% ও ≤4.5%",
-      "prob": 0.5,
+      "prob": 1.0,
       "interval": [
        4.4,
        4.5
@@ -1209,7 +1209,7 @@
      },
      {
       "strike": 4.4,
-      "prob_above": 1.0,
+      "prob_above": 1.5,
       "inclusive": false
      },
      {
@@ -1252,9 +1252,9 @@
     "ref": "forecast",
     "ref_value": "4.2%",
     "polymarket": {
-     "above": 22.0,
-     "inline": 39.5,
-     "below": 38.5
+     "above": 21.5,
+     "inline": 39.8,
+     "below": 38.7
     },
     "kalshi": {
      "above": 28.0,
@@ -1265,7 +1265,7 @@
    "most_likely": {
     "polymarket": {
      "label": "4.2%",
-     "prob": 39.5,
+     "prob": 39.0,
      "interval": [
       4.2,
       4.2
