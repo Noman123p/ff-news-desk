@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T23:43:16Z",
+ "generated_at": "2026-10-31T05:33:50Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -190,7 +190,7 @@
      },
      {
       "label": "≥55 ও <56",
-      "prob": 15.0,
+      "prob": 15.5,
       "interval": [
        55.0,
        56.0
@@ -199,7 +199,7 @@
      },
      {
       "label": "≥56 ও <57",
-      "prob": 16.0,
+      "prob": 15.5,
       "interval": [
        56.0,
        57.0
@@ -208,7 +208,7 @@
      },
      {
       "label": "≥57 ও <58",
-      "prob": 3.0,
+      "prob": 4.0,
       "interval": [
        57.0,
        58.0
@@ -217,7 +217,7 @@
      },
      {
       "label": "≥ 58",
-      "prob": 4.0,
+      "prob": 3.0,
       "interval": [
        58.0,
        null
@@ -253,7 +253,7 @@
      },
      {
       "strike": 56.0,
-      "prob_above": 23.0,
+      "prob_above": 22.5,
       "inclusive": true
      },
      {
@@ -263,7 +263,7 @@
      },
      {
       "strike": 58.0,
-      "prob_above": 4.0,
+      "prob_above": 3.0,
       "inclusive": true
      }
     ],
@@ -423,7 +423,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 12.0,
+      "prob": 11.0,
       "interval": [
        185000.0,
        190000.0
@@ -432,7 +432,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 18.5,
+      "prob": 22.5,
       "interval": [
        190000.0,
        195000.0
@@ -441,7 +441,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 33.5,
+      "prob": 32.0,
       "interval": [
        195000.0,
        200000.0
@@ -468,7 +468,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 1.5,
+      "prob": 0.0,
       "interval": [
        210000.0,
        215000.0
@@ -517,27 +517,27 @@
      },
      {
       "strike": 190000.0,
-      "prob_above": 82.0,
+      "prob_above": 83.0,
       "inclusive": true
      },
      {
       "strike": 195000.0,
-      "prob_above": 63.5,
+      "prob_above": 60.5,
       "inclusive": true
      },
      {
       "strike": 200000.0,
-      "prob_above": 30.0,
+      "prob_above": 28.5,
       "inclusive": true
      },
      {
       "strike": 205000.0,
-      "prob_above": 11.5,
+      "prob_above": 10.0,
       "inclusive": true
      },
      {
       "strike": 210000.0,
-      "prob_above": 3.5,
+      "prob_above": 2.0,
       "inclusive": true
      },
      {
@@ -561,16 +561,16 @@
     "ref_value": "197K",
     "polymarket": null,
     "kalshi": {
-     "above": 30.0,
-     "inline": 33.5,
-     "below": 36.5
+     "above": 28.5,
+     "inline": 32.0,
+     "below": 39.5
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
      "label": "≥195K ও <200K",
-     "prob": 33.5,
+     "prob": 32.0,
      "interval": [
       195000.0,
       200000.0
@@ -616,11 +616,11 @@
     "title": "How many jobs added in October?",
     "url": "https://polymarket.com/event/how-many-jobs-added-in-october-2026",
     "closes_utc": "2026-11-07T04:59:00Z",
-    "volume_usd": 26558,
+    "volume_usd": 27392,
     "outcomes": [
      {
       "label": "<-25k",
-      "prob": 4.1,
+      "prob": 4.2,
       "interval": [
        null,
        -25000.0
@@ -629,7 +629,7 @@
      },
      {
       "label": "-25k to 0",
-      "prob": 8.5,
+      "prob": 3.5,
       "interval": [
        -25000.0,
        0.0
@@ -638,25 +638,25 @@
      },
      {
       "label": "0 to 25k",
-      "prob": 11.8,
+      "prob": 18.1,
       "interval": [
        0.0,
        25000.0
       ],
-      "volume": 3024
+      "volume": 3047
      },
      {
       "label": "25k to 50k",
-      "prob": 16.0,
+      "prob": 19.0,
       "interval": [
        25000.0,
        50000.0
       ],
-      "volume": 1711
+      "volume": 2521
      },
      {
       "label": "50k to 75k",
-      "prob": 19.0,
+      "prob": 17.0,
       "interval": [
        50000.0,
        75000.0
@@ -665,7 +665,7 @@
      },
      {
       "label": "75k to 100k",
-      "prob": 16.4,
+      "prob": 17.1,
       "interval": [
        75000.0,
        100000.0
@@ -674,12 +674,12 @@
      },
      {
       "label": "100k+",
-      "prob": 29.0,
+      "prob": 28.5,
       "interval": [
        100000.0,
        null
       ],
-      "volume": 14072
+      "volume": 14073
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
@@ -695,7 +695,7 @@
     "outcomes": [
      {
       "label": "≤ -25K",
-      "prob": 6.5,
+      "prob": 5.0,
       "interval": [
        null,
        -25000.0
@@ -704,7 +704,7 @@
      },
      {
       "label": ">-25K ও ≤0K",
-      "prob": 7.0,
+      "prob": 8.5,
       "interval": [
        -25000.0,
        0.0
@@ -731,7 +731,7 @@
      },
      {
       "label": ">20K ও ≤30K",
-      "prob": 9.5,
+      "prob": 9.0,
       "interval": [
        20000.0,
        30000.0
@@ -740,7 +740,7 @@
      },
      {
       "label": ">30K ও ≤40K",
-      "prob": 6.5,
+      "prob": 7.0,
       "interval": [
        30000.0,
        40000.0
@@ -749,7 +749,7 @@
      },
      {
       "label": ">40K ও ≤50K",
-      "prob": 4.0,
+      "prob": 5.0,
       "interval": [
        40000.0,
        50000.0
@@ -758,7 +758,7 @@
      },
      {
       "label": ">50K ও ≤60K",
-      "prob": 3.0,
+      "prob": 6.5,
       "interval": [
        50000.0,
        60000.0
@@ -767,7 +767,7 @@
      },
      {
       "label": ">60K ও ≤70K",
-      "prob": 12.5,
+      "prob": 8.5,
       "interval": [
        60000.0,
        70000.0
@@ -776,7 +776,7 @@
      },
      {
       "label": ">70K ও ≤80K",
-      "prob": 6.5,
+      "prob": 6.0,
       "interval": [
        70000.0,
        80000.0
@@ -794,7 +794,7 @@
      },
      {
       "label": ">90K ও ≤100K",
-      "prob": 5.5,
+      "prob": 4.5,
       "interval": [
        90000.0,
        100000.0
@@ -803,7 +803,7 @@
      },
      {
       "label": ">100K ও ≤125K",
-      "prob": 11.0,
+      "prob": 12.0,
       "interval": [
        100000.0,
        125000.0
@@ -823,7 +823,7 @@
     "thresholds": [
      {
       "strike": -25000.0,
-      "prob_above": 93.5,
+      "prob_above": 95.0,
       "inclusive": false
      },
      {
@@ -843,7 +843,7 @@
      },
      {
       "strike": 30000.0,
-      "prob_above": 70.0,
+      "prob_above": 70.5,
       "inclusive": false
      },
      {
@@ -853,17 +853,17 @@
      },
      {
       "strike": 50000.0,
-      "prob_above": 59.5,
+      "prob_above": 58.5,
       "inclusive": false
      },
      {
       "strike": 60000.0,
-      "prob_above": 56.5,
+      "prob_above": 52.0,
       "inclusive": false
      },
      {
       "strike": 70000.0,
-      "prob_above": 44.0,
+      "prob_above": 43.5,
       "inclusive": false
      },
      {
@@ -878,7 +878,7 @@
      },
      {
       "strike": 100000.0,
-      "prob_above": 26.0,
+      "prob_above": 27.0,
       "inclusive": false
      },
      {
@@ -896,25 +896,25 @@
     "ref": "forecast",
     "ref_value": "63K",
     "polymarket": {
-     "above": 43.3,
-     "inline": 18.1,
-     "below": 38.5
+     "above": 42.5,
+     "inline": 15.8,
+     "below": 41.7
     },
     "kalshi": {
-     "above": 44.0,
-     "inline": 12.5,
-     "below": 43.5
+     "above": 43.5,
+     "inline": 8.5,
+     "below": 48.0
     }
    },
    "most_likely": {
     "polymarket": {
      "label": "100k+",
-     "prob": 29.0,
+     "prob": 28.5,
      "interval": [
       100000.0,
       null
      ],
-     "volume": 14072
+     "volume": 14073
     },
     "kalshi": {
      "label": "> 125K",
@@ -940,7 +940,7 @@
     "title": "October Unemployment Rate",
     "url": "https://polymarket.com/event/october-unemployment-rate-2026",
     "closes_utc": "2026-11-06T13:30:00Z",
-    "volume_usd": 33442,
+    "volume_usd": 33517,
     "outcomes": [
      {
       "label": "≤3.8%",
@@ -962,7 +962,7 @@
      },
      {
       "label": "4.0%",
-      "prob": 5.7,
+      "prob": 7.1,
       "interval": [
        4.0,
        4.0
@@ -971,7 +971,7 @@
      },
      {
       "label": "4.1%",
-      "prob": 31.0,
+      "prob": 30.5,
       "interval": [
        4.1,
        4.1
@@ -980,12 +980,12 @@
      },
      {
       "label": "4.2%",
-      "prob": 41.5,
+      "prob": 39.5,
       "interval": [
        4.2,
        4.2
       ],
-      "volume": 10016
+      "volume": 10049
      },
      {
       "label": "4.3%",
@@ -994,7 +994,7 @@
        4.3,
        4.3
       ],
-      "volume": 5684
+      "volume": 5726
      },
      {
       "label": "4.4%",
@@ -1055,7 +1055,7 @@
      },
      {
       "label": ">3.8% ও ≤3.9%",
-      "prob": 1.5,
+      "prob": 1.0,
       "interval": [
        3.8,
        3.9
@@ -1064,7 +1064,7 @@
      },
      {
       "label": ">3.9% ও ≤4%",
-      "prob": 9.0,
+      "prob": 7.5,
       "interval": [
        3.9,
        4.0
@@ -1073,7 +1073,7 @@
      },
      {
       "label": ">4% ও ≤4.1%",
-      "prob": 28.5,
+      "prob": 30.5,
       "interval": [
        4.0,
        4.1
@@ -1082,7 +1082,7 @@
      },
      {
       "label": ">4.1% ও ≤4.2%",
-      "prob": 33.5,
+      "prob": 32.5,
       "interval": [
        4.1,
        4.2
@@ -1100,7 +1100,7 @@
      },
      {
       "label": ">4.3% ও ≤4.4%",
-      "prob": 3.5,
+      "prob": 4.5,
       "interval": [
        4.3,
        4.4
@@ -1184,12 +1184,12 @@
      },
      {
       "strike": 3.9,
-      "prob_above": 98.0,
+      "prob_above": 98.5,
       "inclusive": false
      },
      {
       "strike": 4.0,
-      "prob_above": 89.0,
+      "prob_above": 91.0,
       "inclusive": false
      },
      {
@@ -1199,12 +1199,12 @@
      },
      {
       "strike": 4.2,
-      "prob_above": 27.0,
+      "prob_above": 28.0,
       "inclusive": false
      },
      {
       "strike": 4.3,
-      "prob_above": 4.5,
+      "prob_above": 5.5,
       "inclusive": false
      },
      {
@@ -1252,29 +1252,29 @@
     "ref": "forecast",
     "ref_value": "4.2%",
     "polymarket": {
-     "above": 21.8,
-     "inline": 41.0,
-     "below": 37.2
+     "above": 22.0,
+     "inline": 39.5,
+     "below": 38.5
     },
     "kalshi": {
-     "above": 27.0,
-     "inline": 33.5,
+     "above": 28.0,
+     "inline": 32.5,
      "below": 39.5
     }
    },
    "most_likely": {
     "polymarket": {
      "label": "4.2%",
-     "prob": 41.5,
+     "prob": 39.5,
      "interval": [
       4.2,
       4.2
      ],
-     "volume": 10016
+     "volume": 10049
     },
     "kalshi": {
      "label": ">4.1% ও ≤4.2%",
-     "prob": 33.5,
+     "prob": 32.5,
      "interval": [
       4.1,
       4.2
