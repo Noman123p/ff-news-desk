@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T07:32:58Z",
+ "generated_at": "2026-11-02T15:41:38Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
@@ -12,36 +12,36 @@
  },
  "briefs": [
   {
-   "id": "1addd0aaac31",
-   "time_utc": "2026-11-02T15:00:00Z",
-   "time_dhaka": "02 Nov, 09:00 PM",
+   "id": "f1af7a8b4e0d",
+   "time_utc": "2026-11-03T15:00:00Z",
+   "time_dhaka": "03 Nov, 09:00 PM",
    "impact": "Medium",
-   "title": "ISM Manufacturing PMI",
-   "category_bn": "ISM ম্যানুফ্যাকচারিং",
+   "title": "JOLTS Job Openings",
+   "category_bn": "অর্থনৈতিক ডেটা",
    "events": [
     {
-     "id": "1addd0aaac31",
-     "title": "ISM Manufacturing PMI",
+     "id": "f1af7a8b4e0d",
+     "title": "JOLTS Job Openings",
      "impact": "Medium",
-     "forecast": "54.5",
-     "previous": "54.5",
+     "forecast": "7.11M",
+     "previous": "7.08M",
      "actual": ""
     }
    ],
    "likely": {
-    "text": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৩৮.০%; দ্বিতীয়: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি ৩১.৫%",
-    "usd_bias": "down",
+    "text": "ঝোঁক: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (বাজারের % নেই — নিশ্চয়তা কম)",
+    "usd_bias": "flat",
     "impact": {
-     "gold": "Gold: Bullish — উপরে (আনুমানিক ০.২–০.৬%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
-     "btc": "BTC: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
-     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে (আনুমানিক ১–৩%); হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
-     "forex": "DXY: Bearish (আনুমানিক ০.১–০.৩%) · EUR/USD: Bullish (আনুমানিক ০.১–০.৪%) · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+     "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
+     "btc": "BTC: নিউট্রাল — দুই দিকে ছোট স্পাইক (স্টপ-হান্ট) তারপর রেঞ্জ; নিউজ-নির্ভর মুভ ফিকে হয়ে আগের ট্রেন্ড চলতে পারে।",
+     "crypto": "Altcoin: নিউট্রাল — অল্টকয়েন BTC-কে অনুসরণ করবে; ফান্ডিং/ওপেন ইন্টারেস্টই বেশি দিক ঠিক করবে।",
+     "forex": "DXY ও মেজর পেয়ার: নিউট্রাল — রেঞ্জে; প্রথম মিনিটের মুভ ফিরে আসার সম্ভাবনা বেশি।"
     }
    },
    "alternative": {
-    "text": "উল্টো দিকে গেলে — USD-এর জন্য Bullish ডেটা: Actual Forecast (54.5)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
+    "text": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bullish ডেটা: Actual Forecast (7.11M)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
     "usd_bias": "up",
-    "prob": 30.5,
+    "prob": null,
     "impact": {
      "gold": "Gold: Bearish — নিচে (আনুমানিক ০.২–০.৬%); ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
      "btc": "BTC: Bearish — নিচে (আনুমানিক ০.৫–১.৫%); টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
@@ -50,9 +50,10 @@
     }
    },
    "reasons": [
-    "Kalshi — Forecast 54.5-এর তুলনায়"
+    "বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে",
+    "Forecast আগের মানের চেয়ে বেশি — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)"
    ],
-   "confidence_bn": "নিম্ন",
+   "confidence_bn": "নিম্ন — বাজারের % নেই",
    "typical_range": {
     "gold": "0.1–0.4%",
     "btc": "0.3–1%",
@@ -60,10 +61,65 @@
    },
    "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
    "verdict_top": {
-    "key": "below",
-    "label": "Forecast-এর চেয়ে কম",
-    "pct": 38.0
+    "key": "inline",
+    "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
+    "pct": null
    }
+  },
+  {
+   "id": "ed050e33399f",
+   "time_utc": "2026-11-03T15:16:00Z",
+   "time_dhaka": "03 Nov, 09:16 PM",
+   "impact": "High",
+   "title": "Congressional Elections",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "events": [
+    {
+     "id": "ed050e33399f",
+     "title": "Congressional Elections",
+     "impact": "High",
+     "forecast": "",
+     "previous": "",
+     "actual": ""
+    }
+   ],
+   "likely": {
+    "text": "বাজারের সম্ভাবনা-ডেটা নেই — দুই দিকেই মুভ হতে পারে; রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন",
+    "usd_bias": null,
+    "impact": {
+     "gold": "Gold: দিক অনিশ্চিত — দুই দিকেই স্পাইক হতে পারে, রিলিজের পর প্রথম ক্যান্ডেল দেখে সিদ্ধান্ত নিন।",
+     "btc": "BTC: দিক অনিশ্চিত — লিকুইডেশন উইক দুই দিকেই সম্ভব।",
+     "crypto": "Altcoin: দিক অনিশ্চিত — BTC-কে ফলো করবে, বেশি দুলতে পারে।",
+     "forex": "DXY ও মেজর পেয়ার: দিক অনিশ্চিত — সাময়িক হুইপস।"
+    }
+   },
+   "alternative": {
+    "text": "প্রত্যাশা থেকে বড় বিচ্যুতি হলে — দিক অনুযায়ী",
+    "usd_bias": null,
+    "impact": {
+     "usd_up": {
+      "gold": "Gold: Bearish — ডলার ও বন্ড ইল্ড বাড়লে গোল্ড সাধারণত নামে।",
+      "btc": "BTC: Bearish — রিস্ক-অফ, DUMP/নিচে উইকের সম্ভাবনা বেশি।",
+      "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়ার ঝুঁকি।",
+      "forex": "DXY: Bullish · EUR/USD, GBP/USD: Bearish · USD/JPY: Bullish"
+     },
+     "usd_down": {
+      "gold": "Gold: Bullish — ডলার ও ইল্ড নামলে গোল্ড সাধারণত বাড়ে।",
+      "btc": "BTC: Bullish — রিস্ক-অন, PUMP হওয়ার সম্ভাবনা বেশি।",
+      "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে।",
+      "forex": "DXY: Bearish · EUR/USD, GBP/USD: Bullish · USD/JPY: Bearish"
+     }
+    }
+   },
+   "reasons": [],
+   "confidence_bn": "ডেটা নেই",
+   "typical_range": {
+    "gold": "0.2–0.6%",
+    "btc": "0.5–1.5%",
+    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
+   },
+   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
+   "verdict_top": null
   }
  ]
 }
