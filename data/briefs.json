@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T07:25:39Z",
+ "generated_at": "2026-11-04T19:42:51Z",
  "window_hours": 24,
  "has_major_today": true,
  "has_briefs": true,
@@ -12,24 +12,24 @@
  },
  "briefs": [
   {
-   "id": "a2741a1ef326",
-   "time_utc": "2026-11-04T15:00:00Z",
-   "time_dhaka": "04 Nov, 09:00 PM",
+   "id": "8d3a6a10e1dc",
+   "time_utc": "2026-11-05T13:30:00Z",
+   "time_dhaka": "05 Nov, 07:30 PM",
    "impact": "Medium",
-   "title": "ISM Services PMI",
-   "category_bn": "অর্থনৈতিক ডেটা",
+   "title": "Unemployment Claims",
+   "category_bn": "সাপ্তাহিক বেকার ভাতা আবেদন",
    "events": [
     {
-     "id": "a2741a1ef326",
-     "title": "ISM Services PMI",
+     "id": "8d3a6a10e1dc",
+     "title": "Unemployment Claims",
      "impact": "Medium",
-     "forecast": "54.8",
-     "previous": "54.9",
+     "forecast": "197K",
+     "previous": "194K",
      "actual": ""
     }
    ],
    "likely": {
-    "text": "ঝোঁক: নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (বাজারের % নেই — নিশ্চয়তা কম)",
+    "text": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৩৬.০%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে বেশি ৩২.৫%, উল্টো দিক ৩১.৫%",
     "usd_bias": "flat",
     "impact": {
      "gold": "Gold: নিউট্রাল — সীমিত মুভ; রিলিজের আগের পজিশন খুলে গেলে ছোট উইক, তারপর আগের ট্রেন্ডে ফেরা।",
@@ -39,9 +39,9 @@
     }
    },
    "alternative": {
-    "text": "বেশি সম্ভাব্য দিক (আনুমানিক) — USD-এর জন্য Bearish ডেটা: Actual Forecast (54.8)-এর চেয়ে স্পষ্টভাবে কম এলে",
+    "text": "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে) — USD-এর জন্য Bearish ডেটা: Actual Forecast (197K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
     "usd_bias": "down",
-    "prob": null,
+    "prob": 32.5,
     "impact": {
      "gold": "Gold: Bullish — উপরে (আনুমানিক ০.২–০.৬%); ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
      "btc": "BTC: Bullish — উপরে (আনুমানিক ০.৫–১.৫%); রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
@@ -50,10 +50,9 @@
     }
    },
    "reasons": [
-    "বাজার/নাউকাস্ট নেই — শুধু FF Forecast-এর ভিত্তিতে",
-    "Forecast আগের মানের চেয়ে কম — সারপ্রাইজ হলে সেদিকে ঝুঁকি একটু বেশি (শুধু ট্রেন্ড-ঝোঁক)"
+    "Kalshi — Forecast 197K-এর তুলনায়"
    ],
-   "confidence_bn": "নিম্ন — বাজারের % নেই",
+   "confidence_bn": "নিম্ন",
    "typical_range": {
     "gold": "0.1–0.4%",
     "btc": "0.3–1%",
@@ -63,7 +62,7 @@
    "verdict_top": {
     "key": "inline",
     "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-    "pct": null
+    "pct": 36.0
    }
   }
  ]
