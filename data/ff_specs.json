@@ -104,17 +104,24 @@
   },
   "304": {
    "title": "FOMC Meeting Minutes",
-   "fetched_at": "2026-10-07T14:51:03Z",
+   "fetched_at": "2026-11-08T01:24:44Z",
    "specs": {
     "Source": "Federal Reserve ( latest release )",
     "Usual Effect": "More Bullish than expected is good for currency",
     "Frequency": "8 times per year, 3 weeks after the Federal Funds Rate is announced",
-    "Next Release": "Nov 18, 2026",
+    "Next Release": "Dec 30, 2026",
     "Why Traders Care": "It's a detailed record of the FOMC's most recent meeting, providing in-depth insights into the economic and financial conditions that influenced their vote on where to set interest rates",
     "Acro Expand": "Federal Open Market Committee (FOMC)"
    },
    "source_url": "https://www.federalreserve.gov/",
    "history": [
+    {
+     "date": "Oct 7, 2026",
+     "actual": "",
+     "forecast": "",
+     "previous": "",
+     "abw": 0
+    },
     {
      "date": "Aug 19, 2026",
      "actual": "",
@@ -138,13 +145,6 @@
     },
     {
      "date": "Apr 8, 2026",
-     "actual": "",
-     "forecast": "",
-     "previous": "",
-     "abw": 0
-    },
-    {
-     "date": "Feb 18, 2026",
      "actual": "",
      "forecast": "",
      "previous": "",
@@ -626,19 +626,26 @@
   },
   "112": {
    "title": "Core Retail Sales m/m",
-   "fetched_at": "2026-10-07T14:51:03Z",
+   "fetched_at": "2026-11-08T01:24:44Z",
    "specs": {
     "Source": "Census Bureau ( latest release )",
     "Measures": "Change in the total value of sales at the retail level, excluding automobiles",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, about 16 days after the month ends",
-    "Next Release": "Nov 17, 2026",
+    "Next Release": "Dec 16, 2026",
     "FF Notes": "Automobile sales account for about 20% of Retail Sales, but they tend to be very volatile and distort the underlying trend. The Core data is therefore thought to be a better gauge of spending trends",
     "Why Traders Care": "It's the primary gauge of consumer spending, which accounts for the majority of overall economic activity",
     "Also Called": "Retail Sales Ex Autos"
    },
    "source_url": "https://www.census.gov/",
    "history": [
+    {
+     "date": "Oct 15, 2026",
+     "actual": "0.9%",
+     "forecast": "0.6%",
+     "previous": "1.4%",
+     "abw": 1
+    },
     {
      "date": "Sep 16, 2026",
      "actual": "1.4%",
@@ -666,13 +673,6 @@
      "forecast": "0.6%",
      "previous": "0.7%",
      "abw": 1
-    },
-    {
-     "date": "May 14, 2026",
-     "actual": "0.7%",
-     "forecast": "0.7%",
-     "previous": "1.9%",
-     "abw": 0
     }
    ]
   },
@@ -731,13 +731,13 @@
   },
   "325": {
    "title": "Philly Fed Manufacturing Index",
-   "fetched_at": "2026-10-07T14:51:03Z",
+   "fetched_at": "2026-11-08T01:24:44Z",
    "specs": {
     "Source": "Federal Reserve Bank of Philadelphia ( latest release )",
     "Measures": "Level of a diffusion index based on surveyed manufacturers in Philadelphia",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, on the third Thursday of the current month",
-    "Next Release": "Nov 19, 2026",
+    "Next Release": "Dec 17, 2026",
     "FF Notes": "Above 0.0 indicates improving conditions, below indicates worsening conditions",
     "Why Traders Care": "It's a leading indicator of economic health - businesses react quickly to market conditions, and changes in their sentiment can be an early signal of future economic activity such as spending, hiring, and investment",
     "Derived Via": "Survey of about 250 manufacturers in the Philadelphia Federal Reserve district which asks respondents to rate the relative level of general business conditions",
@@ -745,6 +745,13 @@
    },
    "source_url": "https://www.philadelphiafed.org/",
    "history": [
+    {
+     "date": "Oct 15, 2026",
+     "actual": "20.9",
+     "forecast": "28.2",
+     "previous": "37.8",
+     "abw": 2
+    },
     {
      "date": "Sep 17, 2026",
      "actual": "37.8",
@@ -772,31 +779,31 @@
      "forecast": "9.8",
      "previous": "-0.4",
      "abw": 1
-    },
-    {
-     "date": "May 21, 2026",
-     "actual": "-0.4",
-     "forecast": "17.6",
-     "previous": "26.7",
-     "abw": 2
     }
    ]
   },
   "102": {
    "title": "Retail Sales m/m",
-   "fetched_at": "2026-10-07T14:51:03Z",
+   "fetched_at": "2026-11-08T01:24:44Z",
    "specs": {
     "Source": "Census Bureau ( latest release )",
     "Measures": "Change in the total value of sales at the retail level",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, about 16 days after the month ends",
-    "Next Release": "Nov 17, 2026",
+    "Next Release": "Dec 16, 2026",
     "FF Notes": "This is the earliest and broadest look at vital consumer spending data",
     "Why Traders Care": "It's the primary gauge of consumer spending, which accounts for the majority of overall economic activity",
     "Also Called": "Advance Retail Sales"
    },
    "source_url": "https://www.census.gov/",
    "history": [
+    {
+     "date": "Oct 15, 2026",
+     "actual": "0.8%",
+     "forecast": "0.3%",
+     "previous": "1.2%",
+     "abw": 1
+    },
     {
      "date": "Sep 16, 2026",
      "actual": "1.2%",
@@ -824,22 +831,16 @@
      "forecast": "0.5%",
      "previous": "0.5%",
      "abw": 1
-    },
-    {
-     "date": "May 14, 2026",
-     "actual": "0.5%",
-     "forecast": "0.5%",
-     "previous": "1.7%",
-     "abw": 0
     }
    ]
   },
   "459": {
    "title": "Treasury Currency Report",
-   "fetched_at": "2026-10-07T14:51:03Z",
+   "fetched_at": "2026-11-08T01:24:44Z",
    "specs": {
     "Source": "US Department of the Treasury ( latest release )",
     "Frequency": "Twice per year",
+    "Next Release": "Jun 3, 2027",
     "FF Notes": "Source does not provide a reliable release time and the report can be delayed for several days - the event will be listed as 'Tentative' until the report is issued. Market impact tends to vary and is mostly dependent on which countries the report will accuse of currency manipulation",
     "Why Traders Care": "It provides a detailed review of global exchange rate policies, economic conditions, and central bank and government actions around the world. Most importantly, the report outlines countries that the Treasury deems currency manipulators",
     "Also Called": "Report on International Economic and Exchange Rate Policies"
@@ -1874,5 +1875,5 @@
    ]
   }
  },
- "generated_at": "2026-11-06T15:53:34Z"
+ "generated_at": "2026-11-08T01:24:44Z"
 }
