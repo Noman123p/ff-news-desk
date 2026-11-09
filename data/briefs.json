@@ -1,14 +1,71 @@
 {
- "generated_at": "2026-11-08T21:59:09Z",
+ "generated_at": "2026-11-09T09:43:40Z",
  "window_hours": 24,
  "has_major_today": false,
- "has_briefs": false,
- "empty_message": "আজ বড় কোনো USD নিউজ নেই",
+ "has_briefs": true,
+ "empty_message": null,
  "next_high": {
   "id": "2ec2130fa16d",
   "title": "CPI m/m",
   "time_utc": "2026-11-10T13:30:00Z",
   "time_dhaka": "10 Nov, 07:30 PM"
  },
- "briefs": []
+ "briefs": [
+  {
+   "id": "e2688ad495d1",
+   "time_utc": "2026-11-10T09:00:00Z",
+   "time_dhaka": "10 Nov, 03:00 PM",
+   "impact": "Medium",
+   "title": "FOMC Member Waller Speaks",
+   "category_bn": "Fed বক্তব্য/মিনিটস",
+   "events": [
+    {
+     "id": "e2688ad495d1",
+     "title": "FOMC Member Waller Speaks",
+     "impact": "Medium",
+     "forecast": "",
+     "previous": "",
+     "actual": ""
+    }
+   ],
+   "likely": {
+    "text": "আনুমানিক ঝোঁক: USD Bullish টোন (টোনের সরাসরি বাজার নেই, % দেওয়া হচ্ছে না)",
+    "usd_bias": "up",
+    "impact": {
+     "gold": "Gold: Bearish — নিচে; ডলার ও রিয়েল ইল্ড বাড়লে সুদ-না-দেওয়া গোল্ডের আকর্ষণ কমে।",
+     "btc": "BTC: Bearish — নিচে; টাইট লিকুইডিটি ও রিস্ক-অফে লিভারেজড লং লিকুইডেট হতে পারে।",
+     "crypto": "Altcoin: Bearish — BTC-এর চেয়ে বেশি % পড়তে পারে; হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
+     "forex": "DXY: Bullish · EUR/USD: Bearish · GBP/USD: Bearish · USD/JPY: Bullish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+    }
+   },
+   "alternative": {
+    "text": "উল্টো দিকে গেলে — USD-এর জন্য Bearish টোন: টোন USD-এর জন্য Bearish হলে (কাটের ইঙ্গিত, প্রবৃদ্ধি/চাকরি নিয়ে উদ্বেগ)",
+    "usd_bias": "down",
+    "prob": null,
+    "impact": {
+     "gold": "Gold: Bullish — উপরে; ডলার ও ইল্ড নামলে গোল্ড সাধারণত সাপোর্ট পায়।",
+     "btc": "BTC: Bullish — উপরে; রেট কাটের আশায় রিস্ক-অন; শর্ট স্কুইজে দ্রুত PUMP হতে পারে।",
+     "crypto": "Altcoin: Bullish — BTC-এর চেয়ে বেশি % উঠতে পারে; হাই-বিটা অ্যাসেট, লিকুইডেশন ক্যাসকেডের ঝুঁকি বেশি।",
+     "forex": "DXY: Bearish · EUR/USD: Bullish · GBP/USD: Bullish · USD/JPY: Bearish। ইল্ড-পার্থক্যের কারণে USD/JPY সাধারণত সবচেয়ে বেশি সাড়া দেয়।"
+    }
+   },
+   "reasons": [
+    "টোনের সরাসরি কোনো বাজার নেই — রেট-মার্কেট শুধু প্রেক্ষাপট",
+    "হোল্ড প্রত্যাশা প্রবল হলে ভারসাম্যপূর্ণ টোনই স্বাভাবিক; সারপ্রাইজ হলে USD Bullish দিকের ঝুঁকি বেশি দাম পাচ্ছে",
+    "রেট-মার্কেট প্রসঙ্গ (পরবর্তী FOMC মিটিং): হোল্ড ২২.১% · হাইক ৭৬.৪% · কাট ১.৫% — এটি এই ইভেন্টের ফলাফলের সম্ভাবনা নয়, শুধু প্রেক্ষাপট।"
+   ],
+   "confidence_bn": "নিম্ন — টোনের সরাসরি বাজার নেই",
+   "typical_range": {
+    "gold": "0.2–0.8%",
+    "btc": "0.5–2%",
+    "note": "আনুমানিক ঐতিহাসিক প্রথম-ঘণ্টার মুভ — পূর্বাভাস নয়"
+   },
+   "disclaimer": "এটি সম্ভাবনাভিত্তিক বিশ্লেষণ, কোনো গ্যারান্টি নয়। রিলিজের সময় স্প্রেড ও স্লিপেজ বাড়ে — SL ছাড়া ট্রেড নয়।",
+   "verdict_top": {
+    "key": "hawk",
+    "label": "USD Bullish টোন",
+    "pct": null
+   }
+  }
+ ]
 }
