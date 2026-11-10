@@ -1043,13 +1043,13 @@
   },
   "54": {
    "title": "Revised UoM Consumer Sentiment",
-   "fetched_at": "2026-10-10T23:31:26Z",
+   "fetched_at": "2026-11-10T04:05:37Z",
    "specs": {
     "Source": "University of Michigan ( latest release )",
     "Measures": "Level of a composite index based on surveyed consumers",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, usually on the last Friday of the current month",
-    "Next Release": "Nov 20, 2026",
+    "Next Release": "Dec 18, 2026",
     "FF Notes": "The 'Previous' listed is the 'Actual' from the Preliminary release and therefore the 'History' data will appear unconnected. There are 2 versions of this data released about 15 days apart &#x2013; Preliminary and Revised. The Preliminary release is the earliest and thus tends to have more impact",
     "Why Traders Care": "Financial confidence is a leading indicator of consumer spending, which accounts for a majority of overall economic activity",
     "Derived Via": "Survey of about 800 consumers which asks respondents to rate the relative level of current and future economic conditions",
@@ -1057,6 +1057,13 @@
    },
    "source_url": "https://umich.edu/",
    "history": [
+    {
+     "date": "Oct 23, 2026",
+     "actual": "48.0",
+     "forecast": "46.3",
+     "previous": "46.3",
+     "abw": 1
+    },
     {
      "date": "Sep 25, 2026",
      "actual": "48.1",
@@ -1084,25 +1091,18 @@
      "forecast": "50.0",
      "previous": "48.9",
      "abw": 2
-    },
-    {
-     "date": "May 22, 2026",
-     "actual": "44.8",
-     "forecast": "48.2",
-     "previous": "48.2",
-     "abw": 2
     }
    ]
   },
   "238": {
    "title": "Revised UoM Inflation Expectations",
-   "fetched_at": "2026-10-10T23:31:26Z",
+   "fetched_at": "2026-11-10T04:05:37Z",
    "specs": {
     "Source": "University of Michigan ( latest release )",
     "Measures": "Percentage that consumers expect the price of goods and services to change during the next 12 months",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, usually on the last Friday of the current month",
-    "Next Release": "Nov 20, 2026",
+    "Next Release": "Dec 18, 2026",
     "FF Notes": "The 'Previous' listed is the 'Actual' from the Preliminary release and therefore the 'History' data will appear unconnected. There are 2 versions of this data released about 15 days apart &#x2013; Preliminary and Revised. The Preliminary release is the earliest and thus tends to have more impact",
     "Why Traders Care": "Expectations of future inflation can manifest into real inflation, primarily because workers tend to push for higher wages when they believe prices will rise",
     "Derived Via": "Survey of about 800 consumers which asks respondents where they expect prices to be 12 months in the future",
@@ -1110,6 +1110,13 @@
    },
    "source_url": "https://umich.edu/",
    "history": [
+    {
+     "date": "Oct 23, 2026",
+     "actual": "4.7%",
+     "forecast": "",
+     "previous": "4.7%",
+     "abw": 0
+    },
     {
      "date": "Sep 25, 2026",
      "actual": "4.6%",
@@ -1136,13 +1143,6 @@
      "actual": "4.6%",
      "forecast": "",
      "previous": "4.6%",
-     "abw": 0
-    },
-    {
-     "date": "May 22, 2026",
-     "actual": "4.8%",
-     "forecast": "",
-     "previous": "4.5%",
      "abw": 0
     }
    ]
@@ -1875,5 +1875,5 @@
    ]
   }
  },
- "generated_at": "2026-11-08T01:24:44Z"
+ "generated_at": "2026-11-10T04:05:37Z"
 }
