@@ -937,13 +937,13 @@
   },
   "552": {
    "title": "Flash Manufacturing PMI",
-   "fetched_at": "2026-10-10T23:31:26Z",
+   "fetched_at": "2026-11-15T07:43:40Z",
    "specs": {
     "Source": "S&P Global ( latest release )",
     "Measures": "Level of a diffusion index based on surveyed purchasing managers in the manufacturing industry",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, around 3 weeks into the current month",
-    "Next Release": "Nov 23, 2026",
+    "Next Release": "Dec 16, 2026",
     "FF Notes": "Above 50.0 indicates industry expansion, below indicates contraction. There are 2 versions of this report released about a week apart &#x2013; Flash and Final. The Flash release, which the source first reported in May 2012, is the earliest and thus tends to have the most impact",
     "Why Traders Care": "It's a leading indicator of economic health - businesses react quickly to market conditions, and their purchasing managers hold perhaps the most current and relevant insight into the company's view of the economy",
     "Derived Via": "Survey of about 800 purchasing managers which asks respondents to rate the relative level of business conditions including employment, production, new orders, prices, supplier deliveries, and inventories",
@@ -951,6 +951,13 @@
    },
    "source_url": "https://www.pmi.spglobal.com/",
    "history": [
+    {
+     "date": "Oct 23, 2026",
+     "actual": "56.0",
+     "forecast": "55.4",
+     "previous": "57.0",
+     "abw": 1
+    },
     {
      "date": "Sep 23, 2026",
      "actual": "57.0",
@@ -978,25 +985,18 @@
      "forecast": "54.6",
      "previous": "55.3",
      "abw": 1
-    },
-    {
-     "date": "May 21, 2026",
-     "actual": "55.3",
-     "forecast": "53.8",
-     "previous": "54.0",
-     "abw": 1
     }
    ]
   },
   "583": {
    "title": "Flash Services PMI",
-   "fetched_at": "2026-10-10T23:31:26Z",
+   "fetched_at": "2026-11-15T07:43:40Z",
    "specs": {
     "Source": "S&P Global ( latest release )",
     "Measures": "Level of a diffusion index based on surveyed purchasing managers in the services industry",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, around 3 weeks into the current month",
-    "Next Release": "Nov 23, 2026",
+    "Next Release": "Dec 16, 2026",
     "FF Notes": "Above 50.0 indicates industry expansion, below indicates contraction. There are 2 versions of this report released about a week apart &#x2013; Flash and Final. The Flash release, which the source first reported in Nov 2013, is the earliest and thus tends to have the most impact",
     "Why Traders Care": "It's a leading indicator of economic health - businesses react quickly to market conditions, and their purchasing managers hold perhaps the most current and relevant insight into the company's view of the economy",
     "Derived Via": "Survey of about 400 purchasing managers which asks respondents to rate the relative level of business conditions including employment, production, new orders, prices, supplier deliveries, and inventories",
@@ -1004,6 +1004,13 @@
    },
    "source_url": "https://www.pmi.spglobal.com/",
    "history": [
+    {
+     "date": "Oct 23, 2026",
+     "actual": "57.9",
+     "forecast": "57.9",
+     "previous": "58.7",
+     "abw": 0
+    },
     {
      "date": "Sep 23, 2026",
      "actual": "58.7",
@@ -1030,13 +1037,6 @@
      "actual": "51.3",
      "forecast": "51.1",
      "previous": "50.9",
-     "abw": 0
-    },
-    {
-     "date": "May 21, 2026",
-     "actual": "50.9",
-     "forecast": "51.1",
-     "previous": "51.3",
      "abw": 0
     }
    ]
@@ -1873,7 +1873,112 @@
      "abw": 0
     }
    ]
+  },
+  "45": {
+   "title": "Prelim GDP Price Index q/q",
+   "fetched_at": "2026-11-15T07:43:40Z",
+   "specs": {
+    "Source": "Bureau of Economic Analysis ( latest release )",
+    "Measures": "Annualized change in the price of all goods and services included in GDP",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released quarterly, about 60 days after the quarter ends",
+    "Next Release": "Feb 25, 2027",
+    "FF Notes": "While this is q/q data, it's reported in an annualized format (quarterly change x4). The 'Previous' listed is the 'Actual' from the Advance release and therefore the 'History' data will appear unconnected",
+    "Also Called": "GDP Deflator",
+    "Acro Expand": "Gross Domestic Product (GDP)"
+   },
+   "source_url": "https://www.bea.gov/",
+   "history": [
+    {
+     "date": "Aug 26, 2026",
+     "actual": "6.4%",
+     "forecast": "6.2%",
+     "previous": "6.2%",
+     "abw": 1
+    },
+    {
+     "date": "May 28, 2026",
+     "actual": "3.5%",
+     "forecast": "3.6%",
+     "previous": "3.8%",
+     "abw": 0
+    },
+    {
+     "date": "Mar 13, 2026",
+     "actual": "3.8%",
+     "forecast": "3.6%",
+     "previous": "3.6%",
+     "abw": 1
+    },
+    {
+     "date": "Dec 23, 2025",
+     "actual": "3.8%",
+     "forecast": "2.7%",
+     "previous": "2.1%",
+     "abw": 1
+    },
+    {
+     "date": "Aug 28, 2025",
+     "actual": "2.0%",
+     "forecast": "2.0%",
+     "previous": "2.0%",
+     "abw": 0
+    }
+   ]
+  },
+  "27": {
+   "title": "Prelim GDP q/q",
+   "fetched_at": "2026-11-15T07:43:40Z",
+   "specs": {
+    "Source": "Bureau of Economic Analysis ( latest release )",
+    "Measures": "Annualized change in the value of all goods and services produced by the economy",
+    "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
+    "Frequency": "Released quarterly, about 60 days after the quarter ends",
+    "Next Release": "Feb 25, 2027",
+    "FF Notes": "While this is q/q data, it's reported in an annualized format (quarterly change x4). The 'Previous' listed is the 'Actual' from the Advance release and therefore the 'History' data will appear unconnected. There are 3 versions of GDP released a month apart - Advance, Preliminary, and Final. The Advance release is the earliest and thus tends to have the most impact",
+    "Why Traders Care": "It's the broadest measure of economic activity and the primary gauge of the economy's health",
+    "Also Called": "GDP Second Release",
+    "Acro Expand": "Gross Domestic Product (GDP)"
+   },
+   "source_url": "https://www.bea.gov/",
+   "history": [
+    {
+     "date": "Aug 26, 2026",
+     "actual": "1.5%",
+     "forecast": "1.5%",
+     "previous": "1.5%",
+     "abw": 0
+    },
+    {
+     "date": "May 28, 2026",
+     "actual": "1.6%",
+     "forecast": "2.0%",
+     "previous": "2.0%",
+     "abw": 2
+    },
+    {
+     "date": "Mar 13, 2026",
+     "actual": "0.7%",
+     "forecast": "1.4%",
+     "previous": "1.4%",
+     "abw": 2
+    },
+    {
+     "date": "Dec 23, 2025",
+     "actual": "4.3%",
+     "forecast": "3.3%",
+     "previous": "3.8%",
+     "abw": 1
+    },
+    {
+     "date": "Aug 28, 2025",
+     "actual": "3.3%",
+     "forecast": "3.1%",
+     "previous": "3.0%",
+     "abw": 1
+    }
+   ]
   }
  },
- "generated_at": "2026-11-11T17:52:28Z"
+ "generated_at": "2026-11-15T07:43:40Z"
 }
