@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T01:59:22Z",
+ "generated_at": "2026-11-16T07:50:29Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -18,37 +18,37 @@
     "title": "Fed Decision in December?",
     "url": "https://polymarket.com/event/fed-decision-in-december-20260729232808632",
     "closes_utc": "2026-12-10T04:59:00Z",
-    "volume_usd": 34614731,
+    "volume_usd": 34637573,
     "outcomes": [
      {
       "label": "25 bps increase",
       "prob": 87.5,
       "interval": null,
-      "volume": 8978807
+      "volume": 8983942
      },
      {
       "label": "50+ bps increase",
       "prob": 8.6,
       "interval": null,
-      "volume": 6498339
+      "volume": 6500071
      },
      {
       "label": "No change",
       "prob": 3.5,
       "interval": null,
-      "volume": 8417934
+      "volume": 8429420
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 5738592
+      "volume": 5738745
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.2,
       "interval": null,
-      "volume": 4981059
+      "volume": 4985394
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -64,7 +64,7 @@
     "outcomes": [
      {
       "label": "Hike 25bps",
-      "prob": 88.0,
+      "prob": 87.5,
       "interval": null
      },
      {
@@ -102,7 +102,7 @@
     "proxy_outcomes": [
      {
       "label": "Hike 25bps",
-      "prob": 88.0,
+      "prob": 87.5,
       "interval": null
      },
      {
@@ -128,11 +128,11 @@
      "label": "25 bps increase",
      "prob": 87.5,
      "interval": null,
-     "volume": 8978807
+     "volume": 8983942
     },
     "kalshi": {
      "label": "Hike 25bps",
-     "prob": 88.0,
+     "prob": 87.5,
      "interval": null
     }
    },
@@ -209,37 +209,37 @@
     "title": "Fed Decision in December?",
     "url": "https://polymarket.com/event/fed-decision-in-december-20260729232808632",
     "closes_utc": "2026-12-10T04:59:00Z",
-    "volume_usd": 34614731,
+    "volume_usd": 34637573,
     "outcomes": [
      {
       "label": "25 bps increase",
       "prob": 87.5,
       "interval": null,
-      "volume": 8978807
+      "volume": 8983942
      },
      {
       "label": "50+ bps increase",
       "prob": 8.6,
       "interval": null,
-      "volume": 6498339
+      "volume": 6500071
      },
      {
       "label": "No change",
       "prob": 3.5,
       "interval": null,
-      "volume": 8417934
+      "volume": 8429420
      },
      {
       "label": "25 bps decrease",
       "prob": 0.4,
       "interval": null,
-      "volume": 5738592
+      "volume": 5738745
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.2,
       "interval": null,
-      "volume": 4981059
+      "volume": 4985394
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -255,7 +255,7 @@
     "outcomes": [
      {
       "label": "Hike 25bps",
-      "prob": 88.0,
+      "prob": 87.5,
       "interval": null
      },
      {
@@ -293,7 +293,7 @@
     "proxy_outcomes": [
      {
       "label": "Hike 25bps",
-      "prob": 88.0,
+      "prob": 87.5,
       "interval": null
      },
      {
@@ -319,11 +319,11 @@
      "label": "25 bps increase",
      "prob": 87.5,
      "interval": null,
-     "volume": 8978807
+     "volume": 8983942
     },
     "kalshi": {
      "label": "Hike 25bps",
-     "prob": 88.0,
+     "prob": 87.5,
      "interval": null
     }
    },
@@ -410,7 +410,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 11.5,
+      "prob": 10.0,
       "interval": [
        185000.0,
        190000.0
@@ -419,7 +419,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 20.5,
+      "prob": 23.5,
       "interval": [
        190000.0,
        195000.0
@@ -428,7 +428,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 22.0,
+      "prob": 19.5,
       "interval": [
        195000.0,
        200000.0
@@ -437,7 +437,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 21.5,
+      "prob": 21.0,
       "interval": [
        200000.0,
        205000.0
@@ -446,7 +446,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 14.5,
+      "prob": 13.0,
       "interval": [
        205000.0,
        210000.0
@@ -455,7 +455,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 1.0,
+      "prob": 4.0,
       "interval": [
        210000.0,
        215000.0
@@ -508,27 +508,27 @@
      },
      {
       "strike": 190000.0,
-      "prob_above": 82.0,
+      "prob_above": 83.5,
       "inclusive": true
      },
      {
       "strike": 195000.0,
-      "prob_above": 61.5,
+      "prob_above": 60.0,
       "inclusive": true
      },
      {
       "strike": 200000.0,
-      "prob_above": 39.5,
+      "prob_above": 40.5,
       "inclusive": true
      },
      {
       "strike": 205000.0,
-      "prob_above": 18.0,
+      "prob_above": 19.5,
       "inclusive": true
      },
      {
       "strike": 210000.0,
-      "prob_above": 3.5,
+      "prob_above": 6.5,
       "inclusive": true
      },
      {
@@ -557,19 +557,19 @@
     "ref_value": "199K",
     "polymarket": null,
     "kalshi": {
-     "above": 39.5,
-     "inline": 22.0,
-     "below": 38.5
+     "above": 40.5,
+     "inline": 19.5,
+     "below": 40.0
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥195K ও <200K",
-     "prob": 22.0,
+     "label": "≥190K ও <195K",
+     "prob": 23.5,
      "interval": [
-      195000.0,
-      200000.0
+      190000.0,
+      195000.0
      ],
      "open": "hi"
     }
@@ -637,8 +637,8 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "56.0",
     "polymarket": null,
     "kalshi": null
    },
@@ -661,8 +661,8 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "57.9",
     "polymarket": null,
     "kalshi": null
    },
@@ -685,8 +685,8 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "91.7",
     "polymarket": null,
     "kalshi": null
    },
@@ -742,7 +742,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 83.0,
+      "prob": 84.5,
       "interval": [
        0.2,
        0.3
@@ -751,7 +751,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 4.0,
+      "prob": 2.5,
       "interval": [
        0.3,
        0.4
@@ -786,7 +786,7 @@
      },
      {
       "strike": 0.3,
-      "prob_above": 7.0,
+      "prob_above": 5.5,
       "inclusive": false
      },
      {
@@ -801,16 +801,20 @@
    "kalshi_note": null,
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "0.3%",
     "polymarket": null,
-    "kalshi": null
+    "kalshi": {
+     "above": 5.5,
+     "inline": 84.5,
+     "below": 10.0
+    }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
      "label": ">0.2% ও ≤0.3%",
-     "prob": 83.0,
+     "prob": 84.5,
      "interval": [
       0.2,
       0.3
@@ -833,8 +837,8 @@
    "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "2.3%",
     "polymarket": null,
     "kalshi": null
    },
@@ -857,8 +861,8 @@
    "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "3.4%",
     "polymarket": null,
     "kalshi": null
    },
