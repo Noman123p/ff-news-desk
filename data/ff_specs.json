@@ -1149,19 +1149,26 @@
   },
   "208": {
    "title": "CB Consumer Confidence",
-   "fetched_at": "2026-10-18T04:26:03Z",
+   "fetched_at": "2026-11-17T04:27:47Z",
    "specs": {
     "Source": "The Conference Board Inc. ( latest release )",
     "Measures": "Level of a composite index based on surveyed households",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, on the last Tuesday of the current month",
-    "Next Release": "Nov 24, 2026",
+    "Next Release": "Dec 22, 2026",
     "Why Traders Care": "Financial confidence is a leading indicator of consumer spending, which accounts for a majority of overall economic activity",
     "Derived Via": "Survey of about 3,000 households which asks respondents to rate the relative level of current and future economic conditions including labor availability, business conditions, and overall economic situation",
     "Acro Expand": "The Conference Board (CB)"
    },
    "source_url": "https://www.conference-board.org/",
    "history": [
+    {
+     "date": "Oct 27, 2026",
+     "actual": "91.7",
+     "forecast": "81.2",
+     "previous": "81.9",
+     "abw": 1
+    },
     {
      "date": "Sep 29, 2026",
      "actual": "81.9",
@@ -1189,13 +1196,6 @@
      "forecast": "94.4",
      "previous": "93.1",
      "abw": 2
-    },
-    {
-     "date": "May 26, 2026",
-     "actual": "93.1",
-     "forecast": "91.9",
-     "previous": "92.8",
-     "abw": 1
     }
    ]
   },
@@ -1466,19 +1466,26 @@
   },
   "85": {
    "title": "Core PCE Price Index m/m",
-   "fetched_at": "2026-10-18T04:26:03Z",
+   "fetched_at": "2026-11-17T04:27:47Z",
    "specs": {
     "Source": "Bureau of Economic Analysis ( latest release )",
     "Measures": "Change in the price of goods and services purchased by consumers, excluding food and energy",
     "Usual Effect": "'Actual' greater than 'Forecast' is good for currency",
     "Frequency": "Released monthly, about 29 days after the month ends",
-    "Next Release": "Nov 25, 2026",
+    "Next Release": "Dec 23, 2026",
     "FF Notes": "Differs from Core CPI in that it only measures goods and services targeted towards and consumed by individuals. Prices are weighted according to total expenditure per item which gives important insights into consumer spending behavior. CPI is released about 10 days earlier and tends to garner most of the attention",
     "Why Traders Care": "It's the Federal Reserve's primary inflation measure. Inflation is important to currency valuation because rising prices lead the central bank to raise interest rates out of respect for their inflation containment mandate",
     "Acro Expand": "Personal Consumption Expenditures (PCE), Consumer Price Index (CPI)"
    },
    "source_url": "https://www.bea.gov/",
    "history": [
+    {
+     "date": "Oct 29, 2026",
+     "actual": "0.3%",
+     "forecast": "0.3%",
+     "previous": "0.2%",
+     "abw": 0
+    },
     {
      "date": "Sep 30, 2026",
      "actual": "0.2%",
@@ -1506,13 +1513,6 @@
      "forecast": "0.3%",
      "previous": "0.2%",
      "abw": 0
-    },
-    {
-     "date": "May 28, 2026",
-     "actual": "0.2%",
-     "forecast": "0.3%",
-     "previous": "0.3%",
-     "abw": 2
     }
    ]
   },
@@ -1980,5 +1980,5 @@
    ]
   }
  },
- "generated_at": "2026-11-15T07:43:40Z"
+ "generated_at": "2026-11-17T04:27:47Z"
 }
