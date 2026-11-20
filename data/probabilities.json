@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T18:59:02Z",
+ "generated_at": "2026-11-20T01:45:36Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -18,37 +18,37 @@
     "title": "Fed Decision in December?",
     "url": "https://polymarket.com/event/fed-decision-in-december-20260729232808632",
     "closes_utc": "2026-12-10T04:59:00Z",
-    "volume_usd": 42460362,
+    "volume_usd": 43590600,
     "outcomes": [
      {
       "label": "25 bps increase",
-      "prob": 91.5,
+      "prob": 92.5,
       "interval": null,
-      "volume": 10076299
+      "volume": 10173306
      },
      {
       "label": "50+ bps increase",
-      "prob": 6.0,
+      "prob": 4.5,
       "interval": null,
-      "volume": 7834668
+      "volume": 7994614
      },
      {
       "label": "No change",
       "prob": 2.9,
       "interval": null,
-      "volume": 10680570
+      "volume": 11377947
      },
      {
       "label": "25 bps decrease",
-      "prob": 0.4,
+      "prob": 0.3,
       "interval": null,
-      "volume": 6644703
+      "volume": 6736358
      },
      {
       "label": "50+ bps decrease",
       "prob": 0.1,
       "interval": null,
-      "volume": 7224122
+      "volume": 7308374
      }
     ],
     "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা (পরবর্তী FOMC মিটিং)"
@@ -69,7 +69,7 @@
      },
      {
       "label": "Hike >25bps",
-      "prob": 6.5,
+      "prob": 5.5,
       "interval": null
      },
      {
@@ -107,7 +107,7 @@
      },
      {
       "label": "Hike >25bps",
-      "prob": 6.5,
+      "prob": 5.5,
       "interval": null
      },
      {
@@ -126,9 +126,9 @@
    "most_likely": {
     "polymarket": {
      "label": "25 bps increase",
-     "prob": 91.5,
+     "prob": 92.5,
      "interval": null,
-     "volume": 10076299
+     "volume": 10173306
     },
     "kalshi": {
      "label": "Hike 25bps",
@@ -138,9 +138,9 @@
    },
    "fed_view": {
     "polymarket": {
-     "hike": 96.6,
+     "hike": 96.7,
      "hold": 2.9,
-     "cut": 0.5
+     "cut": 0.4
     },
     "kalshi": {
      "hike": 95.6,
@@ -354,7 +354,7 @@
      },
      {
       "label": ">0.1% ও ≤0.2%",
-      "prob": 5.0,
+      "prob": 3.5,
       "interval": [
        0.1,
        0.2
@@ -363,7 +363,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 87.0,
+      "prob": 88.5,
       "interval": [
        0.2,
        0.3
@@ -402,7 +402,7 @@
      },
      {
       "strike": 0.2,
-      "prob_above": 90.5,
+      "prob_above": 92.0,
       "inclusive": false
      },
      {
@@ -427,15 +427,15 @@
     "polymarket": null,
     "kalshi": {
      "above": 3.5,
-     "inline": 87.0,
-     "below": 9.5
+     "inline": 88.5,
+     "below": 8.0
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
      "label": ">0.2% ও ≤0.3%",
-     "prob": 87.0,
+     "prob": 88.5,
      "interval": [
       0.2,
       0.3
@@ -539,7 +539,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 5.0,
+      "prob": 4.5,
       "interval": [
        185000.0,
        190000.0
@@ -548,7 +548,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 11.0,
+      "prob": 12.5,
       "interval": [
        190000.0,
        195000.0
@@ -557,7 +557,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 27.0,
+      "prob": 26.0,
       "interval": [
        195000.0,
        200000.0
@@ -566,7 +566,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 22.5,
+      "prob": 23.5,
       "interval": [
        200000.0,
        205000.0
@@ -575,7 +575,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 17.5,
+      "prob": 16.5,
       "interval": [
        205000.0,
        210000.0
@@ -584,7 +584,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 5.0,
+      "prob": 6.0,
       "interval": [
        210000.0,
        215000.0
@@ -593,7 +593,7 @@
      },
      {
       "label": "≥215K ও <220K",
-      "prob": 2.0,
+      "prob": 1.5,
       "interval": [
        215000.0,
        220000.0
@@ -611,7 +611,7 @@
      },
      {
       "label": "≥ 225K",
-      "prob": 2.5,
+      "prob": 2.0,
       "interval": [
        225000.0,
        null
@@ -637,12 +637,12 @@
      },
      {
       "strike": 190000.0,
-      "prob_above": 88.0,
+      "prob_above": 88.5,
       "inclusive": true
      },
      {
       "strike": 195000.0,
-      "prob_above": 77.0,
+      "prob_above": 76.0,
       "inclusive": true
      },
      {
@@ -652,7 +652,7 @@
      },
      {
       "strike": 205000.0,
-      "prob_above": 27.5,
+      "prob_above": 26.5,
       "inclusive": true
      },
      {
@@ -662,17 +662,17 @@
      },
      {
       "strike": 215000.0,
-      "prob_above": 5.0,
+      "prob_above": 4.0,
       "inclusive": true
      },
      {
       "strike": 220000.0,
-      "prob_above": 3.0,
+      "prob_above": 2.5,
       "inclusive": true
      },
      {
       "strike": 225000.0,
-      "prob_above": 2.5,
+      "prob_above": 2.0,
       "inclusive": true
      }
     ],
@@ -682,16 +682,20 @@
    "kalshi_note": null,
    "fedwatch": null,
    "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
+    "ref": "previous",
+    "ref_value": "203K",
     "polymarket": null,
-    "kalshi": null
+    "kalshi": {
+     "above": 26.5,
+     "inline": 23.5,
+     "below": 50.0
+    }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
      "label": "≥195K ও <200K",
-     "prob": 27.0,
+     "prob": 26.0,
      "interval": [
       195000.0,
       200000.0
