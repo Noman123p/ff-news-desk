@@ -1,59 +1,11 @@
 {
- "generated_at": "2026-11-21T08:10:24Z",
+ "generated_at": "2026-11-21T17:26:49Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
   "cme_fedwatch": null
  },
  "by_event": {
-  "12a8133906fe": {
-   "event_id": "12a8133906fe",
-   "title": "Philly Fed Manufacturing Index",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-11-19T13:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "20.6",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "90699aca1553": {
-   "event_id": "90699aca1553",
-   "title": "Unemployment Claims",
-   "category": "claims",
-   "category_bn": "সাপ্তাহিক বেকার ভাতা আবেদন",
-   "usd_dir": -1,
-   "time_utc": "2026-11-19T13:30:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "198K",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
   "d79171fa9319": {
    "event_id": "d79171fa9319",
    "title": "Revised UoM Consumer Sentiment",
@@ -244,7 +196,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 86.5,
+      "prob": 88.0,
       "interval": [
        0.2,
        0.3
@@ -253,7 +205,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 6.5,
+      "prob": 5.0,
       "interval": [
        0.3,
        0.4
@@ -288,7 +240,7 @@
      },
      {
       "strike": 0.3,
-      "prob_above": 7.0,
+      "prob_above": 5.5,
       "inclusive": false
      },
      {
@@ -307,8 +259,8 @@
     "ref_value": "0.3%",
     "polymarket": null,
     "kalshi": {
-     "above": 7.0,
-     "inline": 86.5,
+     "above": 5.5,
+     "inline": 88.0,
      "below": 6.5
     }
    },
@@ -316,7 +268,7 @@
     "polymarket": null,
     "kalshi": {
      "label": ">0.2% ও ≤0.3%",
-     "prob": 86.5,
+     "prob": 88.0,
      "interval": [
       0.2,
       0.3
@@ -393,7 +345,7 @@
     "outcomes": [
      {
       "label": "< 175K",
-      "prob": 5.0,
+      "prob": 0.5,
       "interval": [
        null,
        175000.0
@@ -402,7 +354,7 @@
      },
      {
       "label": "≥175K ও <180K",
-      "prob": 1.0,
+      "prob": 4.0,
       "interval": [
        175000.0,
        180000.0
@@ -411,7 +363,7 @@
      },
      {
       "label": "≥180K ও <185K",
-      "prob": 1.0,
+      "prob": 2.0,
       "interval": [
        180000.0,
        185000.0
@@ -420,7 +372,7 @@
      },
      {
       "label": "≥185K ও <190K",
-      "prob": 4.5,
+      "prob": 5.0,
       "interval": [
        185000.0,
        190000.0
@@ -447,7 +399,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 21.0,
+      "prob": 20.5,
       "interval": [
        200000.0,
        205000.0
@@ -465,7 +417,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 4.0,
+      "prob": 4.5,
       "interval": [
        210000.0,
        215000.0
@@ -503,17 +455,17 @@
     "thresholds": [
      {
       "strike": 175000.0,
-      "prob_above": 95.0,
+      "prob_above": 99.5,
       "inclusive": true
      },
      {
       "strike": 180000.0,
-      "prob_above": 94.0,
+      "prob_above": 95.5,
       "inclusive": true
      },
      {
       "strike": 185000.0,
-      "prob_above": 93.0,
+      "prob_above": 93.5,
       "inclusive": true
      },
      {
@@ -533,12 +485,12 @@
      },
      {
       "strike": 205000.0,
-      "prob_above": 28.0,
+      "prob_above": 28.5,
       "inclusive": true
      },
      {
       "strike": 210000.0,
-      "prob_above": 9.5,
+      "prob_above": 10.0,
       "inclusive": true
      },
      {
@@ -567,8 +519,8 @@
     "ref_value": "201K",
     "polymarket": null,
     "kalshi": {
-     "above": 28.0,
-     "inline": 21.0,
+     "above": 28.5,
+     "inline": 20.5,
      "below": 51.0
     }
    },
