@@ -1,83 +1,11 @@
 {
- "generated_at": "2026-11-21T17:26:49Z",
+ "generated_at": "2026-11-22T06:39:44Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
   "cme_fedwatch": null
  },
  "by_event": {
-  "d79171fa9319": {
-   "event_id": "d79171fa9319",
-   "title": "Revised UoM Consumer Sentiment",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-11-20T15:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "51.7",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "e77266fb3eef": {
-   "event_id": "e77266fb3eef",
-   "title": "Revised UoM Inflation Expectations",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-11-20T15:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "previous",
-    "ref_value": "4.3%",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
-  "0c508a1f5d0f": {
-   "event_id": "0c508a1f5d0f",
-   "title": "President Trump Speaks",
-   "category": "speech",
-   "category_bn": "বক্তব্য",
-   "usd_dir": 0,
-   "time_utc": "2026-11-20T17:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": null,
-    "ref_value": null,
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
   "a73acfe344e4": {
    "event_id": "a73acfe344e4",
    "title": "Flash Manufacturing PMI",
@@ -196,7 +124,7 @@
      },
      {
       "label": ">0.2% ও ≤0.3%",
-      "prob": 88.0,
+      "prob": 89.0,
       "interval": [
        0.2,
        0.3
@@ -205,7 +133,7 @@
      },
      {
       "label": ">0.3% ও ≤0.4%",
-      "prob": 5.0,
+      "prob": 4.0,
       "interval": [
        0.3,
        0.4
@@ -240,7 +168,7 @@
      },
      {
       "strike": 0.3,
-      "prob_above": 5.5,
+      "prob_above": 4.5,
       "inclusive": false
      },
      {
@@ -259,8 +187,8 @@
     "ref_value": "0.3%",
     "polymarket": null,
     "kalshi": {
-     "above": 5.5,
-     "inline": 88.0,
+     "above": 4.5,
+     "inline": 89.0,
      "below": 6.5
     }
    },
@@ -268,7 +196,7 @@
     "polymarket": null,
     "kalshi": {
      "label": ">0.2% ও ≤0.3%",
-     "prob": 88.0,
+     "prob": 89.0,
      "interval": [
       0.2,
       0.3
@@ -381,7 +309,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 13.0,
+      "prob": 12.0,
       "interval": [
        190000.0,
        195000.0
@@ -390,7 +318,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 26.5,
+      "prob": 22.0,
       "interval": [
        195000.0,
        200000.0
@@ -399,7 +327,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 20.5,
+      "prob": 25.5,
       "interval": [
        200000.0,
        205000.0
@@ -408,7 +336,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 18.5,
+      "prob": 19.0,
       "interval": [
        205000.0,
        210000.0
@@ -475,17 +403,17 @@
      },
      {
       "strike": 195000.0,
-      "prob_above": 75.5,
+      "prob_above": 76.5,
       "inclusive": true
      },
      {
       "strike": 200000.0,
-      "prob_above": 49.0,
+      "prob_above": 54.5,
       "inclusive": true
      },
      {
       "strike": 205000.0,
-      "prob_above": 28.5,
+      "prob_above": 29.0,
       "inclusive": true
      },
      {
@@ -519,22 +447,1020 @@
     "ref_value": "201K",
     "polymarket": null,
     "kalshi": {
-     "above": 28.5,
-     "inline": 20.5,
-     "below": 51.0
+     "above": 29.0,
+     "inline": 25.5,
+     "below": 45.5
     }
    },
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥195K ও <200K",
-     "prob": 26.5,
+     "label": "≥200K ও <205K",
+     "prob": 25.5,
      "interval": [
-      195000.0,
-      200000.0
+      200000.0,
+      205000.0
      ],
      "open": "hi"
     }
+   },
+   "fed_view": null
+  },
+  "a49589de57c9": {
+   "event_id": "a49589de57c9",
+   "title": "ISM Manufacturing PMI",
+   "category": "ism_mfg",
+   "category_bn": "ISM ম্যানুফ্যাকচারিং",
+   "usd_dir": 1,
+   "time_utc": "2026-12-01T15:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": {
+    "source": "Kalshi",
+    "title": "ISM Manufacturing PMI in November",
+    "url": "https://kalshi.com/markets/kxismpmi",
+    "event_ticker": "KXISMPMI-26NOV",
+    "closes_utc": "2026-12-01T14:59:00Z",
+    "kind": "thresholds",
+    "outcomes": [
+     {
+      "label": "< 52",
+      "prob": 3.5,
+      "interval": [
+       null,
+       52.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥52 ও <53",
+      "prob": 3.5,
+      "interval": [
+       52.0,
+       53.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥53 ও <54",
+      "prob": 5.5,
+      "interval": [
+       53.0,
+       54.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥54 ও <55",
+      "prob": 27.5,
+      "interval": [
+       54.0,
+       55.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥55 ও <56",
+      "prob": 26.5,
+      "interval": [
+       55.0,
+       56.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥56 ও <57",
+      "prob": 18.0,
+      "interval": [
+       56.0,
+       57.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥57 ও <58",
+      "prob": 7.5,
+      "interval": [
+       57.0,
+       58.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥58 ও <59",
+      "prob": 5.5,
+      "interval": [
+       58.0,
+       59.0
+      ],
+      "open": "hi"
+     },
+     {
+      "label": "≥ 59",
+      "prob": 2.5,
+      "interval": [
+       59.0,
+       null
+      ],
+      "open": "hi"
+     }
+    ],
+    "thresholds": [
+     {
+      "strike": 52.0,
+      "prob_above": 96.5,
+      "inclusive": true
+     },
+     {
+      "strike": 53.0,
+      "prob_above": 93.0,
+      "inclusive": true
+     },
+     {
+      "strike": 54.0,
+      "prob_above": 87.5,
+      "inclusive": true
+     },
+     {
+      "strike": 55.0,
+      "prob_above": 60.0,
+      "inclusive": true
+     },
+     {
+      "strike": 56.0,
+      "prob_above": 33.5,
+      "inclusive": true
+     },
+     {
+      "strike": 57.0,
+      "prob_above": 15.5,
+      "inclusive": true
+     },
+     {
+      "strike": 58.0,
+      "prob_above": 8.0,
+      "inclusive": true
+     },
+     {
+      "strike": 59.0,
+      "prob_above": 2.5,
+      "inclusive": true
+     }
+    ],
+    "low_liquidity": false,
+    "note": "bid/ask মাঝামাঝি দাম (স্প্রেড বড় হলে শেষ ট্রেড)"
+   },
+   "kalshi_note": null,
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": {
+     "label": "≥54 ও <55",
+     "prob": 27.5,
+     "interval": [
+      54.0,
+      55.0
+     ],
+     "open": "hi"
+    }
+   },
+   "fed_view": null
+  },
+  "d4483d1581ab": {
+   "event_id": "d4483d1581ab",
+   "title": "JOLTS Job Openings",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-12-01T15:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "4d05c931e73a": {
+   "event_id": "4d05c931e73a",
+   "title": "Unemployment Claims",
+   "category": "claims",
+   "category_bn": "সাপ্তাহিক বেকার ভাতা আবেদন",
+   "usd_dir": -1,
+   "time_utc": "2026-12-03T13:30:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই রিলিজের তারিখের সাথে মেলে এমন Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "1ebb0dd45755": {
+   "event_id": "1ebb0dd45755",
+   "title": "ISM Services PMI",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-12-03T15:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "1b891c111a84": {
+   "event_id": "1b891c111a84",
+   "title": "Average Hourly Earnings m/m",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-12-04T13:30:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "6abeb295b156": {
+   "event_id": "6abeb295b156",
+   "title": "Non-Farm Employment Change",
+   "category": "nfp",
+   "category_bn": "নন-ফার্ম পেরোল (চাকরি)",
+   "usd_dir": 1,
+   "time_utc": "2026-12-04T13:30:00Z",
+   "polymarket": {
+    "source": "Polymarket",
+    "title": "How many jobs added in November?",
+    "url": "https://polymarket.com/event/how-many-jobs-added-in-november-2026",
+    "closes_utc": "2026-12-04T13:30:00Z",
+    "volume_usd": 8253,
+    "outcomes": [
+     {
+      "label": "<25k",
+      "prob": 11.0,
+      "interval": [
+       null,
+       25000.0
+      ],
+      "volume": 967
+     },
+     {
+      "label": "25k to 50k",
+      "prob": 5.2,
+      "interval": [
+       25000.0,
+       50000.0
+      ],
+      "volume": 589
+     },
+     {
+      "label": "50k to 75k",
+      "prob": 7.5,
+      "interval": [
+       50000.0,
+       75000.0
+      ],
+      "volume": 344
+     },
+     {
+      "label": "75k to 100k",
+      "prob": 21.0,
+      "interval": [
+       75000.0,
+       100000.0
+      ],
+      "volume": 2850
+     },
+     {
+      "label": "100k to 125k",
+      "prob": 15.5,
+      "interval": [
+       100000.0,
+       125000.0
+      ],
+      "volume": 1728
+     },
+     {
+      "label": "125k to 150k",
+      "prob": 22.0,
+      "interval": [
+       125000.0,
+       150000.0
+      ],
+      "volume": 867
+     },
+     {
+      "label": "150k+",
+      "prob": 18.0,
+      "interval": [
+       150000.0,
+       null
+      ],
+      "volume": 909
+     }
+    ],
+    "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
+   },
+   "polymarket_note": null,
+   "kalshi": {
+    "source": "Kalshi",
+    "title": "Jobs numbers in Nov 2026?",
+    "url": "https://kalshi.com/markets/kxpayrolls",
+    "event_ticker": "KXPAYROLLS-26NOV",
+    "closes_utc": "2026-12-04T13:29:00Z",
+    "kind": "thresholds",
+    "outcomes": [
+     {
+      "label": "≤ -25K",
+      "prob": 4.5,
+      "interval": [
+       null,
+       -25000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">-25K ও ≤0K",
+      "prob": 1.0,
+      "interval": [
+       -25000.0,
+       0.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">0K ও ≤10K",
+      "prob": 4.5,
+      "interval": [
+       0.0,
+       10000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">10K ও ≤20K",
+      "prob": 2.5,
+      "interval": [
+       10000.0,
+       20000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">20K ও ≤30K",
+      "prob": 4.0,
+      "interval": [
+       20000.0,
+       30000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">30K ও ≤40K",
+      "prob": 4.0,
+      "interval": [
+       30000.0,
+       40000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">40K ও ≤50K",
+      "prob": 2.5,
+      "interval": [
+       40000.0,
+       50000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">50K ও ≤60K",
+      "prob": 4.5,
+      "interval": [
+       50000.0,
+       60000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">60K ও ≤70K",
+      "prob": 7.0,
+      "interval": [
+       60000.0,
+       70000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">70K ও ≤80K",
+      "prob": 6.0,
+      "interval": [
+       70000.0,
+       80000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">80K ও ≤90K",
+      "prob": 9.0,
+      "interval": [
+       80000.0,
+       90000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">90K ও ≤100K",
+      "prob": 8.5,
+      "interval": [
+       90000.0,
+       100000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">100K ও ≤125K",
+      "prob": 9.0,
+      "interval": [
+       100000.0,
+       125000.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": "> 125K",
+      "prob": 33.0,
+      "interval": [
+       125000.0,
+       null
+      ],
+      "open": "lo"
+     }
+    ],
+    "thresholds": [
+     {
+      "strike": -25000.0,
+      "prob_above": 95.5,
+      "inclusive": false
+     },
+     {
+      "strike": 0.0,
+      "prob_above": 94.5,
+      "inclusive": false
+     },
+     {
+      "strike": 10000.0,
+      "prob_above": 90.0,
+      "inclusive": false
+     },
+     {
+      "strike": 20000.0,
+      "prob_above": 87.5,
+      "inclusive": false
+     },
+     {
+      "strike": 30000.0,
+      "prob_above": 83.5,
+      "inclusive": false
+     },
+     {
+      "strike": 40000.0,
+      "prob_above": 79.5,
+      "inclusive": false
+     },
+     {
+      "strike": 50000.0,
+      "prob_above": 77.0,
+      "inclusive": false
+     },
+     {
+      "strike": 60000.0,
+      "prob_above": 72.5,
+      "inclusive": false
+     },
+     {
+      "strike": 70000.0,
+      "prob_above": 65.5,
+      "inclusive": false
+     },
+     {
+      "strike": 80000.0,
+      "prob_above": 59.5,
+      "inclusive": false
+     },
+     {
+      "strike": 90000.0,
+      "prob_above": 50.5,
+      "inclusive": false
+     },
+     {
+      "strike": 100000.0,
+      "prob_above": 42.0,
+      "inclusive": false
+     },
+     {
+      "strike": 125000.0,
+      "prob_above": 33.0,
+      "inclusive": false
+     }
+    ],
+    "low_liquidity": false,
+    "note": "bid/ask মাঝামাঝি দাম (স্প্রেড বড় হলে শেষ ট্রেড)"
+   },
+   "kalshi_note": null,
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": {
+     "label": "125k to 150k",
+     "prob": 22.0,
+     "interval": [
+      125000.0,
+      150000.0
+     ],
+     "volume": 867
+    },
+    "kalshi": {
+     "label": "> 125K",
+     "prob": 33.0,
+     "interval": [
+      125000.0,
+      null
+     ],
+     "open": "lo"
+    }
+   },
+   "fed_view": null
+  },
+  "69d782aaf164": {
+   "event_id": "69d782aaf164",
+   "title": "Unemployment Rate",
+   "category": "unemployment",
+   "category_bn": "বেকারত্বের হার",
+   "usd_dir": -1,
+   "time_utc": "2026-12-04T13:30:00Z",
+   "polymarket": {
+    "source": "Polymarket",
+    "title": "November Unemployment Rate",
+    "url": "https://polymarket.com/event/november-unemployment-rate-2026",
+    "closes_utc": "2026-12-04T13:30:00Z",
+    "volume_usd": 14970,
+    "outcomes": [
+     {
+      "label": "≤3.8%",
+      "prob": 0.9,
+      "interval": [
+       null,
+       3.8
+      ],
+      "volume": 353
+     },
+     {
+      "label": "3.9%",
+      "prob": 5.0,
+      "interval": [
+       3.9,
+       3.9
+      ],
+      "volume": 1881
+     },
+     {
+      "label": "4.0%",
+      "prob": 16.5,
+      "interval": [
+       4.0,
+       4.0
+      ],
+      "volume": 2758
+     },
+     {
+      "label": "4.1%",
+      "prob": 35.5,
+      "interval": [
+       4.1,
+       4.1
+      ],
+      "volume": 6261
+     },
+     {
+      "label": "4.2%",
+      "prob": 31.0,
+      "interval": [
+       4.2,
+       4.2
+      ],
+      "volume": 1149
+     },
+     {
+      "label": "4.3%",
+      "prob": 9.5,
+      "interval": [
+       4.3,
+       4.3
+      ],
+      "volume": 1474
+     },
+     {
+      "label": "4.4%",
+      "prob": 0.7,
+      "interval": [
+       4.4,
+       4.4
+      ],
+      "volume": 373
+     },
+     {
+      "label": "4.5%",
+      "prob": 0.5,
+      "interval": [
+       4.5,
+       4.5
+      ],
+      "volume": 320
+     },
+     {
+      "label": "≥4.6%",
+      "prob": 0.6,
+      "interval": [
+       4.6,
+       null
+      ],
+      "volume": 401
+     }
+    ],
+    "note": "Yes-দাম = বাজারের আনুমানিক সম্ভাবনা"
+   },
+   "polymarket_note": null,
+   "kalshi": {
+    "source": "Kalshi",
+    "title": "Unemployment in November",
+    "url": "https://kalshi.com/markets/kxu3",
+    "event_ticker": "KXU3-26NOV",
+    "closes_utc": "2026-12-04T13:29:00Z",
+    "kind": "thresholds",
+    "outcomes": [
+     {
+      "label": "≤ 3.7%",
+      "prob": 1.0,
+      "interval": [
+       null,
+       3.7
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">3.7% ও ≤3.8%",
+      "prob": 0.0,
+      "interval": [
+       3.7,
+       3.8
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">3.8% ও ≤3.9%",
+      "prob": 3.0,
+      "interval": [
+       3.8,
+       3.9
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">3.9% ও ≤4%",
+      "prob": 15.5,
+      "interval": [
+       3.9,
+       4.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4% ও ≤4.1%",
+      "prob": 34.5,
+      "interval": [
+       4.0,
+       4.1
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.1% ও ≤4.2%",
+      "prob": 34.5,
+      "interval": [
+       4.1,
+       4.2
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.2% ও ≤4.3%",
+      "prob": 9.0,
+      "interval": [
+       4.2,
+       4.3
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.3% ও ≤4.4%",
+      "prob": 1.0,
+      "interval": [
+       4.3,
+       4.4
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.4% ও ≤4.5%",
+      "prob": 0.0,
+      "interval": [
+       4.4,
+       4.5
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.5% ও ≤4.6%",
+      "prob": 0.0,
+      "interval": [
+       4.5,
+       4.6
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.6% ও ≤4.7%",
+      "prob": 0.0,
+      "interval": [
+       4.6,
+       4.7
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.7% ও ≤4.8%",
+      "prob": 0.0,
+      "interval": [
+       4.7,
+       4.8
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.8% ও ≤4.9%",
+      "prob": 1.0,
+      "interval": [
+       4.8,
+       4.9
+      ],
+      "open": "lo"
+     },
+     {
+      "label": ">4.9% ও ≤5%",
+      "prob": 0.0,
+      "interval": [
+       4.9,
+       5.0
+      ],
+      "open": "lo"
+     },
+     {
+      "label": "> 5%",
+      "prob": 0.5,
+      "interval": [
+       5.0,
+       null
+      ],
+      "open": "lo"
+     }
+    ],
+    "thresholds": [
+     {
+      "strike": 3.7,
+      "prob_above": 99.0,
+      "inclusive": false
+     },
+     {
+      "strike": 3.8,
+      "prob_above": 99.0,
+      "inclusive": false
+     },
+     {
+      "strike": 3.9,
+      "prob_above": 96.0,
+      "inclusive": false
+     },
+     {
+      "strike": 4.0,
+      "prob_above": 80.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.1,
+      "prob_above": 46.0,
+      "inclusive": false
+     },
+     {
+      "strike": 4.2,
+      "prob_above": 11.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.3,
+      "prob_above": 2.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.4,
+      "prob_above": 1.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.5,
+      "prob_above": 1.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.6,
+      "prob_above": 1.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.7,
+      "prob_above": 1.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.8,
+      "prob_above": 1.5,
+      "inclusive": false
+     },
+     {
+      "strike": 4.9,
+      "prob_above": 0.5,
+      "inclusive": false
+     },
+     {
+      "strike": 5.0,
+      "prob_above": 0.5,
+      "inclusive": false
+     }
+    ],
+    "low_liquidity": false,
+    "note": "bid/ask মাঝামাঝি দাম (স্প্রেড বড় হলে শেষ ট্রেড)"
+   },
+   "kalshi_note": null,
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": {
+     "label": "4.1%",
+     "prob": 35.5,
+     "interval": [
+      4.1,
+      4.1
+     ],
+     "volume": 6261
+    },
+    "kalshi": {
+     "label": ">4% ও ≤4.1%",
+     "prob": 34.5,
+     "interval": [
+      4.0,
+      4.1
+     ],
+     "open": "lo"
+    }
+   },
+   "fed_view": null
+  },
+  "476415275754": {
+   "event_id": "476415275754",
+   "title": "Prelim UoM Consumer Sentiment",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-12-04T15:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "60750951b61b": {
+   "event_id": "60750951b61b",
+   "title": "Prelim UoM Inflation Expectations",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-12-04T15:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
+   },
+   "fed_view": null
+  },
+  "8241da0c5495": {
+   "event_id": "8241da0c5495",
+   "title": "Treasury Currency Report",
+   "category": "other",
+   "category_bn": "অর্থনৈতিক ডেটা",
+   "usd_dir": 1,
+   "time_utc": "2026-12-04T21:00:00Z",
+   "polymarket": null,
+   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
+   "kalshi": null,
+   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
+   "fedwatch": null,
+   "vs_forecast": {
+    "ref": null,
+    "ref_value": null,
+    "polymarket": null,
+    "kalshi": null
+   },
+   "most_likely": {
+    "polymarket": null,
+    "kalshi": null
    },
    "fed_view": null
   }
