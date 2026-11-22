@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T06:39:44Z",
+ "generated_at": "2026-11-22T07:54:46Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -363,7 +363,7 @@
      },
      {
       "label": "≥220K ও <225K",
-      "prob": 0.5,
+      "prob": 0.0,
       "interval": [
        220000.0,
        225000.0
@@ -372,7 +372,7 @@
      },
      {
       "label": "≥ 225K",
-      "prob": 2.0,
+      "prob": 2.5,
       "interval": [
        225000.0,
        null
@@ -433,7 +433,7 @@
      },
      {
       "strike": 225000.0,
-      "prob_above": 2.0,
+      "prob_above": 2.5,
       "inclusive": true
      }
     ],
@@ -512,7 +512,7 @@
      },
      {
       "label": "≥54 ও <55",
-      "prob": 27.5,
+      "prob": 26.0,
       "interval": [
        54.0,
        55.0
@@ -521,7 +521,7 @@
      },
      {
       "label": "≥55 ও <56",
-      "prob": 26.5,
+      "prob": 28.0,
       "interval": [
        55.0,
        56.0
@@ -583,7 +583,7 @@
      },
      {
       "strike": 55.0,
-      "prob_above": 60.0,
+      "prob_above": 61.5,
       "inclusive": true
      },
      {
@@ -621,11 +621,11 @@
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥54 ও <55",
-     "prob": 27.5,
+     "label": "≥55 ও <56",
+     "prob": 28.0,
      "interval": [
-      54.0,
-      55.0
+      55.0,
+      56.0
      ],
      "open": "hi"
     }
@@ -744,7 +744,7 @@
     "outcomes": [
      {
       "label": "<25k",
-      "prob": 11.0,
+      "prob": 14.5,
       "interval": [
        null,
        25000.0
@@ -762,7 +762,7 @@
      },
      {
       "label": "50k to 75k",
-      "prob": 7.5,
+      "prob": 13.0,
       "interval": [
        50000.0,
        75000.0
@@ -789,7 +789,7 @@
      },
      {
       "label": "125k to 150k",
-      "prob": 22.0,
+      "prob": 13.5,
       "interval": [
        125000.0,
        150000.0
@@ -1024,13 +1024,13 @@
    },
    "most_likely": {
     "polymarket": {
-     "label": "125k to 150k",
-     "prob": 22.0,
+     "label": "75k to 100k",
+     "prob": 21.0,
      "interval": [
-      125000.0,
-      150000.0
+      75000.0,
+      100000.0
      ],
-     "volume": 867
+     "volume": 2850
     },
     "kalshi": {
      "label": "> 125K",
