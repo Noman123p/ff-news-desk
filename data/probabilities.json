@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T16:13:40Z",
+ "generated_at": "2026-11-22T21:44:56Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
@@ -336,7 +336,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 17.0,
+      "prob": 16.5,
       "interval": [
        205000.0,
        210000.0
@@ -345,7 +345,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 4.0,
+      "prob": 4.5,
       "interval": [
        210000.0,
        215000.0
@@ -418,7 +418,7 @@
      },
      {
       "strike": 210000.0,
-      "prob_above": 9.5,
+      "prob_above": 10.0,
       "inclusive": true
      },
      {
@@ -512,7 +512,7 @@
      },
      {
       "label": "≥54 ও <55",
-      "prob": 26.5,
+      "prob": 28.0,
       "interval": [
        54.0,
        55.0
@@ -521,7 +521,7 @@
      },
      {
       "label": "≥55 ও <56",
-      "prob": 28.0,
+      "prob": 26.5,
       "interval": [
        55.0,
        56.0
@@ -583,7 +583,7 @@
      },
      {
       "strike": 55.0,
-      "prob_above": 61.5,
+      "prob_above": 60.0,
       "inclusive": true
      },
      {
@@ -621,11 +621,11 @@
    "most_likely": {
     "polymarket": null,
     "kalshi": {
-     "label": "≥55 ও <56",
+     "label": "≥54 ও <55",
      "prob": 28.0,
      "interval": [
-      55.0,
-      56.0
+      54.0,
+      55.0
      ],
      "open": "hi"
     }
@@ -744,7 +744,7 @@
     "outcomes": [
      {
       "label": "<25k",
-      "prob": 13.0,
+      "prob": 13.5,
       "interval": [
        null,
        25000.0
@@ -753,7 +753,7 @@
      },
      {
       "label": "25k to 50k",
-      "prob": 8.6,
+      "prob": 8.8,
       "interval": [
        25000.0,
        50000.0
@@ -762,7 +762,7 @@
      },
      {
       "label": "50k to 75k",
-      "prob": 8.5,
+      "prob": 12.0,
       "interval": [
        50000.0,
        75000.0
@@ -789,7 +789,7 @@
      },
      {
       "label": "125k to 150k",
-      "prob": 11.5,
+      "prob": 9.5,
       "interval": [
        125000.0,
        150000.0
@@ -798,7 +798,7 @@
      },
      {
       "label": "150k+",
-      "prob": 17.5,
+      "prob": 18.0,
       "interval": [
        150000.0,
        null
@@ -864,7 +864,7 @@
      },
      {
       "label": ">30K ও ≤40K",
-      "prob": 5.0,
+      "prob": 3.5,
       "interval": [
        30000.0,
        40000.0
@@ -873,7 +873,7 @@
      },
      {
       "label": ">40K ও ≤50K",
-      "prob": 2.0,
+      "prob": 3.5,
       "interval": [
        40000.0,
        50000.0
@@ -882,7 +882,7 @@
      },
      {
       "label": ">50K ও ≤60K",
-      "prob": 5.0,
+      "prob": 4.5,
       "interval": [
        50000.0,
        60000.0
@@ -891,7 +891,7 @@
      },
      {
       "label": ">60K ও ≤70K",
-      "prob": 6.0,
+      "prob": 6.5,
       "interval": [
        60000.0,
        70000.0
@@ -972,7 +972,7 @@
      },
      {
       "strike": 40000.0,
-      "prob_above": 79.5,
+      "prob_above": 81.0,
       "inclusive": false
      },
      {
@@ -982,7 +982,7 @@
      },
      {
       "strike": 60000.0,
-      "prob_above": 72.5,
+      "prob_above": 73.0,
       "inclusive": false
      },
      {
@@ -1069,7 +1069,7 @@
      },
      {
       "label": "3.9%",
-      "prob": 5.0,
+      "prob": 5.1,
       "interval": [
        3.9,
        3.9
@@ -1171,7 +1171,7 @@
      },
      {
       "label": ">3.8% ও ≤3.9%",
-      "prob": 3.0,
+      "prob": 2.5,
       "interval": [
        3.8,
        3.9
@@ -1180,7 +1180,7 @@
      },
      {
       "label": ">3.9% ও ≤4%",
-      "prob": 15.5,
+      "prob": 16.0,
       "interval": [
        3.9,
        4.0
@@ -1189,7 +1189,7 @@
      },
      {
       "label": ">4% ও ≤4.1%",
-      "prob": 34.5,
+      "prob": 35.0,
       "interval": [
        4.0,
        4.1
@@ -1198,7 +1198,7 @@
      },
      {
       "label": ">4.1% ও ≤4.2%",
-      "prob": 34.5,
+      "prob": 34.0,
       "interval": [
        4.1,
        4.2
@@ -1300,7 +1300,7 @@
      },
      {
       "strike": 3.9,
-      "prob_above": 96.0,
+      "prob_above": 96.5,
       "inclusive": false
      },
      {
@@ -1310,7 +1310,7 @@
      },
      {
       "strike": 4.1,
-      "prob_above": 46.0,
+      "prob_above": 45.5,
       "inclusive": false
      },
      {
@@ -1382,7 +1382,7 @@
     },
     "kalshi": {
      "label": ">4% ও ≤4.1%",
-     "prob": 34.5,
+     "prob": 35.0,
      "interval": [
       4.0,
       4.1
