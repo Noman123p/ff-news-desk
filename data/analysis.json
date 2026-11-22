@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T07:54:46Z",
+ "generated_at": "2026-11-22T16:13:40Z",
  "today_dhaka": "2026-11-22",
  "order": [
   "a73acfe344e4",
@@ -1030,9 +1030,9 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxpcecore",
      "title": "How much will core PCE increase in Oct 2026?",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-11-25T13:25:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: >0.2% ও ≤0.3% — ৮৯.০%",
+     "headline": "সবচেয়ে সম্ভাব্য: >0.2% ও ≤0.3% — ৯০.৫%",
      "outcomes": [
       {
        "label": "≤ 0%",
@@ -1054,7 +1054,7 @@
       },
       {
        "label": ">0.1% ও ≤0.2%",
-       "prob": 2.0,
+       "prob": 0.5,
        "interval": [
         0.1,
         0.2
@@ -1063,7 +1063,7 @@
       },
       {
        "label": ">0.2% ও ≤0.3%",
-       "prob": 89.0,
+       "prob": 90.5,
        "interval": [
         0.2,
         0.3
@@ -1092,8 +1092,8 @@
      "kind_detail": "thresholds",
      "vs_forecast": {
       "above": 4.5,
-      "inline": 89.0,
-      "below": 6.5
+      "inline": 90.5,
+      "below": 5.0
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -1125,18 +1125,18 @@
     "kind": "data",
     "probs": {
      "above": 4.5,
-     "inline": 89.0,
-     "below": 6.5
+     "inline": 90.5,
+     "below": 5.0
     },
     "top": {
      "key": "inline",
      "label": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি",
-     "pct": 89.0
+     "pct": 90.5
     },
     "second": {
      "key": "below",
      "label": "Forecast-এর চেয়ে কম",
-     "pct": 6.5
+     "pct": 5.0
     },
     "basis": [
      "Kalshi — Forecast 0.3%-এর তুলনায়",
@@ -1158,7 +1158,7 @@
      "pct": 4.5
     },
     "total": 100.0,
-    "summary": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৮৯.০%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে কম ৬.৫%, উল্টো দিক ৪.৫%"
+    "summary": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি সবচেয়ে সম্ভাব্য — ৯০.৫%; সারপ্রাইজ হলে বেশি সম্ভাব্য দিক: Forecast-এর চেয়ে কম ৫.০%, উল্টো দিক ৪.৫%"
    },
    "prediction": {
     "kind": "data",
@@ -1166,15 +1166,15 @@
     "value": 0.3,
     "value_text": "0.3%",
     "compare": "Forecast-এর সমান (0.3%)",
-    "value_prob": 89.0,
+    "value_prob": 90.5,
     "side": "inline",
     "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 0.29%",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 0.3% (৮৯.০%), গড় প্রত্যাশা 0.29%",
+      "text": "সবচেয়ে সম্ভাব্য 0.3% (৯০.৫%), গড় প্রত্যাশা 0.29%",
       "value": 0.3,
-      "ev": 0.289,
+      "ev": 0.291,
       "side": "inline",
       "agree": true
      },
@@ -1200,7 +1200,7 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি’ দিকের (৮৯.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি’ দিকের (৯০.৫%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের সমান",
     "headline": "Core PCE Price Index m/m সম্ভাব্য 0.3% — Forecast-এর সমান (0.3%)",
@@ -1215,7 +1215,7 @@
      "title": "নিউট্রাল — প্রত্যাশার (Forecast) কাছাকাছি (সবচেয়ে সম্ভাব্য)",
      "condition": "Actual Forecast (0.3%)-এর সমান বা খুব কাছাকাছি এলে",
      "usd_bias": "flat",
-     "prob": 89.0,
+     "prob": 90.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -1262,7 +1262,7 @@
      "title": "বেশি সম্ভাব্য দিক (সারপ্রাইজ হলে) — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (0.3%)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "down",
-     "prob": 6.5,
+     "prob": 5.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -2052,7 +2052,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxjoblessclaims",
      "title": "Initial jobless claims for the week ending November 21, 2026",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-11-25T13:29:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: ≥200K ও <205K — ২৫.৫%",
      "outcomes": [
@@ -2067,7 +2067,7 @@
       },
       {
        "label": "≥175K ও <180K",
-       "prob": 4.0,
+       "prob": 3.5,
        "interval": [
         175000.0,
         180000.0
@@ -2076,7 +2076,7 @@
       },
       {
        "label": "≥180K ও <185K",
-       "prob": 2.0,
+       "prob": 2.5,
        "interval": [
         180000.0,
         185000.0
@@ -2103,7 +2103,7 @@
       },
       {
        "label": "≥195K ও <200K",
-       "prob": 22.0,
+       "prob": 24.5,
        "interval": [
         195000.0,
         200000.0
@@ -2121,7 +2121,7 @@
       },
       {
        "label": "≥205K ও <210K",
-       "prob": 19.0,
+       "prob": 17.0,
        "interval": [
         205000.0,
         210000.0
@@ -2130,7 +2130,7 @@
       },
       {
        "label": "≥210K ও <215K",
-       "prob": 4.5,
+       "prob": 4.0,
        "interval": [
         210000.0,
         215000.0
@@ -2148,7 +2148,7 @@
       },
       {
        "label": "≥220K ও <225K",
-       "prob": 0.0,
+       "prob": 0.5,
        "interval": [
         220000.0,
         225000.0
@@ -2157,7 +2157,7 @@
       },
       {
        "label": "≥ 225K",
-       "prob": 2.5,
+       "prob": 2.0,
        "interval": [
         225000.0,
         null
@@ -2167,9 +2167,9 @@
      ],
      "kind_detail": "thresholds",
      "vs_forecast": {
-      "above": 29.0,
+      "above": 26.5,
       "inline": 25.5,
-      "below": 45.5
+      "below": 48.0
      },
      "fed_view": null,
      "low_liquidity": false,
@@ -2187,19 +2187,19 @@
    "verdict": {
     "kind": "data",
     "probs": {
-     "above": 29.0,
+     "above": 26.5,
      "inline": 25.5,
-     "below": 45.5
+     "below": 48.0
     },
     "top": {
      "key": "below",
      "label": "Forecast-এর চেয়ে কম",
-     "pct": 45.5
+     "pct": 48.0
     },
     "second": {
      "key": "above",
      "label": "Forecast-এর চেয়ে বেশি",
-     "pct": 29.0
+     "pct": 26.5
     },
     "basis": [
      "Kalshi — Forecast 201K-এর তুলনায়"
@@ -2219,7 +2219,7 @@
      "pct": 25.5
     },
     "total": 100.0,
-    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৪৫.৫%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ২৯.০%"
+    "summary": "সবচেয়ে সম্ভাব্য: Forecast-এর চেয়ে কম — ৪৮.০%; দ্বিতীয়: Forecast-এর চেয়ে বেশি ২৬.৫%"
    },
    "prediction": {
     "kind": "data",
@@ -2227,15 +2227,15 @@
     "value": 197500.0,
     "value_text": "195K–200K",
     "compare": "Forecast (201K)-এর চেয়ে কম",
-    "value_prob": 22.0,
+    "value_prob": 24.5,
     "side": "below",
-    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 200.3K",
+    "ev_text": "সব মার্কেট মিলিয়ে গড় প্রত্যাশা 200.1K",
     "inputs": [
      {
       "name": "Kalshi",
-      "text": "সবচেয়ে সম্ভাব্য 202K (২৫.৫%), গড় প্রত্যাশা 200.3K",
+      "text": "সবচেয়ে সম্ভাব্য 202K (২৫.৫%), গড় প্রত্যাশা 200.1K",
       "value": 202500.0,
-      "ev": 200320.0,
+      "ev": 200057.5,
       "side": "inline",
       "agree": false
      },
@@ -2254,7 +2254,7 @@
      }
     ],
     "confidence": "নিম্ন",
-    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৪৫.৫%) মধ্যে সবচেয়ে সম্ভাব্য মান",
+    "method": "Kalshi-এর ব্র্যাকেট-সম্ভাবনা মিলিয়ে; ‘Forecast-এর চেয়ে কম’ দিকের (৪৮.০%) মধ্যে সবচেয়ে সম্ভাব্য মান",
     "baseline": "forecast",
     "vs_previous": "আগের মানের (203K) চেয়ে কম",
     "headline": "Unemployment Claims সম্ভাব্য 195K–200K — Forecast (201K)-এর চেয়ে কম",
@@ -2269,7 +2269,7 @@
      "title": "সবচেয়ে সম্ভাব্য রেজাল্ট এলে — USD-এর জন্য Bullish ডেটা",
      "condition": "Actual Forecast (201K)-এর চেয়ে স্পষ্টভাবে কম এলে",
      "usd_bias": "up",
-     "prob": 45.5,
+     "prob": 48.0,
      "prob_note": null,
      "approx": false,
      "is_overall_top": true,
@@ -2315,7 +2315,7 @@
      "title": "উল্টো দিকে গেলে — USD-এর জন্য Bearish ডেটা",
      "condition": "Actual Forecast (201K)-এর চেয়ে স্পষ্টভাবে বেশি এলে",
      "usd_bias": "down",
-     "prob": 29.0,
+     "prob": 26.5,
      "prob_note": null,
      "approx": false,
      "is_overall_top": false,
@@ -2501,7 +2501,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxismpmi",
      "title": "ISM Manufacturing PMI in November",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-12-01T14:59:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: ≥55 ও <56 — ২৮.০%",
      "outcomes": [
@@ -2516,7 +2516,7 @@
       },
       {
        "label": "≥52 ও <53",
-       "prob": 3.5,
+       "prob": 4.0,
        "interval": [
         52.0,
         53.0
@@ -2525,7 +2525,7 @@
       },
       {
        "label": "≥53 ও <54",
-       "prob": 5.5,
+       "prob": 4.5,
        "interval": [
         53.0,
         54.0
@@ -2534,7 +2534,7 @@
       },
       {
        "label": "≥54 ও <55",
-       "prob": 26.0,
+       "prob": 26.5,
        "interval": [
         54.0,
         55.0
@@ -3972,13 +3972,13 @@
      "ok": true,
      "url": "https://polymarket.com/event/how-many-jobs-added-in-november-2026",
      "title": "How many jobs added in November?",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-12-04T13:30:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: 75k to 100k — ২১.০%",
      "outcomes": [
       {
        "label": "<25k",
-       "prob": 14.5,
+       "prob": 13.0,
        "interval": [
         null,
         25000.0
@@ -3987,7 +3987,7 @@
       },
       {
        "label": "25k to 50k",
-       "prob": 5.2,
+       "prob": 8.6,
        "interval": [
         25000.0,
         50000.0
@@ -3996,7 +3996,7 @@
       },
       {
        "label": "50k to 75k",
-       "prob": 13.0,
+       "prob": 8.5,
        "interval": [
         50000.0,
         75000.0
@@ -4023,7 +4023,7 @@
       },
       {
        "label": "125k to 150k",
-       "prob": 13.5,
+       "prob": 11.5,
        "interval": [
         125000.0,
         150000.0
@@ -4032,7 +4032,7 @@
       },
       {
        "label": "150k+",
-       "prob": 18.0,
+       "prob": 17.5,
        "interval": [
         150000.0,
         null
@@ -4052,7 +4052,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxpayrolls",
      "title": "Jobs numbers in Nov 2026?",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-12-04T13:29:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: > 125K — ৩৩.০%",
      "outcomes": [
@@ -4094,7 +4094,7 @@
       },
       {
        "label": ">20K ও ≤30K",
-       "prob": 4.0,
+       "prob": 3.0,
        "interval": [
         20000.0,
         30000.0
@@ -4103,7 +4103,7 @@
       },
       {
        "label": ">30K ও ≤40K",
-       "prob": 4.0,
+       "prob": 5.0,
        "interval": [
         30000.0,
         40000.0
@@ -4112,7 +4112,7 @@
       },
       {
        "label": ">40K ও ≤50K",
-       "prob": 2.5,
+       "prob": 2.0,
        "interval": [
         40000.0,
         50000.0
@@ -4121,7 +4121,7 @@
       },
       {
        "label": ">50K ও ≤60K",
-       "prob": 4.5,
+       "prob": 5.0,
        "interval": [
         50000.0,
         60000.0
@@ -4130,7 +4130,7 @@
       },
       {
        "label": ">60K ও ≤70K",
-       "prob": 7.0,
+       "prob": 6.0,
        "interval": [
         60000.0,
         70000.0
@@ -4139,7 +4139,7 @@
       },
       {
        "label": ">70K ও ≤80K",
-       "prob": 6.0,
+       "prob": 7.0,
        "interval": [
         70000.0,
         80000.0
@@ -4460,9 +4460,9 @@
      "ok": true,
      "url": "https://polymarket.com/event/november-unemployment-rate-2026",
      "title": "November Unemployment Rate",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-12-04T13:30:00Z",
-     "headline": "সবচেয়ে সম্ভাব্য: 4.1% — ৩৫.৫%",
+     "headline": "সবচেয়ে সম্ভাব্য: 4.1% — ৩৮.৫%",
      "outcomes": [
       {
        "label": "≤3.8%",
@@ -4484,7 +4484,7 @@
       },
       {
        "label": "4.0%",
-       "prob": 16.5,
+       "prob": 17.0,
        "interval": [
         4.0,
         4.0
@@ -4493,12 +4493,12 @@
       },
       {
        "label": "4.1%",
-       "prob": 35.5,
+       "prob": 38.5,
        "interval": [
         4.1,
         4.1
        ],
-       "volume": 6261
+       "volume": 7064
       },
       {
        "label": "4.2%",
@@ -4507,7 +4507,7 @@
         4.2,
         4.2
        ],
-       "volume": 1149
+       "volume": 1188
       },
       {
        "label": "4.3%",
@@ -4516,11 +4516,11 @@
         4.3,
         4.3
        ],
-       "volume": 1474
+       "volume": 1475
       },
       {
        "label": "4.4%",
-       "prob": 0.7,
+       "prob": 0.8,
        "interval": [
         4.4,
         4.4
@@ -4558,7 +4558,7 @@
      "ok": true,
      "url": "https://kalshi.com/markets/kxu3",
      "title": "Unemployment in November",
-     "updated_at": "2026-11-22T07:54:46Z",
+     "updated_at": "2026-11-22T16:13:40Z",
      "closes_utc": "2026-12-04T13:29:00Z",
      "headline": "সবচেয়ে সম্ভাব্য: >4% ও ≤4.1% — ৩৪.৫%",
      "outcomes": [
