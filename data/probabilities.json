@@ -1,35 +1,11 @@
 {
- "generated_at": "2026-11-26T13:50:52Z",
+ "generated_at": "2026-11-26T22:57:46Z",
  "sources": {
   "polymarket": "ok",
   "kalshi": "ok",
   "cme_fedwatch": null
  },
  "by_event": {
-  "eeb1c96083b0": {
-   "event_id": "eeb1c96083b0",
-   "title": "CB Consumer Confidence",
-   "category": "other",
-   "category_bn": "অর্থনৈতিক ডেটা",
-   "usd_dir": 1,
-   "time_utc": "2026-11-24T15:00:00Z",
-   "polymarket": null,
-   "polymarket_note": "এই ধরনের নিউজের জন্য Polymarket মার্কেট নেই",
-   "kalshi": null,
-   "kalshi_note": "এই ধরনের নিউজের জন্য Kalshi মার্কেট নেই",
-   "fedwatch": null,
-   "vs_forecast": {
-    "ref": "forecast",
-    "ref_value": "92.4",
-    "polymarket": null,
-    "kalshi": null
-   },
-   "most_likely": {
-    "polymarket": null,
-    "kalshi": null
-   },
-   "fed_view": null
-  },
   "84b9a0d6c662": {
    "event_id": "84b9a0d6c662",
    "title": "Core PCE Price Index m/m",
@@ -139,7 +115,7 @@
      },
      {
       "label": "≥53 ও <54",
-      "prob": 1.5,
+      "prob": 2.5,
       "interval": [
        53.0,
        54.0
@@ -148,7 +124,7 @@
      },
      {
       "label": "≥54 ও <55",
-      "prob": 28.5,
+      "prob": 27.5,
       "interval": [
        54.0,
        55.0
@@ -166,7 +142,7 @@
      },
      {
       "label": "≥56 ও <57",
-      "prob": 17.5,
+      "prob": 18.0,
       "interval": [
        56.0,
        57.0
@@ -175,7 +151,7 @@
      },
      {
       "label": "≥57 ও <58",
-      "prob": 6.5,
+      "prob": 6.0,
       "interval": [
        57.0,
        58.0
@@ -214,7 +190,7 @@
      },
      {
       "strike": 54.0,
-      "prob_above": 92.0,
+      "prob_above": 91.0,
       "inclusive": true
      },
      {
@@ -229,7 +205,7 @@
      },
      {
       "strike": 57.0,
-      "prob_above": 13.5,
+      "prob_above": 13.0,
       "inclusive": true
      },
      {
@@ -360,7 +336,7 @@
      },
      {
       "label": "≥190K ও <195K",
-      "prob": 19.0,
+      "prob": 20.5,
       "interval": [
        190000.0,
        195000.0
@@ -369,7 +345,7 @@
      },
      {
       "label": "≥195K ও <200K",
-      "prob": 18.0,
+      "prob": 18.5,
       "interval": [
        195000.0,
        200000.0
@@ -378,7 +354,7 @@
      },
      {
       "label": "≥200K ও <205K",
-      "prob": 11.0,
+      "prob": 9.5,
       "interval": [
        200000.0,
        205000.0
@@ -387,7 +363,7 @@
      },
      {
       "label": "≥205K ও <210K",
-      "prob": 4.0,
+      "prob": 3.0,
       "interval": [
        205000.0,
        210000.0
@@ -396,7 +372,7 @@
      },
      {
       "label": "≥210K ও <215K",
-      "prob": 1.0,
+      "prob": 1.5,
       "interval": [
        210000.0,
        215000.0
@@ -450,22 +426,22 @@
      },
      {
       "strike": 195000.0,
-      "prob_above": 36.0,
+      "prob_above": 34.5,
       "inclusive": true
      },
      {
       "strike": 200000.0,
-      "prob_above": 18.0,
+      "prob_above": 16.0,
       "inclusive": true
      },
      {
       "strike": 205000.0,
-      "prob_above": 7.0,
+      "prob_above": 6.5,
       "inclusive": true
      },
      {
       "strike": 210000.0,
-      "prob_above": 3.0,
+      "prob_above": 3.5,
       "inclusive": true
      },
      {
@@ -572,7 +548,7 @@
     "outcomes": [
      {
       "label": "<25k",
-      "prob": 13.0,
+      "prob": 12.5,
       "interval": [
        null,
        25000.0
@@ -581,7 +557,7 @@
      },
      {
       "label": "25k to 50k",
-      "prob": 7.7,
+      "prob": 8.0,
       "interval": [
        25000.0,
        50000.0
@@ -590,7 +566,7 @@
      },
      {
       "label": "50k to 75k",
-      "prob": 17.0,
+      "prob": 14.5,
       "interval": [
        50000.0,
        75000.0
@@ -665,7 +641,7 @@
      },
      {
       "label": ">-75K ও ≤-50K",
-      "prob": 1.0,
+      "prob": 0.0,
       "interval": [
        -75000.0,
        -50000.0
@@ -674,7 +650,7 @@
      },
      {
       "label": ">-50K ও ≤-25K",
-      "prob": 2.0,
+      "prob": 3.0,
       "interval": [
        -50000.0,
        -25000.0
@@ -683,7 +659,7 @@
      },
      {
       "label": ">-25K ও ≤0K",
-      "prob": 1.0,
+      "prob": 2.0,
       "interval": [
        -25000.0,
        0.0
@@ -692,7 +668,7 @@
      },
      {
       "label": ">0K ও ≤10K",
-      "prob": 2.0,
+      "prob": 1.0,
       "interval": [
        0.0,
        10000.0
@@ -737,7 +713,7 @@
      },
      {
       "label": ">50K ও ≤60K",
-      "prob": 5.0,
+      "prob": 6.0,
       "interval": [
        50000.0,
        60000.0
@@ -746,7 +722,7 @@
      },
      {
       "label": ">60K ও ≤70K",
-      "prob": 4.0,
+      "prob": 2.5,
       "interval": [
        60000.0,
        70000.0
@@ -755,7 +731,7 @@
      },
      {
       "label": ">70K ও ≤80K",
-      "prob": 6.0,
+      "prob": 6.5,
       "interval": [
        70000.0,
        80000.0
@@ -782,7 +758,7 @@
      },
      {
       "label": ">100K ও ≤125K",
-      "prob": 12.0,
+      "prob": 11.5,
       "interval": [
        100000.0,
        125000.0
@@ -791,7 +767,7 @@
      },
      {
       "label": ">125K ও ≤150K",
-      "prob": 10.0,
+      "prob": 10.5,
       "interval": [
        125000.0,
        150000.0
@@ -839,7 +815,7 @@
      },
      {
       "strike": -50000.0,
-      "prob_above": 97.5,
+      "prob_above": 98.5,
       "inclusive": false
      },
      {
@@ -849,7 +825,7 @@
      },
      {
       "strike": 0.0,
-      "prob_above": 94.5,
+      "prob_above": 93.5,
       "inclusive": false
      },
      {
@@ -879,12 +855,12 @@
      },
      {
       "strike": 60000.0,
-      "prob_above": 74.5,
+      "prob_above": 73.5,
       "inclusive": false
      },
      {
       "strike": 70000.0,
-      "prob_above": 70.5,
+      "prob_above": 71.0,
       "inclusive": false
      },
      {
@@ -904,7 +880,7 @@
      },
      {
       "strike": 125000.0,
-      "prob_above": 32.5,
+      "prob_above": 33.0,
       "inclusive": false
      },
      {
@@ -933,8 +909,8 @@
     "ref_value": "165K",
     "polymarket": {
      "above": 0.0,
-     "inline": 21.6,
-     "below": 78.4
+     "inline": 22.2,
+     "below": 77.8
     },
     "kalshi": {
      "above": 14.5,
@@ -954,7 +930,7 @@
     },
     "kalshi": {
      "label": ">100K ও ≤125K",
-     "prob": 12.0,
+     "prob": 11.5,
      "interval": [
       100000.0,
       125000.0
@@ -1025,12 +1001,12 @@
      },
      {
       "label": "4.3%",
-      "prob": 10.5,
+      "prob": 10.0,
       "interval": [
        4.3,
        4.3
       ],
-      "volume": 1971
+      "volume": 1972
      },
      {
       "label": "4.4%",
@@ -1109,7 +1085,7 @@
      },
      {
       "label": ">4% ও ≤4.1%",
-      "prob": 34.5,
+      "prob": 37.0,
       "interval": [
        4.0,
        4.1
@@ -1118,7 +1094,7 @@
      },
      {
       "label": ">4.1% ও ≤4.2%",
-      "prob": 32.0,
+      "prob": 33.0,
       "interval": [
        4.1,
        4.2
@@ -1127,7 +1103,7 @@
      },
      {
       "label": ">4.2% ও ≤4.3%",
-      "prob": 14.5,
+      "prob": 12.0,
       "interval": [
        4.2,
        4.3
@@ -1145,7 +1121,7 @@
      },
      {
       "label": ">4.4% ও ≤4.5%",
-      "prob": 1.0,
+      "prob": 0.0,
       "interval": [
        4.4,
        4.5
@@ -1230,22 +1206,22 @@
      },
      {
       "strike": 4.1,
-      "prob_above": 50.0,
+      "prob_above": 47.5,
       "inclusive": false
      },
      {
       "strike": 4.2,
-      "prob_above": 18.0,
+      "prob_above": 14.5,
       "inclusive": false
      },
      {
       "strike": 4.3,
-      "prob_above": 3.5,
+      "prob_above": 2.5,
       "inclusive": false
      },
      {
       "strike": 4.4,
-      "prob_above": 1.5,
+      "prob_above": 0.5,
       "inclusive": false
      },
      {
@@ -1288,13 +1264,13 @@
     "ref": "previous",
     "ref_value": "4.1%",
     "polymarket": {
-     "above": 43.3,
-     "inline": 37.7,
-     "below": 18.9
+     "above": 43.1,
+     "inline": 37.9,
+     "below": 19.0
     },
     "kalshi": {
-     "above": 50.0,
-     "inline": 34.5,
+     "above": 47.5,
+     "inline": 37.0,
      "below": 15.5
     }
    },
@@ -1310,7 +1286,7 @@
     },
     "kalshi": {
      "label": ">4% ও ≤4.1%",
-     "prob": 34.5,
+     "prob": 37.0,
      "interval": [
       4.0,
       4.1
